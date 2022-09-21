@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "liroth:blocks/stripped_liroth_log_top",
+    "side": "liroth:blocks/stripped_liroth_log"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "liroth:blocks/liroth_dirt",
+    "top": "liroth:blocks/liroth_farmland_moist"
+  }
+}

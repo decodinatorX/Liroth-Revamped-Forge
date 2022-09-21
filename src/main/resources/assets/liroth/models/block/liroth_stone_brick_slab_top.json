@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab_top",
+  "textures": {
+    "bottom": "liroth:blocks/liroth_stone_bricks",
+    "top": "liroth:blocks/liroth_stone_bricks",
+    "side": "liroth:blocks/liroth_stone_bricks"
+  }
+}

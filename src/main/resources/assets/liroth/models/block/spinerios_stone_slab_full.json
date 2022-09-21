@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "liroth:blocks/spinerios_stone",
+    "top": "liroth:blocks/spinerios_stone",
+    "side": "liroth:blocks/spinerios_stone"
+  }
+}

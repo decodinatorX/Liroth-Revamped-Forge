@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "liroth:blocks/dimensional_transfer_top_empty",
+    "bottom": "minecraft:block/obsidian",
+    "side": "liroth:blocks/dimensional_transfer_side_empty"
+  }
+}

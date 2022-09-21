@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "liroth:blocks/spinerios_furnace_top",
+    "front": "liroth:blocks/spinerios_furnace_front_on",
+    "side": "liroth:blocks/spinerios_furnace_side"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "liroth:block/pier_dirt"
+      },
+      {
+        "model": "liroth:block/pier_dirt",
+        "y": 90
+      },
+      {
+        "model": "liroth:block/pier_dirt",
+        "y": 180
+      },
+      {
+        "model": "liroth:block/pier_dirt",
+        "y": 270
+      }
+    ]
+  }
+}

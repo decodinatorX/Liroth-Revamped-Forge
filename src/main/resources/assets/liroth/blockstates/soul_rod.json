@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "liroth:block/soul_rod",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "liroth:block/soul_rod",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "liroth:block/soul_rod",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "liroth:block/soul_rod",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "liroth:block/soul_rod"
+    },
+    "facing=west": {
+      "model": "liroth:block/soul_rod",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

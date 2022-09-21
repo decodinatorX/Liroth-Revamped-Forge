@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "liroth:block/liroth_end_portal_ew"
+    },
+    "axis=x": {
+      "model": "liroth:block/liroth_end_portal_ns"
+    }
+  }
+}

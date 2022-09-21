@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "liroth:blocks/spinerios_cobblestone",
+    "top": "liroth:blocks/spinerios_cobblestone",
+    "side": "liroth:blocks/spinerios_cobblestone"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "liroth:items/liroth_dust_salem"
+  }
+}

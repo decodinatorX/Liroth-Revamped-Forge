@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "liroth:blocks/raw_lirothian_cobalt_block"
+  }
+}

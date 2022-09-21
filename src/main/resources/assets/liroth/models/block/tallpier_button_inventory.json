@@ -1,0 +1,6 @@
+{
+  "parent": "block/button_inventory",
+  "textures": {
+    "texture": "liroth:blocks/tallpier_planks"
+  }
+}

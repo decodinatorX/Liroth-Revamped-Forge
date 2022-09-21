@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "liroth:blocks/koolaw_planks",
+    "top": "liroth:blocks/koolaw_planks",
+    "side": "liroth:blocks/koolaw_planks"
+  }
+}

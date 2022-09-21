@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "liroth:blocks/petrified_moss_block"
+  }
+}

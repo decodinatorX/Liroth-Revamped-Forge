@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/charred_liroth_stone_brick_lock",
+    "up": "liroth:blocks/charred_liroth_stone_brick_lock",
+    "north": "liroth:blocks/charred_liroth_stone_brick_lock",
+    "east": "liroth:blocks/charred_liroth_stone_bricks",
+    "south": "liroth:blocks/charred_liroth_stone_bricks",
+    "west": "liroth:blocks/charred_liroth_stone_bricks",
+    "particle": "liroth:blocks/charred_liroth_stone_bricks"
+  }
+}

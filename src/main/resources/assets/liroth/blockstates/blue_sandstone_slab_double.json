@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "variant=default": {
+      "model": "liroth:blue_sandstone_slab_double"
+    }
+  }
+}

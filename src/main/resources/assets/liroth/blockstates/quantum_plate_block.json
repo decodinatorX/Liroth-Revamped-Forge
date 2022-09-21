@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "liroth:block/quantum_plate_block"
+    }
+  }
+}

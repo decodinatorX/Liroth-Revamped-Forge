@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "liroth:block/damnation_portal_ew"
+    },
+    "axis=x": {
+      "model": "liroth:block/damnation_portal_ns"
+    },
+    "axis=y": {
+      "model": "liroth:block/damnation_portal_ns",
+      "x": 90
+    }
+  }
+}

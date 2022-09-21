@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "liroth:block/spinerios_stone_slab"
+    },
+    "type=top": {
+      "model": "liroth:block/spinerios_stone_slab_top"
+    },
+    "type=double": {
+      "model": "liroth:block/spinerios_stone_slab_full"
+    }
+  }
+}

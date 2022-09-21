@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/spiced_planks",
+    "up": "liroth:blocks/spiced_crafting_table_top",
+    "north": "liroth:blocks/spiced_crafting_table_front",
+    "east": "liroth:blocks/spiced_crafting_table_side",
+    "south": "liroth:blocks/spiced_crafting_table_side",
+    "west": "liroth:blocks/spiced_crafting_table_front",
+    "particle": "liroth:blocks/spiced_planks"
+  }
+}

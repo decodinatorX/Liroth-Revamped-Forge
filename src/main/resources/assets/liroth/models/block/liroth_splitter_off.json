@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/liroth_splitter_top",
+    "up": "liroth:blocks/liroth_splitter_top",
+    "north": "liroth:blocks/liroth_splitter_off",
+    "east": "liroth:blocks/liroth_splitter_sides",
+    "south": "liroth:blocks/liroth_splitter_sides",
+    "west": "liroth:blocks/liroth_splitter_sides",
+    "particle": "liroth:blocks/liroth_splitter_top"
+  }
+}

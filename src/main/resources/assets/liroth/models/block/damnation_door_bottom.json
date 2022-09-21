@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom_left",
+  "textures": {
+    "bottom": "liroth:blocks/damnation_door_bottom",
+    "top": "liroth:blocks/damnation_door_top"
+  }
+}

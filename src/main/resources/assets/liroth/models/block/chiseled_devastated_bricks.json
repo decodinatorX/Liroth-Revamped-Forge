@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "liroth:blocks/chiseled_devastated_bricks"
+  }
+}

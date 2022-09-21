@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "liroth:block/blue_sandstone_slab"
+    },
+    "type=top": {
+      "model": "liroth:block/blue_sandstone_slab_top"
+    },
+    "type=double": {
+      "model": "liroth:block/blue_sandstone_slab_full"
+    }
+  }
+}

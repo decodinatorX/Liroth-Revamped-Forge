@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "liroth:blocks/charred_liroth_cobblestone",
+    "particle": "liroth:blocks/charred_liroth_cobblestone"
+  }
+}

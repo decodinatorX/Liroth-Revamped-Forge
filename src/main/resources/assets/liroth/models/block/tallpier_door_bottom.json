@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom_left",
+  "textures": {
+    "bottom": "liroth:blocks/tallpier_door_bottom",
+    "top": "liroth:blocks/tallpier_door_top"
+  }
+}

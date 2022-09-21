@@ -1,0 +1,147 @@
+{
+  "liroth_blaster_firing": {
+    "category": "master",
+    "sounds": [
+      	{
+        	"name": "liroth:liroth_blaster_firing"
+     	}
+    ]
+  },
+  "fungal_fiend_death": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:fungal_fiend/death"
+  		}
+  	]
+  },
+  "fungal_fiend_hurt": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:fungal_fiend/hurt_1",
+  			"name": "liroth:fungal_fiend/hurt_2",
+  			"name": "liroth:fungal_fiend/hurt_3"
+  		}
+  	]
+  },
+  "fungal_fiend_fuse": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:fungal_fiend/fuse"
+  		}
+  	]
+  },
+  "warp_death": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:warp/death"
+  		}
+  	]
+  },
+  "warp_hurt": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:warp/hurt"
+  		}
+  	]
+  },
+  "warp_idle": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:warp/idle"
+  		}
+  	]
+  },
+  "shade_death": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:shade/death"
+  		}
+  	]
+  },
+  "shade_hurt": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:shade/hurt"
+  		}
+  	]
+  },
+  "shade_idle": { 
+  	"category": "hostile",
+  	"sounds": [ 
+  		{ 
+  			"name": "liroth:shade/idle"
+  		}
+  	]
+  },
+    "music.liroth.liroth_biome": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "liroth:music/liroth_biome",
+        "stream": true
+      }
+    ]
+  },
+    "music.liroth.tallpier_biome": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "liroth:music/tallpier_biome",
+        "stream": true
+      }
+    ]
+  },
+    "music.liroth.spiced_desert": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "liroth:music/spiced_desert",
+        "stream": true
+      }
+    ]
+  },
+    "music.liroth.damnation": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "liroth:music/damnation",
+        "stream": true
+      }
+    ]
+  },
+    "music.liroth.escape": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "liroth:music/escape",
+        "stream": true
+      }
+    ]
+  },
+    "music.liroth.jalsphire": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "liroth:music/jalsphire",
+        "stream": true
+      }
+    ]
+  },
+    "music.liroth.desolate": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "liroth:music/desolate",
+        "stream": true
+      }
+    ]
+  }
+}

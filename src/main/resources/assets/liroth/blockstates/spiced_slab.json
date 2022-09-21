@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "liroth:block/spiced_slab"
+    },
+    "type=top": {
+      "model": "liroth:block/spiced_slab_top"
+    },
+    "type=double": {
+      "model": "liroth:block/spiced_slab_full"
+    }
+  }
+}

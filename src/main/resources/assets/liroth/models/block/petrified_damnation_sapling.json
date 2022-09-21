@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "liroth:blocks/petrified_damnation_sapling"
+  }
+}

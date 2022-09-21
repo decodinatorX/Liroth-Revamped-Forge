@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "liroth:block/blue_sand"
+      },
+      {
+        "model": "liroth:block/blue_sand",
+        "y": 90
+      },
+      {
+        "model": "liroth:block/blue_sand",
+        "y": 180
+      },
+      {
+        "model": "liroth:block/blue_sand",
+        "y": 270
+      }
+    ]
+  }
+}

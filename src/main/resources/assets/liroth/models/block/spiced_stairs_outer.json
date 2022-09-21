@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "liroth:blocks/spiced_planks",
+    "top": "liroth:blocks/spiced_planks",
+    "side": "liroth:blocks/spiced_planks"
+  }
+}

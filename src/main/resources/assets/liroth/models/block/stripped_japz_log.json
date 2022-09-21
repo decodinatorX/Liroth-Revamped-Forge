@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/stripped_japz_log_top",
+    "up": "liroth:blocks/stripped_japz_log_top",
+    "north": "liroth:blocks/stripped_japz_log",
+    "east": "liroth:blocks/stripped_japz_log",
+    "south": "liroth:blocks/stripped_japz_log",
+    "west": "liroth:blocks/stripped_japz_log",
+    "particle": "liroth:blocks/stripped_japz_log"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "liroth:block/japz_log"
+    },
+    "axis=z": {
+      "model": "liroth:block/japz_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "liroth:block/japz_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

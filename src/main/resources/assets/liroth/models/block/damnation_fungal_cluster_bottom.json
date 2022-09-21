@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "liroth:blocks/damnation_fungal_cluster_bottom"
+  }
+}

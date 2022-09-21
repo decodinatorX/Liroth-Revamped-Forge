@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/spiced_log_top",
+    "up": "liroth:blocks/spiced_log_top",
+    "north": "liroth:blocks/spiced_log",
+    "east": "liroth:blocks/spiced_log",
+    "south": "liroth:blocks/spiced_log",
+    "west": "liroth:blocks/spiced_log",
+    "particle": "liroth:blocks/spiced_log_top"
+  }
+}

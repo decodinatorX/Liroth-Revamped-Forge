@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_torch",
+  "textures": {
+    "torch": "liroth:blocks/lirothian_petroleum_torch"
+  }
+}

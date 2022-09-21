@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "liroth:block/koolaw_log"
+    },
+    "axis=z": {
+      "model": "liroth:block/koolaw_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "liroth:block/koolaw_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

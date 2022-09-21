@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "liroth:blocks/stripped_japz_log",
+    "particle": "liroth:blocks/stripped_japz_log"
+  }
+}

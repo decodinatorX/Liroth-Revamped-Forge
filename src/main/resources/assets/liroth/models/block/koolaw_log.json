@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/koolaw_log_top",
+    "up": "liroth:blocks/koolaw_log_top",
+    "north": "liroth:blocks/koolaw_log",
+    "east": "liroth:blocks/koolaw_log",
+    "south": "liroth:blocks/koolaw_log",
+    "west": "liroth:blocks/koolaw_log",
+    "particle": "liroth:blocks/koolaw_log_top"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/jalsphire_ore_stone",
+    "up": "liroth:blocks/jalsphire_ore_stone",
+    "north": "liroth:blocks/jalsphire_ore_stone",
+    "east": "liroth:blocks/jalsphire_ore_stone",
+    "south": "liroth:blocks/jalsphire_ore_stone",
+    "west": "liroth:blocks/jalsphire_ore_stone",
+    "particle": "liroth:blocks/jalsphire_ore_stone"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "liroth:blocks/devastated_bricks",
+    "top": "liroth:blocks/devastated_bricks",
+    "side": "liroth:blocks/devastated_bricks"
+  }
+}

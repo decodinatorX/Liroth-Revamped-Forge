@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "liroth:blocks/olden_liroth_gem_block",
+    "side": "liroth:blocks/olden_liroth_gem_block"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "liroth:block/olden_liroth_gem_block"
+    },
+    "axis=z": {
+      "model": "liroth:block/olden_liroth_gem_block",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "liroth:block/olden_liroth_gem_block",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_azalea",
+  "textures": {
+    "top": "liroth:blocks/japz_mini_tree_top",
+    "side": "liroth:blocks/japz_mini_tree_side"
+  }
+}

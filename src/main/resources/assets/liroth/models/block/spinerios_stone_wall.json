@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side",
+  "textures": {
+    "wall": "liroth:blocks/spinerios_stone",
+    "particle": "liroth:blocks/spinerios_stone"
+  }
+}

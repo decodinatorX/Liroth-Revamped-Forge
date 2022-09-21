@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "liroth:blocks/haunted_throughfare_block",
+    "particle": "liroth:blocks/haunted_throughfare_block"
+  }
+}

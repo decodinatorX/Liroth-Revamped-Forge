@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/log_tallpier_top",
+    "up": "liroth:blocks/log_tallpier_top",
+    "north": "liroth:blocks/log_tallpier",
+    "east": "liroth:blocks/log_tallpier",
+    "south": "liroth:blocks/log_tallpier",
+    "west": "liroth:blocks/log_tallpier",
+    "particle": "liroth:blocks/log_tallpier_top"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/liroth_dirt",
+    "up": "liroth:blocks/liroth_dirt",
+    "north": "liroth:blocks/liroth_dirt",
+    "east": "liroth:blocks/liroth_dirt",
+    "south": "liroth:blocks/liroth_dirt",
+    "west": "liroth:blocks/liroth_dirt",
+    "particle": "liroth:blocks/liroth_dirt"
+  }
+}

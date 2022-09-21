@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "liroth:blocks/spinerios_grass_top",
+    "bottom": "liroth:blocks/spinerios_dirt",
+    "side": "liroth:blocks/snowy_spinerios_grass_side",
+    "particle": "liroth:blocks/spinerios_dirt"
+  }
+}

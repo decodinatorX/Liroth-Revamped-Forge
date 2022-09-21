@@ -1,0 +1,113 @@
+{
+	"__comment": "Designed by Cm@BlackSpigotMC with Cubik Studio - https://cubik.studio",
+	"textures": {
+		"lux_liroth_shield_small": "liroth:items/lux_liroth_shield_small"
+	},
+	"elements": [
+		{
+			"__comment": "Cube1",
+			"from": [ 1, 8, 5 ],
+			"to": [ 15, 9, 11 ],
+			"faces": {
+				"down": { "uv": [ 1, 11, 15, 5 ], "texture": "#lux_liroth_shield_small" },
+				"up": { "uv": [ 1, 5, 15, 11 ], "texture": "#lux_liroth_shield_small" },
+				"north": { "uv": [ 15, 5, 1, 6 ], "texture": "#lux_liroth_shield_small" },
+				"south": { "uv": [ 1, 10, 15, 11 ], "texture": "#lux_liroth_shield_small" },
+				"west": { "uv": [ 1, 5, 2, 11 ], "texture": "#lux_liroth_shield_small", "rotation": 270 },
+				"east": { "uv": [ 15, 11, 14, 5 ], "texture": "#lux_liroth_shield_small", "rotation": 270 }
+			}
+		},
+		{
+			"__comment": "Cube2",
+			"from": [ 2, 8, 4 ],
+			"to": [ 14, 9, 12 ],
+			"faces": {
+				"down": { "uv": [ 2, 12, 14, 4 ], "texture": "#lux_liroth_shield_small" },
+				"up": { "uv": [ 2, 4, 14, 12 ], "texture": "#lux_liroth_shield_small" },
+				"north": { "uv": [ 14, 4, 2, 5 ], "texture": "#lux_liroth_shield_small" },
+				"south": { "uv": [ 2, 11, 14, 12 ], "texture": "#lux_liroth_shield_small" },
+				"west": { "uv": [ 2, 4, 3, 12 ], "texture": "#lux_liroth_shield_small", "rotation": 270 },
+				"east": { "uv": [ 14, 12, 13, 4 ], "texture": "#lux_liroth_shield_small", "rotation": 270 }
+			}
+		},
+		{
+			"__comment": "Cube3",
+			"from": [ 3, 8, 3 ],
+			"to": [ 13, 9, 13 ],
+			"faces": {
+				"down": { "uv": [ 3, 13, 13, 3 ], "texture": "#lux_liroth_shield_small" },
+				"up": { "uv": [ 3, 3, 13, 13 ], "texture": "#lux_liroth_shield_small" },
+				"north": { "uv": [ 13, 3, 3, 4 ], "texture": "#lux_liroth_shield_small" },
+				"south": { "uv": [ 3, 12, 13, 13 ], "texture": "#lux_liroth_shield_small" },
+				"west": { "uv": [ 3, 3, 4, 13 ], "texture": "#lux_liroth_shield_small", "rotation": 270 },
+				"east": { "uv": [ 13, 13, 12, 3 ], "texture": "#lux_liroth_shield_small", "rotation": 270 }
+			}
+		},
+		{
+			"__comment": "Cube4",
+			"from": [ 4, 8, 2 ],
+			"to": [ 12, 9, 14 ],
+			"faces": {
+				"down": { "uv": [ 4, 14, 12, 2 ], "texture": "#lux_liroth_shield_small" },
+				"up": { "uv": [ 4, 2, 12, 14 ], "texture": "#lux_liroth_shield_small" },
+				"north": { "uv": [ 12, 2, 4, 3 ], "texture": "#lux_liroth_shield_small" },
+				"south": { "uv": [ 4, 13, 12, 14 ], "texture": "#lux_liroth_shield_small" },
+				"west": { "uv": [ 4, 2, 5, 14 ], "texture": "#lux_liroth_shield_small", "rotation": 270 },
+				"east": { "uv": [ 12, 14, 11, 2 ], "texture": "#lux_liroth_shield_small", "rotation": 270 }
+			}
+		},
+		{
+			"__comment": "Cube5",
+			"from": [ 5, 8, 1 ],
+			"to": [ 11, 9, 15 ],
+			"faces": {
+				"down": { "uv": [ 5, 15, 11, 1 ], "texture": "#lux_liroth_shield_small" },
+				"up": { "uv": [ 5, 1, 11, 15 ], "texture": "#lux_liroth_shield_small" },
+				"north": { "uv": [ 11, 1, 5, 2 ], "texture": "#lux_liroth_shield_small" },
+				"south": { "uv": [ 5, 14, 11, 15 ], "texture": "#lux_liroth_shield_small" },
+				"west": { "uv": [ 5, 1, 6, 15 ], "texture": "#lux_liroth_shield_small", "rotation": 270 },
+				"east": { "uv": [ 11, 15, 10, 1 ], "texture": "#lux_liroth_shield_small", "rotation": 270 }
+			}
+		},
+		{
+			"__comment": "Cube6",
+			"from": [ 6, 8, 0 ],
+			"to": [ 10, 9, 16 ],
+			"faces": {
+				"down": { "uv": [ 6, 16, 10, 0 ], "texture": "#lux_liroth_shield_small" },
+				"up": { "uv": [ 6, 0, 10, 16 ], "texture": "#lux_liroth_shield_small" },
+				"north": { "uv": [ 10, 0, 6, 1 ], "texture": "#lux_liroth_shield_small" },
+				"south": { "uv": [ 6, 15, 10, 16 ], "texture": "#lux_liroth_shield_small" },
+				"west": { "uv": [ 6, 0, 7, 16 ], "texture": "#lux_liroth_shield_small", "rotation": 270 },
+				"east": { "uv": [ 10, 16, 9, 0 ], "texture": "#lux_liroth_shield_small", "rotation": 270 }
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation":  [ 135, 0, 25 ],
+			"translation":  [ 1, 2, 0 ]
+		},
+		"thirdperson_lefthand": {
+			"rotation":  [ 135, 0, 25 ],
+			"translation":  [ 1, 2, 0 ]
+		},
+		"firstperson_righthand": {
+			"rotation":  [ 90, 0, 0 ]
+		},
+		"firstperson_lefthand": {
+			"rotation":  [ 90, 0, 0 ]
+		},
+		"gui": {
+			"rotation":  [ 90, 0, 0 ]
+		},
+		"ground": {
+			"rotation":  [ 90, 0, 0 ],
+			"translation":  [ 0, 4, 0 ]
+		},
+		"fixed": {
+			"rotation":  [ 90, 0, 0 ],
+			"scale":  [ 1.25, 1, 1.25 ]
+		}
+	}
+}

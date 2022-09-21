@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "liroth:block/japz_vines"
+    },
+    "berries=true": {
+      "model": "liroth:block/japz_vines_lit"
+    }
+  }
+}

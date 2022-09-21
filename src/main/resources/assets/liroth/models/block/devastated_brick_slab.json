@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "liroth:blocks/devastated_bricks",
+    "top": "liroth:blocks/devastated_bricks",
+    "side": "liroth:blocks/devastated_bricks"
+  }
+}

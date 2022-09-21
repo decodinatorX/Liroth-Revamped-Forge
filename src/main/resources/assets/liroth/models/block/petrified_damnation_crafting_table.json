@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/petrified_damnation_planks",
+    "up": "liroth:blocks/petrified_damnation_crafting_table_top",
+    "north": "liroth:blocks/petrified_damnation_crafting_table_front",
+    "east": "liroth:blocks/petrified_damnation_crafting_table_side",
+    "south": "liroth:blocks/petrified_damnation_crafting_table_side",
+    "west": "liroth:blocks/petrified_damnation_crafting_table_front",
+    "particle": "liroth:blocks/petrified_damnation_planks"
+  }
+}

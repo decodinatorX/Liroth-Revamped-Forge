@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side",
+  "textures": {
+    "wall": "liroth:blocks/devastated_bricks",
+    "particle": "liroth:blocks/devastated_bricks"
+  }
+}

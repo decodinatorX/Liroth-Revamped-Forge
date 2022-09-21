@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "liroth:block/liroth_grass_path"
+      },
+      {
+        "model": "liroth:block/liroth_grass_path",
+        "y": 90
+      },
+      {
+        "model": "liroth:block/liroth_grass_path",
+        "y": 180
+      },
+      {
+        "model": "liroth:block/liroth_grass_path",
+        "y": 270
+      }
+    ]
+  }
+}

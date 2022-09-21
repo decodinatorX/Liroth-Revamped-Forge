@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/japz_planks",
+    "up": "liroth:blocks/japz_crafting_table_top",
+    "north": "liroth:blocks/japz_crafting_table_front",
+    "east": "liroth:blocks/japz_crafting_table_side",
+    "south": "liroth:blocks/japz_crafting_table_side",
+    "west": "liroth:blocks/japz_crafting_table_front",
+    "particle": "liroth:blocks/japz_planks"
+  }
+}

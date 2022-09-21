@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_orientable_trapdoor_bottom",
+  "textures": {
+    "texture": "liroth:blocks/tallpier_trapdoor",
+    "particle": "liroth:blocks/tallpier_trapdoor"
+  }
+}

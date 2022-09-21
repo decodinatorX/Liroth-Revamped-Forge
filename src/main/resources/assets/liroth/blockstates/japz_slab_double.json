@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "variant=default": {
+      "model": "liroth:block/japz_slab_double"
+    }
+  }
+}

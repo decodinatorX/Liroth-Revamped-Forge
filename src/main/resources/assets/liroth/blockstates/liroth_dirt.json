@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "liroth:block/liroth_dirt"
+      },
+      {
+        "model": "liroth:block/liroth_dirt",
+        "y": 90
+      },
+      {
+        "model": "liroth:block/liroth_dirt",
+        "y": 180
+      },
+      {
+        "model": "liroth:block/liroth_dirt",
+        "y": 270
+      }
+    ]
+  }
+}

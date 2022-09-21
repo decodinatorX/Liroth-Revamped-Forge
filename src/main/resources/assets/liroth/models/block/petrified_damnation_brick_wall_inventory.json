@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "liroth:blocks/petrified_damnation_bricks",
+    "particle": "liroth:blocks/petrified_damnation_bricks"
+  }
+}

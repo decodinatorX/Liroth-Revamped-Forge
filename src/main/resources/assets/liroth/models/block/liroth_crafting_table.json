@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/liroth_planks",
+    "up": "liroth:blocks/liroth_crafting_table_top",
+    "north": "liroth:blocks/liroth_crafting_table_front",
+    "east": "liroth:blocks/liroth_crafting_table_side",
+    "south": "liroth:blocks/liroth_crafting_table_side",
+    "west": "liroth:blocks/liroth_crafting_table_front",
+    "particle": "liroth:blocks/liroth_planks"
+  }
+}

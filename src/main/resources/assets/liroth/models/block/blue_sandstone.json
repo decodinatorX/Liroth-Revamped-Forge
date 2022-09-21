@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/blue_sandstone_bottom",
+    "up": "liroth:blocks/blue_sandstone_top",
+    "north": "liroth:blocks/blue_sandstone_normal",
+    "east": "liroth:blocks/blue_sandstone_normal",
+    "south": "liroth:blocks/blue_sandstone_normal",
+    "west": "liroth:blocks/blue_sandstone_normal",
+    "particle": "liroth:blocks/blue_sandstone_top"
+  }
+}

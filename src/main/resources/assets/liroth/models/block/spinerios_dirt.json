@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/spinerios_dirt",
+    "up": "liroth:blocks/spinerios_dirt",
+    "north": "liroth:blocks/spinerios_dirt",
+    "east": "liroth:blocks/spinerios_dirt",
+    "south": "liroth:blocks/spinerios_dirt",
+    "west": "liroth:blocks/spinerios_dirt",
+    "particle": "liroth:blocks/spinerios_dirt"
+  }
+}

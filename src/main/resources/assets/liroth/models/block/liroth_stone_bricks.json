@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/liroth_stone_bricks",
+    "up": "liroth:blocks/liroth_stone_bricks",
+    "north": "liroth:blocks/liroth_stone_bricks",
+    "east": "liroth:blocks/liroth_stone_bricks",
+    "south": "liroth:blocks/liroth_stone_bricks",
+    "west": "liroth:blocks/liroth_stone_bricks",
+    "particle": "liroth:blocks/liroth_stone_bricks"
+  }
+}

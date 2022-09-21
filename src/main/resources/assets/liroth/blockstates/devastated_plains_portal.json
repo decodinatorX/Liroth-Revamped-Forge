@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "liroth:block/devastated_plains_portal_ew"
+    },
+    "axis=x": {
+      "model": "liroth:block/devastated_plains_portal_ns"
+    },
+    "axis=y": {
+      "model": "liroth:block/devastated_plains_portal_ns",
+      "x": 90
+    }
+  }
+}

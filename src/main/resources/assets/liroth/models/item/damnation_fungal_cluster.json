@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "liroth:blocks/damnation_fungal_cluster_top"
+  }
+}

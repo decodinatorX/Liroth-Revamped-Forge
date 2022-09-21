@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "liroth:blocks/blue_sandstone_normal",
+    "particle": "liroth:blocks/blue_sandstone_normal"
+  }
+}

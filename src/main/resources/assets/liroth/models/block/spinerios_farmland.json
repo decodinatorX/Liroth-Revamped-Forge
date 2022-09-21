@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "liroth:blocks/spinerios_dirt",
+    "top": "liroth:blocks/spinerios_farmland"
+  }
+}

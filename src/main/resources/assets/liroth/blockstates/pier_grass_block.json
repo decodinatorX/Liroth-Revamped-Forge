@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "liroth:block/pier_grass_block"
+      },
+      {
+        "model": "liroth:block/pier_grass_block",
+        "y": 90
+      },
+      {
+        "model": "liroth:block/pier_grass_block",
+        "y": 180
+      },
+      {
+        "model": "liroth:block/pier_grass_block",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "liroth:block/pier_grass_block_snow"
+    }
+  }
+}

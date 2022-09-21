@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "liroth:blocks/devastated_bricks",
+    "particle": "liroth:blocks/devastated_bricks"
+  }
+}

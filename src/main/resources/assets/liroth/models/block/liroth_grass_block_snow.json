@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "liroth:blocks/liroth_grass_block_top",
+    "bottom": "liroth:blocks/liroth_dirt",
+    "side": "liroth:blocks/liroth_grass_block_side_snowy",
+    "particle": "liroth:blocks/liroth_dirt"
+  }
+}

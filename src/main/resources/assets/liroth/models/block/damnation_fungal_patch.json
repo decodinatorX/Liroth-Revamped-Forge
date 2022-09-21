@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "liroth:blocks/damnation_fungal_patch",
+    "particle": "liroth:blocks/damnation_fungal_patch"
+  }
+}

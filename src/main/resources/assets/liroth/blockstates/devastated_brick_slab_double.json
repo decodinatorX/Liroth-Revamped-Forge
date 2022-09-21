@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "variant=default": {
+      "model": "liroth:devastated_brick_slab_double"
+    }
+  }
+}

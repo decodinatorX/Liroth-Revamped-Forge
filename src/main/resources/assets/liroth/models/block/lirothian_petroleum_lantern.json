@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_lantern",
+  "textures": {
+    "lantern": "liroth:blocks/lirothian_petroleum_lantern"
+  }
+}

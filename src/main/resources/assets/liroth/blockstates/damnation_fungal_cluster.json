@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "liroth:block/damnation_fungal_cluster_bottom"
+    },
+    "half=upper": {
+      "model": "liroth:block/damnation_fungal_cluster_top"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "liroth:block/stripped_petrified_damnation_wood"
+    },
+    "axis=z": {
+      "model": "liroth:block/stripped_petrified_damnation_wood",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "liroth:block/stripped_petrified_damnation_wood",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "liroth:blocks/damnation_planks",
+    "top": "liroth:blocks/damnation_planks",
+    "side": "liroth:blocks/damnation_planks"
+  }
+}

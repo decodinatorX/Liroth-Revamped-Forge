@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "liroth:blocks/damned_passageway",
+    "particle": "liroth:blocks/damned_passageway"
+  }
+}

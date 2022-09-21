@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "liroth:blocks/damnation_wart_block",
+    "particle": "liroth:blocks/damnation_wart_block"
+  }
+}

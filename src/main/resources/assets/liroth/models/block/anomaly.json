@@ -1,0 +1,8 @@
+{
+  "parent": "liroth:custom/anomalyplus",
+  "textures": {
+    "all": "liroth:blocks/anomaly",
+    "particle": "liroth:blocks/anomaly",
+    "mesh_palette": "liroth:blocks/anomaly"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "liroth:blocks/tallpier_leaves",
+    "particle": "liroth:blocks/tallpier_leaves"
+  }
+}

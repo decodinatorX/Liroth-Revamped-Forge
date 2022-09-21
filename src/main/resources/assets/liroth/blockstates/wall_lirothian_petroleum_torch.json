@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "liroth:block/wall_lirothian_petroleum_torch"
+    },
+    "facing=north": {
+      "model": "liroth:block/wall_lirothian_petroleum_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "liroth:block/wall_lirothian_petroleum_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "liroth:block/wall_lirothian_petroleum_torch",
+      "y": 180
+    }
+  }
+}

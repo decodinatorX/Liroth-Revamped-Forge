@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_inventory",
+  "textures": {
+    "texture": "liroth:blocks/tallpier_planks",
+    "particle": "liroth:blocks/tallpier_planks"
+  }
+}

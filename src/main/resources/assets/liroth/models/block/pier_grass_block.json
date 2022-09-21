@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/pier_dirt",
+    "up": "liroth:blocks/pier_grass_top",
+    "north": "liroth:blocks/pier_grass_side",
+    "east": "liroth:blocks/pier_grass_side",
+    "south": "liroth:blocks/pier_grass_side",
+    "west": "liroth:blocks/pier_grass_side",
+    "particle": "liroth:blocks/pier_dirt"
+  }
+}

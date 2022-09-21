@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_bottom_left_open",
+  "textures": {
+    "bottom": "liroth:blocks/petrified_door_bottom",
+    "top": "liroth:blocks/petrified_door_top"
+  }
+}

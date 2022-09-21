@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pointed_dripstone",
+  "textures": {
+    "cross": "liroth:blocks/pointed_petrified_crystal_down_base"
+  }
+}

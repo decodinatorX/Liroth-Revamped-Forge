@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "liroth:block/soulless_soil"
+      },
+      {
+        "model": "liroth:block/soulless_soil",
+        "y": 90
+      },
+      {
+        "model": "liroth:block/soulless_soil",
+        "y": 180
+      },
+      {
+        "model": "liroth:block/soulless_soil",
+        "y": 270
+      }
+    ]
+  }
+}

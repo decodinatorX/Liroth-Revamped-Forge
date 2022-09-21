@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "liroth:block/fungal_lantern"
+    },
+    "hanging=true": {
+      "model": "liroth:block/fungal_lantern_hanging"
+    }
+  }
+}

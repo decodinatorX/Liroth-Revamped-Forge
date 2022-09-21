@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "liroth:blocks/koolaw_planks",
+    "up": "liroth:blocks/koolaw_crafting_table_top",
+    "north": "liroth:blocks/koolaw_crafting_table_front",
+    "east": "liroth:blocks/koolaw_crafting_table_side",
+    "south": "liroth:blocks/koolaw_crafting_table_side",
+    "west": "liroth:blocks/koolaw_crafting_table_front",
+    "particle": "liroth:blocks/koolaw_planks"
+  }
+}
