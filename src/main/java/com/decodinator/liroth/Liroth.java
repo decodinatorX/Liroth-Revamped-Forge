@@ -1,14 +1,26 @@
 package com.decodinator.liroth;
 
 import com.decodinator.liroth.core.LirothBlocks;
+import com.decodinator.liroth.core.LirothBoat;
+import com.decodinator.liroth.core.LirothBoatModel;
+import com.decodinator.liroth.core.LirothEntities;
+import com.decodinator.liroth.core.LirothEntityRenderers;
+import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.LirothRenders;
 import com.decodinator.liroth.mixin.ItemBlockRenderTypeAccess;
 import com.mojang.logging.LogUtils;
+import com.teamabnormals.blueprint.client.renderer.BlueprintBoatRenderer;
+
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.renderer.entity.BoatRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -17,6 +29,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.ForgeHooksClient;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,7 +46,12 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
+
 import org.slf4j.Logger;
+import net.minecraftforge.api.distmarker.Dist;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Liroth.MOD_ID)
@@ -41,12 +61,7 @@ public class Liroth
     public static final String MOD_ID = "liroth";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
-
-    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)));
-    public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
-
+    
 	public static CreativeModeTab liroth_blocks_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_blocks") {
 		@Override
 		public ItemStack makeIcon() {
@@ -80,6 +95,7 @@ public class Liroth
 		LirothBlocks.BLOCKS.register(modEventBus);
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);
+		LirothEntities.ENTITIES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
@@ -109,7 +125,8 @@ public class Liroth
         public static void onClientSetup(FMLClientSetupEvent event)
         {
     		LirothRenders.renderCutOuts();
-            // Some client setup code
+            Liroth.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition);
+//            Some client setup code
 //            LOGGER.info("HELLO FROM CLIENT SETUP");
 //            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
@@ -125,5 +142,24 @@ public class Liroth
 
     public static ResourceLocation createLocation(Holder<?> holder) {
         return createLocation(holder.unwrapKey().orElseThrow());
+    }
+    
+    private static ModelLayerLocation createLocation(String p_171301_, String p_171302_) {
+        return new ModelLayerLocation(new ResourceLocation("minecraft", p_171301_), p_171302_);
+     }
+    
+    public static ModelLayerLocation createBoatModelName(LirothBoat.Type p_171290_) {
+        return createLocation(Liroth.MOD_ID + "boat/" + p_171290_.getName(), "main");
+     }
+    
+    public static ModelLayerLocation createChestBoatModelName(LirothBoat.Type p_233551_) {
+        return createLocation(Liroth.MOD_ID + "chest_boat/" + p_233551_.getName(), "main");
+     }
+    
+    public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
+        for (LirothBoat.Type value : LirothBoat.Type.values()) {
+            consumer.accept(Liroth.createBoatModelName(value), () -> LirothBoatModel.createBodyModel(false));
+            consumer.accept(Liroth.createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
+        }
     }
 }

@@ -1,11 +1,13 @@
 package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
+import com.teamabnormals.blueprint.common.item.BlueprintBoatItem;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.HorseArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrassBlock;
@@ -46,20 +48,20 @@ public class LirothItems {
 
 //    public static final RegistryObject<Item>LIROTH_BLASTER = createRangedItem(new LirothBlaster(new Item.Properties().tab(Liroth.liroth_combat_tab).stacksTo(1)), "liroth_blaster");
     
-/*    public static final LirothBoatItem LIROTH_BOAT = new LirothBoatItem(false, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final LirothBoatItem CHEST_LIROTH_BOAT = new LirothBoatItem(true, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final DamnationBoatItem DAMNATION_BOAT = new DamnationBoatItem(false, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final DamnationBoatItem CHEST_DAMNATION_BOAT = new DamnationBoatItem(true, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final SpicedBoatItem SPICED_BOAT = new SpicedBoatItem(false, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final SpicedBoatItem CHEST_SPICED_BOAT = new SpicedBoatItem(true, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final PierBoatItem PIER_BOAT = new PierBoatItem(false, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final PierBoatItem CHEST_PIER_BOAT = new PierBoatItem(true, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final JapzBoatItem JAPZ_BOAT = new JapzBoatItem(false, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final JapzBoatItem CHEST_JAPZ_BOAT = new JapzBoatItem(true, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final KoolawBoatItem KOOLAW_BOAT = new KoolawBoatItem(false, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final KoolawBoatItem CHEST_KOOLAW_BOAT = new KoolawBoatItem(true, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final PetrifiedBoatItem PETRIFIED_BOAT = new PetrifiedBoatItem(false, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));
-    public static final PetrifiedBoatItem CHEST_PETRIFIED_BOAT = new PetrifiedBoatItem(true, new FabricItemSettings().group(ItemGroup.TRANSPORTATION).stacksTo(1));*/
+    public static final RegistryObject<Item> LIROTH_BOAT = createBoatItem("liroth_boat", LirothBoat.Type.LIROTH);
+    public static final RegistryObject<Item> CHEST_LIROTH_BOAT = createChestBoatItem("liroth_chest_boat", LirothBoat.Type.LIROTH);
+    public static final RegistryObject<Item> DAMNATION_BOAT = createBoatItem("damnation_boat", LirothBoat.Type.DAMNATION);
+    public static final RegistryObject<Item> CHEST_DAMNATION_BOAT = createChestBoatItem("damnation_chest_boat", LirothBoat.Type.DAMNATION);
+    public static final RegistryObject<Item> SPICED_BOAT = createBoatItem("spiced_boat", LirothBoat.Type.SPICED);
+    public static final RegistryObject<Item> CHEST_SPICED_BOAT = createChestBoatItem("spiced_chest_boat", LirothBoat.Type.SPICED);
+    public static final RegistryObject<Item> PIER_BOAT = createBoatItem("tallpier_boat", LirothBoat.Type.PIER);
+    public static final RegistryObject<Item> CHEST_PIER_BOAT = createChestBoatItem("tallpier_chest_boat", LirothBoat.Type.PIER);
+    public static final RegistryObject<Item> JAPZ_BOAT = createBoatItem("japz_boat", LirothBoat.Type.JAPZ);
+    public static final RegistryObject<Item> CHEST_JAPZ_BOAT = createChestBoatItem("japz_chest_boat", LirothBoat.Type.JAPZ);
+    public static final RegistryObject<Item> KOOLAW_BOAT = createBoatItem("koolaw_boat", LirothBoat.Type.KOOLAW);
+    public static final RegistryObject<Item> CHEST_KOOLAW_BOAT = createChestBoatItem("koolaw_chest_boat", LirothBoat.Type.KOOLAW);
+    public static final RegistryObject<Item> PETRIFIED_BOAT = createBoatItem("petrified_boat", LirothBoat.Type.PETRIFIED);
+    public static final RegistryObject<Item> CHEST_PETRIFIED_BOAT = createChestBoatItem("petrified_chest_boat", LirothBoat.Type.PETRIFIED);
     
     public static final RegistryObject<Item>LIROTH_BONE = createItem("liroth_bone");
 
@@ -230,6 +232,16 @@ public class LirothItems {
 	
     static RegistryObject<Item> createItem(String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new Item(new Item.Properties().tab(Liroth.liroth_items_tab)));
+        return createItem;    
+    }
+    
+    static RegistryObject<Item> createBoatItem(String id, LirothBoat.Type type) {
+		RegistryObject<Item> createItem = ITEMS.register(id, () -> new LirothBoatItem(false, type, new Item.Properties().tab(Liroth.liroth_items_tab)));
+        return createItem;    
+    }
+    
+    static RegistryObject<Item> createChestBoatItem(String id, LirothBoat.Type type) {
+		RegistryObject<Item> createItem = ITEMS.register(id, () -> new LirothBoatItem(true, type, new Item.Properties().tab(Liroth.liroth_items_tab)));
         return createItem;    
     }
     
