@@ -7,13 +7,17 @@ import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothEntityRenderers;
 import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.LirothItems;
+import com.decodinator.liroth.core.LirothModelLayers;
 import com.decodinator.liroth.core.LirothRenders;
+import com.decodinator.liroth.core.PotestiumHelmetItem;
+import com.decodinator.liroth.core.PotestiumHelmetModel;
 import com.decodinator.liroth.mixin.ItemBlockRenderTypeAccess;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.client.renderer.BlueprintBoatRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -160,6 +164,7 @@ public class Liroth
         for (LirothBoat.Type value : LirothBoat.Type.values()) {
             consumer.accept(Liroth.createBoatModelName(value), () -> LirothBoatModel.createBodyModel(false));
             consumer.accept(Liroth.createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
+    		consumer.accept(LirothModelLayers.POTESTIUM_HELMET, () -> LayerDefinition.create(PotestiumHelmetModel.createMesh(), 64, 128));
         }
     }
 }

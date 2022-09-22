@@ -6,7 +6,8 @@
   "refmap": "liroth.refmap.json",
   "mixins": [
       "RegistryAccess",
-      "ClientPlayerEntityMixin"
+      "ClientPlayerEntityMixin",
+      "ItemPotestiumHelmetForgeMixin"
   ],
   "client": [
     
