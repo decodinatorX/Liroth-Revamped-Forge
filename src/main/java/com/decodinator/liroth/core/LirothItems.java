@@ -57,7 +57,7 @@ public class LirothItems {
 
     public static final RegistryObject<Item>LIROTH_BERRY = createFoodItem("liroth_berry", Foods.SUSPICIOUS_STEW);
 
-//    public static final RegistryObject<Item>LIROTH_BLASTER = createRangedItem(new LirothBlaster(new Item.Properties().tab(Liroth.liroth_combat_tab).stacksTo(1)), "liroth_blaster");
+    public static final RegistryObject<Item>LIROTH_BLASTER = createRangedItem("liroth_blaster");
     
     public static final RegistryObject<Item> LIROTH_BOAT = createBoatItem("liroth_boat", LirothBoat.Type.LIROTH);
     public static final RegistryObject<Item> CHEST_LIROTH_BOAT = createChestBoatItem("liroth_chest_boat", LirothBoat.Type.LIROTH);
@@ -239,6 +239,11 @@ public class LirothItems {
 	
     static RegistryObject<Item> createItem(String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new Item(new Item.Properties().tab(Liroth.liroth_items_tab)));
+        return createItem;    
+    }
+    
+    static RegistryObject<Item> createRangedItem(String id) {
+		RegistryObject<Item> createItem = ITEMS.register(id, () -> new LirothBlaster(new Item.Properties().tab(Liroth.liroth_items_tab)));
         return createItem;    
     }
     

@@ -9,6 +9,7 @@ import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.LirothModelLayers;
 import com.decodinator.liroth.core.LirothRenders;
+import com.decodinator.liroth.core.LirothSounds;
 import com.decodinator.liroth.core.PotestiumHelmetItem;
 import com.decodinator.liroth.core.PotestiumHelmetModel;
 import com.decodinator.liroth.mixin.ItemBlockRenderTypeAccess;
@@ -100,6 +101,7 @@ public class Liroth
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);
 		LirothEntities.ENTITIES.register(modEventBus);
+		LirothSounds.SOUND_EVENTS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
