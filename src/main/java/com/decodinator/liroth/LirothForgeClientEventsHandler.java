@@ -1,5 +1,7 @@
 package com.decodinator.liroth;
 
+import com.decodinator.liroth.core.LirothBlockEntities;
+import com.decodinator.liroth.core.LirothChestBlockEntityRenderer;
 import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothEntityRenderers;
 import com.decodinator.liroth.core.LirothModelLayers;
@@ -29,6 +31,7 @@ import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.blockentity.ChestRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -74,5 +77,12 @@ public class LirothForgeClientEventsHandler {
     	event.registerEntityRenderer(LirothEntities.VILE_SHARK.get(), VileSharkEntityRenderer::new);
     	event.registerEntityRenderer(LirothEntities.WARP.get(), WarpEntityRenderer::new);
     	event.registerEntityRenderer(LirothEntities.BEAM_LASER_PROJECTILE.get(), BeamLaserProjectileEntityRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.LIROTH_CHEST.get(), LirothChestBlockEntityRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.DAMNATION_CHEST.get(), LirothChestBlockEntityRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.JAPZ_CHEST.get(), LirothChestBlockEntityRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.KOOLAW_CHEST.get(), LirothChestBlockEntityRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.PETRIFIED_DAMNATION_CHEST.get(), LirothChestBlockEntityRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.SPICED_CHEST.get(), LirothChestBlockEntityRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.TALLPIER_CHEST.get(), LirothChestBlockEntityRenderer::new);
     }
 }

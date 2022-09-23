@@ -5,10 +5,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import javax.annotation.Nullable;
+
 import com.decodinator.liroth.Liroth;
+import com.decodinator.liroth.core.blocks.entities.LirothChestBlockEntity;
 
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -16,6 +20,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarpetBlock;
+import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.CraftingTableBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -36,40 +42,48 @@ import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WoodButtonBlock;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.HugeFungusConfiguration;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import net.minecraftforge.api.distmarker.Dist;
+
 
 public class LirothBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Liroth.MOD_ID);
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Liroth.MOD_ID);
     
-    public static final RegistryObject<Block> ANOMALY = BLOCKS.register("anomaly", () -> new Block(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> ANOMALY_BLOCK = BLOCKS.register("anomaly_block", () -> new Block(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> ANOMALY = createAnomalyBlock("anomaly");
+    public static final RegistryObject<Block> ANOMALY_BLOCK = createAnomalyBlock("anomaly_block");
     public static final RegistryObject<Block> BLUE_SAND = createSand(0, "blue_sand");
     public static final RegistryObject<Block> BLUE_SANDSTONE = createStone("blue_sandstone");
     public static final RegistryObject<Block> BLUE_SANDSTONE_SLAB = createStoneSlab("blue_sandstone_slab");
-//    public static final RegistryObject<Block> BLUE_SANDSTONE_STAIRS = createStoneStairs("blue_sandstone_stairs");
+    public static final RegistryObject<Block> BLUE_SANDSTONE_STAIRS = createStoneStairs(BLUE_SANDSTONE, "blue_sandstone_stairs");
     public static final RegistryObject<Block> BLUE_SANDSTONE_WALL = createStoneWall("blue_sandstone_wall");
     public static final RegistryObject<Block> CARVED_BLUE_SANDSTONE = createStone("carved_blue_sandstone");
     public static final RegistryObject<Block> CHARRED_ACCESSWAY_BLOCK = createStone("charred_accessway_block");
     public static final RegistryObject<Block> CHARRED_LIROTH_COBBLESTONE = createStone("charred_liroth_cobblestone");
     public static final RegistryObject<Block> CHARRED_LIROTH_COBBLESTONE_WALL = createStoneWall("charred_liroth_cobblestone_wall");
-//    public static final RegistryObject<Block> CHARRED_LIROTH_COBBLESTONE_STAIRS = createStoneStairs("charred_liroth_cobblestone_stairs");
+    public static final RegistryObject<Block> CHARRED_LIROTH_COBBLESTONE_STAIRS = createStoneStairs(CHARRED_LIROTH_COBBLESTONE, "charred_liroth_cobblestone_stairs");
     public static final RegistryObject<Block> CHARRED_LIROTH_COBBLESTONE_SLAB = createStoneSlab("charred_liroth_cobblestone_slab");
     public static final RegistryObject<Block> CHARRED_LIROTH_GEM_ORE = createOre("charred_lirothian_liroth_gem_ore");
     public static final RegistryObject<Block> CHARRED_LIROTH_STONE_BLOCK = createStone("charred_liroth_stone");
     public static final RegistryObject<Block> CHARRED_LIROTH_STONE_WALL = createStoneWall("charred_liroth_stone_wall");
-//    public static final RegistryObject<Block> CHARRED_LIROTH_STONE_STAIRS = createStoneStairs("charred_liroth_stone_stairs");
+    public static final RegistryObject<Block> CHARRED_LIROTH_STONE_STAIRS = createStoneStairs(CHARRED_LIROTH_STONE_BLOCK, "charred_liroth_stone_stairs");
     public static final RegistryObject<Block> CHARRED_LIROTH_STONE_SLAB = createStoneSlab("charred_liroth_stone_slab");
     public static final RegistryObject<Block> CHARRED_LIROTH_STONE_BRICKS = createStone("charred_liroth_stone_bricks");
 //    public static final RegistryObject<Block> CHARRED_LIROTH_STONE_BRICK_LOCK = createLockBlock("charred_liroth_stone_brick_lock");
     public static final RegistryObject<Block> CHARRED_LIROTH_STONE_BRICK_WALL = createStoneWall("charred_liroth_stone_brick_wall");
-//    public static final RegistryObject<Block> CHARRED_LIROTH_STONE_BRICK_STAIRS = createStoneStairs("charred_liroth_stone_brick_stairs");
+    public static final RegistryObject<Block> CHARRED_LIROTH_STONE_BRICK_STAIRS = createStoneStairs(CHARRED_LIROTH_STONE_BRICKS, "charred_liroth_stone_brick_stairs");
     public static final RegistryObject<Block> CHARRED_LIROTH_STONE_BRICK_SLAB = createStoneSlab("charred_liroth_stone_brick_slab");
     public static final RegistryObject<Block> CHISELED_DEVASTATED_BRICKS = createStone("chiseled_devastated_bricks");
 //    public static final RegistryObject<Block> CORRUPTED_BREWING_STAND = createBrewingStand("corrupted_brewing_stand");
@@ -77,11 +91,11 @@ public class LirothBlocks {
 //    public static final RegistryObject<Block> CORRUPTED_JALSPHIRE_ORE = createOre("corrupted_jalsphire_ore");
 //    public static final RegistryObject<Block> CORRUPTED_LIROTH_GEM_BLOCK = createPillarMetalBlock("corrupted_liroth_gem_block");
 //    public static final RegistryObject<Block> CORRUPTED_LIROTH_GEM_ORE = createOre("corrupted_liroth_gem_ore");
-//    public static final RegistryObject<Block> DAMNATION_CRAFTING_TABLE = createCraftingTable("damnation_crafting_table");
-//    public static final RegistryObject<Block> DAMNATION_CHEST = createChest("damnation_chest");
+    public static final RegistryObject<Block> DAMNATION_CRAFTING_TABLE = createDamnationCraftingTable("damnation_crafting_table");
+    public static final RegistryObject<DamnationChestBlock> DAMNATION_CHEST = createDamnationChest("damnation");
     public static final RegistryObject<Block> DAMNATION_FENCE = createFence("damnation_fence");
     public static final RegistryObject<Block> DAMNATION_FUNGAL_CLUSTER = createFungusClusterPlant("damnation_fungal_cluster");
-//    public static final RegistryObject<Block> DAMNATION_FUNGUS = createFungusPlant("damnation_fungus");
+    public static final RegistryObject<Block> DAMNATION_FUNGUS = createFungusPlant("damnation_fungus");
     public static final RegistryObject<Block> DAMNATION_FUNGAL_CARPET = createMossCarpet("damnation_fungal_carpet");
     public static final RegistryObject<Block> DAMNATION_FUNGAL_HEAP = createFungalGrass("damnation_fungal_heap");
     public static final RegistryObject<Block> DAMNATION_FUNGAL_PATCH = createFungalGrass("damnation_fungal_patch");
@@ -92,7 +106,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> DAMNATION_SOIL = createDamnationSoil("damnation_soil");
     public static final RegistryObject<Block> DAMNATION_DOOR = createDoor("damnation_door");
     public static final RegistryObject<Block> DAMNATION_SLAB = createWoodSlab("damnation_slab");
-//    public static final RegistryObject<Block> DAMNATION_STAIRS = createWoodStairs("damnation_stairs");
+    public static final RegistryObject<Block> DAMNATION_STAIRS = createWoodStairs(DAMNATION_PLANKS, "damnation_stairs");
     public static final RegistryObject<Block> DAMNATION_TRAPDOOR = createTrapDoor("damnation_trapdoor");
     public static final RegistryObject<Block> DAMNATION_WART_BLOCK = createWartBlock("damnation_wart_block");
     public static final RegistryObject<Block> DAMNATION_WOOD = createWood("damnation_wood");
@@ -104,7 +118,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> DEEPSLATE_TOURMALINE_ORE = createMetalBlock("deepslate_tourmaline_ore");
     public static final RegistryObject<Block> DEVASTATED_BRICKS = createStone("devastated_bricks");
     public static final RegistryObject<Block> DEVASTATED_BRICK_SLAB = createStoneSlab("devastated_brick_slab");
-//    public static final RegistryObject<Block> DEVASTATED_BRICK_STAIRS = createStoneStairs("devastated_brick_stairs");
+    public static final RegistryObject<Block> DEVASTATED_BRICK_STAIRS = createStoneStairs(DEVASTATED_BRICKS, "devastated_brick_stairs");
     public static final RegistryObject<Block> DEVASTATED_BRICK_WALL = createStoneWall("devastated_brick_wall");
     public static final RegistryObject<Block> DEVASTATED_PILLAR_BLOCK = createPillarBlock("devastated_pillar_block");
 //    public static final RegistryObject<Block> DIMENSIONAL_COMMUNICATOR = createPortalFrame("dimensional_communicator");
@@ -126,8 +140,8 @@ public class LirothBlocks {
     public static final RegistryObject<Block> JALSPHIRE_ORE_STONE = createOre("jalsphire_stone_ore");
     public static final RegistryObject<Block> JALSPHIRE_TRACKWAY = createStone("jalsphire_trackway");
 //    public static final RegistryObject<Block> JAPZ_BLOSSOM = createSporeBlossom("japz_blossom");
-//    public static final RegistryObject<Block> JAPZ_CHEST = createChest("japz_chest");
-//    public static final RegistryObject<Block> JAPZ_CRAFTING_TABLE = createCraftingTable("japz_crafting_table");
+    public static final RegistryObject<JapzChestBlock> JAPZ_CHEST = createJapzChest("japz");
+    public static final RegistryObject<Block> JAPZ_CRAFTING_TABLE = createJapzCraftingTable("japz_crafting_table");
     public static final RegistryObject<Block> JAPZ_FENCE = createFence("japz_fence");
     public static final RegistryObject<Block> JAPZ_LEAVES = createLeaves("japz_leaves");
     public static final RegistryObject<Block> JAPZ_LOG = createLog("japz_log");
@@ -135,32 +149,32 @@ public class LirothBlocks {
     public static final RegistryObject<Block> JAPZ_MOSS = createMoss("japz_moss_block");
     public static final RegistryObject<Block> JAPZ_MOSS_CARPET = createMossCarpet("japz_moss_carpet");
     public static final RegistryObject<Block> JAPZ_PLANKS = createPlanks("japz_planks");
-//    public static final RegistryObject<Block> JAPZ_STAIRS = createWoodStairs("japz_stairs");
+    public static final RegistryObject<Block> JAPZ_STAIRS = createWoodStairs(JAPZ_PLANKS, "japz_stairs");
     public static final RegistryObject<Block> JAPZ_DOOR = createDoor("japz_door");
     public static final RegistryObject<Block> JAPZ_SLAB = createWoodSlab("japz_slab");
     public static final RegistryObject<Block> JAPZ_TRAPDOOR = createTrapDoor("japz_trapdoor");
 //    public static final RegistryObject<Block> JAPZ_VINES = createCaveVinesHead("japz_vines");
 //    public static final RegistryObject<Block> JAPZ_VINES_PLANT = createCaveVinesBody("japz_vines_plant");
     public static final RegistryObject<Block> JAPZ_WOOD = createWood("japz_wood");
-//    public static final RegistryObject<Block> KOOLAW_CHEST = createChest("koolaw_chest");
-//    public static final RegistryObject<Block> KOOLAW_CRAFTING_TABLE = createCraftingTable("koolaw_crafting_table");
+    public static final RegistryObject<KoolawChestBlock> KOOLAW_CHEST = createKoolawChest("koolaw");
+    public static final RegistryObject<Block> KOOLAW_CRAFTING_TABLE = createKoolawCraftingTable("koolaw_crafting_table");
     public static final RegistryObject<Block> KOOLAW_FENCE = createFence("koolaw_fence");
     public static final RegistryObject<Block> KOOLAW_LEAVES = createLeaves("koolaw_leaves");
     public static final RegistryObject<Block> KOOLAW_LOG = createLog("koolaw_log");
     public static final RegistryObject<Block> KOOLAW_PLANKS = createPlanks("koolaw_planks");
-//    public static final RegistryObject<Block> KOOLAW_STAIRS = createWoodStairs("koolaw_stairs");
+    public static final RegistryObject<Block> KOOLAW_STAIRS = createWoodStairs(KOOLAW_PLANKS, "koolaw_stairs");
     public static final RegistryObject<Block> KOOLAW_DOOR = createDoor("koolaw_door");
     public static final RegistryObject<Block> KOOLAW_SLAB = createWoodSlab("koolaw_slab");
     public static final RegistryObject<Block> KOOLAW_TRAPDOOR = createTrapDoor("koolaw_trapdoor");
     public static final RegistryObject<Block> KOOLAW_WOOD = createWood("koolaw_wood");
     public static final RegistryObject<Block> NETHER_LIROTH_GEM_ORE = createOre("nether_liroth_gem_ore");
     public static final RegistryObject<Block> LIROTH_BONE_BLOCK = createBoneBlock("liroth_bone_block");
-//    public static final RegistryObject<Block> LIROTH_CHEST = createChest("liroth_chest");
+    public static final RegistryObject<LirothChestBlock> LIROTH_CHEST = createLirothChest("liroth");
     public static final RegistryObject<Block> LIROTH_COBBLESTONE = createStone("liroth_cobblestone");
     public static final RegistryObject<Block> LIROTH_COBBLESTONE_WALL = createStoneWall("liroth_cobblestone_wall");
-//    public static final RegistryObject<Block> LIROTH_COBBLESTONE_STAIRS = createStoneStairs("liroth_cobblestone_stairs");
+    public static final RegistryObject<Block> LIROTH_COBBLESTONE_STAIRS = createStoneStairs(LIROTH_COBBLESTONE, "liroth_cobblestone_stairs");
     public static final RegistryObject<Block> LIROTH_COBBLESTONE_SLAB = createStoneSlab("liroth_cobblestone_slab");
-//    public static final RegistryObject<Block> LIROTH_CRAFTING_TABLE = createCraftingTable("liroth_crafting_table");
+    public static final RegistryObject<Block> LIROTH_CRAFTING_TABLE = createLirothCraftingTable("liroth_crafting_table");
     public static final RegistryObject<Block> LIROTH_DIRT = createDirt("liroth_dirt");
 //    public static final RegistryObject<Block> LIROTH_END_STONE = createStone("liroth_end_stone");
 //    public static final RegistryObject<Block> LIROTH_FURNACE = createFurnace("liroth_furnace");
@@ -179,16 +193,16 @@ public class LirothBlocks {
     public static final RegistryObject<Block> LIROTH_SOUL_SAND = createLirothSoulSand("liroth_soul_sand");
     public static final RegistryObject<Block> LIROTH_STONE_BLOCK = createStone("liroth_stone");
     public static final RegistryObject<Block> LIROTH_STONE_WALL = createStoneWall("liroth_stone_wall");
-//    public static final RegistryObject<Block> LIROTH_STONE_STAIRS = createStoneStairs("liroth_stone_stairs");
+    public static final RegistryObject<Block> LIROTH_STONE_STAIRS = createStoneStairs(LIROTH_STONE_BLOCK, "liroth_stone_stairs");
     public static final RegistryObject<Block> LIROTH_STONE_SLAB = createStoneSlab("liroth_stone_slab");
     public static final RegistryObject<Block> LIROTH_STONE_BRICKS = createStone("liroth_stone_bricks");
     public static final RegistryObject<Block> LIROTH_STONE_BRICK_WALL = createStoneWall("liroth_stone_brick_wall");
-//    public static final RegistryObject<Block> LIROTH_STONE_BRICK_STAIRS = createStoneStairs("liroth_stone_brick_stairs");
+    public static final RegistryObject<Block> LIROTH_STONE_BRICK_STAIRS = createStoneStairs(LIROTH_STONE_BRICKS, "liroth_stone_brick_stairs");
     public static final RegistryObject<Block> LIROTH_STONE_BRICK_SLAB = createStoneSlab("liroth_stone_brick_slab");
     public static final RegistryObject<Block> LIROTH_DOOR = createDoor("liroth_door");
     public static final RegistryObject<Block> LIROTH_FENCE = createFence("liroth_fence");
     public static final RegistryObject<Block> LIROTH_SLAB = createWoodSlab("liroth_slab");
-//    public static final RegistryObject<Block> LIROTH_STAIRS = createWoodStairs("liroth_stairs");
+    public static final RegistryObject<Block> LIROTH_STAIRS = createWoodStairs(LIROTH_PLANKS, "liroth_stairs");
     public static final RegistryObject<Block> LIROTH_TRAPDOOR = createTrapDoor("liroth_trapdoor");
     public static final RegistryObject<Block> LIROTH_WOOD = createWood("liroth_wood");
     public static final RegistryObject<Block> LIROTHIAN_COBALT_BLOCK = createMetalBlock("lirothian_cobalt_block");
@@ -201,16 +215,16 @@ public class LirothBlocks {
     public static final RegistryObject<Block> LIROTHIAN_PETROLEUM_LANTERN = createLantern("lirothian_petroleum_lantern");
 //    public static final RegistryObject<Block> LIROTHIAN_PETROLEUM_CAMPFIRE = createLirothianPetroleumCampfire("lirothian_petroleum_campfire");
     public static final RegistryObject<Block> OLDEN_LIROTH_GEM_BLOCK = createPillarMetalBlock("olden_liroth_gem_block");
-//    public static final RegistryObject<Block> PETRIFIED_DAMNATION_CRAFTING_TABLE = createCraftingTable("petrified_damnation_crafting_table");
-//    public static final RegistryObject<Block> PETRIFIED_DAMNATION_CHEST = createChest("petrified_damnation_chest");
+    public static final RegistryObject<Block> PETRIFIED_DAMNATION_CRAFTING_TABLE = createPetrifiedDamnationCraftingTable("petrified_damnation_crafting_table");
+    public static final RegistryObject<PetrifiedDamnationChestBlock> PETRIFIED_DAMNATION_CHEST = createPetrifiedDamnationChest("petrified_damnation");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_LOG = createLog("petrified_damnation_log");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_BRICKS = createStone("petrified_damnation_bricks");
-//    public static final RegistryObject<Block> PETRIFIED_DAMNATION_BRICK_STAIRS = createStoneStairs("petrified_damnation_brick_stairs");
+    public static final RegistryObject<Block> PETRIFIED_DAMNATION_BRICK_STAIRS = createStoneStairs(PETRIFIED_DAMNATION_BRICKS, "petrified_damnation_brick_stairs");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_BRICK_SLAB = createStoneSlab("petrified_damnation_brick_slab");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_BRICK_WALL = createStoneWall("petrified_damnation_brick_wall");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_DOOR = createDoor("petrified_damnation_door");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_PLANKS = createPlanks("petrified_damnation_planks");
-//    public static final RegistryObject<Block> PETRIFIED_DAMNATION_STAIRS = createWoodStairs("petrified_damnation_stairs");
+    public static final RegistryObject<Block> PETRIFIED_DAMNATION_STAIRS = createWoodStairs(PETRIFIED_DAMNATION_PLANKS, "petrified_damnation_stairs");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_SLAB = createWoodSlab("petrified_damnation_slab");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_TRAPDOOR = createTrapDoor("petrified_damnation_trapdoor");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_FENCE = createFence("petrified_damnation_fence");
@@ -241,27 +255,27 @@ public class LirothBlocks {
 //    public static final RegistryObject<Block> SEA_EYE = createWaterPlant("sea_eye");
     public static final RegistryObject<Block> SMOOTH_BLUE_SANDSTONE = createStone("smooth_blue_sandstone");
     public static final RegistryObject<Block> SMOOTH_BLUE_SANDSTONE_SLAB = createStoneSlab("smooth_blue_sandstone_slab");
-//    public static final RegistryObject<Block> SMOOTH_BLUE_SANDSTONE_STAIRS = createStoneStairs("smooth_blue_sandstone_stairs");
+    public static final RegistryObject<Block> SMOOTH_BLUE_SANDSTONE_STAIRS = createStoneStairs(SMOOTH_BLUE_SANDSTONE, "smooth_blue_sandstone_stairs");
     public static final RegistryObject<Block> SMOOTH_BLUE_SANDSTONE_WALL = createStoneWall("smooth_blue_sandstone_wall");
 //    public static final RegistryObject<Block> SOULLESS_FLAME = createFireBlock("soulless_flame");
     public static final RegistryObject<Block> SOULLESS_SOIL = createSoullessSoil("soulless_soil");
 //    public static final RegistryObject<Block> SOUL_ROD = createRod("soul_rod");
-//    public static final RegistryObject<Block> SPICED_CRAFTING_TABLE = createCraftingTable("spiced_crafting_table");
-//    public static final RegistryObject<Block> SPICED_CHEST = createChest("spiced_chest");
+    public static final RegistryObject<Block> SPICED_CRAFTING_TABLE = createSpicedCraftingTable("spiced_crafting_table");
+    public static final RegistryObject<SpicedChestBlock> SPICED_CHEST = createSpicedChest("spiced");
     public static final RegistryObject<Block> SPICED_LEAVES = createLeaves("spiced_leaves");
     public static final RegistryObject<Block> SPICED_LOG = createLog("spiced_log");
     public static final RegistryObject<Block> SPICED_PLANKS = createPlanks("spiced_planks");
     public static final RegistryObject<Block> SPICED_DOOR = createDoor("spiced_door");
     public static final RegistryObject<Block> SPICED_FENCE = createFence("spiced_fence");
     public static final RegistryObject<Block> SPICED_SLAB = createWoodSlab("spiced_slab");
-//    public static final RegistryObject<Block> SPICED_STAIRS = createWoodStairs("spiced_stairs");
+    public static final RegistryObject<Block> SPICED_STAIRS = createWoodStairs(SPICED_PLANKS, "spiced_stairs");
     public static final RegistryObject<Block> SPICED_TRAPDOOR = createTrapDoor("spiced_trapdoor");
     public static final RegistryObject<Block> SPICED_WOOD = createWood("spiced_wood");
     public static final RegistryObject<Block> SPINERIOS_COAL_ORE = createDirtOre("spinerios_coal_ore");
     public static final RegistryObject<Block> SPINERIOS_COBBLESTONE = createStone("spinerios_cobblestone");
     public static final RegistryObject<Block> SPINERIOS_COBBLESTONE_WALL = createStoneWall("spinerios_cobblestone_wall");
     public static final RegistryObject<Block> SPINERIOS_COBBLESTONE_SLAB = createStoneSlab("spinerios_cobblestone_slab");
-//    public static final RegistryObject<Block> SPINERIOS_COBBLESTONE_STAIRS = createStoneStairs("spinerios_cobblestone_stairs");
+    public static final RegistryObject<Block> SPINERIOS_COBBLESTONE_STAIRS = createStoneStairs(SPINERIOS_COBBLESTONE, "spinerios_cobblestone_stairs");
     public static final RegistryObject<Block> SPINERIOS_COPPER_ORE = createDirtOre("spinerios_copper_ore");
     public static final RegistryObject<Block> SPINERIOS_DIAMOND_ORE = createDirtOre("spinerios_diamond_ore");
     public static final RegistryObject<Block> SPINERIOS_DIRT = createDirt("spinerios_dirt");
@@ -281,11 +295,11 @@ public class LirothBlocks {
     public static final RegistryObject<Block> SPINERIOS_STONE_ORE = createDirtOre("spinerios_stone_ore");
     public static final RegistryObject<Block> SPINERIOS_STONE_WALL = createStoneWall("spinerios_stone_wall");
     public static final RegistryObject<Block> SPINERIOS_STONE_SLAB = createStoneSlab("spinerios_stone_slab");
-//    public static final RegistryObject<Block> SPINERIOS_STONE_STAIRS = createStoneStairs("spinerios_stone_stairs");
+    public static final RegistryObject<Block> SPINERIOS_STONE_STAIRS = createStoneStairs(SPINERIOS_STONE, "spinerios_stone_stairs");
     public static final RegistryObject<Block> SPINERIOS_STONE_BRICKS = createStone("spinerios_stone_bricks");
     public static final RegistryObject<Block> SPINERIOS_STONE_BRICK_WALL = createStoneWall("spinerios_stone_brick_wall");
     public static final RegistryObject<Block> SPINERIOS_STONE_BRICK_SLAB = createStoneSlab("spinerios_stone_brick_slab");
-//    public static final RegistryObject<Block> SPINERIOS_STONE_BRICK_STAIRS = createStoneStairs("spinerios_stone_brick_stairs");
+    public static final RegistryObject<Block> SPINERIOS_STONE_BRICK_STAIRS = createStoneStairs(SPINERIOS_STONE_BRICKS, "spinerios_stone_brick_stairs");
     public static final RegistryObject<Block> SPINERIOS_STONE_TOURMALINE_ORE = createOre("spinerios_stone_tourmaline_ore");
     public static final RegistryObject<Block> SPINERIOS_TOURMALINE_ORE = createDirtOre("spinerios_tourmaline_ore");
     public static final RegistryObject<Block> STRIPPED_LIROTH_LOG = createStrippedLog("stripped_liroth_log");
@@ -302,15 +316,15 @@ public class LirothBlocks {
     public static final RegistryObject<Block> STRIPPED_JAPZ_WOOD = createWood("stripped_japz_wood");
     public static final RegistryObject<Block> STRIPPED_KOOLAW_WOOD = createWood("stripped_koolaw_wood");
     public static final RegistryObject<Block> STRIPPED_PETRIFIED_DAMNATION_WOOD = createWood("stripped_petrified_damnation_wood");
-//    public static final RegistryObject<Block> TALLPIER_CRAFTING_TABLE = createCraftingTable("tallpier_crafting_table");
-//    public static final RegistryObject<Block> TALLPIER_CHEST = createChest("tallpier_chest");
+    public static final RegistryObject<Block> TALLPIER_CRAFTING_TABLE = createTallpierCraftingTable("tallpier_crafting_table");
+    public static final RegistryObject<TallpierChestBlock> TALLPIER_CHEST = createTallpierChest("tallpier");
     public static final RegistryObject<Block> TALLPIER_LEAVES = createLeaves("tallpier_leaves");
     public static final RegistryObject<Block> TALLPIER_LOG = createLog("tallpier_log");
     public static final RegistryObject<Block> TALLPIER_PLANKS = createPlanks("tallpier_planks");
     public static final RegistryObject<Block> TALLPIER_DOOR = createDoor("tallpier_door");
     public static final RegistryObject<Block> TALLPIER_FENCE = createFence("tallpier_fence");
     public static final RegistryObject<Block> TALLPIER_SLAB = createWoodSlab("tallpier_slab");
-//    public static final RegistryObject<Block> TALLPIER_STAIRS = createWoodStairs("tallpier_stairs");
+    public static final RegistryObject<Block> TALLPIER_STAIRS = createWoodStairs(TALLPIER_PLANKS, "tallpier_stairs");
     public static final RegistryObject<Block> TALLPIER_TRAPDOOR = createTrapDoor("tallpier_trapdoor");
     public static final RegistryObject<Block> TALLPIER_WOOD = createWood("tallpier_wood");
     public static final RegistryObject<Block> TOURMALINE_GEM_BLOCK = createMetalBlock("tourmaline_gem_block");
@@ -573,14 +587,15 @@ public class LirothBlocks {
         
 
 
-    }
+    }*/
     
     static RegistryObject<Block> createFungusPlant(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomFungalPlant(Block.Properties.copy(Blocks.CRIMSON_FUNGUS).noCollission(), null);
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomFungalPlant(Block.Properties.copy(Blocks.CRIMSON_FUNGUS).noCollission(), null));
         
+        createPlantBlockItems(id, createBlock);
+		return createBlock;
 
-
-    }*/
+    }
     
     static RegistryObject<Block> createWartBlock(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.NETHER_WART_BLOCK)));
@@ -675,13 +690,69 @@ public class LirothBlocks {
 
 
     }
-    
-    static RegistryObject<Block> createCraftingTable(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomCraftingTable(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+*/    
+    static RegistryObject<Block> createLirothCraftingTable(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+        createBlockItems(id, createBlock);
+		return createBlock;
         
 
 
     }
+    
+    static RegistryObject<Block> createDamnationCraftingTable(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+        createBlockItems(id, createBlock);
+		return createBlock;
+        
+
+
+    }
+    
+    static RegistryObject<Block> createJapzCraftingTable(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new JapzCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+        createBlockItems(id, createBlock);
+		return createBlock;
+        
+
+
+    }
+    
+    static RegistryObject<Block> createKoolawCraftingTable(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new KoolawCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+        createBlockItems(id, createBlock);
+		return createBlock;
+        
+
+
+    }
+    
+    static RegistryObject<Block> createPetrifiedDamnationCraftingTable(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PetrifiedDamnationCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+        createBlockItems(id, createBlock);
+		return createBlock;
+        
+
+
+    }
+    
+    static RegistryObject<Block> createSpicedCraftingTable(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new SpicedCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+        createBlockItems(id, createBlock);
+		return createBlock;
+        
+
+
+    }
+    
+    static RegistryObject<Block> createTallpierCraftingTable(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TallpierCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+        createBlockItems(id, createBlock);
+		return createBlock;
+        
+
+
+    }/*
     
     static RegistryObject<Block> createBrewingStand(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new BrewingStandBlock(Block.Properties.copy(Blocks.BREWING_STAND)));
@@ -696,13 +767,71 @@ public class LirothBlocks {
 
 
     }
-
-    static RegistryObject<Block> createChest(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new BaseChestBlock(Blocks.CHEST);
-        
-
-
-    }*/
+*/
+	@OnlyIn(Dist.CLIENT)
+	private static BEWLRBlockItem.LazyBEWLR chestBEWLR(boolean trapped) {
+		return new BEWLRBlockItem.LazyBEWLR((dispatcher, entityModelSet) -> {
+			return new ChestBlockEntityWithoutLevelRenderer<>(dispatcher, entityModelSet, new LirothChestBlockEntity(BlockPos.ZERO, Blocks.CHEST.defaultBlockState()));
+		});
+	}
+    
+	public static RegistryObject<LirothChestBlock> createLirothChest(String name) {
+		String modId = Liroth.MOD_ID;
+		RegistryObject<LirothChestBlock> block = BLOCKS.register(name + "_chest", () -> new LirothChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
+		ChestManager.putChestInfo(modId, name, false);
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		return block;
+	}
+	
+	public static RegistryObject<DamnationChestBlock> createDamnationChest(String name) {
+		String modId = Liroth.MOD_ID;
+		RegistryObject<DamnationChestBlock> block = BLOCKS.register(name + "_chest", () -> new DamnationChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
+		ChestManager.putChestInfo(modId, name, false);
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		return block;
+	}
+	
+	public static RegistryObject<JapzChestBlock> createJapzChest(String name) {
+		String modId = Liroth.MOD_ID;
+		RegistryObject<JapzChestBlock> block = BLOCKS.register(name + "_chest", () -> new JapzChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
+		ChestManager.putChestInfo(modId, name, false);
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		return block;
+	}
+	
+	public static RegistryObject<KoolawChestBlock> createKoolawChest(String name) {
+		String modId = Liroth.MOD_ID;
+		RegistryObject<KoolawChestBlock> block = BLOCKS.register(name + "_chest", () -> new KoolawChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
+		ChestManager.putChestInfo(modId, name, false);
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		return block;
+	}
+	
+	public static RegistryObject<PetrifiedDamnationChestBlock> createPetrifiedDamnationChest(String name) {
+		String modId = Liroth.MOD_ID;
+		RegistryObject<PetrifiedDamnationChestBlock> block = BLOCKS.register(name + "_chest", () -> new PetrifiedDamnationChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
+		ChestManager.putChestInfo(modId, name, false);
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		return block;
+	}
+	
+	public static RegistryObject<SpicedChestBlock> createSpicedChest(String name) {
+		String modId = Liroth.MOD_ID;
+		RegistryObject<SpicedChestBlock> block = BLOCKS.register(name + "_chest", () -> new SpicedChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
+		ChestManager.putChestInfo(modId, name, false);
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		return block;
+	}
+	
+	public static RegistryObject<TallpierChestBlock> createTallpierChest(String name) {
+		String modId = Liroth.MOD_ID;
+		RegistryObject<TallpierChestBlock> block = BLOCKS.register(name + "_chest", () -> new TallpierChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
+		ChestManager.putChestInfo(modId, name, false);
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		return block;
+	}
+	
+	/*
     
 /*    static LirothPortalBlock createLirothPortal(String id) {
     	LirothPortalBlock createBlock = BLOCKS.register(id, () -> new LirothPortalBlock(Block.Properties.copy(Blocks.END_PORTAL)));
@@ -895,16 +1024,16 @@ public class LirothBlocks {
 
     }
 
-    static RegistryObject<Block> createWoodStairs(Block block, String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new StairBlock(block.defaultBlockState(), Block.Properties.copy(Blocks.STONE).sound(SoundType.WOOD).strength(2.0f, 3.0f)));
+    static RegistryObject<Block> createWoodStairs(RegistryObject<Block> block, String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new StairBlock(block.get().defaultBlockState(), Block.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f)));
         createBlockItems(id, createBlock);
 
         return createBlock;
 
     }
     
-    static RegistryObject<Block> createStoneStairs(Block block, String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new StairBlock(block.defaultBlockState(), Block.Properties.copy(Blocks.STONE).sound(SoundType.WOOD).strength(2.0f, 3.0f)));
+    static RegistryObject<Block> createStoneStairs(RegistryObject<Block> block, String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new StairBlock(block.get().defaultBlockState(), Block.Properties.copy(Blocks.STONE).sound(SoundType.STONE).strength(2.0f, 3.0f)));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -1283,13 +1412,6 @@ public class LirothBlocks {
     }
 
     public static void init() {
- /*       BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> { 
-        	final Item.Properties properties = new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS);
-            final BlockItem blockItem;
-            blockItem = new BlockItem(block, properties);
-            blockItem.create(Objects.requireNonNull(block.getName().toString()));
-
-        });*/
     }
     
 }

@@ -1,5 +1,6 @@
 package com.decodinator.liroth;
 
+import com.decodinator.liroth.core.LirothBlockEntities;
 import com.decodinator.liroth.core.LirothBlocks;
 import com.decodinator.liroth.core.LirothBoat;
 import com.decodinator.liroth.core.LirothBoatModel;
@@ -148,6 +149,7 @@ public class Liroth
 		LirothSounds.SOUND_EVENTS.register(modEventBus);
 		LirothFluidTypes.FLUID_TYPES.register(modEventBus);
 		LirothFluids.FLUIDS.register(modEventBus);
+		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
