@@ -13,6 +13,7 @@ import com.decodinator.liroth.core.entities.SoulArachnidEntity;
 import com.decodinator.liroth.core.entities.VileSharkEntity;
 import com.decodinator.liroth.core.entities.WarpEntity;
 import com.decodinator.liroth.core.entities.projectiles.BeamLaserProjectileEntity;
+import com.decodinator.liroth.core.items.BeamItem;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;

@@ -1,6 +1,7 @@
 package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
+import com.decodinator.liroth.core.fluids.BaseFluidType;
 import com.mojang.math.Vector3f;
 
 import net.minecraft.resources.ResourceLocation;

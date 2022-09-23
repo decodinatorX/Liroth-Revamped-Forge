@@ -1,7 +1,6 @@
 package com.decodinator.liroth;
 
 import com.decodinator.liroth.core.LirothBlockEntities;
-import com.decodinator.liroth.core.LirothChestBlockEntityRenderer;
 import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothEntityRenderers;
 import com.decodinator.liroth.core.LirothModelLayers;
@@ -29,6 +28,7 @@ import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
+import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;

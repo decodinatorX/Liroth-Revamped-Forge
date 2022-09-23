@@ -8,7 +8,26 @@ import java.util.function.Supplier;
 import javax.annotation.Nullable;
 
 import com.decodinator.liroth.Liroth;
+import com.decodinator.liroth.core.blocks.CustomFungalPlant;
+import com.decodinator.liroth.core.blocks.DamnationChestBlock;
+import com.decodinator.liroth.core.blocks.DamnationCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.JapzChestBlock;
+import com.decodinator.liroth.core.blocks.JapzCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.KoolawChestBlock;
+import com.decodinator.liroth.core.blocks.KoolawCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.LirothChestBlock;
+import com.decodinator.liroth.core.blocks.LirothCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.PetrifiedDamnationChestBlock;
+import com.decodinator.liroth.core.blocks.PetrifiedDamnationCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.SpicedChestBlock;
+import com.decodinator.liroth.core.blocks.SpicedCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.TallpierChestBlock;
+import com.decodinator.liroth.core.blocks.TallpierCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.entities.LirothChestBlockEntity;
+import com.decodinator.liroth.core.helpers.ChestManager;
+import com.decodinator.liroth.core.items.BEWLRBlockItem;
+import com.decodinator.liroth.core.items.BEWLRFuelBlockItem;
+import com.decodinator.liroth.core.renders.ChestBlockEntityWithoutLevelRenderer;
 
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.BlockPos;

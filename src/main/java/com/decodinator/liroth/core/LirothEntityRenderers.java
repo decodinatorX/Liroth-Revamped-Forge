@@ -13,6 +13,7 @@ import com.decodinator.liroth.core.entities.renderers.SkeletalFreakEntityRendere
 import com.decodinator.liroth.core.entities.renderers.SoulArachnidEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
+import com.decodinator.liroth.core.renders.LirothBoatRenderer;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;

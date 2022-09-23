@@ -1,6 +1,10 @@
 package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
+import com.decodinator.liroth.core.items.BeamItem;
+import com.decodinator.liroth.core.items.LirothBlaster;
+import com.decodinator.liroth.core.items.LirothBoatItem;
+import com.decodinator.liroth.core.items.PotestiumHelmetItem;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;

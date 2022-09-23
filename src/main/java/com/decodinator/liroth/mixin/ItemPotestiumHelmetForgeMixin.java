@@ -4,8 +4,8 @@ import java.util.function.Consumer;
 
 import org.spongepowered.asm.mixin.Mixin;
 
-import com.decodinator.liroth.core.ArmorModels;
-import com.decodinator.liroth.core.PotestiumHelmetItem;
+import com.decodinator.liroth.core.items.PotestiumHelmetItem;
+import com.decodinator.liroth.core.renders.ArmorModels;
 
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.EquipmentSlot;

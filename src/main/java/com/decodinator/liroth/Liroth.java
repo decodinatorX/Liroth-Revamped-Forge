@@ -13,8 +13,6 @@ import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.LirothModelLayers;
 import com.decodinator.liroth.core.LirothRenders;
 import com.decodinator.liroth.core.LirothSounds;
-import com.decodinator.liroth.core.PotestiumHelmetItem;
-import com.decodinator.liroth.core.PotestiumHelmetModel;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseModel;
 import com.decodinator.liroth.core.entities.renderers.FreakshowEntityRenderer;
@@ -37,6 +35,8 @@ import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
+import com.decodinator.liroth.core.items.PotestiumHelmetItem;
+import com.decodinator.liroth.core.renders.PotestiumHelmetModel;
 import com.decodinator.liroth.mixin.ItemBlockRenderTypeAccess;
 import com.mojang.logging.LogUtils;
 
