@@ -12,9 +12,30 @@ import com.decodinator.liroth.core.LirothRenders;
 import com.decodinator.liroth.core.LirothSounds;
 import com.decodinator.liroth.core.PotestiumHelmetItem;
 import com.decodinator.liroth.core.PotestiumHelmetModel;
+import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseModel;
+import com.decodinator.liroth.core.entities.renderers.FreakshowEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.FreakshowModel;
+import com.decodinator.liroth.core.entities.renderers.FungalFiendEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.FungalFiendModel;
+import com.decodinator.liroth.core.entities.renderers.LirothianMimicEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.LirothianMimicModel;
+import com.decodinator.liroth.core.entities.renderers.PierPeepEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.PierPeepModel;
+import com.decodinator.liroth.core.entities.renderers.ProwlerEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.ProwlerModel;
+import com.decodinator.liroth.core.entities.renderers.ShadeEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.ShadeModel;
+import com.decodinator.liroth.core.entities.renderers.SkeletalFreakEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.SkeletalFreakModel;
+import com.decodinator.liroth.core.entities.renderers.SoulArachnidEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.SoulArachnidModel;
+import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
+import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
+import com.decodinator.liroth.core.entities.renderers.WarpModel;
 import com.decodinator.liroth.mixin.ItemBlockRenderTypeAccess;
 import com.mojang.logging.LogUtils;
-import com.teamabnormals.blueprint.client.renderer.BlueprintBoatRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -84,7 +105,21 @@ public class Liroth
 	public static CreativeModeTab liroth_combat_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_combat") {
 		@Override
 		public ItemStack makeIcon() {
-			return new ItemStack(LirothItems.LIROTH_GEM_ANSALUM.get());
+			return new ItemStack(LirothItems.LIROTH_SWORD.get());
+		}
+	};
+	
+	public static CreativeModeTab liroth_entities_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_entities") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(LirothItems.FORSAKEN_CORPSE_SPAWN_EGG.get());
+		}
+	};
+	
+	public static CreativeModeTab liroth_plants_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_plants") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(LirothBlocks.LIROTH_ROSE.get());
 		}
 	};
 	
@@ -97,10 +132,10 @@ public class Liroth
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         // Register the Deferred Register to the mod event bus so blocks get registered
+		LirothEntities.ENTITIES_TYPES.register(modEventBus);
 		LirothBlocks.BLOCKS.register(modEventBus);
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);
-		LirothEntities.ENTITIES.register(modEventBus);
 		LirothSounds.SOUND_EVENTS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
@@ -131,7 +166,7 @@ public class Liroth
         public static void onClientSetup(FMLClientSetupEvent event)
         {
     		LirothRenders.renderCutOuts();
-            Liroth.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition);
+            Liroth.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition); 
 //            Some client setup code
 //            LOGGER.info("HELLO FROM CLIENT SETUP");
 //            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
@@ -167,6 +202,18 @@ public class Liroth
             consumer.accept(Liroth.createBoatModelName(value), () -> LirothBoatModel.createBodyModel(false));
             consumer.accept(Liroth.createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
     		consumer.accept(LirothModelLayers.POTESTIUM_HELMET, () -> LayerDefinition.create(PotestiumHelmetModel.createMesh(), 64, 128));
+    		consumer.accept(LirothModelLayers.FORSAKEN_CORPSE, () -> ForsakenCorpseModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.FREAKSHOW, () -> FreakshowModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.FUNGAL_FIEND, () -> FungalFiendModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.LIROTHIAN_MIMIC, () -> LirothianMimicModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.PIER_PEEP, () -> PierPeepModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.PROWLER, () -> ProwlerModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.SHADE, () -> ShadeModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.SKELETAL_FREAK, () -> SkeletalFreakModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.SOUL_ARACHNID, () -> SoulArachnidModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.VILE_SHARK, () -> VileSharkModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
         }
     }
+
 }

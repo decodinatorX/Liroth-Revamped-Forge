@@ -1,9 +1,11 @@
 package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
-import com.teamabnormals.blueprint.common.item.BlueprintBoatItem;
 
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.ArmorItem;
@@ -16,12 +18,14 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrassBlock;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -34,7 +38,7 @@ public class LirothItems {
     
     public static final RegistryObject<Item>BLOODY_ENTRAILS = createFoodItem("bloody_entrails", Foods.ROTTEN_FLESH);
     
-//    public static final RegistryObject<Item>COOL_BEAM = createItem(new BeamItem(new Item.Properties()), "cool_beam");
+    public static final RegistryObject<Item>COOL_BEAM = createBeamItem("cool_beam");
     
 //    public static final RegistryObject<Item>CORRUPTED_JALSPHIRE_GEM = createItem("corrupted_jalsphire_gem");
     
@@ -195,19 +199,29 @@ public class LirothItems {
     public static final RegistryObject<Item>TOURMALINE_PICKAXE = createPickaxeItem(LirothToolMaterials.TOURMALINE_TOOL_MATERIAL, 1, -2.8f, "tourmaline_pickaxe");
     public static final RegistryObject<Item>TOURMALINE_AXE = createAxeItem(LirothToolMaterials.TOURMALINE_TOOL_MATERIAL, 5.0f, -3.0f, "tourmaline_axe");
     public static final RegistryObject<Item>TOURMALINE_HOE = createHoeItem(LirothToolMaterials.TOURMALINE_TOOL_MATERIAL, -4, 0.0f, "tourmaline_hoe");
-/*    
-    public static final RegistryObject<Item>FUNGAL_FIEND_SPAWN_EGG = new SpawnEggItem(LirothEntities.FUNGAL_FIEND, 1315860, 2031360, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>FORSAKEN_CORPSE_SPAWN_EGG = new SpawnEggItem(LirothEntities.FORSAKEN_CORPSE, 1842204, 10551525, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>SKELETAL_FREAK_SPAWN_EGG = new SpawnEggItem(LirothEntities.SKELETAL_FREAK, 1513239, 16711900, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>WARP_SPAWN_EGG = new SpawnEggItem(LirothEntities.WARP, 524305, 4260003, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>SOUL_ARACHNID_SPAWN_EGG = new SpawnEggItem(LirothEntities.SOUL_ARACHNID, 73758, 5078138, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>PIER_PEEP_SPAWN_EGG = new SpawnEggItem(LirothEntities.PIER_PEEP, 1638400, 11665663, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>SHADE_SPAWN_EGG = new SpawnEggItem(LirothEntities.SHADE, 328965, 1579032, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>PROWLER_SPAWN_EGG = new SpawnEggItem(LirothEntities.PROWLER, 16312063, 4260003, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>FREAKSHOW_SPAWN_EGG = new SpawnEggItem(LirothEntities.FREAKSHOW, 524305, 1579032, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>VILE_SHARK_SPAWN_EGG = new SpawnEggItem(LirothEntities.VILE_SHARK, 5963996, 7667865, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-    public static final RegistryObject<Item>LIROTHIAN_MIMIC_SPAWN_EGG = new SpawnEggItem(LirothEntities.LIROTHIAN_MIMIC, 41655, 10551525, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
-*/
+    
+//    public static final RegistryObject<SpawnEggItem> FUNGAL_FIEND_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.FUNGAL_FIEND, 1315860, 2031360, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> FUNGAL_FIEND_SPAWN_EGG = ITEMS.register("fungal_fiend_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.FUNGAL_FIEND, 1315860, 2031360, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>FORSAKEN_CORPSE_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.FORSAKEN_CORPSE, 1842204, 10551525, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> FORSAKEN_CORPSE_SPAWN_EGG = ITEMS.register("forsaken_corpse_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.FORSAKEN_CORPSE, 1842204, 10551525, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>SKELETAL_FREAK_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.SKELETAL_FREAK, 1513239, 16711900, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> SKELETAL_FREAK_SPAWN_EGG = ITEMS.register("skeletal_freak_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.SKELETAL_FREAK, 1513239, 16711900, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>WARP_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.WARP, 524305, 4260003, new Item.Properties().tab(Liroth.liroth_entities_tab));
+    public static final RegistryObject<Item> WARP_SPAWN_EGG = ITEMS.register("warp_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.WARP, 524305, 4260003, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>SOUL_ARACHNID_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.SOUL_ARACHNID, 73758, 5078138, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> SOUL_ARACHNID_SPAWN_EGG = ITEMS.register("soul_arachnid_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.SOUL_ARACHNID, 73758, 5078138, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>PIER_PEEP_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.PIER_PEEP, 1638400, 11665663, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> PIER_PEEP_SPAWN_EGG = ITEMS.register("pier_peep_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.PIER_PEEP, 1638400, 11665663, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>SHADE_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.SHADE, 328965, 1579032, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> SHADE_SPAWN_EGG = ITEMS.register("shade_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.SHADE, 328965, 1579032, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>PROWLER_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.PROWLER, 16312063, 4260003, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> PROWLER_SPAWN_EGG = ITEMS.register("prowler_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.PROWLER, 16312063, 4260003, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>FREAKSHOW_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.FREAKSHOW, 524305, 1579032, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> FREAKSHOW_SPAWN_EGG = ITEMS.register("freakshow_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.FREAKSHOW, 524305, 1579032, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>VILE_SHARK_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.VILE_SHARK, 5963996, 7667865, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> VILE_SHARK_SPAWN_EGG = ITEMS.register("vile_shark_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.VILE_SHARK, 5963996, 7667865, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+//    public static final RegistryObject<SpawnEggItem>LIROTHIAN_MIMIC_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.LIROTHIAN_MIMIC, 41655, 10551525, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
+    public static final RegistryObject<Item> LIROTHIAN_MIMIC_SPAWN_EGG = ITEMS.register("lirothian_mimic_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.LIROTHIAN_MIMIC, 41655, 10551525, new Item.Properties().tab(Liroth.liroth_entities_tab)));
 
  /*   private static RegistryObject<Item>createArmorItem(ArmorItem armorItem, String id) {
       return armorItem;
@@ -239,6 +253,16 @@ public class LirothItems {
 	
     static RegistryObject<Item> createItem(String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new Item(new Item.Properties().tab(Liroth.liroth_items_tab)));
+        return createItem;    
+    }
+    
+    static RegistryObject<Item> createSpawnEggItem(RegistryObject<EntityType<? extends Mob>> entity, int color1, int color2, String id) {
+		RegistryObject<Item> createItem = ITEMS.register(id, () -> new ForgeSpawnEggItem(entity, color1, color2, new Item.Properties().tab(Liroth.liroth_entities_tab)));
+        return createItem;    
+    }
+    
+    static RegistryObject<Item> createBeamItem(String id) {
+		RegistryObject<Item> createItem = ITEMS.register(id, () -> new BeamItem(new Item.Properties().tab(Liroth.liroth_items_tab)));
         return createItem;    
     }
     

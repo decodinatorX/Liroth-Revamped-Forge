@@ -435,7 +435,7 @@ public class LirothBlocks {
     
     static RegistryObject<Block> createPetrifiedPlant(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.STONE)));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
         return createBlock;
 
@@ -444,7 +444,7 @@ public class LirothBlocks {
     
     static RegistryObject<Block> createPetrifiedFlower(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.STONE)));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
         return createBlock;
 
@@ -454,7 +454,7 @@ public class LirothBlocks {
     
     public  static RegistryObject<Block> createFungalGrass(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new GrassBlock(Block.Properties.copy(Blocks.CRIMSON_ROOTS).noCollission()));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
         return createBlock;
 
@@ -650,7 +650,7 @@ public class LirothBlocks {
     
     static RegistryObject<Block> createFungusClusterPlant(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TallFlowerBlock(Block.Properties.copy(Blocks.CRIMSON_FUNGUS).noCollission()));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
         return createBlock;
 
@@ -999,7 +999,7 @@ public class LirothBlocks {
 
     static RegistryObject<Block> createFlower(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new FlowerBlock(MobEffects.CONFUSION, 0, Block.Properties.copy(Blocks.POPPY)));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
         return createBlock;
 
@@ -1007,7 +1007,7 @@ public class LirothBlocks {
 
     static RegistryObject<Block> createTallFlower(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TallFlowerBlock(Block.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion()));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
         return createBlock;
 
@@ -1018,7 +1018,7 @@ public class LirothBlocks {
 
     static RegistryObject<Block> createPottedBlock(Block blockForPot, String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new FlowerPotBlock(blockForPot, Block.Properties.of(Material.WOOD).instabreak().noOcclusion()));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
         return createBlock;
 
@@ -1061,7 +1061,7 @@ public class LirothBlocks {
 
     static RegistryObject<Block> createPetal(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2f).noOcclusion()));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
 
         return createBlock;
@@ -1207,13 +1207,18 @@ public class LirothBlocks {
     
     public  static RegistryObject<Block> createGrass(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new GrassBlock(Block.Properties.copy(Blocks.GRASS)));
-        createBlockItems(id, createBlock);
+        createPlantBlockItems(id, createBlock);
 
         return createBlock;
     }
     
     public static RegistryObject<Item> createBlockItems(String id, RegistryObject<Block> block) {
     	RegistryObject<Item> createItem = ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab)));
+		return createItem;
+    }
+    
+    public static RegistryObject<Item> createPlantBlockItems(String id, RegistryObject<Block> block) {
+    	RegistryObject<Item> createItem = ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_plants_tab)));
 		return createItem;
     }
     
