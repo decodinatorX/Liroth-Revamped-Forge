@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.MossBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -35,6 +36,7 @@ import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WoodButtonBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -319,6 +321,9 @@ public class LirothBlocks {
 //    public static final RegistryObject<Block> WALL_LIROTHIAN_PETROLEUM_TORCH = createWallPetroleumTorch("wall_lirothian_petroleum_torch");
     public static final RegistryObject<Block> WILITING_LIROTH_ROSE = createFlower("wilting_liroth_rose");
 
+    
+	public static final RegistryObject<LiquidBlock> LIROTH_FLUID_BLOCK = BLOCKS.register("liroth_fluid", () -> new LiquidBlock(LirothFluids.LIROTH_FLUID, BlockBehaviour.Properties.copy(Blocks.WATER)));
+	public static final RegistryObject<LiquidBlock> MOLTEN_SPINERIOS_BLOCK = BLOCKS.register("molten_spinerios", () -> new LiquidBlock(LirothFluids.MOLTEN_SPINERIOS, BlockBehaviour.Properties.copy(Blocks.WATER)));
     
     // RegistryObject<Block> With RegistryObject<Block> Entities
 //    public static final RegistryObject<Block> JALSPHIRE_COMPACTOR = createJalsphireCompactor("jalsphire_compactor");

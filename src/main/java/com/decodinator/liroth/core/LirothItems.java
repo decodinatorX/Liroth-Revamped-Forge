@@ -11,6 +11,7 @@ import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.HorseArmorItem;
 import net.minecraft.world.item.Item;
@@ -223,6 +224,9 @@ public class LirothItems {
 //    public static final RegistryObject<SpawnEggItem>LIROTHIAN_MIMIC_SPAWN_EGG = new RegistryObject<SpawnEggItem>(LirothEntities.LIROTHIAN_MIMIC, 41655, 10551525, new Item.Properties().group(LirothCreativeTab.creativeEntitiesTab));
     public static final RegistryObject<Item> LIROTHIAN_MIMIC_SPAWN_EGG = ITEMS.register("lirothian_mimic_spawn_egg", () -> new ForgeSpawnEggItem(LirothEntities.LIROTHIAN_MIMIC, 41655, 10551525, new Item.Properties().tab(Liroth.liroth_entities_tab)));
 
+	public static final RegistryObject<Item> LIROTH_FLUID_BUCKET = ITEMS.register("liroth_fluid_bucket", () -> new BucketItem(LirothFluids.LIROTH_FLUID, new Item.Properties().tab(Liroth.liroth_items_tab)));
+	public static final RegistryObject<Item> MOLTEN_SPINERIOS_BUCKET = ITEMS.register("molten_spinerios_bucket", () -> new BucketItem(LirothFluids.MOLTEN_SPINERIOS, new Item.Properties().tab(Liroth.liroth_items_tab)));
+    
  /*   private static RegistryObject<Item>createArmorItem(ArmorItem armorItem, String id) {
       return armorItem;
 	}

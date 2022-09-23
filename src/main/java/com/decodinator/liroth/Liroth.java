@@ -5,6 +5,8 @@ import com.decodinator.liroth.core.LirothBoat;
 import com.decodinator.liroth.core.LirothBoatModel;
 import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothEntityRenderers;
+import com.decodinator.liroth.core.LirothFluidTypes;
+import com.decodinator.liroth.core.LirothFluids;
 import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.LirothModelLayers;
@@ -41,6 +43,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.core.Holder;
@@ -53,6 +57,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -61,6 +66,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -87,6 +93,9 @@ public class Liroth
     public static final String MOD_ID = "liroth";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
+    
+	public static final ForgeFlowingFluid.Properties LIROTH_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.LIROTH_FLUID_TYPE, LirothFluids.LIROTH_FLUID, LirothFluids.FLOWING_LIROTH_FLUID).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.LIROTH_FLUID_BLOCK).bucket(LirothItems.LIROTH_FLUID_BUCKET);
+	public static final ForgeFlowingFluid.Properties MOLTEN_SPINERIOS_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.MOLTEN_SPINERIOS_TYPE, LirothFluids.MOLTEN_SPINERIOS, LirothFluids.FLOWING_MOLTEN_SPINERIOS).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.MOLTEN_SPINERIOS_BLOCK).bucket(LirothItems.MOLTEN_SPINERIOS_BUCKET);
     
 	public static CreativeModeTab liroth_blocks_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_blocks") {
 		@Override
@@ -137,6 +146,8 @@ public class Liroth
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);
 		LirothSounds.SOUND_EVENTS.register(modEventBus);
+		LirothFluidTypes.FLUID_TYPES.register(modEventBus);
+		LirothFluids.FLUIDS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
@@ -167,6 +178,8 @@ public class Liroth
         {
     		LirothRenders.renderCutOuts();
             Liroth.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition); 
+            ItemBlockRenderTypes.setRenderLayer(LirothFluids.LIROTH_FLUID.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(LirothFluids.FLOWING_LIROTH_FLUID.get(), RenderType.translucent());
 //            Some client setup code
 //            LOGGER.info("HELLO FROM CLIENT SETUP");
 //            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
