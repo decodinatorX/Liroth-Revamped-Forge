@@ -17,10 +17,12 @@ import com.decodinator.liroth.core.blocks.KoolawChestBlock;
 import com.decodinator.liroth.core.blocks.KoolawCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.LirothChestBlock;
 import com.decodinator.liroth.core.blocks.LirothCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.LirothFurnace;
 import com.decodinator.liroth.core.blocks.PetrifiedDamnationChestBlock;
 import com.decodinator.liroth.core.blocks.PetrifiedDamnationCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.SpicedChestBlock;
 import com.decodinator.liroth.core.blocks.SpicedCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.SpineriosFurnace;
 import com.decodinator.liroth.core.blocks.TallpierChestBlock;
 import com.decodinator.liroth.core.blocks.TallpierCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.entities.LirothChestBlockEntity;
@@ -47,6 +49,7 @@ import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.GrassBlock;
+import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -144,7 +147,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> DIMENSIONAL_COMMUNICATOR_OFF = createMetalBlock("dimensional_communicator_off");
     public static final RegistryObject<Block> DIMENSIONAL_COMMUNICATOR_ON = createMetalBlock("dimensional_communicator_on");
     public static final RegistryObject<Block> END_LIROTH_GEM_ORE = createOre("end_liroth_gem_ore");
-//    public static final RegistryObject<Block> FORCEFIELD = createForcefieldPane("forcefield");
+    public static final RegistryObject<Block> FORCEFIELD = createForcefieldPaneBlock("forcefield");
 //    public static final RegistryObject<Block> FUNGAL_CAMPFIRE = createCampfire("fungal_campfire");
     public static final RegistryObject<Block> FUNGAL_LANTERN = createLantern("fungal_lantern");
 //    public static final RegistryObject<Block> FUNGAL_TORCH = createTorch("fungal_torch");
@@ -196,10 +199,10 @@ public class LirothBlocks {
     public static final RegistryObject<Block> LIROTH_CRAFTING_TABLE = createLirothCraftingTable("liroth_crafting_table");
     public static final RegistryObject<Block> LIROTH_DIRT = createDirt("liroth_dirt");
 //    public static final RegistryObject<Block> LIROTH_END_STONE = createStone("liroth_end_stone");
-//    public static final RegistryObject<Block> LIROTH_FURNACE = createFurnace("liroth_furnace");
+    public static final RegistryObject<Block> LIROTH_FURNACE = createLirothFurnace("liroth_furnace");
     public static final RegistryObject<Block> LIROTH_GEM_BLOCK = createPillarMetalBlock("liroth_gem_block");
     public static final RegistryObject<Block> LIROTH_GLASS_BLOCK = createGlassBlock("liroth_glass_block");
-    public static final RegistryObject<Block> LIROTH_GRASS = createGrass("liroth_grass");
+//    public static final RegistryObject<Block> LIROTH_GRASS = createGrass("liroth_grass");
 //    public static final RegistryObject<Block> LIROTH_GRASS_BLOCK = createLirothGrassBlock("liroth_grass_block");
 //    public static final RegistryObject<Block> LIROTH_FARMLAND_BLOCK = createLirothFarmlandBlock("liroth_farmland");
 //    public static final RegistryObject<Block> LIROTH_PATH_BLOCK = createLirothPathBlock("liroth_grass_path");
@@ -299,7 +302,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> SPINERIOS_DIAMOND_ORE = createDirtOre("spinerios_diamond_ore");
     public static final RegistryObject<Block> SPINERIOS_DIRT = createDirt("spinerios_dirt");
     public static final RegistryObject<Block> SPINERIOS_EMERALD_ORE = createDirtOre("spinerios_emerald_ore");
-//    public static final RegistryObject<Block> SPINERIOS_FURNACE = createFurnace("spinerios_furnace");
+    public static final RegistryObject<Block> SPINERIOS_FURNACE = createSpineriosFurnace("spinerios_furnace");
     public static final RegistryObject<Block> SPINERIOS_GOLD_ORE = createDirtOre("spinerios_gold_ore");
 //    public static final RegistryObject<Block> SPINERIOS_GRASS_BLOCK = createSpineriosGrassBlock("spinerios_grass_block");
 //    public static final RegistryObject<Block> SPINERIOS_FARMLAND_BLOCK = createSpineriosFarmlandBlock("spinerios_farmland");
@@ -406,6 +409,24 @@ public class LirothBlocks {
    
     static RegistryObject<Block> createStone(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.STONE)));
+        createBlockItems(id, createBlock);
+
+        return createBlock;
+
+
+    }
+    
+    static RegistryObject<Block> createLirothFurnace(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothFurnace(Block.Properties.copy(Blocks.FURNACE)));
+        createBlockItems(id, createBlock);
+
+        return createBlock;
+
+
+    }
+    
+    static RegistryObject<Block> createSpineriosFurnace(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new SpineriosFurnace(Block.Properties.copy(Blocks.FURNACE)));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -860,7 +881,17 @@ public class LirothBlocks {
     }*/
     
     static RegistryObject<Block> createAnomalyBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.BEDROCK).noOcclusion().sound(SoundType.METAL)));
+        createBlockItems(id, createBlock);
+
+        return createBlock;
+
+
+
+    }
+    
+    static RegistryObject<Block> createForcefieldPaneBlock(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new IronBarsBlock(Block.Properties.copy(Blocks.BEDROCK).noOcclusion().sound(SoundType.GLASS)));
         createBlockItems(id, createBlock);
 
         return createBlock;

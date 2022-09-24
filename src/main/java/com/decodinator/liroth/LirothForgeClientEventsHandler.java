@@ -4,6 +4,7 @@ import com.decodinator.liroth.core.LirothBlockEntities;
 import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothEntityRenderers;
 import com.decodinator.liroth.core.LirothModelLayers;
+import com.decodinator.liroth.core.LirothParticles;
 import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.entities.renderers.BeamLaserProjectileEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseEntityRenderer;
@@ -28,6 +29,8 @@ import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
+import com.decodinator.liroth.core.particles.GreenFlameParticle;
+import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
 
 import net.minecraft.client.Minecraft;
@@ -84,5 +87,11 @@ public class LirothForgeClientEventsHandler {
     	event.registerBlockEntityRenderer(LirothBlockEntities.PETRIFIED_DAMNATION_CHEST.get(), LirothChestBlockEntityRenderer::new);
     	event.registerBlockEntityRenderer(LirothBlockEntities.SPICED_CHEST.get(), LirothChestBlockEntityRenderer::new);
     	event.registerBlockEntityRenderer(LirothBlockEntities.TALLPIER_CHEST.get(), LirothChestBlockEntityRenderer::new);
+    }
+    
+    @SubscribeEvent
+    public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.PURPLE_FLAME.get(), PurpleFlameParticle.Provider::new);
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.GREEN_FLAME.get(), GreenFlameParticle.Provider::new);
     }
 }

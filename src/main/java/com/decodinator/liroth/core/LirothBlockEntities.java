@@ -2,9 +2,11 @@ package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
 import com.decodinator.liroth.core.blocks.entities.DamnationChestBlockEntity;
+import com.decodinator.liroth.core.blocks.entities.DamnationFurnaceBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.JapzChestBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.KoolawChestBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.LirothChestBlockEntity;
+import com.decodinator.liroth.core.blocks.entities.LirothFurnaceBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.PetrifiedDamnationChestBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.SpicedChestBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.TallpierChestBlockEntity;
@@ -28,5 +30,8 @@ public class LirothBlockEntities {
 	public static final RegistryObject<BlockEntityType<JapzChestBlockEntity>> JAPZ_CHEST = BLOCK_ENTITIES.register("japz_chest", () -> BlockEntityType.Builder.of(JapzChestBlockEntity::new, LirothBlocks.JAPZ_CHEST.get()).build(null));
 	public static final RegistryObject<BlockEntityType<KoolawChestBlockEntity>> KOOLAW_CHEST = BLOCK_ENTITIES.register("koolaw_chest", () -> BlockEntityType.Builder.of(KoolawChestBlockEntity::new, LirothBlocks.KOOLAW_CHEST.get()).build(null));
 	public static final RegistryObject<BlockEntityType<PetrifiedDamnationChestBlockEntity>> PETRIFIED_DAMNATION_CHEST = BLOCK_ENTITIES.register("petrified_damnation_chest", () -> BlockEntityType.Builder.of(PetrifiedDamnationChestBlockEntity::new, LirothBlocks.PETRIFIED_DAMNATION_CHEST.get()).build(null));
+
+	public static final RegistryObject<BlockEntityType<LirothFurnaceBlockEntity>> LIROTH_FURNACE = BLOCK_ENTITIES.register("liroth_furnace", () -> BlockEntityType.Builder.of(LirothFurnaceBlockEntity::new, LirothBlocks.LIROTH_FURNACE.get()).build(null));
+	public static final RegistryObject<BlockEntityType<DamnationFurnaceBlockEntity>> DAMNATION_FURNACE = BLOCK_ENTITIES.register("damnation_furnace", () -> BlockEntityType.Builder.of(DamnationFurnaceBlockEntity::new, LirothBlocks.SPINERIOS_FURNACE.get()).build(null));
 
 }

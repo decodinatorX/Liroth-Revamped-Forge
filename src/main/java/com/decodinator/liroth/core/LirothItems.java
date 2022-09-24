@@ -230,34 +230,6 @@ public class LirothItems {
 
 	public static final RegistryObject<Item> LIROTH_FLUID_BUCKET = ITEMS.register("liroth_fluid_bucket", () -> new BucketItem(LirothFluids.LIROTH_FLUID, new Item.Properties().tab(Liroth.liroth_items_tab)));
 	public static final RegistryObject<Item> MOLTEN_SPINERIOS_BUCKET = ITEMS.register("molten_spinerios_bucket", () -> new BucketItem(LirothFluids.MOLTEN_SPINERIOS, new Item.Properties().tab(Liroth.liroth_items_tab)));
-    
- /*   private static RegistryObject<Item>createArmorItem(ArmorItem armorItem, String id) {
-      return armorItem;
-	}
-    
-    private static RegistryObject<Item>createAnsalumShieldItem(AnsalumLirothShield shieldItem, String id) {
-      return shieldItem;
-	}
-    
-    private static RegistryObject<Item>createLuxShieldItem(LuxLirothShield shieldItem, String id) {
-      return shieldItem;
-	}
-    
-    private static RegistryObject<Item>createSalemShieldItem(SalemLirothShield shieldItem, String id) {
-      return shieldItem;
-	}
-    
-    private static RegistryObject<Item>createQuantumShieldItem(QuantumLirothShield shieldItem, String id) {
-      return shieldItem;
-	}
-    
-    private static RegistryObject<Item>createToolItem(ToolItem toolItem, String id) {
-      return toolItem;
-	}
-    
-    private static RegistryObject<Item>createRangedItem(LirothBlaster blasterItem, String id) {
-      return blasterItem;
-	}*/
 	
     static RegistryObject<Item> createItem(String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new Item(new Item.Properties().tab(Liroth.liroth_items_tab)));

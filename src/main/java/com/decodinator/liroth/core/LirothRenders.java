@@ -46,7 +46,7 @@ public class LirothRenders {
 //        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.VILE_TENTACLE.get(), RenderType.cutout());
 //        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.VILE_TENTACLE_TIP.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_FUNGAL_CLUSTER.get(), RenderType.cutout());
-//        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_FUNGUS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_FUNGUS.get(), RenderType.cutout());
 //        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.SEA_EYE.get(), RenderType.cutout());
         
 //        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.CORRUPTED_BREWING_STAND.get(), RenderType.cutout());
