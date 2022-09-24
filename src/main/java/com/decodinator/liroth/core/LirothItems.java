@@ -2,6 +2,7 @@ package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
 import com.decodinator.liroth.core.items.BeamItem;
+import com.decodinator.liroth.core.items.KeyItem;
 import com.decodinator.liroth.core.items.LirothBlaster;
 import com.decodinator.liroth.core.items.LirothBoatItem;
 import com.decodinator.liroth.core.items.PotestiumHelmetItem;
@@ -99,7 +100,7 @@ public class LirothItems {
     public static final RegistryObject<Item>LIROTH_GEM_LUX = createItem("liroth_gem_lux");
 
     // HMMMMMMMMMMM
-//    public static final RegistryObject<Item>LIROTHIAN_DUNGEON_KEY = createItem(new KeyItem(new Item.Properties().tab(Liroth.liroth_items_tab).maxDamage(1)), "lirothian_dungeon_key");
+    public static final RegistryObject<Item>LIROTHIAN_DUNGEON_KEY = createKeyItem("lirothian_dungeon_key");
     
     public static final RegistryObject<Item>LIROTH_GEM_SALEM = createItem("liroth_gem_salem");
     
@@ -233,6 +234,11 @@ public class LirothItems {
 	
     static RegistryObject<Item> createItem(String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new Item(new Item.Properties().tab(Liroth.liroth_items_tab)));
+        return createItem;    
+    }
+    
+    static RegistryObject<Item> createKeyItem(String id) {
+		RegistryObject<Item> createItem = ITEMS.register(id, () -> new KeyItem(new Item.Properties().tab(Liroth.liroth_items_tab)));
         return createItem;    
     }
     

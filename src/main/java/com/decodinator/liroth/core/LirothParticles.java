@@ -16,4 +16,6 @@ public class LirothParticles {
 
 	public static final RegistryObject<SimpleParticleType> PURPLE_FLAME = PARTICLES.register("purple_flame", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> GREEN_FLAME = PARTICLES.register("green_flame", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> CLOAK = PARTICLES.register("cloak", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> SPORE = PARTICLES.register("green_spore", () -> new SimpleParticleType(true));
 }

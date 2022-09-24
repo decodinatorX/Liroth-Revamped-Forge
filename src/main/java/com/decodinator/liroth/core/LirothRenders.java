@@ -85,6 +85,7 @@ public class LirothRenders {
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_FLUID, RenderLayer.getTranslucent());*/
         
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_GLASS_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FORCEFIELD.get(), RenderType.translucent());
 //        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FORCEFIELD, RenderLayer.getTranslucent());
         
         Liroth.LOGGER.debug("Liroth: Texture Shits Rendered!");

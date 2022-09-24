@@ -29,8 +29,10 @@ import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
+import com.decodinator.liroth.core.particles.CloakParticle;
 import com.decodinator.liroth.core.particles.GreenFlameParticle;
 import com.decodinator.liroth.core.particles.PurpleFlameParticle;
+import com.decodinator.liroth.core.particles.SporeParticle;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
 
 import net.minecraft.client.Minecraft;
@@ -93,5 +95,7 @@ public class LirothForgeClientEventsHandler {
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
     	Minecraft.getInstance().particleEngine.register(LirothParticles.PURPLE_FLAME.get(), PurpleFlameParticle.Provider::new);
     	Minecraft.getInstance().particleEngine.register(LirothParticles.GREEN_FLAME.get(), GreenFlameParticle.Provider::new);
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.CLOAK.get(), CloakParticle.Provider::new);
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.SPORE.get(), SporeParticle.Provider::new);
     }
 }
