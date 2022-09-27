@@ -145,12 +145,12 @@ public class Liroth
         // Register the Deferred Register to the mod event bus so blocks get registered
 		LirothEntities.ENTITIES_TYPES.register(modEventBus);
 		LirothBlocks.BLOCKS.register(modEventBus);
+		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);
 		LirothSounds.SOUND_EVENTS.register(modEventBus);
 		LirothFluidTypes.FLUID_TYPES.register(modEventBus);
 		LirothFluids.FLUIDS.register(modEventBus);
-		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		LirothParticles.PARTICLES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
