@@ -54,9 +54,9 @@ public class LirothRenders {
 /*        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FUNGAL_TORCH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.WALL_FUNGAL_TORCH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTHIAN_PETROLEUM_TORCH.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.WALL_LIROTHIAN_PETROLEUM_TORCH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.WALL_LIROTHIAN_PETROLEUM_TORCH.get(), RenderType.cutout());*/
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FUNGAL_CAMPFIRE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTHIAN_PETROLEUM_CAMPFIRE.get(), RenderType.cutout());*/
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTHIAN_PETROLEUM_CAMPFIRE.get(), RenderType.cutout());
         
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_TRAPDOOR.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JAPZ_TRAPDOOR.get(), RenderType.cutoutMipped());
@@ -86,7 +86,6 @@ public class LirothRenders {
         
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_GLASS_BLOCK.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FORCEFIELD.get(), RenderType.translucent());
-//        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FORCEFIELD, RenderLayer.getTranslucent());
         
         Liroth.LOGGER.debug("Liroth: Texture Shits Rendered!");
 

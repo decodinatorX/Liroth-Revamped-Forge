@@ -5,6 +5,8 @@ import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothEntityRenderers;
 import com.decodinator.liroth.core.LirothModelLayers;
 import com.decodinator.liroth.core.LirothParticles;
+import com.decodinator.liroth.core.blocks.FungalCampfireRenderer;
+import com.decodinator.liroth.core.blocks.LirothianPetroleumCampfireRenderer;
 import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.entities.renderers.BeamLaserProjectileEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseEntityRenderer;
@@ -89,6 +91,8 @@ public class LirothForgeClientEventsHandler {
     	event.registerBlockEntityRenderer(LirothBlockEntities.PETRIFIED_DAMNATION_CHEST.get(), LirothChestBlockEntityRenderer::new);
     	event.registerBlockEntityRenderer(LirothBlockEntities.SPICED_CHEST.get(), LirothChestBlockEntityRenderer::new);
     	event.registerBlockEntityRenderer(LirothBlockEntities.TALLPIER_CHEST.get(), LirothChestBlockEntityRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.FUNGAL_CAMPFIRE.get(), FungalCampfireRenderer::new);
+    	event.registerBlockEntityRenderer(LirothBlockEntities.LIROTHIAN_PETROLEUM_CAMPFIRE.get(), LirothianPetroleumCampfireRenderer::new);
     }
     
     @SubscribeEvent

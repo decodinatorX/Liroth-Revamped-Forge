@@ -143,6 +143,7 @@ public class Liroth
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         // Register the Deferred Register to the mod event bus so blocks get registered
+		LirothParticles.PARTICLES.register(modEventBus);
 		LirothEntities.ENTITIES_TYPES.register(modEventBus);
 		LirothBlocks.BLOCKS.register(modEventBus);
 		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
@@ -151,7 +152,6 @@ public class Liroth
 		LirothSounds.SOUND_EVENTS.register(modEventBus);
 		LirothFluidTypes.FLUID_TYPES.register(modEventBus);
 		LirothFluids.FLUIDS.register(modEventBus);
-		LirothParticles.PARTICLES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
