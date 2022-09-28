@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:dirt",
+    "minecraft:grass_block",
+    "minecraft:podzol",
+    "minecraft:coarse_dirt",
+    "minecraft:mycelium",
+    "minecraft:rooted_dirt",
+    "minecraft:moss_block",
+    "liroth:liroth_dirt",
+	"liroth:liroth_farmland",
+    "liroth:liroth_grass_block",
+    "liroth:spinerios_dirt",
+    "liroth:spinerios_grass_block",
+    "liroth:liroth_soul_sand",
+    "liroth:pier_dirt",
+    "liroth:pier_grass_block",
+    "liroth:damnation_soil",
+    "liroth:soulless_soil"
+    ]
+}

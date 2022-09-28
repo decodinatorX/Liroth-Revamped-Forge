@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "liroth:liroth_leaves",
+    "liroth:spiced_leaves",
+    "liroth:tallpier_leaves",
+    "liroth:damnation_leaves",
+    "liroth:japz_leaves",
+    "liroth:koolaw_leaves"
+  ]
+}

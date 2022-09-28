@@ -16,14 +16,21 @@ import net.minecraftforge.registries.RegistryObject;
 public class LirothRenders {
     public static void renderCutOuts() {
         Liroth.LOGGER.debug("Liroth: Rendering Texture Shits...");        
-/*        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JAPZ_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.KOOLAW_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.PETRIFIED_DAMNATION_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.SPICED_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.TALLPIER_SAPLING.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_GRASS.get(), RenderType.cutout());*/
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_SAPLING_POT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JAPZ_SAPLING_POT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.KOOLAW_SAPLING_POT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_SAPLING_POT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.PETRIFIED_DAMNATION_SAPLING_POT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.SPICED_SAPLING_POT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.TALLPIER_SAPLING_POT.get(), RenderType.cutout());
+//        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_GRASS.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.POINTED_JALSPHIRE_CRYSTAL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.POINTED_PETRIFIED_CRYSTAL.get(), RenderType.cutout());

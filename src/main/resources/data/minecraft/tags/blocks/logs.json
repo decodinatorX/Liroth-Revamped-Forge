@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    "liroth:liroth_log",
+    "liroth:spiced_log",
+    "liroth:tallpier_log",
+    "liroth:damnation_log",
+    "liroth:petrified_damnation_log",
+    "liroth:japz_log",
+    "liroth:koolaw_log",
+    "liroth:liroth_wood",
+    "liroth:spiced_wood",
+    "liroth:tallpier_wood",
+    "liroth:damnation_wood",
+    "liroth:petrified_damnation_wood",
+    "liroth:japz_wood",
+    "liroth:koolaw_wood",
+    "liroth:stripped_liroth_log",
+    "liroth:stripped_spiced_log",
+    "liroth:stripped_tallpier_log",
+    "liroth:stripped_damnation_log",
+    "liroth:stripped_petrified_damnation_log",
+    "liroth:stripped_japz_log",
+    "liroth:stripped_koolaw_log",
+    "liroth:stripped_liroth_wood",
+    "liroth:stripped_spiced_wood",
+    "liroth:stripped_tallpier_wood",
+    "liroth:stripped_damnation_wood",
+    "liroth:stripped_petrified_damnation_wood",
+    "liroth:stripped_japz_wood",
+    "liroth:stripped_koolaw_wood"
+  ]
+}

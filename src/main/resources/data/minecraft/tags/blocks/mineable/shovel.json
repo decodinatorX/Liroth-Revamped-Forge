@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+	"liroth:blue_sand",
+    "liroth:damnation_soil",
+	"liroth:jalsphire_ore",
+    "liroth:liroth_dirt",
+    "liroth:liroth_grass_block",
+    "liroth:liroth_soul_sand",
+    "liroth:pier_dirt",
+	"liroth:pier_grass_block",
+	"liroth:ruby_ore",
+	"liroth:quantum_diamond_ore",
+	"liroth:soulless_soil",
+	"liroth:spinerios_coal_ore",
+	"liroth:spinerios_copper_ore",
+	"liroth:spinerios_diamond_ore",
+    "liroth:spinerios_dirt",
+	"liroth:spinerios_emerald_ore",
+	"liroth:spinerios_gold_ore",
+    "liroth:spinerios_grass_block",
+	"liroth:spinerios_iron_ore",
+	"liroth:spinerios_lapis_ore",
+	"liroth:spinerios_liroth_ore",
+	"liroth:spinerios_quartz_ore",
+	"liroth:spinerios_redstone_ore",
+	"liroth:spinerios_stone_ore",
+	"liroth:spinerios_tourmaline_ore"
+    ]
+}

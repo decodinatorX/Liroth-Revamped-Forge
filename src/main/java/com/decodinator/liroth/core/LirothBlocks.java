@@ -57,6 +57,13 @@ import com.decodinator.liroth.core.blocks.TallpierCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.VileTentacleBlock;
 import com.decodinator.liroth.core.blocks.VileTentacleTipBlock;
 import com.decodinator.liroth.core.blocks.entities.LirothChestBlockEntity;
+import com.decodinator.liroth.core.features.trees.DamnationTreeGrower;
+import com.decodinator.liroth.core.features.trees.JapzTreeGrower;
+import com.decodinator.liroth.core.features.trees.KoolawTreeGrower;
+import com.decodinator.liroth.core.features.trees.LirothTreeGrower;
+import com.decodinator.liroth.core.features.trees.PetrifiedTreeGrower;
+import com.decodinator.liroth.core.features.trees.PierTreeGrower;
+import com.decodinator.liroth.core.features.trees.SpicedTreeGrower;
 import com.decodinator.liroth.core.helpers.ChestManager;
 import com.decodinator.liroth.core.items.BEWLRBlockItem;
 import com.decodinator.liroth.core.items.BEWLRFuelBlockItem;
@@ -410,22 +417,22 @@ public class LirothBlocks {
     public static final RegistryObject<Block> QUANTUM_EXTRACTOR = createQuantumExtractor("quantum_extractor");
     
     // Saplings
-/*    public static final RegistryObject<Block> LIROTH_SAPLING = createLirothSapling("liroth_sapling");
+    public static final RegistryObject<Block> LIROTH_SAPLING = createLirothSapling("liroth_sapling");
     public static final RegistryObject<Block> SPICED_SAPLING = createSpicedSapling("spiced_sapling");
     public static final RegistryObject<Block> TALLPIER_SAPLING = createTallpierSapling("tallpier_sapling");
     public static final RegistryObject<Block> DAMNATION_SAPLING = createDamnationSapling("damnation_sapling");
     public static final RegistryObject<Block> JAPZ_SAPLING = createJapzSapling("japz_sapling");
     public static final RegistryObject<Block> KOOLAW_SAPLING = createKoolawSapling("koolaw_sapling");
-    public static final RegistryObject<Block> PETRIFIED_DAMNATION_SAPLING = createPetrifiedSapling("petrified_damnation_sapling");*/
+    public static final RegistryObject<Block> PETRIFIED_DAMNATION_SAPLING = createPetrifiedSapling("petrified_damnation_sapling");
 
     // Potted Plants
-/*    public static final RegistryObject<Block> LIROTH_SAPLING_POT = createPottedBlock(LIROTH_SAPLING, "liroth_sapling");
+    public static final RegistryObject<Block> LIROTH_SAPLING_POT = createPottedBlock(LIROTH_SAPLING, "liroth_sapling");
     public static final RegistryObject<Block> SPICED_SAPLING_POT = createPottedBlock(SPICED_SAPLING, "spiced_sapling");
     public static final RegistryObject<Block> TALLPIER_SAPLING_POT = createPottedBlock(TALLPIER_SAPLING, "tallpier_sapling");
     public static final RegistryObject<Block> DAMNATION_SAPLING_POT = createPottedBlock(DAMNATION_SAPLING, "damnation_sapling");
     public static final RegistryObject<Block> JAPZ_SAPLING_POT = createPottedBlock(JAPZ_SAPLING, "japz_sapling");
     public static final RegistryObject<Block> KOOLAW_SAPLING_POT = createPottedBlock(KOOLAW_SAPLING, "koolaw_sapling");
-    public static final RegistryObject<Block> PETRIFIED_DAMNATION_SAPLING_POT = createPottedBlock(PETRIFIED_DAMNATION_SAPLING, "petrified_damnation_sapling");*/
+    public static final RegistryObject<Block> PETRIFIED_DAMNATION_SAPLING_POT = createPottedBlock(PETRIFIED_DAMNATION_SAPLING, "petrified_damnation_sapling");
         
     // BlockStates
 	   public static final class States {
@@ -1352,10 +1359,8 @@ public class LirothBlocks {
 
     }
 
-    static RegistryObject<Block> createPottedBlock(Block blockForPot, String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new FlowerPotBlock(blockForPot, Block.Properties.of(Material.WOOD).instabreak().noOcclusion()));
-        createPlantBlockItems(id, createBlock);
-
+    static RegistryObject<Block> createPottedBlock(RegistryObject<Block> blockForPot, String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register("potted_" + id, () -> new FlowerPotBlock(blockForPot.get(), Block.Properties.of(Material.WOOD).instabreak().noOcclusion()));
         return createBlock;
 
     }
@@ -1558,47 +1563,61 @@ public class LirothBlocks {
 		return createItem;
     }
     
-/*    public static RegistryObject<Block> createLirothSapling(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new LirothTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().breakInstantly().sound(SoundType.GRASS)));
-        createBlock(createBlock, id);
+    public static RegistryObject<Block> createLirothSapling(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new LirothTreeGrower(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        createPlantBlockItems(id, createBlock);
+
+        return createBlock;
 
     }
     
     public static RegistryObject<Block> createSpicedSapling(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new SpicedTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().breakInstantly().sound(SoundType.GRASS)));
-        createBlock(createBlock, id);
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new SpicedTreeGrower(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        createPlantBlockItems(id, createBlock);
+
+        return createBlock;
 
     }
     
     public static RegistryObject<Block> createTallpierSapling(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new TallpierTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().breakInstantly().sound(SoundType.GRASS)));
-        createBlock(createBlock, id);
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new PierTreeGrower(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        createPlantBlockItems(id, createBlock);
 
+        return createBlock;
     }
     
     public static RegistryObject<Block> createJapzSapling(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new JapzTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().breakInstantly().sound(SoundType.GRASS)));
-        createBlock(createBlock, id);
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new JapzTreeGrower(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        createPlantBlockItems(id, createBlock);
 
+        return createBlock;
     }
     
     public static RegistryObject<Block> createKoolawSapling(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new KoolawTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().breakInstantly().sound(SoundType.GRASS)));
-        createBlock(createBlock, id);
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new KoolawTreeGrower(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        createPlantBlockItems(id, createBlock);
+
+        return createBlock;
 
     }
     
     public static RegistryObject<Block> createDamnationSapling(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new DamnationTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().breakInstantly().sound(SoundType.GRASS)));
-        createBlock(createBlock, id);
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new DamnationTreeGrower(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        createPlantBlockItems(id, createBlock);
+
+        return createBlock;
 
     }
     
     public static RegistryObject<Block> createPetrifiedSapling(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new PetrifiedDamnationTree(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().breakInstantly().sound(SoundType.GRASS)));
-        createBlock(createBlock, id);
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomSapling(new PetrifiedTreeGrower(), Block.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+        createPlantBlockItems(id, createBlock);
 
-    }*/
+        return createBlock;
+
+    }
+    
+    
     
     static RegistryObject<Block> createBlock(RegistryObject<Block> block, String id) {
         createBlockItems(id, block);
