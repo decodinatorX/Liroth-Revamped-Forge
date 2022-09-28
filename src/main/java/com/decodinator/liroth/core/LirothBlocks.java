@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 import javax.annotation.Nullable;
 
@@ -13,25 +14,38 @@ import com.decodinator.liroth.core.blocks.CustomTorchBlock;
 import com.decodinator.liroth.core.blocks.CustomWallTorchBlock;
 import com.decodinator.liroth.core.blocks.DamnationChestBlock;
 import com.decodinator.liroth.core.blocks.DamnationCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.DamnationVinesBody;
+import com.decodinator.liroth.core.blocks.DamnationVinesHead;
 import com.decodinator.liroth.core.blocks.FungalCampfireBlock;
+import com.decodinator.liroth.core.blocks.JapzCaveVinesBlock;
+import com.decodinator.liroth.core.blocks.JapzCaveVinesPlantBlock;
 import com.decodinator.liroth.core.blocks.JapzChestBlock;
 import com.decodinator.liroth.core.blocks.JapzCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.JapzMiniTree;
 import com.decodinator.liroth.core.blocks.KoolawChestBlock;
 import com.decodinator.liroth.core.blocks.KoolawCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.LirothChestBlock;
 import com.decodinator.liroth.core.blocks.LirothCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.LirothDeadPlantBlock;
 import com.decodinator.liroth.core.blocks.LirothFarmBlock;
 import com.decodinator.liroth.core.blocks.LirothFurnace;
 import com.decodinator.liroth.core.blocks.LirothGrassBlock;
 import com.decodinator.liroth.core.blocks.LirothPathBlock;
 import com.decodinator.liroth.core.blocks.LirothSoulRod;
+import com.decodinator.liroth.core.blocks.LirothSplitterBlock;
+import com.decodinator.liroth.core.blocks.LirothWaterPlant;
 import com.decodinator.liroth.core.blocks.LirothianPetroleumCampfireBlock;
 import com.decodinator.liroth.core.blocks.LockBlock;
+import com.decodinator.liroth.core.blocks.PetrifiedCaveVinesBlock;
+import com.decodinator.liroth.core.blocks.PetrifiedCaveVinesPlantBlock;
 import com.decodinator.liroth.core.blocks.PetrifiedDamnationChestBlock;
 import com.decodinator.liroth.core.blocks.PetrifiedDamnationCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.PierFarmBlock;
 import com.decodinator.liroth.core.blocks.PierGrassBlock;
 import com.decodinator.liroth.core.blocks.PierPathBlock;
+import com.decodinator.liroth.core.blocks.PointedJalsphireCrystal;
+import com.decodinator.liroth.core.blocks.PointedPetrifiedCrystal;
+import com.decodinator.liroth.core.blocks.QuantumExtractorBlock;
 import com.decodinator.liroth.core.blocks.SpicedChestBlock;
 import com.decodinator.liroth.core.blocks.SpicedCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.SpineriosFarmBlock;
@@ -40,6 +54,8 @@ import com.decodinator.liroth.core.blocks.SpineriosGrassBlock;
 import com.decodinator.liroth.core.blocks.SpineriosPathBlock;
 import com.decodinator.liroth.core.blocks.TallpierChestBlock;
 import com.decodinator.liroth.core.blocks.TallpierCraftingTableBlock;
+import com.decodinator.liroth.core.blocks.VileTentacleBlock;
+import com.decodinator.liroth.core.blocks.VileTentacleTipBlock;
 import com.decodinator.liroth.core.blocks.entities.LirothChestBlockEntity;
 import com.decodinator.liroth.core.helpers.ChestManager;
 import com.decodinator.liroth.core.items.BEWLRBlockItem;
@@ -78,6 +94,7 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.SporeBlossomBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.TorchBlock;
@@ -88,6 +105,7 @@ import net.minecraft.world.level.block.WoodButtonBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.HugeFungusConfiguration;
@@ -153,10 +171,10 @@ public class LirothBlocks {
     public static final RegistryObject<Block> DAMNATION_TRAPDOOR = createTrapDoor("damnation_trapdoor");
     public static final RegistryObject<Block> DAMNATION_WART_BLOCK = createWartBlock("damnation_wart_block");
     public static final RegistryObject<Block> DAMNATION_WOOD = createWood("damnation_wood");
-//    public static final RegistryObject<Block> DAMNATION_VINES = createWeepingVinesHead("damnation_vines");
-//    public static final RegistryObject<Block> DAMNATION_VINES_PLANT = createWeepingVinesBody("damnation_vines_plant");
+    public static final RegistryObject<Block> DAMNATION_VINES = createWeepingVinesHead("damnation_vines");
+    public static final RegistryObject<Block> DAMNATION_VINES_PLANT = createWeepingVinesBody("damnation_vines_plant");
     public static final RegistryObject<Block> DAMNED_PASSAGEWAY = createStone("damned_passageway");
-//    public static final RegistryObject<Block> DEAD_SEA_EYE = createDeadWaterPlant("dead_sea_eye");
+    public static final RegistryObject<Block> DEAD_SEA_EYE = createDeadWaterPlant("dead_sea_eye");
     public static final RegistryObject<Block> DEEPSLATE_LIROTH_ORE = createDeepslateOre("deepslate_liroth_gem_ore");
     public static final RegistryObject<Block> DEEPSLATE_TOURMALINE_ORE = createMetalBlock("deepslate_tourmaline_ore");
     public static final RegistryObject<Block> DEVASTATED_BRICKS = createStone("devastated_bricks");
@@ -182,13 +200,13 @@ public class LirothBlocks {
     public static final RegistryObject<Block> JALSPHIRE_GEM_BLOCK = createMetalBlock("jalsphire_gem_block");
     public static final RegistryObject<Block> JALSPHIRE_ORE_STONE = createOre("jalsphire_stone_ore");
     public static final RegistryObject<Block> JALSPHIRE_TRACKWAY = createStone("jalsphire_trackway");
-//    public static final RegistryObject<Block> JAPZ_BLOSSOM = createSporeBlossom("japz_blossom");
+    public static final RegistryObject<Block> JAPZ_BLOSSOM = createSporeBlossom("japz_blossom");
     public static final RegistryObject<JapzChestBlock> JAPZ_CHEST = createJapzChest("japz");
     public static final RegistryObject<Block> JAPZ_CRAFTING_TABLE = createJapzCraftingTable("japz_crafting_table");
     public static final RegistryObject<Block> JAPZ_FENCE = createFence("japz_fence");
     public static final RegistryObject<Block> JAPZ_LEAVES = createLeaves("japz_leaves");
     public static final RegistryObject<Block> JAPZ_LOG = createLog("japz_log");
-//    public static final RegistryObject<Block> JAPZ_MINI_TREE = createAzalea("japz_mini_tree");
+    public static final RegistryObject<Block> JAPZ_MINI_TREE = createMiniTree("japz_mini_tree");
     public static final RegistryObject<Block> JAPZ_MOSS = createMoss("japz_moss_block");
     public static final RegistryObject<Block> JAPZ_MOSS_CARPET = createMossCarpet("japz_moss_carpet");
     public static final RegistryObject<Block> JAPZ_PLANKS = createPlanks("japz_planks");
@@ -196,8 +214,8 @@ public class LirothBlocks {
     public static final RegistryObject<Block> JAPZ_DOOR = createDoor("japz_door");
     public static final RegistryObject<Block> JAPZ_SLAB = createWoodSlab("japz_slab");
     public static final RegistryObject<Block> JAPZ_TRAPDOOR = createTrapDoor("japz_trapdoor");
-//    public static final RegistryObject<Block> JAPZ_VINES = createCaveVinesHead("japz_vines");
-//    public static final RegistryObject<Block> JAPZ_VINES_PLANT = createCaveVinesBody("japz_vines_plant");
+    public static final RegistryObject<Block> JAPZ_VINES = createJapzCaveVinesHead("japz_vines");
+    public static final RegistryObject<Block> JAPZ_VINES_PLANT = createJapzCaveVinesBody("japz_vines_plant");
     public static final RegistryObject<Block> JAPZ_WOOD = createWood("japz_wood");
     public static final RegistryObject<KoolawChestBlock> KOOLAW_CHEST = createKoolawChest("koolaw");
     public static final RegistryObject<Block> KOOLAW_CRAFTING_TABLE = createKoolawCraftingTable("koolaw_crafting_table");
@@ -275,16 +293,16 @@ public class LirothBlocks {
     public static final RegistryObject<Block> PETRIFIED_CRYSTAL_BLOCK = createCrystalBlock("petrified_crystal_block");
     public static final RegistryObject<Block> PETRIFIED_MOSS_BLOCK = createMoss("petrified_moss_block");
     public static final RegistryObject<Block> PETRIFIED_MOSS_CARPET = createMossCarpet("petrified_moss_carpet");
-//    public static final RegistryObject<Block> PETRIFIED_VINES = createPetrifiedCaveVinesHead("petrified_vines");
-//    public static final RegistryObject<Block> PETRIFIED_VINES_PLANT = createPetrifiedCaveVinesBody("petrified_vines_plant");
+    public static final RegistryObject<Block> PETRIFIED_VINES = createPetrifiedCaveVinesHead("petrified_vines");
+    public static final RegistryObject<Block> PETRIFIED_VINES_PLANT = createPetrifiedCaveVinesBody("petrified_vines_plant");
 //    public static final RegistryObject<Block> PETRIFIED_PLANT = createPetrifiedPlant("petrified_plant");
 //    public static final RegistryObject<Block> PETRIFIED_FLOWER = createPetrifiedFlower("petrified_flower");
     public static final RegistryObject<Block> PIER_DIRT = createDirt("pier_dirt");
     public static final RegistryObject<Block> PIER_GRASS_BLOCK = createPierGrassBlock("pier_grass_block");
     public static final RegistryObject<Block> PIER_FARMLAND_BLOCK = createPierFarmBlock("pier_farmland");
     public static final RegistryObject<Block> PIER_PATH_BLOCK = createPierPathBlock("pier_grass_path");
-//    public static final RegistryObject<Block> POINTED_JALSPHIRE_CRYSTAL = createPointedCrystal("pointed_jalsphire_crystal");
-//    public static final RegistryObject<Block> POINTED_PETRIFIED_CRYSTAL = createPointedPetrifiedCrystal("pointed_petrified_crystal");
+    public static final RegistryObject<Block> POINTED_JALSPHIRE_CRYSTAL = createPointedCrystal("pointed_jalsphire_crystal");
+    public static final RegistryObject<Block> POINTED_PETRIFIED_CRYSTAL = createPointedPetrifiedCrystal("pointed_petrified_crystal");
     public static final RegistryObject<Block> POTESTIUM_ORE = createSoilOre("potestium_ore");
     public static final RegistryObject<Block> POTESTIUM_BLOCK = createMetalBlock("potestium_block");
 //    public static final RegistryObject<Block> REDSTONE_BROKEN_STAGE_1 = createMetalBlock("redstone_broken_stage_1");
@@ -295,7 +313,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> RUBY_BLOCK = createMetalBlock("ruby_block");
     public static final RegistryObject<Block> QUANTUM_DIAMOND_ORE = createSoilOre("quantum_diamond_ore");
     public static final RegistryObject<Block> QUANTUM_PLATE_BLOCK = createMetalBlock("quantum_plate_block");
-//    public static final RegistryObject<Block> SEA_EYE = createWaterPlant("sea_eye");
+    public static final RegistryObject<Block> SEA_EYE = createWaterPlant("sea_eye", DEAD_SEA_EYE);
     public static final RegistryObject<Block> SMOOTH_BLUE_SANDSTONE = createStone("smooth_blue_sandstone");
     public static final RegistryObject<Block> SMOOTH_BLUE_SANDSTONE_SLAB = createStoneSlab("smooth_blue_sandstone_slab");
     public static final RegistryObject<Block> SMOOTH_BLUE_SANDSTONE_STAIRS = createStoneStairs(SMOOTH_BLUE_SANDSTONE, "smooth_blue_sandstone_stairs");
@@ -372,8 +390,8 @@ public class LirothBlocks {
     public static final RegistryObject<Block> TALLPIER_WOOD = createWood("tallpier_wood");
     public static final RegistryObject<Block> TOURMALINE_GEM_BLOCK = createMetalBlock("tourmaline_gem_block");
     public static final RegistryObject<Block> TOURMALINE_ORE = createStone("tourmaline_ore");
-//    public static final RegistryObject<Block> VILE_TENTACLE_TIP = createUnderwaterReedTop("vile_tentacle_tip");
-//    public static final RegistryObject<Block> VILE_TENTACLE = createUnderwaterReed("vile_tentacle");
+    public static final RegistryObject<Block> VILE_TENTACLE_TIP = createUnderwaterReedTop("vile_tentacle_tip");
+    public static final RegistryObject<Block> VILE_TENTACLE = createUnderwaterReed("vile_tentacle");
 //    public static final RegistryObject<Block> WALL_FUNGAL_TORCH = createWallTorch("wall_fungal_torch", LirothParticles.GREEN_FLAME);
 //    public static final RegistryObject<Block> WALL_LIROTHIAN_PETROLEUM_TORCH = createWallTorch("wall_lirothian_petroleum_torch", LirothParticles.PURPLE_FLAME);
     public static final RegistryObject<Block> WILITING_LIROTH_ROSE = createFlower("wilting_liroth_rose");
@@ -387,9 +405,9 @@ public class LirothBlocks {
     // RegistryObject<Block> With RegistryObject<Block> Entities
 //    public static final RegistryObject<Block> JALSPHIRE_COMPACTOR = createJalsphireCompactor("jalsphire_compactor");
 //    public static final RegistryObject<Block> LIROTH_DUST_COMPACTOR = createLirothDustCompactor("liroth_dust_compactor");
-//    public static final RegistryObject<Block> LIROTH_SPLITTER = createLirothSplitter("liroth_splitter");
+    public static final RegistryObject<Block> LIROTH_SPLITTER = createLirothSplitter("liroth_splitter");
 //    public static final RegistryObject<Block> LIROTHIAN_TRANSMUTATION_TABLE = createLirothianTransmutationTable("lirothian_transmutation_table");
-//    public static final RegistryObject<Block> QUANTUM_EXTRACTOR = createQuantumExtractor("quantum_extractor");
+    public static final RegistryObject<Block> QUANTUM_EXTRACTOR = createQuantumExtractor("quantum_extractor");
     
     // Saplings
 /*    public static final RegistryObject<Block> LIROTH_SAPLING = createLirothSapling("liroth_sapling");
@@ -589,29 +607,32 @@ public class LirothBlocks {
 
     }
     
-/*    static RegistryObject<Block> createPointedPetrifiedCrystal(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PointedPetrifiedCrystal(Block.Properties.copy(Blocks.GLASS).dynamicBounds()));
-        
+    static RegistryObject<Block> createPointedPetrifiedCrystal(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PointedPetrifiedCrystal(Block.Properties.copy(Blocks.GLASS).dynamicShape()));
+        createBlockItems(id, createBlock);
 
-
+        return createBlock;
     }
     
     static RegistryObject<Block> createPetrifiedCaveVinesHead(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PetrifiedCaveVinesHeadBlock(Block.Properties.copy(Blocks.CAVE_VINES)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PetrifiedCaveVinesBlock(Block.Properties.copy(Blocks.CAVE_VINES)));
         
+        
+        createPlantBlockItems(id, createBlock);
 
-
+        return createBlock;
     }
     
     static RegistryObject<Block> createPetrifiedCaveVinesBody(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PetrifiedCaveVinesBodyBlock(Block.Properties.copy(Blocks.CAVE_VINES_PLANT)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PetrifiedCaveVinesPlantBlock(Block.Properties.copy(Blocks.CAVE_VINES_PLANT)));
         
 
+        return createBlock;
 
-    }*/
+    }
     
-    static RegistryObject<Block> createPetrifiedPlant(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.STONE)));
+/*    static RegistryObject<Block> createPetrifiedPlant(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.GRASS)));
         createPlantBlockItems(id, createBlock);
 
         return createBlock;
@@ -620,14 +641,14 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createPetrifiedFlower(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.STONE)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.POPPY)));
         createPlantBlockItems(id, createBlock);
 
         return createBlock;
 
 
 
-    }
+    }*/
     
     public  static RegistryObject<Block> createFungalGrass(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new GrassBlock(Block.Properties.copy(Blocks.CRIMSON_ROOTS).noCollission().lightLevel(state -> 15)));
@@ -647,47 +668,49 @@ public class LirothBlocks {
 
     }
     
-/*    static RegistryObject<Block> createWeepingVinesHead(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomWeepingVinesBlock(Block.Properties.copy(Blocks.WEEPING_VINES).noCollission()));
+    static RegistryObject<Block> createWeepingVinesHead(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesHead(Block.Properties.copy(Blocks.WEEPING_VINES).noCollission()));
+		createPlantBlockItems(id, createBlock);
+        return createBlock;
         
 
 
     }
     
     static RegistryObject<Block> createWeepingVinesBody(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomWeepingVinesPlantBlock(Block.Properties.copy(Blocks.WEEPING_VINES_PLANT).noCollission()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesBody(Block.Properties.copy(Blocks.WEEPING_VINES_PLANT).noCollission()));
+        return createBlock;
         
 
 
     }
     
-    static RegistryObject<Block> createCaveVinesHead(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomCaveVinesHeadBlock(Block.Properties.copy(Blocks.CAVE_VINES)));
-        
-
+    static RegistryObject<Block> createJapzCaveVinesHead(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new JapzCaveVinesBlock(Block.Properties.copy(Blocks.CAVE_VINES)));
+        createPlantBlockItems(id, createBlock);
+        return createBlock;
 
     }
     
-    static RegistryObject<Block> createCaveVinesBody(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomCaveVinesBodyBlock(Block.Properties.copy(Blocks.CAVE_VINES_PLANT)));
-        
-
+    static RegistryObject<Block> createJapzCaveVinesBody(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new JapzCaveVinesPlantBlock(Block.Properties.copy(Blocks.CAVE_VINES_PLANT)));
+        return createBlock;
 
     }
     
     static RegistryObject<Block> createSporeBlossom(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new SporeBlossomBlock(Block.Properties.copy(Blocks.SPORE_BLOSSOM).lightLevel(state -> 8)));
-        
-
+        createPlantBlockItems(id, createBlock);
+        return createBlock;
 
     }
     
-    static RegistryObject<Block> createAzalea(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomAzaleaBlock(Block.Properties.copy(Blocks.AZALEA)));
-        
+    static RegistryObject<Block> createMiniTree(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new JapzMiniTree(Block.Properties.copy(Blocks.AZALEA)));
+        createPlantBlockItems(id, createBlock);
+        return createBlock;
 
-
-    }*/
+    }
     
     static RegistryObject<Block> createMossCarpet(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CarpetBlock(Block.Properties.copy(Blocks.MOSS_CARPET)));
@@ -708,44 +731,55 @@ public class LirothBlocks {
 
     }
     
-/*    static RegistryObject<Block> createPointedCrystal(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PointedJalsphireCrystal(Block.Properties.copy(Blocks.GLASS).dynamicBounds().lightLevel(state -> 8)));
+    static RegistryObject<Block> createPointedCrystal(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PointedJalsphireCrystal(Block.Properties.copy(Blocks.GLASS).dynamicShape().lightLevel(state -> (8))));
         
+        createBlockItems(id, createBlock);
 
+        return createBlock;
 
-    }*/
+    }
     
-/*    private static RegistryObject<Block> createLirothSplitter(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothSplitterBlock(Block.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(3.5f).lightLevel(LirothBlocks.createLightLevelFromLitBlockState(13))));
+    private static RegistryObject<Block> createLirothSplitter(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothSplitterBlock(Block.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(3.5f).lightLevel(litBlockEmission(13))));
+		createBlockItems(id, createBlock);
+        return createBlock;
         
 
 
 	}
 
     private static RegistryObject<Block> createQuantumExtractor(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new QuantumExtractorBlock(Block.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(3.5f).noOcclusion().lightLevel(LirothBlocks.createLightLevelFromLitBlockState(13))));
-        
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new QuantumExtractorBlock(Block.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(3.5f).noOcclusion().lightLevel(litBlockEmission(13))));
+		createBlockItems(id, createBlock);
+        return createBlock;
 
 
-	}*/
+	}
     
-//    private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
-//        RegistryObject<Block> state -> state.get(BlockState.LIT) != false ? litLevel : 0;
-//    }
+    private static ToIntFunction<BlockState> litBlockEmission(int p_50760_) {
+        return (p_50763_) -> {
+           return p_50763_.getValue(BlockStateProperties.LIT) ? p_50760_ : 0;
+        };
+     }
 
-/*	static RegistryObject<Block> createWaterPlant(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomWaterPlant(DEAD_SEA_EYE, Block.Properties.copy(Blocks.FIRE_CORAL_FAN)));
+	static RegistryObject<Block> createWaterPlant(String id, RegistryObject<Block> block) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothWaterPlant(block.get(), Block.Properties.copy(Blocks.FIRE_CORAL_FAN)));
+		createPlantBlockItems(id, createBlock);
+        return createBlock;
         
 
 
     }
     
     static RegistryObject<Block> createDeadWaterPlant(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomDeadWaterPlant(Block.Properties.copy(Blocks.DEAD_FIRE_CORAL_FAN)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothDeadPlantBlock(Block.Properties.copy(Blocks.DEAD_FIRE_CORAL_FAN)));
+		createPlantBlockItems(id, createBlock);
+        return createBlock;
         
 
 
-    }*/
+    }
     
     static RegistryObject<Block> createFungusPlant(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomFungalPlant(Block.Properties.copy(Blocks.CRIMSON_FUNGUS).noCollission().lightLevel(state -> 15), null));
@@ -855,20 +889,23 @@ public class LirothBlocks {
 
     }
     
-/*    static RegistryObject<Block> createUnderwaterReedTop(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomKelpBlock(Block.Properties.copy(Blocks.KELP)));
+    static RegistryObject<Block> createUnderwaterReedTop(String id) {
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new VileTentacleTipBlock(Block.Properties.copy(Blocks.KELP)));
         
 
+        return createBlock;
 
     }
     
     static RegistryObject<Block> createUnderwaterReed(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomKelpPlantBlock(Block.Properties.copy(Blocks.KELP_PLANT)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new VileTentacleBlock(Block.Properties.copy(Blocks.KELP_PLANT)));
         
+        createPlantBlockItems(id, createBlock);
 
+        return createBlock;
 
-    }
-*/    
+    }   
+    
     static RegistryObject<Block> createLirothCraftingTable(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
         createBlockItems(id, createBlock);
@@ -937,15 +974,8 @@ public class LirothBlocks {
         
 
 
-    }
+    }*/
     
-    static RegistryObject<Block> createFurnace(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new BaseFurnaceBlock(Block.Properties.copy(Blocks.STONE).lightLevel(LirothBlocks.createLightLevelFromLitBlockState(13))));
-        
-
-
-    }
-*/
 	@OnlyIn(Dist.CLIENT)
 	private static BEWLRBlockItem.LazyBEWLR chestBEWLR(boolean trapped) {
 		return new BEWLRBlockItem.LazyBEWLR((dispatcher, entityModelSet) -> {
@@ -1008,8 +1038,6 @@ public class LirothBlocks {
 		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
-	
-	/*
     
 /*    static LirothPortalBlock createLirothPortal(String id) {
     	LirothPortalBlock createBlock = BLOCKS.register(id, () -> new LirothPortalBlock(Block.Properties.copy(Blocks.END_PORTAL)));
@@ -1069,13 +1097,6 @@ public class LirothBlocks {
         
 
 
-    }
-    
-    static RegistryObject<Block> createRod(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomRod(Block.Properties.copy(Blocks.STONE)));
-        
-
-
     }*/
     
     static RegistryObject<Block> createGlassBlock(String id) {
@@ -1087,13 +1108,6 @@ public class LirothBlocks {
 
 
     }
-    
-/*    static RegistryObject<Block> createForcefieldPane(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomPane(Block.Properties.copy(Blocks.BARRIER).noOcclusion()));
-        
-
-
-    }*/
 
     static RegistryObject<Block> createObsidianBlock(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.OBSIDIAN)));

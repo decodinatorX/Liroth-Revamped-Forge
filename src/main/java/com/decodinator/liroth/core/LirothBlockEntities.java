@@ -8,8 +8,10 @@ import com.decodinator.liroth.core.blocks.entities.JapzChestBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.KoolawChestBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.LirothChestBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.LirothFurnaceBlockEntity;
+import com.decodinator.liroth.core.blocks.entities.LirothSplitterBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.LirothianPetroleumCampfireBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.PetrifiedDamnationChestBlockEntity;
+import com.decodinator.liroth.core.blocks.entities.QuantumExtractorBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.SpicedChestBlockEntity;
 import com.decodinator.liroth.core.blocks.entities.TallpierChestBlockEntity;
 
@@ -39,5 +41,7 @@ public class LirothBlockEntities {
 	public static final RegistryObject<BlockEntityType<FungalCampfireBlockEntity>> FUNGAL_CAMPFIRE = BLOCK_ENTITIES.register("fungal_campfire", () -> BlockEntityType.Builder.of(FungalCampfireBlockEntity::new, LirothBlocks.FUNGAL_CAMPFIRE.get()).build(null));
 	public static final RegistryObject<BlockEntityType<LirothianPetroleumCampfireBlockEntity>> LIROTHIAN_PETROLEUM_CAMPFIRE = BLOCK_ENTITIES.register("lirothian_petroleum_campfire", () -> BlockEntityType.Builder.of(LirothianPetroleumCampfireBlockEntity::new, LirothBlocks.LIROTHIAN_PETROLEUM_CAMPFIRE.get()).build(null));
 
+	public static final RegistryObject<BlockEntityType<LirothSplitterBlockEntity>> LIROTH_SPLITTER = BLOCK_ENTITIES.register("liroth_splitter", () -> BlockEntityType.Builder.of(LirothSplitterBlockEntity::new, LirothBlocks.LIROTH_SPLITTER.get()).build(null));
+	public static final RegistryObject<BlockEntityType<QuantumExtractorBlockEntity>> QUANTUM_EXTRACTOR = BLOCK_ENTITIES.register("quantum_extractor", () -> BlockEntityType.Builder.of(QuantumExtractorBlockEntity::new, LirothBlocks.QUANTUM_EXTRACTOR.get()).build(null));
 
 }

@@ -23,7 +23,7 @@ public class LirothRenders {
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.PETRIFIED_DAMNATION_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.SPICED_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.TALLPIER_SAPLING.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_GRASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_GRASS.get(), RenderType.cutout());*/
 
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.POINTED_JALSPHIRE_CRYSTAL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.POINTED_PETRIFIED_CRYSTAL.get(), RenderType.cutout());
@@ -34,7 +34,8 @@ public class LirothRenders {
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JAPZ_VINES_PLANT.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.PETRIFIED_VINES.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.PETRIFIED_VINES_PLANT.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JAPZ_BLOSSOM.get(), RenderType.cutout());*/
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JAPZ_BLOSSOM.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JAPZ_MINI_TREE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_FUNGAL_FUSS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_FUNGAL_HEAP.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_FUNGAL_PATCH.get(), RenderType.cutout());
@@ -43,11 +44,11 @@ public class LirothRenders {
         
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_ROSE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.WILITING_LIROTH_ROSE.get(), RenderType.cutout());
-//        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.VILE_TENTACLE.get(), RenderType.cutout());
-//        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.VILE_TENTACLE_TIP.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.VILE_TENTACLE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.VILE_TENTACLE_TIP.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_FUNGAL_CLUSTER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_FUNGUS.get(), RenderType.cutout());
-//        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.SEA_EYE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.SEA_EYE.get(), RenderType.cutout());
         
 //        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.CORRUPTED_BREWING_STAND.get(), RenderType.cutout());
         
@@ -80,9 +81,7 @@ public class LirothRenders {
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_DIMENSION_PORTAL, RenderLayer.getTranslucent());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JANTIRO_DIMENSION_PORTAL, RenderLayer.getTranslucent());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JALSPHIRE_DIMENSION_PORTAL, RenderLayer.getTranslucent());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DEVASTATED_DIMENSION_PORTAL, RenderLayer.getTranslucent());
-
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_FLUID, RenderLayer.getTranslucent());*/
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DEVASTATED_DIMENSION_PORTAL, RenderLayer.getTranslucent());*/
         
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_GLASS_BLOCK.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FORCEFIELD.get(), RenderType.translucent());

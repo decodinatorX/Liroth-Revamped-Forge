@@ -10,10 +10,14 @@ import com.decodinator.liroth.core.LirothFluidTypes;
 import com.decodinator.liroth.core.LirothFluids;
 import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.LirothItems;
+import com.decodinator.liroth.core.LirothMenuTypes;
 import com.decodinator.liroth.core.LirothModelLayers;
 import com.decodinator.liroth.core.LirothParticles;
 import com.decodinator.liroth.core.LirothRenders;
 import com.decodinator.liroth.core.LirothSounds;
+import com.decodinator.liroth.core.blocks.entities.LirothSplitterScreenHandler;
+import com.decodinator.liroth.core.blocks.entities.screens.LirothSplitterScreen;
+import com.decodinator.liroth.core.blocks.entities.screens.QuantumExtractorScreen;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseModel;
 import com.decodinator.liroth.core.entities.renderers.FreakshowEntityRenderer;
@@ -42,6 +46,7 @@ import com.decodinator.liroth.mixin.ItemBlockRenderTypeAccess;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -53,6 +58,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -95,7 +101,7 @@ public class Liroth
     public static final String MOD_ID = "liroth";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
-    
+        
 	public static final ForgeFlowingFluid.Properties LIROTH_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.LIROTH_FLUID_TYPE, LirothFluids.LIROTH_FLUID, LirothFluids.FLOWING_LIROTH_FLUID).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.LIROTH_FLUID_BLOCK).bucket(LirothItems.LIROTH_FLUID_BUCKET);
 	public static final ForgeFlowingFluid.Properties MOLTEN_SPINERIOS_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.MOLTEN_SPINERIOS_TYPE, LirothFluids.MOLTEN_SPINERIOS, LirothFluids.FLOWING_MOLTEN_SPINERIOS).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.MOLTEN_SPINERIOS_BLOCK).bucket(LirothItems.MOLTEN_SPINERIOS_BUCKET);
     
@@ -146,6 +152,7 @@ public class Liroth
 		LirothParticles.PARTICLES.register(modEventBus);
 		LirothEntities.ENTITIES_TYPES.register(modEventBus);
 		LirothBlocks.BLOCKS.register(modEventBus);
+		LirothMenuTypes.MENUS.register(modEventBus);
 		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);
@@ -160,6 +167,9 @@ public class Liroth
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        MenuScreens.register(LirothMenuTypes.LIROTH_SPLITTER_MENU.get(), LirothSplitterScreen::new);
+        MenuScreens.register(LirothMenuTypes.QUANTUM_EXTRACTOR_MENU.get(), QuantumExtractorScreen::new);
+//    	ForgeRegistries.MENU_TYPES.register(Liroth.QUANTUM_EXTRACTOR_SCREEN_HANDLER, QuantumExtractorScreen::new);
         // Some common setup code
 //        LOGGER.info("HELLO FROM COMMON SETUP");
 //        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
