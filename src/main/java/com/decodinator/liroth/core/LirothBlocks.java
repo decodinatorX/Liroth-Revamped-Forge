@@ -3,20 +3,24 @@ package com.decodinator.liroth.core;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 import javax.annotation.Nullable;
 
+import org.jetbrains.annotations.NotNull;
+
 import com.decodinator.liroth.Liroth;
 import com.decodinator.liroth.core.blocks.CustomFungalPlant;
-import com.decodinator.liroth.core.blocks.CustomTorchBlock;
-import com.decodinator.liroth.core.blocks.CustomWallTorchBlock;
 import com.decodinator.liroth.core.blocks.DamnationChestBlock;
 import com.decodinator.liroth.core.blocks.DamnationCraftingTableBlock;
 import com.decodinator.liroth.core.blocks.DamnationVinesBody;
 import com.decodinator.liroth.core.blocks.DamnationVinesHead;
 import com.decodinator.liroth.core.blocks.FungalCampfireBlock;
+import com.decodinator.liroth.core.blocks.FungalTorchBlock;
+import com.decodinator.liroth.core.blocks.FungalWallTorchBlock;
 import com.decodinator.liroth.core.blocks.JapzCaveVinesBlock;
 import com.decodinator.liroth.core.blocks.JapzCaveVinesPlantBlock;
 import com.decodinator.liroth.core.blocks.JapzChestBlock;
@@ -35,6 +39,8 @@ import com.decodinator.liroth.core.blocks.LirothSoulRod;
 import com.decodinator.liroth.core.blocks.LirothSplitterBlock;
 import com.decodinator.liroth.core.blocks.LirothWaterPlant;
 import com.decodinator.liroth.core.blocks.LirothianPetroleumCampfireBlock;
+import com.decodinator.liroth.core.blocks.LirothianPetroleumTorchBlock;
+import com.decodinator.liroth.core.blocks.LirothianPetroleumWallTorchBlock;
 import com.decodinator.liroth.core.blocks.LockBlock;
 import com.decodinator.liroth.core.blocks.PetrifiedCaveVinesBlock;
 import com.decodinator.liroth.core.blocks.PetrifiedCaveVinesPlantBlock;
@@ -68,17 +74,29 @@ import com.decodinator.liroth.core.helpers.ChestManager;
 import com.decodinator.liroth.core.items.BEWLRBlockItem;
 import com.decodinator.liroth.core.items.BEWLRFuelBlockItem;
 import com.decodinator.liroth.core.renders.ChestBlockEntityWithoutLevelRenderer;
+import com.google.gson.JsonElement;
 
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.data.models.blockstates.BlockStateGenerator;
+import net.minecraft.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.data.models.blockstates.PropertyDispatch;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -196,7 +214,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> FORCEFIELD = createForcefieldPaneBlock("forcefield");
     public static final RegistryObject<Block> FUNGAL_CAMPFIRE = createFungalCampfire("fungal_campfire");
     public static final RegistryObject<Block> FUNGAL_LANTERN = createLantern("fungal_lantern");
-//    public static final RegistryObject<Block> FUNGAL_TORCH = createTorch("fungal_torch", LirothParticles.GREEN_FLAME);
+    public static final RegistryObject<Block> FUNGAL_TORCH = createFungalTorch("fungal_torch");
     public static final RegistryObject<Block> FUNGAL_LIGHT = createShroomlightBlock("fungallight");
     public static final RegistryObject<Block> GATEWAY_BLOCK = createObsidianBlock("gateway_block");
     public static final RegistryObject<Block> GLEEMSTONE = createGleemStone("gleemstone");
@@ -279,7 +297,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> LIROTHIAN_COBALT_TRAPDOOR = createMetalTrapDoor("lirothian_cobalt_trapdoor");
     public static final RegistryObject<Block> LIROTHIAN_PETROLEUM_BLOCK = createCoalBlock("lirothian_petroleum_block");
     public static final RegistryObject<Block> LIROTHIAN_PETROLEUM_ORE = createOre("lirothian_petroleum_ore");
-//    public static final RegistryObject<Block> LIROTHIAN_PETROLEUM_TORCH = createTorch("lirothian_petroleum_torch", LirothParticles.PURPLE_FLAME);
+    public static final RegistryObject<Block> LIROTHIAN_PETROLEUM_TORCH = createLirothianPetroleumTorch("lirothian_petroleum_torch");
     public static final RegistryObject<Block> LIROTHIAN_PETROLEUM_LANTERN = createLantern("lirothian_petroleum_lantern");
     public static final RegistryObject<Block> LIROTHIAN_PETROLEUM_CAMPFIRE = createLirothianPetroleumCampfire("lirothian_petroleum_campfire");
     public static final RegistryObject<Block> OLDEN_LIROTH_GEM_BLOCK = createPillarMetalBlock("olden_liroth_gem_block");
@@ -399,12 +417,12 @@ public class LirothBlocks {
     public static final RegistryObject<Block> TOURMALINE_ORE = createStone("tourmaline_ore");
     public static final RegistryObject<Block> VILE_TENTACLE_TIP = createUnderwaterReedTop("vile_tentacle_tip");
     public static final RegistryObject<Block> VILE_TENTACLE = createUnderwaterReed("vile_tentacle");
-//    public static final RegistryObject<Block> WALL_FUNGAL_TORCH = createWallTorch("wall_fungal_torch", LirothParticles.GREEN_FLAME);
-//    public static final RegistryObject<Block> WALL_LIROTHIAN_PETROLEUM_TORCH = createWallTorch("wall_lirothian_petroleum_torch", LirothParticles.PURPLE_FLAME);
+    public static final RegistryObject<Block> WALL_FUNGAL_TORCH = createFungalWallTorch("wall_fungal_torch");
+    public static final RegistryObject<Block> WALL_LIROTHIAN_PETROLEUM_TORCH = createLirothianPetroleumWallTorch("wall_lirothian_petroleum_torch");
     public static final RegistryObject<Block> WILITING_LIROTH_ROSE = createFlower("wilting_liroth_rose");
 
-//    public static final RegistryObject<Item> FUNGAL_TORCH_ITEM = ITEMS.register("fungal_torch", () -> new StandingAndWallBlockItem(LirothBlocks.FUNGAL_TORCH.get(), LirothBlocks.WALL_FUNGAL_TORCH.get(), (new Item.Properties()).tab(Liroth.liroth_blocks_tab)));
-//    public static final RegistryObject<Item> LIROTHIAN_PETROLEUM_TORCH_ITEM = ITEMS.register("lirothian_petroleum_torch", () -> new StandingAndWallBlockItem(LirothBlocks.LIROTHIAN_PETROLEUM_TORCH.get(), LirothBlocks.WALL_LIROTHIAN_PETROLEUM_TORCH.get(), (new Item.Properties()).tab(Liroth.liroth_blocks_tab)));
+    public static final RegistryObject<Item> FUNGAL_TORCH_ITEM = ITEMS.register("fungal_torch", () -> new StandingAndWallBlockItem(LirothBlocks.FUNGAL_TORCH.get(), LirothBlocks.WALL_FUNGAL_TORCH.get(), (new Item.Properties()).tab(Liroth.liroth_blocks_tab)));
+    public static final RegistryObject<Item> LIROTHIAN_PETROLEUM_TORCH_ITEM = ITEMS.register("lirothian_petroleum_torch", () -> new StandingAndWallBlockItem(LirothBlocks.LIROTHIAN_PETROLEUM_TORCH.get(), LirothBlocks.WALL_LIROTHIAN_PETROLEUM_TORCH.get(), (new Item.Properties()).tab(Liroth.liroth_blocks_tab)));
     
 	public static final RegistryObject<LiquidBlock> LIROTH_FLUID_BLOCK = BLOCKS.register("liroth_fluid", () -> new LiquidBlock(LirothFluids.LIROTH_FLUID, BlockBehaviour.Properties.copy(Blocks.WATER)));
 	public static final RegistryObject<LiquidBlock> MOLTEN_SPINERIOS_BLOCK = BLOCKS.register("molten_spinerios", () -> new LiquidBlock(LirothFluids.MOLTEN_SPINERIOS, BlockBehaviour.Properties.copy(Blocks.WATER)));
@@ -638,25 +656,6 @@ public class LirothBlocks {
 
     }
     
-/*    static RegistryObject<Block> createPetrifiedPlant(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.GRASS)));
-        createPlantBlockItems(id, createBlock);
-
-        return createBlock;
-
-
-    }
-    
-    static RegistryObject<Block> createPetrifiedFlower(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.POPPY)));
-        createPlantBlockItems(id, createBlock);
-
-        return createBlock;
-
-
-
-    }*/
-    
     public  static RegistryObject<Block> createFungalGrass(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new GrassBlock(Block.Properties.copy(Blocks.CRIMSON_ROOTS).noCollission().lightLevel(state -> 15)));
         createPlantBlockItems(id, createBlock);
@@ -814,14 +813,25 @@ public class LirothBlocks {
 
 
     }
+
     
-    static RegistryObject<Block> createTorch(String id, RegistryObject<SimpleParticleType> particle) {
-    	RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomTorchBlock(Block.Properties.copy(Blocks.TORCH), particle));
+    static RegistryObject<Block> createFungalTorch(String id) {
+    	RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new FungalTorchBlock(Block.Properties.copy(Blocks.TORCH)));
     	return createBlock;
     }
     
-    static RegistryObject<Block> createWallTorch(String id, RegistryObject<SimpleParticleType> particle) {
-    	RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomWallTorchBlock(Block.Properties.copy(Blocks.TORCH), particle));
+    static RegistryObject<Block> createFungalWallTorch(String id) {
+    	RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new FungalWallTorchBlock(Block.Properties.copy(Blocks.TORCH)));
+    	return createBlock;
+    }
+    
+    static RegistryObject<Block> createLirothianPetroleumTorch(String id) {
+    	RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothianPetroleumTorchBlock(Block.Properties.copy(Blocks.TORCH)));
+    	return createBlock;
+    }
+    
+    static RegistryObject<Block> createLirothianPetroleumWallTorch(String id) {
+    	RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothianPetroleumWallTorchBlock(Block.Properties.copy(Blocks.TORCH)));
     	return createBlock;
     }
     
@@ -835,37 +845,7 @@ public class LirothBlocks {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothianPetroleumCampfireBlock(false, 1, Block.Properties.copy(Blocks.CAMPFIRE).lightLevel(state -> 15).noOcclusion()));
         createBlockItems(id, createBlock);
         return createBlock;
-    }/*
-    
-    static RegistryObject<Block> createFungalTorch(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TorchBlock(Block.Properties.copy(Blocks.TORCH).noCollission(), LirothParticles.GREEN_FLAME.get()));
-		ITEMS.register(id, () -> new StandingAndWallBlockItem(FUNGAL_TORCH.get(), WALL_FUNGAL_TORCH.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab)));
-        return createBlock;
-
-
     }
-    
-    static RegistryObject<Block> createPetroleumTorch(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TorchBlock(Block.Properties.copy(Blocks.TORCH).noCollission(), LirothParticles.PURPLE_FLAME.get()));
-		ITEMS.register(id, () -> new StandingAndWallBlockItem(LIROTHIAN_PETROLEUM_TORCH.get(), WALL_LIROTHIAN_PETROLEUM_TORCH.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab)));
-        return createBlock;
-
-
-    }/*
-    
-    static RegistryObject<Block> createPetroleumTorch(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomTorch(Block.Properties.copy(Blocks.TORCH).noCollission(), ParticleTypes.PORTAL);
-        
-
-
-    }
-    
-    static RegistryObject<Block> createWallPetroleumTorch(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomWallTorch(Block.Properties.copy(Blocks.TORCH).noCollission().dropsLike(FUNGAL_TORCH), ParticleTypes.PORTAL);
-        
-
-
-    }*/
     
     static RegistryObject<Block> createLantern(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LanternBlock(Block.Properties.copy(Blocks.LANTERN)));
@@ -875,17 +855,7 @@ public class LirothBlocks {
 
 
 
-    }/*
-    
-    static RegistryObject<Block> createWallFungalTorch(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new WallTorchBlock(Block.Properties.copy(Blocks.TORCH).noCollission().dropsLike(FUNGAL_TORCH.get()), LirothParticles.GREEN_FLAME.get()));
-        return createBlock;
     }
-    
-    static RegistryObject<Block> createWallPetroleumTorch(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new WallTorchBlock(Block.Properties.copy(Blocks.TORCH).noCollission().dropsLike(LIROTHIAN_PETROLEUM_TORCH.get()), LirothParticles.PURPLE_FLAME.get()));
-        return createBlock;
-    }*/
     
     static RegistryObject<Block> createFungusClusterPlant(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TallFlowerBlock(Block.Properties.copy(Blocks.CRIMSON_FUNGUS).noCollission().lightLevel(state -> 15)));
@@ -974,14 +944,7 @@ public class LirothBlocks {
         
 
 
-    }/*
-    
-    static RegistryObject<Block> createBrewingStand(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new BrewingStandBlock(Block.Properties.copy(Blocks.BREWING_STAND)));
-        
-
-
-    }*/
+    }
     
 	@OnlyIn(Dist.CLIENT)
 	private static BEWLRBlockItem.LazyBEWLR chestBEWLR(boolean trapped) {
@@ -1098,13 +1061,6 @@ public class LirothBlocks {
 
 
 	}
-
-/*	static RegistryObject<Block> createFireBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new FireBlock(Block.Properties.copy(Blocks.FIRE)));
-        
-
-
-    }*/
     
     static RegistryObject<Block> createGlassBlock(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.GLASS)));
@@ -1491,60 +1447,6 @@ public class LirothBlocks {
         return createBlock;
 
     }
-    
-/*    public static RegistryObject<Block> createLirothGrassBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothGrassBlock(Block.Properties.copy(Blocks.GRASS_BLOCK)));
-        createBlock(createBlock, id);
-
-    }
-    
-    public static RegistryObject<Block> createLirothFarmlandBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothFarmlandBlock(Block.Properties.copy(Blocks.FARMLAND)));
-        createBlock(createBlock, id);
-
-    }
-    
-    public static RegistryObject<Block> createLirothPathBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new LirothPathBlock(Block.Properties.copy(Blocks.DIRT_PATH)));
-        createBlock(createBlock, id);
-
-    }
-    
-    public static RegistryObject<Block> createPierGrassBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PierGrassBlock(Block.Properties.copy(Blocks.GRASS_BLOCK)));
-        createBlock(createBlock, id);
-
-    }
-    
-    public static RegistryObject<Block> createPierFarmlandBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PierFarmlandBlock(Block.Properties.copy(Blocks.FARMLAND)));
-        createBlock(createBlock, id);
-
-    }
-    
-    public static RegistryObject<Block> createPierPathBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PierPathBlock(Block.Properties.copy(Blocks.DIRT_PATH)));
-        createBlock(createBlock, id);
-
-    }
-    
-    public static RegistryObject<Block> createSpineriosGrassBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new SpineriosGrassBlock(Block.Properties.copy(Blocks.GRASS_BLOCK)));
-        createBlock(createBlock, id);
-
-    }
-    
-    public static RegistryObject<Block> createSpineriosFarmlandBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new SpineriosFarmlandBlock(Block.Properties.copy(Blocks.FARMLAND)));
-        createBlock(createBlock, id);
-
-    }
-    
-    public static RegistryObject<Block> createSpineriosPathBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new SpineriosPathBlock(Block.Properties.copy(Blocks.DIRT_PATH)));
-        createBlock(createBlock, id);
-
-    }*/
     
     public  static RegistryObject<Block> createGrass(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new GrassBlock(Block.Properties.copy(Blocks.GRASS)));

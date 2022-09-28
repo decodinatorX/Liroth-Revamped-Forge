@@ -18,6 +18,7 @@ import com.decodinator.liroth.core.LirothParticles;
 import com.decodinator.liroth.core.LirothPlacedFeatures;
 import com.decodinator.liroth.core.LirothRenders;
 import com.decodinator.liroth.core.LirothSounds;
+import com.decodinator.liroth.core.LirothStructures;
 import com.decodinator.liroth.core.blocks.entities.LirothSplitterScreenHandler;
 import com.decodinator.liroth.core.blocks.entities.screens.LirothSplitterScreen;
 import com.decodinator.liroth.core.blocks.entities.screens.QuantumExtractorScreen;
@@ -189,6 +190,7 @@ public class Liroth
 		LirothFeatures.FEATURES.register(modEventBus);
 		LirothConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
 		LirothPlacedFeatures.PLACED_FEATURES.register(modEventBus);
+		LirothStructures.DEFERRED_REGISTRY_STRUCTURE.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in

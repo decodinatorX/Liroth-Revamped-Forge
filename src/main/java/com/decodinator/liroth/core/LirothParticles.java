@@ -3,6 +3,8 @@ package com.decodinator.liroth.core;
 import com.decodinator.liroth.Liroth;
 
 import net.minecraft.client.particle.Particle;
+import net.minecraft.core.Holder;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.registries.DeferredRegister;

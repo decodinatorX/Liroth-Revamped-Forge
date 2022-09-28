@@ -59,10 +59,10 @@ public class LirothRenders {
         
 //        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.CORRUPTED_BREWING_STAND.get(), RenderType.cutout());
         
-/*        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FUNGAL_TORCH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FUNGAL_TORCH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.WALL_FUNGAL_TORCH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTHIAN_PETROLEUM_TORCH.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.WALL_LIROTHIAN_PETROLEUM_TORCH.get(), RenderType.cutout());*/
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.WALL_LIROTHIAN_PETROLEUM_TORCH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FUNGAL_CAMPFIRE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTHIAN_PETROLEUM_CAMPFIRE.get(), RenderType.cutout());
         
