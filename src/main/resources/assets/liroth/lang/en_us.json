@@ -544,5 +544,7 @@
 	"entity.liroth.freakshow": "Freakshow",
 	"entity.liroth.vile_shark": "Vile Shark",
 	"entity.liroth.lirothian_mimic": "Lirothian Mimic",
-	"entity.liroth.liroth_chest_boat": "Liroth Boat with Chest"
+	"entity.liroth.liroth_chest_boat": "Liroth Boat with Chest",
+	"fluid_type.liroth.liroth_fluid": "Liroth Fluid",
+	"fluid_type.liroth.molten_spinerios": "Schmuck Liquid"
 }
