@@ -1,0 +1,19 @@
+{
+    "name": "Petrified Hallows",
+    "icon": "liroth:blue_sand",
+    "advancement": "liroth:enter_escape",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/petrified_hallows.png"],
+		"title": "Petrified Hallows",
+		"border": true,
+		"text": " A wasteland of frigid sands."
+	},
+        {
+            "type": "text",
+            "text": " There is just a field here of barren lands, it is filled with blue particles of sand and the very touch of them stings my flesh from how cold they are. It does however help me explain why this area exists, considering the air here is frigid as well, it means the surrounding area, if having any life at all, simply just wilted and died away due to the lack of actual warmth or nutrients it could get if it was always freezing."
+        }
+    ]
+}

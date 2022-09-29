@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "#H#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "liroth:ruby_block"
+    },
+    "B": { 
+      "item": "liroth:quantum_diamond"
+    },
+    "H": { 
+      "item": "liroth:liroth_splitter"
+    }
+  },
+  "result": {
+    "item": "liroth:quantum_extractor"
+  }
+}

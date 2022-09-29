@@ -1,0 +1,33 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:spinerios_stone"
+    },
+    "3": {
+      "item": "liroth:spinerios_stone"
+    },
+    "4": {
+      "item": "liroth:spinerios_stone"
+    },
+    "6": {
+      "item": "liroth:spinerios_stone"
+    },
+    "7": {
+      "item": "liroth:spinerios_stone"
+    },
+    "8": {
+      "item": "liroth:spinerios_stone"
+    }
+  },
+  "result": {
+    "item": "liroth:spinerios_stone_stairs",
+    "count": 4
+  }
+}

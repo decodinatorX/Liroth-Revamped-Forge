@@ -1,0 +1,32 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "1": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "2": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "3": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "4": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "5": {
+      "item": "liroth:spinerios_cobblestone"
+    }
+  },
+  "result": {
+    "item": "liroth:spinerios_cobblestone_wall",
+    "count": 6
+  }
+}

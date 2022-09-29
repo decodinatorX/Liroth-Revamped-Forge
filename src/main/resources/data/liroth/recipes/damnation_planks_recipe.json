@@ -1,0 +1,16 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:damnation_log"
+    }
+  },
+  "result": {
+    "item": "liroth:damnation_planks",
+    "count": 4
+  }
+}

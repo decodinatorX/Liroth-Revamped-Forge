@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "liroth:damnation_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:damnation_boat"
+  }
+}

@@ -1,0 +1,40 @@
+{
+    "name": "Liroth Gem Uses",
+    "icon": "liroth:liroth_sword",
+    "advancement": "liroth:mine_liroth_gem",
+    "category": "liroth:liroth_intro",
+    "pages": [
+        {
+            "type": "text",
+            "text": " My studies of this gem have proven to me that a higher tier of weaponry and armor exists."
+        },
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:liroth_sword_recipe",
+      		"recipe2": "liroth:liroth_shovel_recipe"
+    	},
+    	{
+      		"type": "smithing",
+      		"recipe": "liroth:liroth_pickaxe_recipe",
+      		"recipe2": "liroth:liroth_axe_recipe"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:liroth_hoe_recipe"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:liroth_helmet_recipe",
+      		"recipe2": "liroth:liroth_chestplate_recipe"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:liroth_leggings_recipe",
+      		"recipe2": "liroth:liroth_boots_recipe"
+    	},
+    	{ 
+    		"type": "crafting",
+      		"recipe": "liroth:liroth_shield_recipe"
+      	}
+    ]
+}

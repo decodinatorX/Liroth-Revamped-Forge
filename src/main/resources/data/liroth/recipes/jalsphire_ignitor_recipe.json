@@ -1,0 +1,30 @@
+{
+  "group": "liroth",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "item": "liroth:liroth_gem"
+    },
+    "3": {
+      "item": "liroth:liroth_gem_ansalum"
+    },
+    "4": {
+      "item": "liroth:jalsphire_gem"
+    },
+    "5": {
+      "item": "liroth:liroth_gem_salem"
+    },
+    "7": {
+      "item": "liroth:liroth_gem_lux"
+    }
+  },
+  "result": {
+    "item": "liroth:jalsphire_charge",
+    "count": 1
+  }
+}

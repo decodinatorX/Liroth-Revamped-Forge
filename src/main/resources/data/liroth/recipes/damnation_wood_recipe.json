@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:damnation_log"
+    },
+    "1": {
+      "item": "liroth:damnation_log"
+    },
+    "2": {
+      "item": "liroth:damnation_log"
+    },
+    "3": {
+      "item": "liroth:damnation_log"
+    }
+  },
+  "result": {
+    "item": "liroth:damnation_wood",
+    "count": 4
+  }
+}

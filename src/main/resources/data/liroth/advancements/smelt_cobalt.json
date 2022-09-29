@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:enter_liroth",
+  "display": {
+    "icon": {
+      "item": "liroth:lirothian_cobalt_ingot"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.smelt_lirothian_cobalt.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.smelt_lirothian_cobalt.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "lirothian_cobalt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:lirothian_cobalt_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lirothian_cobalt"
+    ]
+  ]
+}

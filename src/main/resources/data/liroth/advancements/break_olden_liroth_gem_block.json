@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:root",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_gem_dust"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.break_olden_liroth_gem_block.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.break_olden_liroth_gem_block.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_gem_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_gem_dust"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_gem_dust"
+    ]
+  ]
+}

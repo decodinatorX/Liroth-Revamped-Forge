@@ -1,0 +1,77 @@
+{
+  "parent": "liroth:mine_liroth_gem",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.obtain_liroth_armor.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.obtain_liroth_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "liroth_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "liroth_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "liroth_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_helmet",
+      "liroth_chestplate",
+      "liroth_leggings",
+      "liroth_boots"
+    ]
+  ]
+}

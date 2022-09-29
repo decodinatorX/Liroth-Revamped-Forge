@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#liroth:liroth_biomes",
+  "features": "liroth:lirothian_liroth_ore_placed",
+  "step": "underground_ores"
+}

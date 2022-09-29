@@ -1,0 +1,77 @@
+{
+  "parent": "liroth:quantum_plate",
+  "display": {
+    "icon": {
+      "item": "liroth:quantum_liroth_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.obtain_quantum_liroth_armor.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.obtain_quantum_liroth_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "quantum_liroth_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:quantum_liroth_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "quantum_liroth_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:quantum_liroth_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "quantum_liroth_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:quantum_liroth_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "quantum_liroth_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:quantum_liroth_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "quantum_liroth_helmet",
+      "quantum_liroth_chestplate",
+      "quantum_liroth_leggings",
+      "quantum_liroth_boots"
+    ]
+  ]
+}

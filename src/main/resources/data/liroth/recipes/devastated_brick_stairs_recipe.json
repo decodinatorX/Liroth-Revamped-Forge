@@ -1,0 +1,33 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:devastated_bricks"
+    },
+    "3": {
+      "item": "liroth:devastated_bricks"
+    },
+    "4": {
+      "item": "liroth:devastated_bricks"
+    },
+    "6": {
+      "item": "liroth:devastated_bricks"
+    },
+    "7": {
+      "item": "liroth:devastated_bricks"
+    },
+    "8": {
+      "item": "liroth:devastated_bricks"
+    }
+  },
+  "result": {
+    "item": "liroth:devastated_brick_stairs",
+    "count": 1
+  }
+}

@@ -3,7 +3,6 @@ package com.decodinator.liroth.core.renders;
 import com.decodinator.liroth.Liroth;
 import com.decodinator.liroth.core.LirothBoat;
 import com.decodinator.liroth.core.LirothBoatModel;
-import com.decodinator.liroth.core.LirothBoat.Type;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -25,24 +24,24 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class LirothBoatRenderer extends EntityRenderer<LirothBoat> {
-   private final Map<LirothBoat.Type, Pair<ResourceLocation, LirothBoatModel>> boatResources;
+   private final Map<LirothBoat.LirothType, Pair<ResourceLocation, LirothBoatModel>> boatResources;
 
    public LirothBoatRenderer(EntityRendererProvider.Context p_234563_, boolean p_234564_) {
       super(p_234563_);
       this.shadowRadius = 0.8F;
-      this.boatResources = Stream.of(LirothBoat.Type.values()).collect(ImmutableMap.toImmutableMap((p_173938_) -> {
+      this.boatResources = Stream.of(LirothBoat.LirothType.values()).collect(ImmutableMap.toImmutableMap((p_173938_) -> {
          return p_173938_;
       }, (p_234575_) -> {
          return Pair.of(new ResourceLocation(getTextureLocation(p_234575_, p_234564_)), this.createBoatModel(p_234563_, p_234575_, p_234564_));
       }));
    }
 
-   private LirothBoatModel createBoatModel(EntityRendererProvider.Context p_234569_, LirothBoat.Type p_234570_, boolean p_234571_) {
+   private LirothBoatModel createBoatModel(EntityRendererProvider.Context p_234569_, LirothBoat.LirothType p_234570_, boolean p_234571_) {
       ModelLayerLocation modellayerlocation = p_234571_ ? Liroth.createChestBoatModelName(p_234570_) : Liroth.createBoatModelName(p_234570_);
       return new LirothBoatModel(p_234569_.bakeLayer(modellayerlocation), p_234571_);
    }
 
-   private static String getTextureLocation(LirothBoat.Type p_234566_, boolean p_234567_) {
+   private static String getTextureLocation(LirothBoat.LirothType p_234566_, boolean p_234567_) {
       return p_234567_ ? "liroth:textures/entity/chest_boat/" + p_234566_.getName() + ".png" : "liroth:textures/entity/boat/" + p_234566_.getName() + ".png";
    }
 
@@ -87,5 +86,5 @@ public class LirothBoatRenderer extends EntityRenderer<LirothBoat> {
       return getModelWithLocation(p_113927_).getFirst();
    }
 
-   public Pair<ResourceLocation, LirothBoatModel> getModelWithLocation(LirothBoat p_113929_) { return this.boatResources.get(p_113929_.getBoatType()); }
+   public Pair<ResourceLocation, LirothBoatModel> getModelWithLocation(LirothBoat p_113929_) { return this.boatResources.get(p_113929_.getLirothBoatType()); }
 }

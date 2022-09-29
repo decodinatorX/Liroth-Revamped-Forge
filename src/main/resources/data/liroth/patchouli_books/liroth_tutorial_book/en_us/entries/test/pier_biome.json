@@ -1,0 +1,19 @@
+{
+    "name": "Pier Jungle",
+    "icon": "liroth:tallpier_log",
+    "advancement": "liroth:enter_liroth",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/tallpier_jungle.png"],
+		"title": "Pier Jungle",
+		"border": true,
+		"text": " This place is just bustling with life, it's air"
+	},
+        {
+            "type": "text",
+            "text": "is frigid, however the smell of it is much more breathable than the other two, the trees seems to smell like a basket of apples. The trees are decaying but also living at the same rate as each other and they let off small spores from their leaves. $(br)$(br) The soil here is also much more livable, for it acts just as the grass/dirt I am so used to."
+        }
+    ]
+}

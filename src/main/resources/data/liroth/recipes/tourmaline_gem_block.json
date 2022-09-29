@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "liroth:tourmaline"
+    }
+  },
+  "result": {
+    "item": "liroth:tourmaline_gem_block"
+  }
+}

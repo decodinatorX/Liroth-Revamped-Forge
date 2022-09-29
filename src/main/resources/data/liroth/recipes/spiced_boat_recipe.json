@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "liroth:spiced_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:spiced_boat"
+  }
+}

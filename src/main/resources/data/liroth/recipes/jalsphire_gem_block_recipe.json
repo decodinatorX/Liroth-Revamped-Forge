@@ -1,0 +1,13 @@
+{
+
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "liroth:jalsphire_gem_block"
+    }
+  ],
+  "result": {
+    "item": "liroth:jalsphire_gem",
+    "count": 9
+  }
+}

@@ -1,0 +1,33 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:charred_liroth_cobblestone"
+    },
+    "3": {
+      "item": "liroth:charred_liroth_cobblestone"
+    },
+    "4": {
+      "item": "liroth:charred_liroth_cobblestone"
+    },
+    "6": {
+      "item": "liroth:charred_liroth_cobblestone"
+    },
+    "7": {
+      "item": "liroth:charred_liroth_cobblestone"
+    },
+    "8": {
+      "item": "liroth:charred_liroth_cobblestone"
+    }
+  },
+  "result": {
+    "item": "liroth:charred_liroth_cobblestone_stairs",
+    "count": 4
+  }
+}

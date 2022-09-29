@@ -96,7 +96,7 @@ public class LirothChestBoat extends LirothBoat implements HasCustomInventoryScr
 
    public Item getDropItem() {
       Item item;
-      switch (this.getBoatType()) {
+      switch (this.getLirothBoatType()) {
          case DAMNATION:
             item = LirothItems.CHEST_DAMNATION_BOAT.get();
             break;

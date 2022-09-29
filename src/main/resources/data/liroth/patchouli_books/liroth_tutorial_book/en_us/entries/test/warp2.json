@@ -1,0 +1,23 @@
+{
+    "name": "Warp",
+    "icon": "liroth:liroth_tear",
+    "advancement": "liroth:warp",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/warp.png"],
+		"title": "Warp",
+		"border": true,
+		"text": " The Warp, I named these creatures off their power.        Unoriginal, I know."
+	},
+        {
+            "type": "text",
+            "text": " These creatures are odd in that they seem to assist in aiding the corpses and freaks in combat, however when it came to assisting them against me, they seemed to remove their gaze. $(br)$(br) Although they don't engage in combat against me, my gaze meeting theirs causes chaos in their minds as if they, like Endermen, become irritated when you stare upon them. $(br)$(br) These creatures are herbivores and it shows from"
+        },
+        {
+            "type": "text",
+            "text": " the way they have bended down and taken a patch of grass and just crunched beneath their gnashers. $(br)$(br) Which begs the question, what role do these creatures play here? It's odd to have two creatures with some kind of odd parastical infection, but the warps are their own creature, no evidence suggests they are a predecessor or an ancestor whatsoever, just some odd lanky creature here to help."
+        }
+    ]
+}

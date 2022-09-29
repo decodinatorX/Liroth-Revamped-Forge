@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:break_olden_liroth_gem_block",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_gem"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.mine_liroth_gem.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.mine_liroth_gem.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_gem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_gem"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_gem"
+    ]
+  ]
+}

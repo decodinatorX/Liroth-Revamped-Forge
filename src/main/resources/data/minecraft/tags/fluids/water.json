@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-  	"liroth:liroth_fluid_still",
-  	"liroth:liroth_fluid_flowing",
-  	"liroth:molten_spinerios_still",
-  	"liroth:molten_spinerios_flowing"
+  	"liroth:liroth_fluid",
+  	"liroth:flowing_liroth_fluid",
+  	"liroth:molten_spinerios",
+  	"liroth:flowing_molten_spinerios"
   ]
 }

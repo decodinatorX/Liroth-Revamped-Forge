@@ -23,10 +23,10 @@ import net.minecraft.world.phys.Vec3;
 
 public class LirothBoatItem extends Item {
    private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
-   private final LirothBoat.Type type;
+   private final LirothBoat.LirothType type;
    private final boolean hasChest;
 
-   public LirothBoatItem(boolean p_220013_, LirothBoat.Type p_220014_, Item.Properties p_220015_) {
+   public LirothBoatItem(boolean p_220013_, LirothBoat.LirothType p_220014_, Item.Properties p_220015_) {
       super(p_220015_);
       this.hasChest = p_220013_;
       this.type = p_220014_;
@@ -54,7 +54,7 @@ public class LirothBoatItem extends Item {
 
          if (hitresult.getType() == HitResult.Type.BLOCK) {
             LirothBoat boat = this.getBoat(p_40622_, hitresult);
-            boat.setType(this.type);
+            boat.setLirothBoatType(this.type);
             boat.setYRot(p_40623_.getYRot());
             if (!p_40622_.noCollision(boat, boat.getBoundingBox())) {
                return InteractionResultHolder.fail(itemstack);

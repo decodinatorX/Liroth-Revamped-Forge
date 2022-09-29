@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "liroth:spinerios_ancient_debris"
+  },
+  "result": "minecraft:netherite_scrap",
+  "experience": 2,
+  "cookingtime": 200
+}

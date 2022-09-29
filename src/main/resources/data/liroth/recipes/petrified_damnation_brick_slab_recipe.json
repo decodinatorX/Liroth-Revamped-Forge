@@ -1,0 +1,22 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:petrified_damnation_bricks"
+    },
+    "1": {
+      "item": "liroth:petrified_damnation_bricks"
+    },
+    "2": {
+      "item": "liroth:petrified_damnation_bricks"
+    }
+  },
+  "result": {
+    "item": "liroth:petrified_damnation_brick_slab",
+    "count": 6
+  }
+}

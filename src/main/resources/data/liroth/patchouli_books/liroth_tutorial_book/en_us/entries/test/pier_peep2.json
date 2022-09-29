@@ -1,0 +1,19 @@
+{
+    "name": "Pier Peep",
+    "icon": "liroth:liroth_tear",
+    "advancement": "liroth:pier_peep",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/pier_peep.png"],
+		"title": "Pier Peep",
+		"border": true,
+		"text": " Pier Peeps, literally just floating eyes that oddly "
+	},
+        {
+            "type": "text",
+            "text": "enough, are able in the middle of a spectral plane all the while still existing in the one I found them in, the surroundings that'd prove as good hiding spots are completely useless to these creatures, as their spectral form allows them to freely fly at me without warning. $(br)$(br) It's clear to me that these creatures haven't any need or way of eating, so the diet thing here is out the window. $(br)$(br) Just floating eyes."
+        }
+    ]
+}

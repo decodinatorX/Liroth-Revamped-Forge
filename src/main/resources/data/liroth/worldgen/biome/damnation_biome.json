@@ -1,0 +1,99 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.9,
+  "precipitation": "rain",
+  "effects": {
+    "sky_color": 328965,
+    "fog_color": 78337,
+    "water_color": 328965,
+    "water_fog_color": 328965,
+    "grass_color": 328965,
+    "foliage_color": 328965,
+    "ambient_sound": "minecraft:ambient.soul_sand_valley.loop",
+    "mood_sound": {
+      "sound": "minecraft:ambient.soul_sand_valley.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.soul_sand_valley.additions",
+      "tick_chance": 0.0111
+    },
+    "music": {
+      "sound": "liroth:music.liroth.damnation",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "liroth:green_spore"
+      },
+      "probability": 0.118093334
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "liroth:fungal_fiend",
+        "weight": 100,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [
+      "minecraft:amethyst_geode"
+    ],
+    [
+      "minecraft:fossil_upper",
+      "minecraft:fossil_lower",
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
+    [],
+    [],
+    [
+      "minecraft:ore_gravel",
+      "minecraft:ore_gold_lower",
+      "minecraft:ore_redstone_lower",
+      "minecraft:ore_diamond_buried",
+      "minecraft:ore_lapis_buried",
+      "liroth:spinerios_ancient_debris",
+      "liroth:spinerios_stone_tourmaline_ore",
+      "minecraft:underwater_magma"
+    ],
+    [],
+    [
+      "minecraft:spring_water",
+      "minecraft:spring_lava"
+    ],
+    [
+      "minecraft:patch_tall_grass_2",
+      "minecraft:patch_grass_plain",
+      "liroth:trees_damnation",
+      "liroth:patch_fungus_mushroom",
+      "liroth:damnation_fungus"
+    ],
+    []
+  ]
+}

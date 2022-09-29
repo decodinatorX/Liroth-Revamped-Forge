@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "liroth:charred_liroth_stone_bricks"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.liroth_fortress.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.liroth_fortress.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "liroth:enter_liroth",
+  "criteria": {
+    "liroth_fortress": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "liroth:liroth_fortress"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_fortress"
+    ]
+  ]
+}

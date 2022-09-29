@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ! ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bread"
+    },
+    "!": { 
+    	"item": "liroth:liroth_gem_dust"
+    }
+  },
+  "result": {
+    "item": "liroth:liroth_coated_bread"
+  }
+}

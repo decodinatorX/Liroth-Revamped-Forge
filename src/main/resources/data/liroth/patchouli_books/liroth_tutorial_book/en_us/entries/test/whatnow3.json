@@ -1,0 +1,52 @@
+{
+    "name": "Liroth Gem Uses - 3",
+    "icon": "liroth:quantum_liroth_sword",
+    "advancement": "liroth:enter_desolation",
+    "category": "liroth:liroth_intro",
+    "pages": [
+        {
+            "type": "text",
+            "text": " My studies of this gem and all the realms have lead me to final tier of armor I can obtain The Quantum energy is able to keep me regenerated while the Potestium is able to keep me away from needing to eat. Both serve different functionalities but both are armor and weaponry."
+        },
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:quantum_liroth_sword_smithing",
+      		"recipe2": "liroth:quantum_liroth_shovel_smithing"
+    	},
+    	{
+      		"type": "smithing",
+      		"recipe": "liroth:quantum_liroth_pickaxe_smithing",
+      		"recipe2": "liroth:quantum_liroth_axe_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:quantum_liroth_hoe_smithing",
+      		"recipe2": "liroth:quantum_liroth_shield_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:quantum_liroth_helmet_smithing",
+      		"recipe2": "liroth:quantum_liroth_chestplate_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:quantum_liroth_leggings_smithing",
+      		"recipe2": "liroth:potestium_liroth_boots_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:potestium_liroth_scythe_smithing",
+      		"text": "This scythe, acting as a really good tool for gardening, is the very culmination of execution! I now understand why Death themself would ever use such a tool of execution."
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:potestium_liroth_helmet_smithing",
+      		"recipe2": "liroth:potestium_liroth_chestplate_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:potestium_liroth_leggings_smithing",
+      		"recipe2": "liroth:quantum_liroth_boots_smithing"
+    	}
+    ]
+}

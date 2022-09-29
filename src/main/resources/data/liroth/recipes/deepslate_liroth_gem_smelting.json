@@ -1,0 +1,11 @@
+{
+
+  "type": "minecraft:smelting",
+  "experience": 0,
+  "cookingtime": 200,
+  "ingredient": {
+    "item": "liroth:deepslate_liroth_gem_ore"
+  },
+  "result": "liroth:liroth_gem"
+  }
+}

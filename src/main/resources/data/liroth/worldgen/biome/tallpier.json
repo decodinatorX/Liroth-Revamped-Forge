@@ -1,0 +1,83 @@
+{
+  "temperature": 0.5,
+  "downfall": 0.5,
+  "precipitation": "snow",
+  "temperature_modifier": "frozen",
+  "effects": {
+    "sky_color": 7730943,
+    "fog_color": 12779515,
+    "water_color": 4186596,
+    "water_fog_color": 338483,
+    "grass_color": 5621189,
+    "foliage_color": 3932160,
+    "grass_color_modifier": "none",
+    "ambient_sound": "minecraft:ambient.crimson_forest.loop",
+    "mood_sound": {
+      "sound": "minecraft:ambient.crimson_forest.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.crimson_forest.additions",
+      "tick_chance": 0.0111
+    },
+    "music": {
+      "sound": "liroth:music.liroth.tallpier_biome",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:crimson_spore"
+      },
+      "probability": 0.025
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "liroth:pier_peep",
+        "weight": 100,
+        "minCount": 5,
+        "maxCount": 25
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "liroth:trees_tallpier",
+      "minecraft:patch_grass_jungle",
+      "liroth:lirothian_liroth_gem_ore",
+      "liroth:lirothian_cobalt_ore",
+      "liroth:lirothian_petroleum_ore",
+      "liroth:charred_lirothian_liroth_gem_ore",
+      "liroth:liroth_bone_claw",
+      "liroth:liroth_bone_mushroom",
+      "liroth:liroth_bone_tree",
+      "liroth:vile_tentacle"
+    ],
+    []
+  ]
+}

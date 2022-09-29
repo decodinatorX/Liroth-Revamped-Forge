@@ -1,0 +1,19 @@
+{
+    "name": "Desolation",
+    "icon": "liroth:soulless_soil",
+    "advancement": "liroth:enter_desolation",
+    "category": "liroth:desolation_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/desolation.png"],
+		"title": "Desolation",
+		"border": true,
+		"text": "Emptiness fills this place, a feeling of"
+	},
+        {
+            "type": "text",
+            "text": "unending depression fills the heart in my vessel as I tread here, the realm breaths ever so softly and hums a rather sad hymn of it's sorrowful past, and although I am unable to decipher what had happened here, I still feel the way of empathy for this realm and who may have been casted here. $(br)$(br) Beside the hard to shake emotions that swell in my mind and soul, the area is rich with powerful resources I'd be damned not to grab while here."
+        }
+    ]
+}

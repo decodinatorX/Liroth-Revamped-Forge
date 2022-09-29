@@ -1,0 +1,32 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:devastated_bricks"
+    },
+    "1": {
+      "item": "liroth:devastated_bricks"
+    },
+    "2": {
+      "item": "liroth:devastated_bricks"
+    },
+    "3": {
+      "item": "liroth:devastated_bricks"
+    },
+    "4": {
+      "item": "liroth:devastated_bricks"
+    },
+    "5": {
+      "item": "liroth:devastated_bricks"
+    }
+  },
+  "result": {
+    "item": "liroth:devastated_brick_wall",
+    "count": 6
+  }
+}

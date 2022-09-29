@@ -1,0 +1,33 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:liroth_planks"
+    },
+    "3": {
+      "item": "liroth:liroth_planks"
+    },
+    "4": {
+      "item": "liroth:liroth_planks"
+    },
+    "6": {
+      "item": "liroth:liroth_planks"
+    },
+    "7": {
+      "item": "liroth:liroth_planks"
+    },
+    "8": {
+      "item": "liroth:liroth_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:liroth_stairs",
+    "count": 4
+  }
+}

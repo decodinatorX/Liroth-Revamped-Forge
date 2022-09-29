@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:koolaw_log"
+    },
+    "1": {
+      "item": "liroth:koolaw_log"
+    },
+    "2": {
+      "item": "liroth:koolaw_log"
+    },
+    "3": {
+      "item": "liroth:koolaw_log"
+    }
+  },
+  "result": {
+    "item": "liroth:koolaw_wood",
+    "count": 4
+  }
+}

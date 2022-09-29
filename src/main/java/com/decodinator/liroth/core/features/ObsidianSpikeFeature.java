@@ -1,84 +1,98 @@
 package com.decodinator.liroth.core.features;
-
-import com.decodinator.liroth.core.LirothBlocks;
 import com.mojang.serialization.Codec;
-
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.StructureAccess;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class ObsidianSpikeFeature
-extends Feature<NoneFeatureConfiguration> {
-    public ObsidianSpikeFeature(Codec<NoneFeatureConfiguration> codec) {
-        super(codec);
-    }
+public class ObsidianSpikeFeature extends Feature<NoneFeatureConfiguration> {
+   public ObsidianSpikeFeature(Codec<NoneFeatureConfiguration> p_66003_) {
+      super(p_66003_);
+   }
 
-    @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-        int l;
-        int k;
-        BlockPos blockPos = context.origin();
-        RandomSource random = context.random();
-        WorldGenLevel structureWorldAccess = context.level();
-        while (structureWorldAccess.isEmptyBlock(blockPos) && blockPos.getY() > structureWorldAccess.getMinBuildHeight() + 2) {
-            blockPos = blockPos.below();
-        }
-        if (!structureWorldAccess.getBlockState(blockPos).is(Blocks.GRASS_BLOCK)) {
-            return false;
-        }
-        blockPos = blockPos.above(random.nextInt(4));
-        int i = random.nextInt(4) + 7;
-        int j = i / 4 + random.nextInt(2);
-        if (j > 1 && random.nextInt(60) == 0) {
-            blockPos = blockPos.above(10 + random.nextInt(30));
-        }
-        for (k = 0; k < i; ++k) {
-            float f = (1.0f - (float)k / (float)i) * (float)j;
-            l = Mth.ceil(f);
-            for (int m = -l; m <= l; ++m) {
-                float g = (float)Mth.abs(m) - 0.25f;
-                for (int n = -l; n <= l; ++n) {
-                    float h = (float)Mth.abs(n) - 0.25f;
-                    if ((m != 0 || n != 0) && g * g + h * h > f * f || (m == -l || m == l || n == -l || n == l) && random.nextFloat() > 0.75f) continue;
-                    BlockState blockState = structureWorldAccess.getBlockState(blockPos.offset(m, k, n));
-                    if (blockState.isAir() || ObsidianSpikeFeature.isDirt(blockState) || blockState.is(Blocks.GRASS_BLOCK) || blockState.is(Blocks.DIRT)) {
-                        this.setBlock(structureWorldAccess, blockPos.offset(m, k, n), Blocks.OBSIDIAN.defaultBlockState());
-                    }
-                    if (k == 0 || l <= 1 || !(blockState = structureWorldAccess.getBlockState(blockPos.offset(m, -k, n))).isAir() && !ObsidianSpikeFeature.isDirt(blockState) && !blockState.is(Blocks.GRASS_BLOCK) && !blockState.is(Blocks.DIRT)) continue;
-                    this.setBlock(structureWorldAccess, blockPos.offset(m, -k, n), Blocks.OBSIDIAN.defaultBlockState());
-                }
+   public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> p_159882_) {
+      BlockPos blockpos = p_159882_.origin();
+      RandomSource randomsource = p_159882_.random();
+
+      WorldGenLevel worldgenlevel;
+      for(worldgenlevel = p_159882_.level(); worldgenlevel.isEmptyBlock(blockpos) && blockpos.getY() > worldgenlevel.getMinBuildHeight() + 2; blockpos = blockpos.below()) {
+      }
+
+      if (!worldgenlevel.getBlockState(blockpos).is(BlockTags.STONE_ORE_REPLACEABLES)) {
+         return false;
+      } else {
+         blockpos = blockpos.above(randomsource.nextInt(4));
+         int i = randomsource.nextInt(4) + 7;
+         int j = i / 4 + randomsource.nextInt(2);
+         if (j > 1 && randomsource.nextInt(60) == 0) {
+            blockpos = blockpos.above(10 + randomsource.nextInt(30));
+         }
+
+         for(int k = 0; k < i; ++k) {
+            float f = (1.0F - (float)k / (float)i) * (float)j;
+            int l = Mth.ceil(f);
+
+            for(int i1 = -l; i1 <= l; ++i1) {
+               float f1 = (float)Mth.abs(i1) - 0.25F;
+
+               for(int j1 = -l; j1 <= l; ++j1) {
+                  float f2 = (float)Mth.abs(j1) - 0.25F;
+                  if ((i1 == 0 && j1 == 0 || !(f1 * f1 + f2 * f2 > f * f)) && (i1 != -l && i1 != l && j1 != -l && j1 != l || !(randomsource.nextFloat() > 0.75F))) {
+                     BlockState blockstate = worldgenlevel.getBlockState(blockpos.offset(i1, k, j1));
+                     if (blockstate.isAir() || isDirt(blockstate) || blockstate.is(BlockTags.STONE_ORE_REPLACEABLES) || blockstate.is(BlockTags.DIRT)) {
+                        this.setBlock(worldgenlevel, blockpos.offset(i1, k, j1), Blocks.OBSIDIAN.defaultBlockState());
+                     }
+
+                     if (k != 0 && l > 1) {
+                        blockstate = worldgenlevel.getBlockState(blockpos.offset(i1, -k, j1));
+                        if (blockstate.isAir() || isDirt(blockstate) || blockstate.is(BlockTags.STONE_ORE_REPLACEABLES) || blockstate.is(BlockTags.DIRT)) {
+                           this.setBlock(worldgenlevel, blockpos.offset(i1, -k, j1), Blocks.OBSIDIAN.defaultBlockState());
+                        }
+                     }
+                  }
+               }
             }
-        }
-        k = j - 1;
-        if (k < 0) {
-            k = 0;
-        } else if (k > 1) {
-            k = 1;
-        }
-        for (int o = -k; o <= k; ++o) {
-            for (l = -k; l <= k; ++l) {
-                BlockState blockState2;
-                BlockPos blockPos2 = blockPos.offset(o, -1, l);
-                int p = 50;
-                if (Math.abs(o) == 1 && Math.abs(l) == 1) {
-                    p = random.nextInt(5);
-                }
-                while (blockPos2.getY() > 50 && ((blockState2 = structureWorldAccess.getBlockState(blockPos2)).isAir() || ObsidianSpikeFeature.isDirt(blockState2) || blockState2.is(Blocks.GRASS_BLOCK) || blockState2.is(Blocks.DIRT) || blockState2.is(LirothBlocks.KOOLAW_LEAVES.get()))) {
-                    this.setBlock(structureWorldAccess, blockPos2, Blocks.OBSIDIAN.defaultBlockState());
-                    blockPos2 = blockPos2.below();
-                    if (--p > 0) continue;
-                    blockPos2 = blockPos2.below(random.nextInt(5) + 1);
-                    p = random.nextInt(5);
-                }
+         }
+
+         int k1 = j - 1;
+         if (k1 < 0) {
+            k1 = 0;
+         } else if (k1 > 1) {
+            k1 = 1;
+         }
+
+         for(int l1 = -k1; l1 <= k1; ++l1) {
+            for(int i2 = -k1; i2 <= k1; ++i2) {
+               BlockPos blockpos1 = blockpos.offset(l1, -1, i2);
+               int j2 = 50;
+               if (Math.abs(l1) == 1 && Math.abs(i2) == 1) {
+                  j2 = randomsource.nextInt(5);
+               }
+
+               while(blockpos1.getY() > 50) {
+                  BlockState blockstate1 = worldgenlevel.getBlockState(blockpos1);
+                  if (!blockstate1.isAir() && !isDirt(blockstate1) && !blockstate1.is(BlockTags.STONE_ORE_REPLACEABLES) && !blockstate1.is(BlockTags.DIRT) && !blockstate1.is(Blocks.GRASS_BLOCK)) {
+                     break;
+                  }
+
+                  this.setBlock(worldgenlevel, blockpos1, Blocks.OBSIDIAN.defaultBlockState());
+                  blockpos1 = blockpos1.below();
+                  --j2;
+                  if (j2 <= 0) {
+                     blockpos1 = blockpos1.below(randomsource.nextInt(5) + 1);
+                     j2 = randomsource.nextInt(5);
+                  }
+               }
             }
-        }
-        return true;
-    }
+         }
+
+         return true;
+      }
+   }
 }

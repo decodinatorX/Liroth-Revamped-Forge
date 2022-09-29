@@ -1,0 +1,77 @@
+{
+  "parent": "liroth:liroth_gem_ansalum",
+  "display": {
+    "icon": {
+      "item": "liroth:ansalum_liroth_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_gem_ansalum_armor.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_gem_ansalum_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ansalum_liroth_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:ansalum_liroth_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "ansalum_liroth_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:ansalum_liroth_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "ansalum_liroth_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:ansalum_liroth_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "ansalum_liroth_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:ansalum_liroth_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ansalum_liroth_helmet",
+      "ansalum_liroth_chestplate",
+      "ansalum_liroth_leggings",
+      "ansalum_liroth_boots"
+    ]
+  ]
+}

@@ -1,0 +1,13 @@
+{
+
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "liroth:potestium_block"
+    }
+  ],
+  "result": {
+    "item": "liroth:potestium_shard",
+    "count": 9
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:mine_quantum_diamond",
+  "display": {
+    "icon": {
+      "item": "liroth:quantum_extractor"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.quantum_extractor.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.quantum_extractor.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "quantum_extractor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:quantum_extractor"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "quantum_extractor"
+    ]
+  ]
+}

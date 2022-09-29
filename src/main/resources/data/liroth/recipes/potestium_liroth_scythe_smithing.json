@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "liroth:quantum_liroth_hoe"
+  },
+  "addition": {
+    "item": "liroth:potestium_shard"
+  },
+  "result": {
+    "item": "liroth:potestium_scythe"
+  }
+}

@@ -1,0 +1,11 @@
+{
+
+  "type": "minecraft:smelting",
+  "experience": 0,
+  "cookingtime": 200,
+  "ingredient": {
+    "item": "liroth:spinerios_cobblestone"
+  },
+  "result": "liroth:spinerios_stone"
+  }
+}

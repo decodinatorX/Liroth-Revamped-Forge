@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:skeletal_freak",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_blaster"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_blaster.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_blaster.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_blaster": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_blaster"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_blaster"
+    ]
+  ]
+}

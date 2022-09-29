@@ -1,0 +1,11 @@
+{
+
+  "type": "minecraft:smelting",
+  "experience": 0,
+  "cookingtime": 200,
+  "ingredient": {
+    "item": "liroth:liroth_soul_sand"
+  },
+  "result": "liroth:liroth_glass_block"
+  }
+}

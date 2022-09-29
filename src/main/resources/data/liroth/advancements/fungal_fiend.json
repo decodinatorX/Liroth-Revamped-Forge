@@ -1,0 +1,39 @@
+{
+  "parent": "liroth:enter_damnation",
+  "display": {
+    "icon": {
+      "item": "liroth:fungal_torch"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.fungal_fiend.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.fungal_fiend.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "killed_fungal_fiend": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "liroth:fungal_fiend"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_fungal_fiend"
+    ]
+  ]
+}

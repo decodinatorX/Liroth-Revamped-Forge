@@ -1,0 +1,13 @@
+{
+
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "liroth:tourmaline_gem_block"
+    }
+  ],
+  "result": {
+    "item": "liroth:tourmaline",
+    "count": 9
+  }
+}

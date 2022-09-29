@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:mine_jalsphire",
+  "display": {
+    "icon": {
+      "item": "liroth:jalsphire_gem"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.smelt_jalsphire.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.smelt_jalsphire.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "jalsphire_gem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:jalsphire_gem"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "jalsphire_gem"
+    ]
+  ]
+}

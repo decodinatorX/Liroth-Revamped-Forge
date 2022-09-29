@@ -1,0 +1,32 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:tallpier_planks"
+    },
+    "1": {
+      "item": "liroth:tallpier_planks"
+    },
+    "2": {
+      "item": "liroth:tallpier_planks"
+    },
+    "3": {
+      "item": "liroth:tallpier_planks"
+    },
+    "4": {
+      "item": "liroth:tallpier_planks"
+    },
+    "5": {
+      "item": "liroth:tallpier_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:tallpier_trapdoor",
+    "count": 3
+  }
+}

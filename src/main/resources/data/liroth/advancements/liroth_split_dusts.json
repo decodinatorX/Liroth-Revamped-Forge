@@ -1,0 +1,47 @@
+{
+  "parent": "liroth:liroth_splitter",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_dust_ansalum"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_split_dusts.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_split_dusts.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_split_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_dust_ansalum"
+            ]
+          },
+          {
+            "items": [
+              "liroth:liroth_dust_lux"
+            ]
+          },
+          {
+            "items": [
+              "liroth:liroth_dust_salem"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_split_dust"
+    ]
+  ]
+}

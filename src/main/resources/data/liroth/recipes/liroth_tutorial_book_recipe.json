@@ -1,0 +1,13 @@
+{
+
+  "type": "patchouli:shapeless_book_recipe",
+  "ingredients": [
+    {
+      "item": "liroth:wilting_liroth_rose"
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ],
+  "book": "liroth:liroth_tutorial_book"
+}

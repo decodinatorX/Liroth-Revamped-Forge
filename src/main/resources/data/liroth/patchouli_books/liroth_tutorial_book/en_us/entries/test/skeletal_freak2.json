@@ -1,0 +1,27 @@
+{
+    "name": "Skeletal Freak",
+    "icon": "liroth:liroth_bone",
+    "advancement": "liroth:skeletal_freak",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/skeletal_freak.png"],
+		"title": "Skeletal Freak",
+		"border": true,
+		"text": " This is the creature, The Skeletal Freak, that the "
+	},
+        {
+            "type": "text",
+            "text": "Forsaken Corpses seems werery about. $(br)$(br) The reason these creatures seem to recieve the Forsaken Corpse's sympathy only came to me through deep inner thought of their diet. The Skeletal Freak is what's left of the corpse's when they haven't any food left. They eat themselves until they have nothing left and then the arms, once the arms have been eaten they only have the central eye, which seems to also be their brain."
+        },
+        {
+            "type": "text",
+            "text": " These creatures are much more... pathetic... Do not underestimate them in strength, they still are as difficult if not worse than the Forsaken Corpses they once were. However their skeletal frame seems weak, as if I can bend it easily, although, it's hard to snap, they are extremely malleable, perhaps I could make some kind of weapons from their bones? I will look into this in a later entry, for now I need research these creatures."
+        },
+        {
+            "type": "text",
+            "text": " The main goal of The Skeletal Freaks seems unclear, they clearly are unable to attain any type of food nor can they regenerate their once thriving systems, they are but bone and detached veins that barely assist in moving the skeletal frame itself. Yet, the bones still appear... alive. Either I have been going a little more insane than I wish to admit, I believe I have seen their bones pulsate."
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "Damnation Thicket",
+    "icon": "liroth:damnation_log",
+    "advancement": "liroth:enter_damnation",
+    "category": "liroth:damnation_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/damnation_thicket.png"],
+		"title": "Damnation Thicket",
+		"border": true,
+		"text": " This fungal mess is extremely dark and yet flourishing with life."
+	},
+        {
+            "type": "text",
+            "text": " The trees and the large shrooms that take up the land here are just bundling with life and with it the vile creatures of this land. The soil is as fungal as the fungallights that hang from the large shrooms that tower me. The smell would've probably have been quite fine if it weren't for that horrid lake of whatever sticky essence it is' existence."
+        },
+        {
+            "type": "text",
+            "text": " The caves are a different story however, although bustling with the same amount and practically the same type of life as the surface, it is much more collected and heavy down here, its almost impossible to breath with the amount of spores flying around. $(br)$(br) Almost."
+        } 
+    ]
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "liroth:nova_tower",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_chest"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.loot_nova_tower.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.loot_nova_tower.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "loot_nova_tower": {
+      "trigger": "minecraft:player_generates_container_loot",
+      "conditions": {
+        "loot_table": "liroth:chests/nova_tower/beta/lirothian_tower_fountain_normal"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "loot_nova_tower"
+    ]
+  ]
+}

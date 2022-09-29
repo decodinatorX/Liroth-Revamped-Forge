@@ -1,0 +1,19 @@
+{
+    "name": "Escape Meadow",
+    "icon": "liroth:japz_log",
+    "advancement": "liroth:enter_escape",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/escape_meadow.png"],
+		"title": "Escape Meadow",
+		"border": true,
+		"text": " This place is full of what I am used to oddly enough."
+	},
+        {
+            "type": "text",
+            "text": "It seems to be flourishing with the same life as the realm I originate within. Which, although comforting, begs to me a haunting question, who brought these here or who brought these there? Were these flowers from this plane or mine? $(br)$(br) Beside the warp inducing question in of itself, I am going to comment that the soil here is very rich with resources, although the lack of stone confuses me, the only existence being far below in the form of an unbreakable resource that all worlds seem to own."
+        }
+    ]
+}

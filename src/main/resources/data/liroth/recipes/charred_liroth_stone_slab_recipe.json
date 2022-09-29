@@ -1,0 +1,22 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:charred_liroth_stone"
+    },
+    "1": {
+      "item": "liroth:charred_liroth_stone"
+    },
+    "2": {
+      "item": "liroth:charred_liroth_stone"
+    }
+  },
+  "result": {
+    "item": "liroth:charred_liroth_stone_slab",
+    "count": 6
+  }
+}

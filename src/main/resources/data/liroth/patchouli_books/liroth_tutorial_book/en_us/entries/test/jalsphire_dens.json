@@ -1,0 +1,19 @@
+{
+    "name": "Jalsphire Dens",
+    "icon": "liroth:koolaw_log",
+    "advancement": "liroth:enter_jalsphire",
+    "category": "liroth:jalsphire_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/jalsphire_dens.png"],
+		"title": "Jalsphire Dens",
+		"border": true,
+		"text": " Besides being a evident holding cell, this place is"
+	},
+        {
+            "type": "text",
+            "text": "still holding life, from the trees to vile creatures who'd want me dead just for looking at them. The sun is very different, not at all cubical. Instead it in of itself takes on a very complex shape with runes etched into it. The moon confuses me ever so slightly for it reminds me of the sun from the first realm I visited? Is that a coincidence or perhaps am I reading too much into it?  $(br)$(br) Although, these trees seem to be radiating an odd energy."
+        }
+    ]
+}

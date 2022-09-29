@@ -1,0 +1,57 @@
+{
+  "name": "liroth:fortresses/liroth/outside",
+  "fallback": "liroth:fortresses/liroth/terminator",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 8,
+      "element": {
+        "location": "liroth:fortresses/liroth/straight_outside",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "liroth:fortresses/liroth/4_way_outside",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "liroth:fortresses/liroth/4_way_outside_large",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "liroth:fortresses/liroth/stairs_outside",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "liroth:fortresses/liroth/spawner",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

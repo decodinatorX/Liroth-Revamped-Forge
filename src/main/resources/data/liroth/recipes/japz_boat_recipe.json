@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "liroth:japz_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:japz_boat"
+  }
+}

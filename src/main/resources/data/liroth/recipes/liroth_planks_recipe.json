@@ -1,0 +1,16 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:liroth_log"
+    }
+  },
+  "result": {
+    "item": "liroth:liroth_planks",
+    "count": 4
+  }
+}

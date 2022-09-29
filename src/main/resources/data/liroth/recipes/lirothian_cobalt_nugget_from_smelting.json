@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": [
+    {
+      "item": "liroth:lirothian_cobalt_pickaxe"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_shovel"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_axe"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_hoe"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_sword"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_helmet"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_chestplate"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_leggings"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_boots"
+    },
+    {
+      "item": "liroth:lirothian_cobalt_horse_armor"
+    }
+  ],
+  "result": "liroth:lirothian_cobalt_nugget",
+  "experience": 0.1,
+  "cookingtime": 200
+}

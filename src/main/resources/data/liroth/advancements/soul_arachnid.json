@@ -1,0 +1,39 @@
+{
+  "parent": "liroth:enter_liroth",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_soul_dust"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.soul_arachnid.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.soul_arachnid.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "killed_soul_arachnid": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "liroth:soul_arachnid"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_soul_arachnid"
+    ]
+  ]
+}

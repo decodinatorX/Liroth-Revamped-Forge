@@ -1,0 +1,19 @@
+{
+    "name": "Spiced Desert",
+    "icon": "liroth:spiced_log",
+    "advancement": "liroth:enter_liroth",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/spiced_desert.png"],
+		"title": "Spiced Desert",
+		"border": true,
+		"text": " I can not decide which is one is worse when"
+	},
+        {
+            "type": "text",
+            "text": "the air that resides here is extremely spicy to my lungs, it stings my throat, nose, and eyes just as the last. The spice seems emanant from the tree leaves. $(br)$(br) Don't even get me started on the weird sand that makes up the soil here, it whispers and cries as I tread it, it makes me feel unwelcome."
+        }
+    ]
+}

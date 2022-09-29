@@ -1,0 +1,41 @@
+{
+    "name": "Liroth Realm Theory",
+    "icon": "liroth:dimensional_communicator",
+    "advancement": "liroth:mine_liroth_gem",
+    "category": "liroth:liroth_intro",
+    "pages": [
+    	{
+    		"type": "crafting",
+    		"recipe": "liroth:dimensional_communicator_recipe",
+    		"text": " With the recent studies comes a hypothesis, here I have constructed a series of machinery that will aid me in traveling to another realm. For the existence of this gem seems as though it wasn't grown here, but merely forced here by some series of events."
+    	},
+    	{ 
+    		"type": "crafting",
+    		"recipe": "liroth:purpetuated_amethyst_block_recipe",
+    		"text": " This here is one of the components I will need for crafting the gateway itself, I am going to need a bit of gold it seems."
+    		},
+	{
+		"type": "multiblock",
+		"text": " The blueprint for the gateway are as follows:",
+		"name": "The Liroth Portal",
+		"multiblock": {
+			"pattern": [
+				[ 
+				"_AA_",
+				"A__A",
+				"A_0A",
+				"_AA_"
+				]
+			],
+			"mapping": {
+				"A": "liroth:dimensional_communicator",
+				"B": "minecraft:diamond_block",
+				"C": "minecraft:gold_block",
+				"D": "minecraft:emerald_block",
+				"E": "minecraft:redstone_block",
+				"F": "minecraft:lapis_block"
+			}
+		}
+	}
+    ]
+}

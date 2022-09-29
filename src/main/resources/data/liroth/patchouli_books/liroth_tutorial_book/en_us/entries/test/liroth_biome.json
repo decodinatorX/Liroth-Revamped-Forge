@@ -1,0 +1,23 @@
+{
+    "name": "Lirothian Forest",
+    "icon": "liroth:liroth_log",
+    "advancement": "liroth:enter_liroth",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/lirothian_plains.png"],
+		"title": "Lirothian Forest",
+		"border": true,
+		"text": " The Lirothian Forest is a forest covered in these odd "
+	},
+        {
+            "type": "text",
+            "text": "trees. The area seems oddly entrancing, as if I am on hallucinagetics while also feeling completely conscious. The trees here are also pulsing with some odd sap, however it seems the moment I harvest these logs, the sap dries almost instantaneously. The sun and moon I am used to are not the ones that inhabit the sky, meaning I didn't just hop a realm, but I escaped what was my own planet with it."
+        },
+        {
+            "type": "text",
+            "text": " The grass/dirt here is very mushy, stepping upon it makes me grimace, as it makes me sink ever so slightly. I can't even begin to describe the smell, constantly smelling as if something here rotted over and over again, it really stings my nose and my eyes to say the least."
+        } 
+    ]
+}

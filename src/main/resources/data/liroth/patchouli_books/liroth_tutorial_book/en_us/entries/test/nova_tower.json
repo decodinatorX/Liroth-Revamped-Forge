@@ -1,0 +1,23 @@
+{
+    "name": "Nova Tower",
+    "icon": "liroth:gleemstone",
+    "advancement": "liroth:nova_tower",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/nova_tower.png"],
+		"title": "Nova Tower",
+		"border": true,
+		"text": " I found an a tower that acts as a dungeon..."
+	},
+        {
+            "type": "text",
+            "text": " My main question here is, who built these? Where are they? I have studied if not enough creatures here to know that they are incapable of tasks such as building these towers, and most of them are left in ruin, which begs the other question, what would've caused these towers to fall? $(br)$(br) The only theory I have for this is that of the main building's architecture being made into bricks from the stone below, however, these ones are charred to hell and back."
+        },
+        { 
+        	"type": "text",
+        	"text": "Perhaps a type of heatwave occured to practically melt the structure, I wonder what it would've looked like back in it's golden days."
+        }
+    ]
+}

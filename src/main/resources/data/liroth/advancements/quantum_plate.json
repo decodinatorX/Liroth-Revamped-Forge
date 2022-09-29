@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:quantum_extractor",
+  "display": {
+    "icon": {
+      "item": "liroth:quantum_plate"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.quantum_plate.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.quantum_plate.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "quantum_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:quantum_plate"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "quantum_plate"
+    ]
+  ]
+}

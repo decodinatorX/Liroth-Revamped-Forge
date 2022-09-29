@@ -1,0 +1,33 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:damnation_planks"
+    },
+    "3": {
+      "item": "liroth:damnation_planks"
+    },
+    "4": {
+      "item": "liroth:damnation_planks"
+    },
+    "6": {
+      "item": "liroth:damnation_planks"
+    },
+    "7": {
+      "item": "liroth:damnation_planks"
+    },
+    "8": {
+      "item": "liroth:damnation_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:damnation_stairs",
+    "count": 4
+  }
+}

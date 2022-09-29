@@ -1,0 +1,33 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:petrified_damnation_bricks"
+    },
+    "3": {
+      "item": "liroth:petrified_damnation_bricks"
+    },
+    "4": {
+      "item": "liroth:petrified_damnation_bricks"
+    },
+    "6": {
+      "item": "liroth:petrified_damnation_bricks"
+    },
+    "7": {
+      "item": "liroth:petrified_damnation_bricks"
+    },
+    "8": {
+      "item": "liroth:petrified_damnation_bricks"
+    }
+  },
+  "result": {
+    "item": "liroth:petrified_damnation_brick_stairs",
+    "count": 3
+  }
+}

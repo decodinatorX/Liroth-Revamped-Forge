@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:enter_jalsphire",
+  "display": {
+    "icon": {
+      "item": "liroth:pointed_jalsphire_crystal"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.jalsphire_crystal.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.jalsphire_crystal.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "pointed_jalsphire_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:pointed_jalsphire_crystal"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pointed_jalsphire_crystal"
+    ]
+  ]
+}

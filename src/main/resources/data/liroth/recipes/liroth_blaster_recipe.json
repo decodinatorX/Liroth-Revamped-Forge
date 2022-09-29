@@ -1,0 +1,30 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 12",
+    "3 5",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "item": "liroth:liroth_bone"
+    },
+    "2": {
+      "item": "liroth:liroth_gem_lux"
+    },
+    "3": {
+      "item": "liroth:liroth_bone"
+    },
+    "5": {
+      "item": "liroth:liroth_bone"
+    },
+    "7": {
+      "item": "liroth:liroth_bone"
+    }
+  },
+  "result": {
+    "item": "liroth:liroth_blaster",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Ruby",
+    "icon": "liroth:ruby",
+    "advancement": "liroth:mine_ruby",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "patchouli:spotlight",
+		"item": "liroth:ruby",
+		"title": "Ruby",
+		"text": "Rubies, and yet these aren't the typical ones I'd usually see, these ones have some odd properties, extremely durable, but extremely difficult to bend to my will, so armor and weaponry will not take place using the rubies."
+	},
+        {
+            "type": "smelting",
+            "recipe": "liroth:ruby_smelting",
+            "text": "Luckily having this means I may be able to incorperate it into some machinery however considering it works really well as a durable yet conductive material."
+        }
+    ]
+}

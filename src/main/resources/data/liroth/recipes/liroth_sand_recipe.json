@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:liroth_soul_dust"
+    },
+    "1": {
+      "item": "liroth:liroth_soul_dust"
+    },
+    "2": {
+      "item": "liroth:liroth_soul_dust"
+    },
+    "3": {
+      "item": "liroth:liroth_soul_dust"
+    }
+  },
+  "result": {
+    "item": "liroth:liroth_soul_sand",
+    "count": 1
+  }
+}

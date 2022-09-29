@@ -1,0 +1,32 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:petrified_damnation_planks"
+    },
+    "1": {
+      "item": "liroth:petrified_damnation_planks"
+    },
+    "2": {
+      "item": "liroth:petrified_damnation_planks"
+    },
+    "3": {
+      "item": "liroth:petrified_damnation_planks"
+    },
+    "4": {
+      "item": "liroth:petrified_damnation_planks"
+    },
+    "5": {
+      "item": "liroth:petrified_damnation_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:petrified_damnation_trapdoor",
+    "count": 3
+  }
+}

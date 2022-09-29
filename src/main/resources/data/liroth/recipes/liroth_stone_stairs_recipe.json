@@ -1,0 +1,33 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:liroth_stone"
+    },
+    "3": {
+      "item": "liroth:liroth_stone"
+    },
+    "4": {
+      "item": "liroth:liroth_stone"
+    },
+    "6": {
+      "item": "liroth:liroth_stone"
+    },
+    "7": {
+      "item": "liroth:liroth_stone"
+    },
+    "8": {
+      "item": "liroth:liroth_stone"
+    }
+  },
+  "result": {
+    "item": "liroth:liroth_stone_stairs",
+    "count": 4
+  }
+}

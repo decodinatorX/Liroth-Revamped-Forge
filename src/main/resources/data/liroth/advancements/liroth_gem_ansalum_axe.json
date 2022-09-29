@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:liroth_gem_ansalum",
+  "display": {
+    "icon": {
+      "item": "liroth:ansalum_liroth_axe"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_gem_ansalum_axe.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_gem_ansalum_axe.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ansalum_liroth_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:ansalum_liroth_axe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ansalum_liroth_axe"
+    ]
+  ]
+}

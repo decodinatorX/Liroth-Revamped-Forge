@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    " i ",
+    "iii"
+  ],
+  "key": {
+    "I": {
+      "item": "liroth:lirothian_cobalt_block"
+    },
+    "i": {
+      "item": "liroth:lirothian_cobalt_ingot"
+    }
+  },
+  "result": {
+    "item": "minecraft:anvil"
+  }
+}

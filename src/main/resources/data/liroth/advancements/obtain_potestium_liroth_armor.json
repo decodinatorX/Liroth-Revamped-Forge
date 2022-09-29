@@ -1,0 +1,77 @@
+{
+  "parent": "liroth:potestium_shard",
+  "display": {
+    "icon": {
+      "item": "liroth:potestium_liroth_helmet",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.obtain_potestium_liroth_armor.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.obtain_potestium_liroth_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "potestium_liroth_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:potestium_liroth_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "potestium_liroth_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:potestium_liroth_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "potestium_liroth_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:potestium_liroth_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "potestium_liroth_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:potestium_liroth_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "potestium_liroth_helmet",
+      "potestium_liroth_chestplate",
+      "potestium_liroth_leggings",
+      "potestium_liroth_boots"
+    ]
+  ]
+}

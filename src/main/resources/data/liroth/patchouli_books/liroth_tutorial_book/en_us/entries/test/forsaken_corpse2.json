@@ -1,0 +1,35 @@
+{
+    "name": "Forsaken Corpse",
+    "icon": "liroth:liroth_soul_dust",
+    "advancement": "liroth:forsaken_corpse",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/forsaken_corpse.png"],
+		"title": "Forsaken Corpse",
+		"border": true,
+		"text": " The Forsaken Corpse, is, as foretold, seems to be a "
+	},
+        {
+            "type": "text",
+            "text": "reanimated corpse left here by the creators of an old age. $(br)$(br) The creature seems to be aware of my presence almost instantly whenever I pop around, it's most likely because the plethera of eyes of the cover it. $(br)$(br) My studies have already proven to me that these creatures are hostile, however, that did not stop me from getting more information about them."
+        },
+        {
+            "type": "text",
+            "text": " For instance, the creature seems hesitant sometimes when attacking I've noticed, as if a bit of what was seeps through. An original mind thinking perhaps? Unknown to me. $(br)$(br) To note, these creatures live solely off of meat, so how they have been keeping this diet fed is unbenounced to me and remains so even as I write this, perhaps I am not the first one to be as curious to end up here."
+        },
+        {
+            "type": "text",
+            "text": " I can clearly see that they have a mind of their own, avoiding sources of damage and practically charging their way to me as they crave my flesh. $(br)$(br) I have seen a few conversing with other creatures, like the Skeletal Freak, however the tone of voice the creature gives off feels apologetic if that makes sense, as if to envy the creature in some way."
+        },
+        {
+            "type": "text",
+            "text": " Some areas of the creature are oddly protruding out of them that would not be so fun to have protruding out if the being were me, for instance, the chest cavity appears open and the ribs of the creature jut out like an iron maiden almost, welcoming me, but the internal view of organs helps me keep my distance. $(br)$(br) Their gaze feels oddly fake if that makes sense? As if its animated?"
+        },
+        {
+            "type": "text",
+            "text": " The only evidence I have to back up that their gaze feels oddly detached from what they appear as is most likely the fact they are still reanimated corpses after all, meaning the flesh is a tad decayed, and yet this new reanimation that courses through them seems to be feeding and rehabilitating the body, which finally leads me to believing they are feeding off themselves as a means of fueling their diets."
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "liroth:koolaw_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:koolaw_boat"
+  }
+}

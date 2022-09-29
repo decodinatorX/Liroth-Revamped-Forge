@@ -1,0 +1,27 @@
+{
+    "name": "Soul Arachnid",
+    "icon": "liroth:liroth_tear",
+    "advancement": "liroth:soul_arachnid",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/soul_arachnid.png"],
+		"title": "Soul Arachnid",
+		"border": true,
+		"text": " The Soul Arachnid, a creature with no mouth, but from what "
+	},
+        {
+            "type": "text",
+            "text": "I can tell, those eyes can absorb some kind of mist. I have watched this creature prowl around and absorb the cool air of the Spiced Desert, keeping it's distance from the trees as it does this. The Arachnid bears its name because I feel that if I were to perish before it, it would simply absorb my soul as the mist is has before me. $(br)$(br) So evidentatly, their diet is the cool air and possibly souls."
+        },
+        {
+            "type": "text",
+            "text": " They still want to see me dead however, I am unsure of why that may be, but it only fuels my theory they want my soul more. However, sticking to Spiced Trees makes them keep their distance, and I have discovered the reason as well, for the air surrounds the trees is quite painful to the nostrils and lungs, spicy air basically, and to these creatures, it'd be like getting a spice in your eyes. Which in their defense would sound painful."
+        },
+		{
+            "type": "text",
+            "text": " The amount of eyes that dot their dome have me unnerved, although they seemingly aren't that useful for seeing, they still prove themselves as something I'd never want to be anywhere near when they begin their feeding. $(br)$(br) I have however, seen the creature absorb some of the dust that flourishes from the spiced leaves, and the agony they exhibit is pitiful, shoving their faces to the dirt as if to extinguish the flames burning in their eyes."
+        }
+    ]
+}

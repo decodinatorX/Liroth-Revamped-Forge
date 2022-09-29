@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:tallpier_log"
+    },
+    "1": {
+      "item": "liroth:tallpier_log"
+    },
+    "2": {
+      "item": "liroth:tallpier_log"
+    },
+    "3": {
+      "item": "liroth:tallpier_log"
+    }
+  },
+  "result": {
+    "item": "liroth:tallpier_wood",
+    "count": 4
+  }
+}

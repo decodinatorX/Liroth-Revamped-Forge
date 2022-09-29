@@ -14,102 +14,117 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 
 public class JalsphireCrystalHelper {
-    protected static double scaleHeightFromRadius(double radius, double scale, double heightScale, double bluntness) {
-        if (radius < bluntness) {
-            radius = bluntness;
-        }
-        double d = 0.384;
-        double e = radius / scale * 0.384;
-        double f = 0.75 * Math.pow(e, 1.3333333333333333);
-        double g = Math.pow(e, 0.6666666666666666);
-        double h = 0.3333333333333333 * Math.log(e);
-        double i = heightScale * (f - g - h);
-        i = Math.max(i, 0.0);
-        return i / 0.384 * scale;
-    }
+	   protected static double getDripstoneHeight(double p_159624_, double p_159625_, double p_159626_, double p_159627_) {
+		      if (p_159624_ < p_159627_) {
+		         p_159624_ = p_159627_;
+		      }
 
-    protected static boolean canGenerateBase(WorldGenLevel world, BlockPos pos, int height) {
-        if (JalsphireCrystalHelper.canGenerateOrLava(world, pos)) {
-            return false;
-        }
-        float f = 6.0f;
-        float g = 6.0f / (float)height;
-        for (float h = 0.0f; h < (float)Math.PI * 2; h += g) {
-            int j;
-            int i = (int)(Mth.cos(h) * (float)height);
-            if (!JalsphireCrystalHelper.canGenerateOrLava(world, pos.offset(i, 0, j = (int)(Mth.sin(h) * (float)height)))) continue;
-            return false;
-        }
-        return true;
-    }
+		      double d0 = 0.384D;
+		      double d1 = p_159624_ / p_159625_ * 0.384D;
+		      double d2 = 0.75D * Math.pow(d1, 1.3333333333333333D);
+		      double d3 = Math.pow(d1, 0.6666666666666666D);
+		      double d4 = 0.3333333333333333D * Math.log(d1);
+		      double d5 = p_159626_ * (d2 - d3 - d4);
+		      d5 = Math.max(d5, 0.0D);
+		      return d5 / 0.384D * p_159625_;
+		   }
 
-    protected static boolean canGenerate(LevelAccessor world, BlockPos pos) {
-        return world.isStateAtPosition(pos, JalsphireCrystalHelper::canGenerate);
-    }
+		   protected static boolean isCircleMostlyEmbeddedInStone(WorldGenLevel p_159640_, BlockPos p_159641_, int p_159642_) {
+		      if (isEmptyOrWaterOrLava(p_159640_, p_159641_)) {
+		         return false;
+		      } else {
+		         float f = 6.0F;
+		         float f1 = 6.0F / (float)p_159642_;
 
-    protected static boolean canGenerateOrLava(LevelAccessor world, BlockPos pos) {
-        return world.isStateAtPosition(pos, JalsphireCrystalHelper::canGenerateOrLava);
-    }
+		         for(float f2 = 0.0F; f2 < ((float)Math.PI * 2F); f2 += f1) {
+		            int i = (int)(Mth.cos(f2) * (float)p_159642_);
+		            int j = (int)(Mth.sin(f2) * (float)p_159642_);
+		            if (isEmptyOrWaterOrLava(p_159640_, p_159641_.offset(i, 0, j))) {
+		               return false;
+		            }
+		         }
 
-    protected static void getDripstoneThickness(Direction direction, int height, boolean merge, Consumer<BlockState> callback) {
-        if (height >= 3) {
-            callback.accept(JalsphireCrystalHelper.getState(direction, DripstoneThickness.BASE));
-            for (int i = 0; i < height - 3; ++i) {
-                callback.accept(JalsphireCrystalHelper.getState(direction, DripstoneThickness.MIDDLE));
-            }
-        }
-        if (height >= 2) {
-            callback.accept(JalsphireCrystalHelper.getState(direction, DripstoneThickness.FRUSTUM));
-        }
-        if (height >= 1) {
-            callback.accept(JalsphireCrystalHelper.getState(direction, merge ? DripstoneThickness.TIP_MERGE : DripstoneThickness.TIP));
-        }
-    }
+		         return true;
+		      }
+		   }
 
-    protected static void generatePointedDripstone(LevelAccessor world, BlockPos pos, Direction direction, int height, boolean merge) {
-        if (!JalsphireCrystalHelper.canReplace(world.getBlockState(pos.relative(direction.getOpposite())))) {
-            return;
-        }
-        MutableBlockPos mutable = pos.mutable();
-        JalsphireCrystalHelper.getDripstoneThickness(direction, height, merge, state -> {
-            if (state.is(LirothBlocks.POINTED_JALSPHIRE_CRYSTAL.get())) {
-                state = (BlockState)state.setValue(PointedJalsphireCrystal.WATERLOGGED, world.isWaterAt(mutable));
-            }
-            world.setBlock(mutable, (BlockState)state, Block.UPDATE_NEIGHBORS);
-            mutable.move(direction);
-        });
-    }
+		   protected static boolean isEmptyOrWater(LevelAccessor p_159629_, BlockPos p_159630_) {
+		      return p_159629_.isStateAtPosition(p_159630_, JalsphireCrystalHelper::isEmptyOrWater);
+		   }
 
-    protected static boolean generateDripstoneBlock(LevelAccessor world, BlockPos pos) {
-        BlockState blockState = world.getBlockState(pos);
-        if (blockState.is(BlockTags.DRIPSTONE_REPLACEABLE)) {
-            world.setBlock(pos, LirothBlocks.JALSPHIRE_CRYSTAL_BLOCK.get().defaultBlockState(), Block.UPDATE_NEIGHBORS);
-            return true;
-        }
-        return false;
-    }
+		   protected static boolean isEmptyOrWaterOrLava(LevelAccessor p_159660_, BlockPos p_159661_) {
+		      return p_159660_.isStateAtPosition(p_159661_, JalsphireCrystalHelper::isEmptyOrWaterOrLava);
+		   }
 
-    private static BlockState getState(Direction direction, DripstoneThickness thickness) {
-        return (BlockState)((BlockState)LirothBlocks.POINTED_JALSPHIRE_CRYSTAL.get().defaultBlockState().setValue(PointedJalsphireCrystal.TIP_DIRECTION, direction)).setValue(PointedJalsphireCrystal.THICKNESS, thickness);
-    }
+		   protected static void buildBaseToTipColumn(Direction p_159652_, int p_159653_, boolean p_159654_, Consumer<BlockState> p_159655_) {
+		      if (p_159653_ >= 3) {
+		         p_159655_.accept(createPointedDripstone(p_159652_, DripstoneThickness.BASE));
 
-    public static boolean canReplaceOrLava(BlockState state) {
-        return JalsphireCrystalHelper.canReplace(state) || state.is(Blocks.LAVA);
-    }
+		         for(int i = 0; i < p_159653_ - 3; ++i) {
+		            p_159655_.accept(createPointedDripstone(p_159652_, DripstoneThickness.MIDDLE));
+		         }
+		      }
 
-    public static boolean canReplace(BlockState state) {
-        return state.is(LirothBlocks.JALSPHIRE_CRYSTAL_BLOCK.get()) || state.is(BlockTags.DRIPSTONE_REPLACEABLE);
-    }
+		      if (p_159653_ >= 2) {
+		         p_159655_.accept(createPointedDripstone(p_159652_, DripstoneThickness.FRUSTUM));
+		      }
 
-    public static boolean canGenerate(BlockState state) {
-        return state.isAir() || state.is(Blocks.WATER);
-    }
+		      if (p_159653_ >= 1) {
+		         p_159655_.accept(createPointedDripstone(p_159652_, p_159654_ ? DripstoneThickness.TIP_MERGE : DripstoneThickness.TIP));
+		      }
 
-    public static boolean canGenerateOrLava(BlockState state) {
-        return state.isAir() || state.is(Blocks.WATER) || state.is(Blocks.LAVA);
-    }
-}
+		   }
+
+		   protected static void growPointedDripstone(LevelAccessor p_190848_, BlockPos p_190849_, Direction p_190850_, int p_190851_, boolean p_190852_) {
+		      if (isDripstoneBase(p_190848_.getBlockState(p_190849_.relative(p_190850_.getOpposite())))) {
+		         BlockPos.MutableBlockPos blockpos$mutableblockpos = p_190849_.mutable();
+		         buildBaseToTipColumn(p_190850_, p_190851_, p_190852_, (p_190846_) -> {
+		            if (p_190846_.is(LirothBlocks.POINTED_JALSPHIRE_CRYSTAL.get())) {
+		               p_190846_ = p_190846_.setValue(PointedJalsphireCrystal.WATERLOGGED, Boolean.valueOf(p_190848_.isWaterAt(blockpos$mutableblockpos)));
+		            }
+
+		            p_190848_.setBlock(blockpos$mutableblockpos, p_190846_, 2);
+		            blockpos$mutableblockpos.move(p_190850_);
+		         });
+		      }
+		   }
+
+		   protected static boolean placeDripstoneBlockIfPossible(LevelAccessor p_190854_, BlockPos p_190855_) {
+		      BlockState blockstate = p_190854_.getBlockState(p_190855_);
+		      if (blockstate.is(BlockTags.DRIPSTONE_REPLACEABLE)) {
+		         p_190854_.setBlock(p_190855_, LirothBlocks.JALSPHIRE_CRYSTAL_BLOCK.get().defaultBlockState(), 2);
+		         return true;
+		      } else {
+		         return false;
+		      }
+		   }
+
+		   private static BlockState createPointedDripstone(Direction p_159657_, DripstoneThickness p_159658_) {
+		      return LirothBlocks.POINTED_JALSPHIRE_CRYSTAL.get().defaultBlockState().setValue(PointedJalsphireCrystal.TIP_DIRECTION, p_159657_).setValue(PointedJalsphireCrystal.THICKNESS, p_159658_);
+		   }
+
+		   public static boolean isDripstoneBaseOrLava(BlockState p_159650_) {
+		      return isDripstoneBase(p_159650_) || p_159650_.is(Blocks.LAVA);
+		   }
+
+		   public static boolean isDripstoneBase(BlockState p_159663_) {
+		      return p_159663_.is(LirothBlocks.JALSPHIRE_CRYSTAL_BLOCK.get()) || p_159663_.is(BlockTags.DRIPSTONE_REPLACEABLE);
+		   }
+
+		   public static boolean isEmptyOrWater(BlockState p_159665_) {
+		      return p_159665_.isAir() || p_159665_.is(Blocks.WATER);
+		   }
+
+		   public static boolean isNeitherEmptyNorWater(BlockState p_203131_) {
+		      return !p_203131_.isAir() && !p_203131_.is(Blocks.WATER);
+		   }
+
+		   public static boolean isEmptyOrWaterOrLava(BlockState p_159667_) {
+		      return p_159667_.isAir() || p_159667_.is(Blocks.WATER) || p_159667_.is(Blocks.LAVA);
+		   }
+		}

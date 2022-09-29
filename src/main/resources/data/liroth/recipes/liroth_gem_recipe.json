@@ -1,0 +1,13 @@
+{
+
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "liroth:liroth_gem_block"
+    }
+  ],
+  "result": {
+    "item": "liroth:liroth_gem",
+    "count": 9
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:enter_desolation",
+  "display": {
+    "icon": {
+      "item": "liroth:ruby"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.mine_ruby.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.mine_ruby.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ruby": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:ruby"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ruby"
+    ]
+  ]
+}

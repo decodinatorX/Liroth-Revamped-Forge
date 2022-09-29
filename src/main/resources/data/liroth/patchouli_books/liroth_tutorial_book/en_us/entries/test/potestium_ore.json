@@ -1,0 +1,19 @@
+{
+    "name": "Potestium",
+    "icon": "liroth:potestium_shard",
+    "advancement": "liroth:potestium_shard",
+    "category": "liroth:desolation_dimension",
+    "pages": [
+    	{
+		"type": "patchouli:spotlight",
+		"item": "liroth:potestium_shard",
+		"title": "Potestium",
+		"text": "These odd shard-like minerals have so much potential seething through them, they respond to my own organs with sympathy, feeding my never-ending hunger each time it brews, its fasinating, albeit slow however, too slow to really notice."
+	},
+        {
+            "type": "smelting",
+            "recipe": "liroth:potestium_smelting",
+            "text": "Perhaps the true potential lies within making equipment via it!"
+        }
+    ]
+}

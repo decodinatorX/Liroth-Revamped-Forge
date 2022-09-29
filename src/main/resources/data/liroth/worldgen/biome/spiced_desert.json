@@ -1,0 +1,71 @@
+{
+  "temperature": 0.5,
+  "downfall": 0,
+  "precipitation": "none",
+  "effects": {
+    "sky_color": 16755829,
+    "fog_color": 16772290,
+    "water_color": 14985023,
+    "water_fog_color": 3350533,
+    "grass_color": 283216,
+    "grass_color_modifier": "none",
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "music": {
+      "sound": "liroth:music.liroth.spiced_desert",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "liroth:soul_arachnid",
+        "weight": 100,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:patch_tall_grass",
+      "liroth:trees_spiced",
+      "minecraft:patch_grass_savanna",
+      "liroth:lirothian_liroth_gem_ore",
+      "liroth:lirothian_cobalt_ore",
+      "liroth:lirothian_petroleum_ore",
+      "liroth:charred_lirothian_liroth_gem_ore",
+      "liroth:liroth_bone_claw",
+      "liroth:liroth_bone_mushroom",
+      "liroth:liroth_bone_tree",
+      "liroth:vile_tentacle"
+    ],
+    []
+  ]
+}

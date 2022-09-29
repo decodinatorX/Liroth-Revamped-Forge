@@ -1,0 +1,13 @@
+{
+
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "liroth:spiced_log"
+    }
+  ],
+  "result": {
+    "item": "liroth:spiced_planks",
+    "count": 4
+  }
+}

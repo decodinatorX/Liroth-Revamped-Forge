@@ -1,0 +1,36 @@
+{
+    "name": "Final Realm Theory",
+    "icon": "liroth:jalsphire_trackway",
+    "advancement": "liroth:enter_jalsphire",
+    "category": "liroth:liroth_intro",
+    "pages": [
+    	{
+    		"type": "crafting",
+    		"recipe": "liroth:jalsphire_passageway_block_recipe",
+    		"text": " The trees of the Jalsphire Realm have some teleportive properties embedded into them, which now leads me to wondering if this place was a holding cell or more here for a test of smarts for someone or something?"
+    	},
+	{
+		"type": "multiblock",
+		"text": " The blueprint for the gateway are as follows:",
+		"name": "The Final Portal",
+		"multiblock": {
+			"pattern": [
+				[ 
+				"_AA_",
+				"A__A",
+				"A_0A",
+				"_AA_"
+				]
+			],
+			"mapping": {
+				"A": "liroth:jalsphire_trackway",
+				"B": "minecraft:diamond_block",
+				"C": "minecraft:gold_block",
+				"D": "minecraft:emerald_block",
+				"E": "minecraft:redstone_block",
+				"F": "minecraft:lapis_block"
+			}
+		}
+	}
+    ]
+}

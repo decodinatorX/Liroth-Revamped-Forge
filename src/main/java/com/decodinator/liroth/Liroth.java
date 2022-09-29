@@ -6,10 +6,8 @@ import com.decodinator.liroth.core.LirothBoat;
 import com.decodinator.liroth.core.LirothBoatModel;
 import com.decodinator.liroth.core.LirothConfiguredFeatures;
 import com.decodinator.liroth.core.LirothEntities;
-import com.decodinator.liroth.core.LirothEntityRenderers;
 import com.decodinator.liroth.core.LirothFluidTypes;
 import com.decodinator.liroth.core.LirothFluids;
-import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.LirothFeatures;
 import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.LirothMenuTypes;
@@ -19,105 +17,49 @@ import com.decodinator.liroth.core.LirothPlacedFeatures;
 import com.decodinator.liroth.core.LirothRenders;
 import com.decodinator.liroth.core.LirothSounds;
 import com.decodinator.liroth.core.LirothStructures;
-import com.decodinator.liroth.core.blocks.entities.LirothSplitterScreenHandler;
 import com.decodinator.liroth.core.blocks.entities.screens.LirothSplitterScreen;
 import com.decodinator.liroth.core.blocks.entities.screens.QuantumExtractorScreen;
-import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseModel;
-import com.decodinator.liroth.core.entities.renderers.FreakshowEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.FreakshowModel;
-import com.decodinator.liroth.core.entities.renderers.FungalFiendEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.FungalFiendModel;
-import com.decodinator.liroth.core.entities.renderers.LirothianMimicEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.LirothianMimicModel;
-import com.decodinator.liroth.core.entities.renderers.PierPeepEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.PierPeepModel;
-import com.decodinator.liroth.core.entities.renderers.ProwlerEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ProwlerModel;
-import com.decodinator.liroth.core.entities.renderers.ShadeEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ShadeModel;
-import com.decodinator.liroth.core.entities.renderers.SkeletalFreakEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.SkeletalFreakModel;
-import com.decodinator.liroth.core.entities.renderers.SoulArachnidEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.SoulArachnidModel;
-import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
-import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
-import com.decodinator.liroth.core.items.PotestiumHelmetItem;
 import com.decodinator.liroth.core.renders.PotestiumHelmetModel;
-import com.decodinator.liroth.mixin.ItemBlockRenderTypeAccess;
+import com.decodinator.liroth.portal_junk.LirothPOIs;
 import com.mojang.logging.LogUtils;
-import com.mojang.serialization.Codec;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.BoatRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.core.Holder;
-import net.minecraft.core.RegistryAccess.RegistryEntry;
-import net.minecraft.data.worldgen.features.OreFeatures;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.OreFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.placement.BiomeFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.ForgeHooksClient;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import org.slf4j.Logger;
-import net.minecraftforge.api.distmarker.Dist;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Liroth.MOD_ID)
@@ -191,6 +133,7 @@ public class Liroth
 		LirothConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
 		LirothPlacedFeatures.PLACED_FEATURES.register(modEventBus);
 		LirothStructures.DEFERRED_REGISTRY_STRUCTURE.register(modEventBus);
+		LirothPOIs.POI.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
@@ -248,16 +191,16 @@ public class Liroth
         return new ModelLayerLocation(new ResourceLocation("minecraft", p_171301_), p_171302_);
      }
     
-    public static ModelLayerLocation createBoatModelName(LirothBoat.Type p_171290_) {
+    public static ModelLayerLocation createBoatModelName(LirothBoat.LirothType p_171290_) {
         return createLocation(Liroth.MOD_ID + "boat/" + p_171290_.getName(), "main");
      }
     
-    public static ModelLayerLocation createChestBoatModelName(LirothBoat.Type p_233551_) {
+    public static ModelLayerLocation createChestBoatModelName(LirothBoat.LirothType p_233551_) {
         return createLocation(Liroth.MOD_ID + "chest_boat/" + p_233551_.getName(), "main");
      }
     
     public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
-        for (LirothBoat.Type value : LirothBoat.Type.values()) {
+        for (LirothBoat.LirothType value : LirothBoat.LirothType.values()) {
             consumer.accept(Liroth.createBoatModelName(value), () -> LirothBoatModel.createBodyModel(false));
             consumer.accept(Liroth.createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
     		consumer.accept(LirothModelLayers.POTESTIUM_HELMET, () -> LayerDefinition.create(PotestiumHelmetModel.createMesh(), 64, 128));

@@ -1,0 +1,11 @@
+{
+  "type": "liroth:jalsphire_plains",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "liroth:jalsphire_plains",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "liroth:jalsphire_plains"
+    }
+  }
+}

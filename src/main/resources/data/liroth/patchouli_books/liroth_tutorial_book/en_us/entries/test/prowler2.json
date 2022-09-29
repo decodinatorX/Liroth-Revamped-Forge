@@ -1,0 +1,19 @@
+{
+    "name": "Prowler",
+    "icon": "liroth:liroth_tear",
+    "advancement": "liroth:prowler",
+    "category": "liroth:jalsphire_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/prowler.png"],
+		"title": "Prowler",
+		"border": true,
+		"text": " The Prowler. This one seems to be just like the Warp but"
+	},
+        {
+            "type": "text",
+            "text": "they seem to have found themselves in a different plane of existence different from their predecessors. Why or how this is, is unclear to me. $(br)$(br) Their colors are really bright and their body, rather than being smooth-appearing as the Warps, is riddled with what appear to be scales, some kind of evolution? $(br)$(br) Their diet is still the same its seems, eating from tree leaves, funnily enough, watching them reach for a handful of leaves and gnashing them down instantaneosly is kind of humoring to say the least, but of course it's only funny until they realize you've been watching them and full force sprint at you with the intent to kill you."
+        }
+    ]
+}

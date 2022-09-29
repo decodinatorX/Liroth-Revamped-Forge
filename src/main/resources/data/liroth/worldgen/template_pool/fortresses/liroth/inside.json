@@ -1,0 +1,75 @@
+{
+  "name": "liroth:fortresses/liroth/inside",
+  "fallback": "liroth:fortresses/liroth/terminator",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "liroth:fortresses/liroth/straight_inside",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "liroth:fortresses/liroth/4_way_inside",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "liroth:fortresses/liroth/turn_inside",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "liroth:fortresses/liroth/turn_inside_chest",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "liroth:fortresses/liroth/stairs_inside",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "liroth:fortresses/liroth/stairs_inside_plants",
+        "processors": "liroth:fortresses/liroth_fungus",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "liroth:fortresses/liroth/balcony",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

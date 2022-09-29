@@ -1,0 +1,27 @@
+{
+    "name": "Beginnings",
+    "icon": "liroth:wilting_liroth_rose",
+    "category": "liroth:liroth_intro",
+    "pages": [
+        {
+            "type": "text",
+            "text": " Firstly I should probably make sure I mark my steps in the event I forget something or misplace an item."
+        },
+        {
+      		"type": "crafting",
+      		"text": " Above are the instructions to recreate this book, although thinking about it now, if I misplace this book its not like I can look at the book to figure it out...",
+      		"recipe": "liroth:liroth_tutorial_book_recipe"
+    	},
+    	{
+    		"type": "patchouli:spotlight",
+    		"text": " I think my next move is to break open these olden blocks of this odd gem I am going to label Liroth Gems to get ahold of some Liroth Gem Dust.",
+    		"item": "liroth:liroth_gem_dust"
+    	},
+    	{ 
+    		"type": "patchouli:quest",
+    		"trigger": "liroth:mine_liroth_gem",
+    		"title": "Make/Mine Liroth Gem",
+    		"text": " We can create the gem via the olden blocks we've come across with the roses, or we can go beneath the earth to search for the gems embeded within the stone. I believe the gems should be discoverable within the other realms as well."
+    	}
+    ]
+}

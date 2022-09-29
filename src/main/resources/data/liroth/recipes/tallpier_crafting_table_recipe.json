@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:tallpier_planks"
+    },
+    "1": {
+      "item": "liroth:tallpier_planks"
+    },
+    "2": {
+      "item": "liroth:tallpier_planks"
+    },
+    "3": {
+      "item": "liroth:tallpier_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:tallpier_crafting_table",
+    "count": 1
+  }
+}

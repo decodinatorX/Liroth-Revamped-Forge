@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "diamond",
+  "ingredient": {
+    "item": "liroth:petrified_damnation_planks"
+  },
+  "result": "liroth:petrified_damnation_bricks",
+  "experience": 0.25,
+  "cookingtime": 50
+}

@@ -1,0 +1,23 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    " 4 "
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:liroth_glass_block"
+    },
+    "2": {
+      "item": "liroth:liroth_glass_block"
+    },
+    "4": {
+      "item": "liroth:liroth_glass_block"
+    }
+  },
+  "result": {
+    "item": "minecraft:glass_bottle",
+    "count": 3
+  }
+}

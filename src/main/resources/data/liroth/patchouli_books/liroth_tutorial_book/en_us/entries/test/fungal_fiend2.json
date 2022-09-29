@@ -1,0 +1,27 @@
+{
+    "name": "Fungal Fiend",
+    "icon": "liroth:damnation_fungus",
+    "advancement": "liroth:fungal_fiend",
+    "category": "liroth:damnation_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/fungal_fiend.png"],
+		"title": "Fungal Fiend",
+		"border": true,
+		"text": " The Fungal Fiend, clearly a creeper who has been drowned"
+	},
+        {
+            "type": "text",
+            "text": "by the spores here. $(br)$(br) These creatures are still creepers, however their dark hue makes it nearly impossible to see them through the thick shrooms that bundle with life in this damnation. I fear that what has happened to these creatures will happen to me if I am not careful around these spores. $(br)$(br) These creatures seem to be herbivores as well, destroying the shrooms with their oozing mouth."
+        },
+        {
+            "type": "text",
+            "text": " The ooze that secretes from their pores and the shroom tips that litter their bodies seems to be a mix of flourescent algae that has built a resistance to the acid that it mixes with in the ooze. The stuff burns awfully hot, but there really isn't a reliable way to get a large helping of it without being blown to smithereens! $(br)$(br) The creatures seem to be the ONLY creature that inhabit this place as well,"
+        },
+        {
+        	"type": "text",
+        	"text": "beside the flora, he is the only creature. $(br)$(br)Which although relieving, is also extremely unnerving." 
+        }
+    ]
+}

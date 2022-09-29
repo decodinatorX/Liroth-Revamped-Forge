@@ -1,0 +1,32 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:charred_liroth_stone_bricks"
+    },
+    "1": {
+      "item": "liroth:charred_liroth_stone_bricks"
+    },
+    "2": {
+      "item": "liroth:charred_liroth_stone_bricks"
+    },
+    "3": {
+      "item": "liroth:charred_liroth_stone_bricks"
+    },
+    "4": {
+      "item": "liroth:charred_liroth_stone_bricks"
+    },
+    "5": {
+      "item": "liroth:charred_liroth_stone_bricks"
+    }
+  },
+  "result": {
+    "item": "liroth:charred_liroth_stone_brick_wall",
+    "count": 6
+  }
+}

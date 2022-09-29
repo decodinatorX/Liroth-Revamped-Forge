@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:enter_damnation",
+  "display": {
+    "icon": {
+      "item": "liroth:damnation_fungus"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.damnation_fungus.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.damnation_fungus.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "damnation_fungus": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:damnation_fungus"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "damnation_fungus"
+    ]
+  ]
+}

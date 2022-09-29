@@ -84,11 +84,11 @@ public class LirothRenders {
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.TALLPIER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTHIAN_COBALT_DOOR.get(), RenderType.cutout());
         
-/*        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_DIMENSION_PORTAL, RenderLayer.getTranslucent());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_DIMENSION_PORTAL, RenderLayer.getTranslucent());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JANTIRO_DIMENSION_PORTAL, RenderLayer.getTranslucent());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JALSPHIRE_DIMENSION_PORTAL, RenderLayer.getTranslucent());
-        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DEVASTATED_DIMENSION_PORTAL, RenderLayer.getTranslucent());*/
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_DIMENSION_PORTAL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DAMNATION_DIMENSION_PORTAL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JANTIRO_DIMENSION_PORTAL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.JALSPHIRE_DIMENSION_PORTAL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(LirothBlocks.DEVASTATED_DIMENSION_PORTAL.get(), RenderType.translucent());
         
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.LIROTH_GLASS_BLOCK.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(LirothBlocks.FORCEFIELD.get(), RenderType.translucent());

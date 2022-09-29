@@ -43,6 +43,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlace
 import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.UpwardsBranchingTrunkPlacer;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -76,6 +77,13 @@ public class LirothConfiguredFeatures {
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> END_LIROTH_ORE = CONFIGURED_FEATURES.register("end_liroth_ore",
             () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(END_LIROTH_ORES.get(),6)));
+    
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> LIROTHIAN_LIROTH_ORES = Suppliers.memoize(() -> List.of(
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, LirothBlocks.LIROTH_ORE.get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, LirothBlocks.DEEPSLATE_LIROTH_ORE.get().defaultBlockState())));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> LIROTHIAN_LIROTH_ORE = CONFIGURED_FEATURES.register("lirothian_liroth_ore",
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(OVERWORLD_LIROTH_ORES.get(),8)));
     
     public static final Supplier<List<OreConfiguration.TargetBlockState>> TOURMALINE_ORES = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, LirothBlocks.TOURMALINE_ORE.get().defaultBlockState()),

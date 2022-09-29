@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:enter_escape",
+  "display": {
+    "icon": {
+      "item": "liroth:jalsphire_dust"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.mine_jalsphire.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.mine_jalsphire.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "jalsphire_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:jalsphire_dust"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "jalsphire_dust"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "liroth:liroth_axe"
+  },
+  "addition": {
+    "item": "liroth:quantum_plate"
+  },
+  "result": {
+    "item": "liroth:quantum_liroth_axe"
+  }
+}

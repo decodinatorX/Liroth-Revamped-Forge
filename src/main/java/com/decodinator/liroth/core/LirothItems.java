@@ -1,10 +1,15 @@
 package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
+import com.decodinator.liroth.core.items.AnomalyChargeItem;
 import com.decodinator.liroth.core.items.BeamItem;
+import com.decodinator.liroth.core.items.DamnationChargeItem;
+import com.decodinator.liroth.core.items.JalsphireIgnitorItem;
+import com.decodinator.liroth.core.items.JantiroChargeItem;
 import com.decodinator.liroth.core.items.KeyItem;
 import com.decodinator.liroth.core.items.LirothBlaster;
 import com.decodinator.liroth.core.items.LirothBoatItem;
+import com.decodinator.liroth.core.items.LirothChargeItem;
 import com.decodinator.liroth.core.items.PotestiumHelmetItem;
 
 import net.minecraft.world.entity.Entity;
@@ -42,9 +47,13 @@ public class LirothItems {
     
 //    public static final RegistryObject<Item>TEMPLATE = createItem(new Item(new Item.Properties().group(LirothCreativeTab.creativeTab)), "template");
     
+    public static final RegistryObject<AnomalyChargeItem>ANOMALY_CHARGE = createAnomalyChargeItem("anomaly_charge");
+	
     public static final RegistryObject<Item>BLOODY_ENTRAILS = createFoodItem("bloody_entrails", Foods.ROTTEN_FLESH);
     
     public static final RegistryObject<Item>COOL_BEAM = createBeamItem("cool_beam");
+    
+    public static final RegistryObject<DamnationChargeItem> DAMNATION_CHARGE = createDamnationChargeItem("damnation_charge");
     
 //    public static final RegistryObject<Item>CORRUPTED_JALSPHIRE_GEM = createItem("corrupted_jalsphire_gem");
     
@@ -55,13 +64,18 @@ public class LirothItems {
 //    public static final RegistryObject<Item>CORRUPTED_ROD = createItem(new Item(new Item.Properties().group(LirothCreativeTab.creativeTab)), "corrupted_rod"); IS NOW THE COOL BEAM
     
     
-//    public static final RegistryObject<Item>EMBUED_LIROTH_GEM = createItem("embued_liroth_gem");
+    public static final RegistryObject<Item>EMBUED_LIROTH_GEM = createItem("embued_liroth_gem");
     
     public static final RegistryObject<Item>GLEEMSTONE_DUST = createItem("gleemstone_dust");
     
+    public static final RegistryObject<JalsphireIgnitorItem> JALSPHIRE_CHARGE = createJalpshireChargeItem("jalsphire_charge");
     public static final RegistryObject<Item>JALSPHIRE_DUST = createItem("jalsphire_dust");
     public static final RegistryObject<Item>JALSPHIRE_DUST_HEAP = createItem("jalsphire_dust_heap");
     public static final RegistryObject<Item>JALSPHIRE_GEM = createItem("jalsphire_gem");
+    
+    public static final RegistryObject<JantiroChargeItem> JANTIRO_CHARGE = createJantiroChargeItem("jantiro_charge");
+    
+    public static final RegistryObject<LirothChargeItem>LIROTH_CHARGE = createLirothChargeItem("liroth_charge");
     
     public static final RegistryObject<Item>LIROTH_GEM_ANSALUM = createItem("liroth_gem_ansalum");
 
@@ -69,20 +83,20 @@ public class LirothItems {
 
     public static final RegistryObject<Item>LIROTH_BLASTER = createRangedItem("liroth_blaster");
     
-    public static final RegistryObject<Item> LIROTH_BOAT = createBoatItem("liroth_boat", LirothBoat.Type.LIROTH);
-    public static final RegistryObject<Item> CHEST_LIROTH_BOAT = createChestBoatItem("liroth_chest_boat", LirothBoat.Type.LIROTH);
-    public static final RegistryObject<Item> DAMNATION_BOAT = createBoatItem("damnation_boat", LirothBoat.Type.DAMNATION);
-    public static final RegistryObject<Item> CHEST_DAMNATION_BOAT = createChestBoatItem("damnation_chest_boat", LirothBoat.Type.DAMNATION);
-    public static final RegistryObject<Item> SPICED_BOAT = createBoatItem("spiced_boat", LirothBoat.Type.SPICED);
-    public static final RegistryObject<Item> CHEST_SPICED_BOAT = createChestBoatItem("spiced_chest_boat", LirothBoat.Type.SPICED);
-    public static final RegistryObject<Item> PIER_BOAT = createBoatItem("tallpier_boat", LirothBoat.Type.PIER);
-    public static final RegistryObject<Item> CHEST_PIER_BOAT = createChestBoatItem("tallpier_chest_boat", LirothBoat.Type.PIER);
-    public static final RegistryObject<Item> JAPZ_BOAT = createBoatItem("japz_boat", LirothBoat.Type.JAPZ);
-    public static final RegistryObject<Item> CHEST_JAPZ_BOAT = createChestBoatItem("japz_chest_boat", LirothBoat.Type.JAPZ);
-    public static final RegistryObject<Item> KOOLAW_BOAT = createBoatItem("koolaw_boat", LirothBoat.Type.KOOLAW);
-    public static final RegistryObject<Item> CHEST_KOOLAW_BOAT = createChestBoatItem("koolaw_chest_boat", LirothBoat.Type.KOOLAW);
-    public static final RegistryObject<Item> PETRIFIED_BOAT = createBoatItem("petrified_boat", LirothBoat.Type.PETRIFIED);
-    public static final RegistryObject<Item> CHEST_PETRIFIED_BOAT = createChestBoatItem("petrified_chest_boat", LirothBoat.Type.PETRIFIED);
+    public static final RegistryObject<Item> LIROTH_BOAT = createBoatItem("liroth_boat", LirothBoat.LirothType.LIROTH);
+    public static final RegistryObject<Item> CHEST_LIROTH_BOAT = createChestBoatItem("liroth_chest_boat", LirothBoat.LirothType.LIROTH);
+    public static final RegistryObject<Item> DAMNATION_BOAT = createBoatItem("damnation_boat", LirothBoat.LirothType.DAMNATION);
+    public static final RegistryObject<Item> CHEST_DAMNATION_BOAT = createChestBoatItem("damnation_chest_boat", LirothBoat.LirothType.DAMNATION);
+    public static final RegistryObject<Item> SPICED_BOAT = createBoatItem("spiced_boat", LirothBoat.LirothType.SPICED);
+    public static final RegistryObject<Item> CHEST_SPICED_BOAT = createChestBoatItem("spiced_chest_boat", LirothBoat.LirothType.SPICED);
+    public static final RegistryObject<Item> PIER_BOAT = createBoatItem("tallpier_boat", LirothBoat.LirothType.PIER);
+    public static final RegistryObject<Item> CHEST_PIER_BOAT = createChestBoatItem("tallpier_chest_boat", LirothBoat.LirothType.PIER);
+    public static final RegistryObject<Item> JAPZ_BOAT = createBoatItem("japz_boat", LirothBoat.LirothType.JAPZ);
+    public static final RegistryObject<Item> CHEST_JAPZ_BOAT = createChestBoatItem("japz_chest_boat", LirothBoat.LirothType.JAPZ);
+    public static final RegistryObject<Item> KOOLAW_BOAT = createBoatItem("koolaw_boat", LirothBoat.LirothType.KOOLAW);
+    public static final RegistryObject<Item> CHEST_KOOLAW_BOAT = createChestBoatItem("koolaw_chest_boat", LirothBoat.LirothType.KOOLAW);
+    public static final RegistryObject<Item> PETRIFIED_BOAT = createBoatItem("petrified_boat", LirothBoat.LirothType.PETRIFIED);
+    public static final RegistryObject<Item> CHEST_PETRIFIED_BOAT = createChestBoatItem("petrified_chest_boat", LirothBoat.LirothType.PETRIFIED);
     
     public static final RegistryObject<Item>LIROTH_BONE = createItem("liroth_bone");
 
@@ -237,7 +251,32 @@ public class LirothItems {
         return createItem;    
     }
     
-    static RegistryObject<Item> createKeyItem(String id) {
+    private static RegistryObject<AnomalyChargeItem> createAnomalyChargeItem(String id) {
+		RegistryObject<AnomalyChargeItem> createItem = ITEMS.register(id, () -> new AnomalyChargeItem());
+        return createItem;    
+	}
+    
+    private static RegistryObject<DamnationChargeItem> createDamnationChargeItem(String id) {
+		RegistryObject<DamnationChargeItem> createItem = ITEMS.register(id, () -> new DamnationChargeItem());
+        return createItem;    
+	}
+    
+    private static RegistryObject<JalsphireIgnitorItem> createJalpshireChargeItem(String id) {
+		RegistryObject<JalsphireIgnitorItem> createItem = ITEMS.register(id, () -> new JalsphireIgnitorItem());
+        return createItem;    
+	}
+    
+    private static RegistryObject<JantiroChargeItem> createJantiroChargeItem(String id) {
+		RegistryObject<JantiroChargeItem> createItem = ITEMS.register(id, () -> new JantiroChargeItem());
+        return createItem;    
+	}
+    
+    private static RegistryObject<LirothChargeItem> createLirothChargeItem(String id) {
+		RegistryObject<LirothChargeItem> createItem = ITEMS.register(id, () -> new LirothChargeItem());
+        return createItem;    
+	}
+
+	static RegistryObject<Item> createKeyItem(String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new KeyItem(new Item.Properties().tab(Liroth.liroth_items_tab)));
         return createItem;    
     }
@@ -297,12 +336,12 @@ public class LirothItems {
         return createItem;    
     }
     
-    static RegistryObject<Item> createBoatItem(String id, LirothBoat.Type type) {
+    static RegistryObject<Item> createBoatItem(String id, LirothBoat.LirothType type) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new LirothBoatItem(false, type, new Item.Properties().tab(Liroth.liroth_items_tab)));
         return createItem;    
     }
     
-    static RegistryObject<Item> createChestBoatItem(String id, LirothBoat.Type type) {
+    static RegistryObject<Item> createChestBoatItem(String id, LirothBoat.LirothType type) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new LirothBoatItem(true, type, new Item.Properties().tab(Liroth.liroth_items_tab)));
         return createItem;    
     }

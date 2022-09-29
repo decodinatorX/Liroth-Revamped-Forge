@@ -1,0 +1,39 @@
+{
+  "parent": "liroth:enter_liroth",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_chest"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.lirothian_mimic.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.lirothian_mimic.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "killed_lirothian_mimic": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+              "type": "liroth:lirothian_mimic"
+            },
+            "entity": "this"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "killed_lirothian_mimic"
+    ]
+  ]
+}

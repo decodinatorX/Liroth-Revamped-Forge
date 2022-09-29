@@ -1,0 +1,13 @@
+{
+  "replace": false,
+
+  "_comment": " This biome tag can specify the biome directly. Or specify another biome tag by starting with # ",
+  "values": [
+	"#minecraft:has_structure/ruined_portal_desert",
+	"#minecraft:has_structure/ruined_portal_jungle",
+	"#minecraft:has_structure/ruined_portal_mountain",
+	"#minecraft:has_structure/ruined_portal_ocean",
+	"#minecraft:has_structure/ruined_portal_standard",
+	"#minecraft:has_structure/ruined_portal_swamp"
+  ]
+}

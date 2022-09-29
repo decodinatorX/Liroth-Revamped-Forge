@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:damnation_planks"
+    },
+    "1": {
+      "item": "liroth:damnation_planks"
+    },
+    "2": {
+      "item": "liroth:damnation_planks"
+    },
+    "3": {
+      "item": "liroth:damnation_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:damnation_crafting_table",
+    "count": 1
+  }
+}

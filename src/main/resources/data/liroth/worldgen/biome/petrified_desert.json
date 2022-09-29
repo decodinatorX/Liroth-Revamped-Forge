@@ -1,0 +1,77 @@
+{
+  "temperature": 2,
+  "downfall": 0,
+  "precipitation": "none",
+  "effects": {
+    "sky_color": 7396351,
+    "fog_color": 12775679,
+    "water_color": 4178916,
+    "water_fog_color": 340531,
+    "grass_color": 1624764,
+    "foliage_color": 32639,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "music": {
+      "sound": "liroth:music.liroth.escape",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "liroth:shade",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_gravel",
+      "minecraft:disk_clay",
+      "minecraft:disk_gravel",
+      "liroth:spinerios_coal_ore",
+      "liroth:spinerios_copper_ore",
+      "liroth:spinerios_diamond_ore",
+      "liroth:spinerios_emerald_ore",
+      "liroth:spinerios_gold_ore",
+      "liroth:spinerios_iron_ore",
+      "liroth:spinerios_lapis_ore",
+      "liroth:spinerios_liroth_ore",
+      "liroth:spinerios_tourmaline_ore",
+      "liroth:spinerios_jalsphire_ore",
+      "liroth:spinerios_quartz_ore",
+      "liroth:spinerios_redstone_ore"
+    ],
+    [],
+    [
+      "minecraft:spring_water"
+    ],
+    []
+  ]
+}

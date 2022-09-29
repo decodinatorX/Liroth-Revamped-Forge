@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "liroth:liroth_helmet"
+  },
+  "addition": {
+    "item": "liroth:potestium_shard"
+  },
+  "result": {
+    "item": "liroth:potestium_liroth_helmet"
+  }
+}

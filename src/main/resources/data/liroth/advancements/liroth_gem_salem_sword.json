@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:liroth_gem_salem",
+  "display": {
+    "icon": {
+      "item": "liroth:salem_liroth_falchion"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_gem_salem_sword.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_gem_salem_sword.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "salem_liroth_falchion": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:salem_liroth_falchion"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "salem_liroth_falchion"
+    ]
+  ]
+}

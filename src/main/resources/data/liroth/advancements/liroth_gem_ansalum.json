@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:liroth_split_dusts",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_gem_ansalum"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_gem_ansalum.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_gem_ansalum.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_gem_ansalum": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_gem_ansalum"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_gem_ansalum"
+    ]
+  ]
+}

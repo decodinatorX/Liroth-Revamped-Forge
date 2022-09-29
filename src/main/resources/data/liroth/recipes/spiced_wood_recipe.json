@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:spiced_log"
+    },
+    "1": {
+      "item": "liroth:spiced_log"
+    },
+    "2": {
+      "item": "liroth:spiced_log"
+    },
+    "3": {
+      "item": "liroth:spiced_log"
+    }
+  },
+  "result": {
+    "item": "liroth:spiced_wood",
+    "count": 4
+  }
+}

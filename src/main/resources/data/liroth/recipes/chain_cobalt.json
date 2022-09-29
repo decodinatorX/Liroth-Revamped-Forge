@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "N",
+    "I",
+    "N"
+  ],
+  "key": {
+    "I": {
+      "item": "liroth:lirothian_cobalt_ingot"
+    },
+    "N": {
+      "item": "liroth:lirothian_cobalt_nugget"
+    }
+  },
+  "result": {
+    "item": "minecraft:chain"
+  }
+}

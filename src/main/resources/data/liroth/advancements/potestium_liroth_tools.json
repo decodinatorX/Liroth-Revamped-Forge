@@ -1,0 +1,38 @@
+{
+  "parent": "liroth:potestium_shard",
+  "display": {
+    "icon": {
+      "item": "liroth:potestium_scythe",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.story.potestium_liroth_tools.title"
+    },
+    "description": {
+      "translate": "advancements.story.potestium_liroth_tools.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "potestium_liroth_scythe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:potestium_scythe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "potestium_liroth_scythe"
+    ]
+  ]
+}

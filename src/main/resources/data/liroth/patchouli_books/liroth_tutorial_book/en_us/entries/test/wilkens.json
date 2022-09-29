@@ -1,0 +1,19 @@
+{
+    "name": "The Starry Wilkens",
+    "icon": "minecraft:nether_star",
+    "advancement": "liroth:enter_escape",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/heavens.png"],
+		"title": "The Starry Wilkens",
+		"border": true,
+		"text": " I have surely made diagrams of past stars"
+	},
+        {
+            "type": "text",
+            "text": "that I have seen in my own sky at home, but to look up and see a pattern of them already done for me above me is both mezmorizing as it is startling, what kind of technology allowed someone to do this? From the connection of stars through light as bright as stars and to even get all the way up there and that close to the stars in the first place?"
+        }
+    ]
+}

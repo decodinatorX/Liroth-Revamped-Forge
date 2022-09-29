@@ -1,0 +1,23 @@
+{
+    "name": "Shade",
+    "icon": "liroth:spinerios_stone_pebble",
+    "advancement": "liroth:shade",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/shade.png"],
+		"title": "Shade",
+		"border": true,
+		"text": " Shades, I heavily dislike these creatures"
+	},
+        {
+            "type": "text",
+            "text": " Now, I haven't a clue or even any evidence of how these horrid creatures of black are able to replicate my very likeness to a tea all the while being covered from head to toe in what appears to be some odd very adhesive black goo that is secreting from their palms at all times in small glops. $(br)$(br) Their diet consists of darkness, which has lead me to believe that the only way to harm them is through light, "
+        },
+        {
+            "type": "text",
+            "text": "simply interacting with them using a lit torch or even a spored one for that matter, causes their form to collapse! $(br)$(br) I must say that it is a little haunting to say the least to watch a copy of my likeness fall before me and vanish in a cloud of smoke, but if I want to find more answers about these places, I need to stay strong and not think of myself as these vile monsters."
+        } 
+    ]
+}

@@ -2,7 +2,7 @@ package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
 import com.decodinator.liroth.core.features.DamnationVinesFeature;
-import com.decodinator.liroth.core.features.JalsphireCrystalClusterFeature;
+import com.decodinator.liroth.core.features.PointedJalsphireCrystalFeature;
 import com.decodinator.liroth.core.features.LirothBoneClawFeature;
 import com.decodinator.liroth.core.features.LirothBoneMushroomFeature;
 import com.decodinator.liroth.core.features.LirothBoneTreeFeature;
@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.RandomPatchFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.DripstoneClusterConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.PointedDripstoneConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,8 +29,8 @@ public class LirothFeatures {
 	  private static final RegistryObject<LirothBoneClawFeature> LIROTH_BONE_CLAW = FEATURES.register("liroth_bone_claw", () -> new LirothBoneClawFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<LirothBoneMushroomFeature> LIROTH_BONE_MUSHROOM = FEATURES.register("liroth_bone_mushroom", () -> new LirothBoneMushroomFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<LirothBoneTreeFeature> LIROTH_BONE_TREE = FEATURES.register("liroth_bone_tree", () -> new LirothBoneTreeFeature(NoneFeatureConfiguration.CODEC));
-	  private static final RegistryObject<JalsphireCrystalClusterFeature> JALSPHIRE_CRYSTAL_CLUSTER = FEATURES.register("jalsphire_crystal_cluster", () -> new JalsphireCrystalClusterFeature(DripstoneClusterConfiguration.CODEC));
-	  private static final RegistryObject<PetrifiedCrystalClusterFeature> PETRIFIED_CRYSTAL_CLUSTER = FEATURES.register("petrified_crystal_cluster", () ->new PetrifiedCrystalClusterFeature(DripstoneClusterConfiguration.CODEC));
+	  private static final RegistryObject<PointedJalsphireCrystalFeature> JALSPHIRE_CRYSTAL_CLUSTER = FEATURES.register("pointed_jalsphire_crystal", () -> new PointedJalsphireCrystalFeature(PointedDripstoneConfiguration.CODEC));
+	  private static final RegistryObject<PetrifiedCrystalClusterFeature> PETRIFIED_CRYSTAL_CLUSTER = FEATURES.register("petrified_crystal_cluster", () ->new PetrifiedCrystalClusterFeature(PointedDripstoneConfiguration.CODEC));
 	  private static final RegistryObject<DamnationVinesFeature> DAMNATION_VINES = FEATURES.register("damnation_vines", () -> new DamnationVinesFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<RandomPatchFeature> WILTING_LIROTH_ROSES = FEATURES.register("wilting_liroth_roses", () -> new RandomPatchFeature(RandomPatchConfiguration.CODEC));
 }

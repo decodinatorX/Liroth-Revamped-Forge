@@ -1,0 +1,15 @@
+{
+  "name": "liroth:nova_tower/beta",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "liroth:nova_tower/nova_tower_beta2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Mossy Outlands",
+    "icon": "liroth:spinerios_grass_block",
+    "advancement": "liroth:enter_escape",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/mossy_outlands.png"],
+		"title": "Mossy Outlands",
+		"border": true,
+		"text": " The surroundings here are similar to the meadows if"
+	},
+        {
+            "type": "text",
+            "text": "an overgrowth took over. The overgrowth of vines, moss, and more have just absolutely taken over this possibly beautiful landscape and in my own opinion has made it just that more aesthetic. $(br)$(br) The moss is surely not harvestable, it tears away as I try to pick at it almost immediately. The trees here are the same as the meadow and are actually emmiting a pleasant smell of a mix between lavender and raspberry."
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "name": "Jalsphire Gem",
+    "icon": "liroth:jalsphire_gem",
+    "advancement": "liroth:mine_jalsphire",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "patchouli:spotlight",
+		"item": "liroth:jalsphire_dust",
+		"title": "Jalsphire Dust",
+		"text": "The Jalsphire vien ended up giving me what remains of the gem it once was had, leaving me with this dust like stuff. I think I should combine the dusts I find into a pile and try smelting them together to see if that'll restore some semblance of the gem."
+	},
+        {
+            "type": "crafting",
+            "recipe": "liroth:jalsphire_dust_heap_recipe",
+            "text": "Crafting this will be not only a hassle to carry around carefully but also a mess if I haphazardly handle it."
+        },
+        { 
+        	"type": "smelting",
+        	"recipe": "liroth:jalsphire_dust_heap_smelting",
+        	"text": "And thus following this smelting process I should be able to recreate some copy of what the gem was!"
+        },
+        { 
+        	"type": "quest",
+        	"title": "Smelt Jalsphire",
+        	"trigger": "liroth:smelt_jalsphire",
+        	"text": "I should follow the instructions for myself so that I may continue my research."
+        }
+    ]
+}

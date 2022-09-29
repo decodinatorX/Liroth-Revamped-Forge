@@ -1,0 +1,56 @@
+{
+  "parent": "liroth:mine_tourmaline",
+  "display": {
+    "icon": {
+      "item": "liroth:tourmaline_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "liroth:advancements.story.tourmaline_armor.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.story.tourmaline_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "tourmaline_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:tourmaline_helmet"
+            ]
+          },
+          {
+            "items": [
+              "liroth:tourmaline_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "liroth:tourmaline_leggings"
+            ]
+          },
+          {
+            "items": [
+              "liroth:tourmaline_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tourmaline_armor"
+    ]
+  ]
+}

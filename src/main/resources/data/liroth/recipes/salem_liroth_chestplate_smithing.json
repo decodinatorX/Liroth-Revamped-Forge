@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "liroth:liroth_chestplate"
+  },
+  "addition": {
+    "item": "liroth:liroth_gem_salem"
+  },
+  "result": {
+    "item": "liroth:salem_liroth_chestplate"
+  }
+}

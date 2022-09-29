@@ -1,0 +1,32 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:liroth_cobblestone"
+    },
+    "1": {
+      "item": "liroth:liroth_cobblestone"
+    },
+    "2": {
+      "item": "liroth:liroth_cobblestone"
+    },
+    "3": {
+      "item": "liroth:liroth_cobblestone"
+    },
+    "4": {
+      "item": "liroth:liroth_cobblestone"
+    },
+    "5": {
+      "item": "liroth:liroth_cobblestone"
+    }
+  },
+  "result": {
+    "item": "liroth:liroth_cobblestone_wall",
+    "count": 6
+  }
+}

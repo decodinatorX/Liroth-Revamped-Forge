@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_gem"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.root.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.root.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "liroth:textures/gui/advancements/backgrounds/anomaly.png"
+  },
+  "criteria": {
+    "wilted_liroth_rose": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:wilting_liroth_rose"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "wilted_liroth_rose"
+    ]
+  ]
+}

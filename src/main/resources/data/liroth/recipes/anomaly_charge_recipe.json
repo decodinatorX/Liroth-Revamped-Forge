@@ -1,0 +1,21 @@
+{
+  "group": "liroth",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "010",
+    "000"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:jalsphire_dust"
+    },
+    "1": {
+      "item": "liroth:embued_liroth_gem"
+    }
+  },
+  "result": {
+    "item": "liroth:anomaly_charge",
+    "count": 1
+  }
+}

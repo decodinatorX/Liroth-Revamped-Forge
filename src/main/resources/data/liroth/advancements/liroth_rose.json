@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:enter_liroth",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_rose"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_rose.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_rose.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_rose": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_berry"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_rose"
+    ]
+  ]
+}

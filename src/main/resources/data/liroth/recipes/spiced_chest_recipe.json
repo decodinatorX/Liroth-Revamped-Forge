@@ -1,0 +1,39 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:spiced_planks"
+    },
+    "1": {
+      "item": "liroth:spiced_planks"
+    },
+    "2": {
+      "item": "liroth:spiced_planks"
+    },
+    "3": {
+      "item": "liroth:spiced_planks"
+    },
+    "5": {
+      "item": "liroth:spiced_planks"
+    },
+    "6": {
+      "item": "liroth:spiced_planks"
+    },
+    "7": {
+      "item": "liroth:spiced_planks"
+    },
+    "8": {
+      "item": "liroth:spiced_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:spiced_chest",
+    "count": 1
+  }
+}

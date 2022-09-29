@@ -1,0 +1,13 @@
+{
+
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "liroth:petrified_damnation_log"
+    }
+  ],
+  "result": {
+    "item": "liroth:petrified_damnation_planks",
+    "count": 4
+  }
+}

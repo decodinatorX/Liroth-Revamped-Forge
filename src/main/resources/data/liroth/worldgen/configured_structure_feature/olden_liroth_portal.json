@@ -1,0 +1,11 @@
+{
+  "type": "liroth:olden_liroth_portal",
+  "config": {
+    "start_pool": "liroth:olden_liroth_portal/rarity_shid",
+    "size": 1,
+	"center_y_offset": -6
+  },
+  "biomes": "#liroth:has_structure/olden_liroth_portal_biomes",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

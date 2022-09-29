@@ -1,0 +1,19 @@
+{
+    "name": "Jalsphire Ore",
+    "icon": "liroth:jalsphire_ore",
+    "advancement": "liroth:enter_escape",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "patchouli:spotlight",
+		"item": "liroth:jalsphire_ore",
+		"title": "Jalsphire",
+		"text": "The Jalsphire vien here is full of the remains of what was a very expensive gem, perhaps I should study it a bit more."
+	},
+        {
+            "type": "patchouli:quest",
+            "trigger": "liroth:mine_jalsphire",
+            "text": "Once I have mined this I should study on it's form and what I am left with."
+        }
+    ]
+}

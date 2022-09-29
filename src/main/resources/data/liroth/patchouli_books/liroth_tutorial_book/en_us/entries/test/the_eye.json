@@ -1,0 +1,19 @@
+{
+    "name": "The Eye?",
+    "icon": "minecraft:ender_eye",
+    "advancement": "liroth:enter_escape",
+    "category": "liroth:escape_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/watcher.png"],
+		"title": "The Eye?",
+		"border": true,
+		"text": " I haven't any clue why there is a watching eye above me."
+	},
+        {
+            "type": "text",
+            "text": " I almost didn't see it at first, but watching me in the night sky is this large all seeing eye. It is clearly staring directly at me. Watching me in the darkness as I tread about, searching for resources and exploring the common area around. To say I don't feel unnerved with it's gaze centralized onto me is an understatement indeed."
+        }
+    ]
+}

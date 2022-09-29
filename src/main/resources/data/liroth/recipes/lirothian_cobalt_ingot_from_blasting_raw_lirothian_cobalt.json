@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "iron_ingot",
+  "ingredient": {
+    "item": "liroth:raw_lirothian_cobalt"
+  },
+  "result": "liroth:lirothian_cobalt_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

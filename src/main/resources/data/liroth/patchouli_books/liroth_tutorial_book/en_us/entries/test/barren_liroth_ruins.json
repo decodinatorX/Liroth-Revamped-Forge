@@ -1,0 +1,19 @@
+{
+    "name": "Barren Lirothian Ruins",
+    "icon": "liroth:charred_liroth_stone_bricks",
+    "advancement": "liroth:liroth_fortress",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/barren_liroth_ruins.png"],
+		"title": "Barren Lirothian Ruins",
+		"border": true,
+		"text": " Now this is an odd set of buildings that seem empty."
+	},
+        {
+            "type": "text",
+            "text": " Who or what is responsible for building these ruins? What would've caused these buildings to fall to ruin? $(br)$(br) The only theory I have for this is that of the main building's architecture being made into bricks from the stone below, however, these ones are charred to hell and back. $(br)$(br) Perhaps a type of heatwave occured to practically melt the structure, I wonder what it would've looked like back in it's golden days."
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "liroth:fortresses/liroth/terminator",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "liroth:fortresses/liroth/terminator_1",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "liroth:fortresses/liroth/terminator_2",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "liroth:fortresses/liroth/terminator_3",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "liroth:fortresses/liroth/terminator_4",
+        "processors": "liroth:fortresses/liroth_main",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

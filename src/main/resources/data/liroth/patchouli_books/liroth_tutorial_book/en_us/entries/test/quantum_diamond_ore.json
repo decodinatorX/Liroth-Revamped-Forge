@@ -1,0 +1,19 @@
+{
+    "name": "Quantum Diamond Ore",
+    "icon": "liroth:quantum_diamond_ore",
+    "advancement": "liroth:enter_desolation",
+    "category": "liroth:desolation_dimension",
+    "pages": [
+    	{
+		"type": "patchouli:spotlight",
+		"item": "liroth:quantum_diamond_ore",
+		"title": "Quantum Diamond",
+		"text": "This quantum based ore seems very unstable, I should harvest it and try to see what I can do about extracting the quantum from the diamond."
+	},
+        {
+            "type": "patchouli:quest",
+            "trigger": "liroth:mine_quantum_diamond",
+            "text": "Once I have mined this I should study on it's form and what I am left with."
+        }
+    ]
+}

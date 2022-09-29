@@ -1,0 +1,11 @@
+{
+  "type": "liroth:nova_tower",
+  "config": {
+    "start_pool": "liroth:nova_tower/start_pool_beta",
+    "size": 5,
+    "cannot_spawn_in_liquid": true
+  },
+  "biomes": "#liroth:has_structure/liroth_fortress_biomes",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

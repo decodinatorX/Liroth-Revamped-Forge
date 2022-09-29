@@ -1,0 +1,40 @@
+{
+    "name": "Damnation Realm Theory",
+    "icon": "liroth:charred_accessway_block",
+    "advancement": "liroth:enter_liroth",
+    "category": "liroth:liroth_intro",
+    "pages": [
+    	{
+    		"type": "crafting",
+    		"recipe": "liroth:charred_accessway_block_recipe",
+    		"text": " With the journey into the Lirothian Realm, something ushers me that there exists more than just this one, here I have the recipe for a new gateway."
+    	},
+    	{ 
+    		"type": "text",
+    		"text": " The recipe requires charred lirothian cobblestone from the pits of the first realm and the gems of the realm to create it."
+    	},
+		{
+		"type": "multiblock",
+			"text": " The blueprint for the gateway are as follows:",
+			"name": "The Damnation Portal",
+			"multiblock": {
+				"pattern": [
+					[ 
+					"_AA_",
+					"A__A",
+					"A_0A",
+					"_AA_"
+					]
+				],
+				"mapping": {
+					"A": "liroth:charred_accessway_block",
+					"B": "minecraft:diamond_block",
+					"C": "minecraft:gold_block",
+					"D": "minecraft:emerald_block",
+					"E": "minecraft:redstone_block",
+					"F": "minecraft:lapis_block"
+				}
+			}
+		}
+    ]
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:quantum_extractor",
+  "display": {
+    "icon": {
+      "item": "liroth:potestium_shard"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.potestium_shard.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.potestium_shard.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "potestium_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:potestium_shard"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "potestium_shard"
+    ]
+  ]
+}

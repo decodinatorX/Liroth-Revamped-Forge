@@ -1,0 +1,39 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "1": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "2": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "3": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "5": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "6": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "7": {
+      "item": "liroth:spinerios_cobblestone"
+    },
+    "8": {
+      "item": "liroth:spinerios_cobblestone"
+    }
+  },
+  "result": {
+    "item": "liroth:spinerios_furnace",
+    "count": 1
+  }
+}

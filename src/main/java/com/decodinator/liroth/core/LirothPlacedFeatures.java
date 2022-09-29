@@ -28,6 +28,10 @@ public class LirothPlacedFeatures {
     public static final RegistryObject<PlacedFeature> END_LIROTH_ORE_PLACED = PLACED_FEATURES.register("end_liroth_ore_placed",
     		() -> new PlacedFeature(LirothConfiguredFeatures.END_LIROTH_ORE.getHolder().get(), ModOrePlacement.commonOrePlacement(6, // VeinsPerChunk
             		PlacementUtils.RANGE_10_10)));
+    
+    public static final RegistryObject<PlacedFeature> LIROTHIAN_LIROTH_ORE_PLACED = PLACED_FEATURES.register("lirothian_liroth_ore_placed",
+    		() -> new PlacedFeature(LirothConfiguredFeatures.LIROTHIAN_LIROTH_ORE.getHolder().get(), ModOrePlacement.commonOrePlacement(8, // VeinsPerChunk
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
 
     public static final RegistryObject<PlacedFeature> TOURMALINE_ORE_PLACED = PLACED_FEATURES.register("tourmaline_ore_placed",
     		() -> new PlacedFeature(LirothConfiguredFeatures.TOURMALINE_ORE.getHolder().get(), ModOrePlacement.commonOrePlacement(1, // VeinsPerChunk

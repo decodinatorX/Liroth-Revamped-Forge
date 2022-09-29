@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "liroth:liroth_farmland",
+    "liroth:pier_farmland",
+    "liroth:spinerios_farmland"
+  ]
+}

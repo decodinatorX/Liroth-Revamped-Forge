@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:break_olden_liroth_gem_block",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_coated_bread"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_coated_bread.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_coated_bread.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_coated_bread": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_coated_bread"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_coated_bread"
+    ]
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Vile Shark",
+    "icon": "liroth:liroth_tear",
+    "advancement": "liroth:vile_shark",
+    "category": "liroth:liroth_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/vile_shark.png"],
+		"title": "Vile Shark",
+		"border": true,
+		"text": " Vile Sharks, a very hostile purple/pink shark."
+	},
+        {
+            "type": "text",
+            "text": " These creatures, purely water-based if it wasn't obvious, are ravenous sea monsters that want nothing but meat. They have shown this clearly by the amount of times they have attempted to bite me while amidst the waters of the accursed dimension. $(br)$(br) These creatures are clearly weak to land, so if I ever find myself in trouble from these beasts, then I should try and surface as quickly as possible."
+        }
+    ]
+}

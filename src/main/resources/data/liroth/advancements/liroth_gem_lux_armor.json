@@ -1,0 +1,77 @@
+{
+  "parent": "liroth:liroth_gem_lux",
+  "display": {
+    "icon": {
+      "item": "liroth:lux_liroth_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_gem_lux_armor.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_gem_lux_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "lux_liroth_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:lux_liroth_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "lux_liroth_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:lux_liroth_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "lux_liroth_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:lux_liroth_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "lux_liroth_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:lux_liroth_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lux_liroth_helmet",
+      "lux_liroth_chestplate",
+      "lux_liroth_leggings",
+      "lux_liroth_boots"
+    ]
+  ]
+}

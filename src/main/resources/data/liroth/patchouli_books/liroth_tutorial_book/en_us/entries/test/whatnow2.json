@@ -1,0 +1,73 @@
+{
+    "name": "Liroth Gem Uses - 2",
+    "icon": "liroth:ansalum_liroth_axe",
+    "advancement": "liroth:enter_liroth",
+    "category": "liroth:liroth_intro",
+    "pages": [
+        {
+            "type": "text",
+            "text": " My studies of this gem and it's original realm have proven to me that a higher tier of weaponry and armor exists. $(br)$(br)$(br)Ansalum - Heavy, Strong, Durable $(br)$(br)Lux - Light, Swift, Weak $(br)$(br)Salem - Water-Based, Balanced, Breathable"
+        },
+        { 
+        	"type": "crafting",
+        	"recipe": "liroth:liroth_splitter_recipe",
+        	"text": "This machinery I've mocked up a blueprint for shall allow me to separate the energies within this gem."
+        },
+        { 
+        	"type": "quest",
+        	"trigger": "liroth:liroth_splitter",
+        	"text": "I should create this before continuing my research so that I can really get to the details."
+        },
+        { 
+        	"type": "image",
+        	"images": ["liroth:textures/gui/entries/liroth_splitter_use.png"],
+        	"border": true,
+        	"text": ""
+        },
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:ansalum_liroth_axe_smithing",
+      		"recipe2": "liroth:ansalum_liroth_helmet_smithing"
+    	},
+    	{
+      		"type": "smithing",
+      		"recipe": "liroth:ansalum_liroth_chestplate_smithing",
+      		"recipe2": "liroth:ansalum_liroth_leggings_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:ansalum_liroth_boots_smithing",
+      		"recipe2": "liroth:ansalum_liroth_shield_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:lux_liroth_sword_smithing",
+      		"recipe2": "liroth:lux_liroth_helmet_smithing"
+    	},
+    	{
+      		"type": "smithing",
+      		"recipe": "liroth:lux_liroth_chestplate_smithing",
+      		"recipe2": "liroth:lux_liroth_leggings_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:lux_liroth_boots_smithing",
+      		"recipe2": "liroth:lux_liroth_shield_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:salem_liroth_sword_smithing",
+      		"recipe2": "liroth:salem_liroth_helmet_smithing"
+    	},
+    	{
+      		"type": "smithing",
+      		"recipe": "liroth:salem_liroth_chestplate_smithing",
+      		"recipe2": "liroth:salem_liroth_leggings_smithing"
+    	},
+        {
+      		"type": "smithing",
+      		"recipe": "liroth:salem_liroth_boots_smithing",
+      		"recipe2": "liroth:salem_liroth_shield_smithing"
+    	}
+    ]
+}

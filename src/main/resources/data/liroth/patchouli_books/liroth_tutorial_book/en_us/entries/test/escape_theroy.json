@@ -1,0 +1,40 @@
+{
+    "name": "Escape Realm Theory",
+    "icon": "liroth:damned_passageway",
+    "advancement": "liroth:enter_damnation",
+    "category": "liroth:liroth_intro",
+    "pages": [
+    	{
+    		"type": "crafting",
+    		"recipe": "liroth:damned_passageway_block_recipe",
+    		"text": " These realms' existence have been so unclear to me, why is it only now that I seem to have discovered them?"
+    	},
+    	{ 
+    		"type": "text",
+    		"text": " The recipe calls for the stone of this fungal heap mixed with the logs of the fungus trees."
+    	},
+		{
+		"type": "multiblock",
+			"text": " The blueprint for the gateway are as follows:",
+			"name": "The Escape Portal",
+			"multiblock": {
+				"pattern": [
+					[ 
+					"_AA_",
+					"A__A",
+					"A_0A",
+					"_AA_"
+					]
+				],
+				"mapping": {
+					"A": "liroth:damned_passageway",
+					"B": "minecraft:diamond_block",
+					"C": "minecraft:gold_block",
+					"D": "minecraft:emerald_block",
+					"E": "minecraft:redstone_block",
+					"F": "minecraft:lapis_block"
+				}
+			}
+		}
+    ]
+}

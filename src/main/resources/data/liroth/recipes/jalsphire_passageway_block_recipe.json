@@ -1,0 +1,21 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "101",
+    " 1 "
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:koolaw_log"
+    },
+    "1": {
+      "item": "liroth:jalsphire_gem"
+    }
+  },
+  "result": {
+    "item": "liroth:jalsphire_trackway",
+    "count": 1
+  }
+}

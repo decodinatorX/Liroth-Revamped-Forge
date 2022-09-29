@@ -1,0 +1,19 @@
+{
+    "name": "Freakshow",
+    "icon": "liroth:liroth_tear",
+    "advancement": "liroth:freakshow",
+    "category": "liroth:desolation_dimension",
+    "pages": [
+    	{
+		"type": "image",
+		"images": ["liroth:textures/gui/entries/amalgamation.png"],
+		"title": "Freakshow",
+		"border": true,
+		"text": " The Freakshow, their names come from thier amalgamated"
+	},
+        {
+            "type": "text",
+            "text": " properties. $(br)$(br) This creature has almost every creature I have witnessed's properties, the eyes of the Soul Arachnid, the torso of the Skeletal Freak, the tendrils from the Warp, and the sporeshrooms from the Fungal Fiend. $(br)$(br) It's one thing to have two separate characters having the same parasite, it's another to have a single mind with ALL OF THEM. I should keep my distance and make sure none of this creature's properties become my own."
+        }
+    ]
+}

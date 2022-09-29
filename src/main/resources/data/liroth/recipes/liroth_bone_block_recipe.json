@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:liroth_bone"
+    },
+    "1": {
+      "item": "liroth:liroth_bone"
+    },
+    "2": {
+      "item": "liroth:liroth_bone"
+    },
+    "3": {
+      "item": "liroth:liroth_bone"
+    }
+  },
+  "result": {
+    "item": "liroth:liroth_bone_block",
+    "count": 1
+  }
+}

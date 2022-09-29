@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "liroth:liroth_helmet"
+  },
+  "addition": {
+    "item": "liroth:liroth_gem_ansalum"
+  },
+  "result": {
+    "item": "liroth:ansalum_liroth_helmet"
+  }
+}

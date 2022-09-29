@@ -1,0 +1,21 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "101",
+    " 1 "
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:spinerios_stone"
+    },
+    "1": {
+      "item": "liroth:damnation_log"
+    }
+  },
+  "result": {
+    "item": "liroth:damned_passageway",
+    "count": 1
+  }
+}

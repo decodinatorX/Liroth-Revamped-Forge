@@ -1,0 +1,91 @@
+{
+  "temperature": 0.5,
+  "downfall": 0.5,
+  "precipitation": "none",
+  "effects": {
+    "sky_color": 11959039,
+    "fog_color": 10027263,
+    "water_color": 5980132,
+    "water_fog_color": 1967411,
+    "grass_color": 4259912,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "music": {
+      "sound": "liroth:music.liroth.liroth_biome",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "liroth:forsaken_corpse",
+        "weight": 95,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "liroth:skeletal_freak",
+        "weight": 100,
+        "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "liroth:warp",
+        "weight": 10,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [
+      {
+        "type": "liroth:vile_shark",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [
+      "liroth:trees_liroth",
+      "liroth:liroth_rose",
+      "minecraft:patch_tall_grass",
+      "minecraft:patch_grass_jungle",
+      "liroth:vile_tentacle",
+      "liroth:liroth_bone_claw",
+      "liroth:liroth_bone_mushroom",
+      "liroth:liroth_bone_tree",
+      "liroth:lirothian_liroth_gem_ore",
+      "liroth:lirothian_cobalt_ore",
+      "liroth:disk_gravel_liroth",
+      "liroth:lirothian_petroleum_ore",
+      "liroth:charred_lirothian_liroth_gem_ore"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ]
+}

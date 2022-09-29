@@ -1,0 +1,37 @@
+{
+  "parent": "liroth:mine_liroth_gem",
+  "display": {
+    "icon": {
+      "item": "liroth:liroth_splitter"
+    },
+    "title": {
+      "translate": "liroth:advancements.liroth.liroth_splitter.title"
+    },
+    "description": {
+      "translate": "liroth:advancements.liroth.liroth_splitter.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "liroth_splitter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "liroth:liroth_splitter"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "liroth_splitter"
+    ]
+  ]
+}

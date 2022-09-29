@@ -1,0 +1,99 @@
+{
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "precipitation": "rain",
+  "effects": {
+    "sky_color": 5723991,
+    "fog_color": 5723991,
+    "water_color": 0,
+    "water_fog_color": 0,
+    "grass_color": 0,
+    "foliage_color": 0,
+    "ambient_sound": "minecraft:ambient.basalt_deltas.loop",
+    "mood_sound": {
+      "sound": "minecraft:ambient.basalt_deltas.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.basalt_deltas.additions",
+      "tick_chance": 0.0111
+    },
+    "music": {
+      "sound": "liroth:music.liroth.desolate",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": true
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:white_ash"
+      },
+      "probability": 0.118093334
+    }
+  },
+  "spawners": {
+    "monster": [
+      {
+        "type": "liroth:freakshow",
+        "weight": 1,
+        "minCount": 1,
+        "maxCount": 1
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:spring_water",
+      "minecraft:spring_lava"
+    ],
+    [
+      "minecraft:patch_tall_grass_2",
+      "minecraft:patch_grass_plain",
+      "liroth:trees_devastated",
+      "liroth:quantum_diamond_ore",
+      "liroth:ruby_ore",
+      "liroth:potestium_ore",
+      "liroth:obsidian_spike",
+      "liroth:petrified_crystal_cluster",
+      "liroth:blackstone_patch_ceiling",
+      "liroth:petrified_moss_patch_ceiling",
+      "liroth:petrified_vine",
+      "liroth:petrified_lush_caves_vegetation",
+      "liroth:petrified_fungus",
+      "liroth:disk_blackstone",
+      "minecraft:classic_vines_cave_feature"
+    ],
+    []
+  ]
+}

@@ -1,0 +1,26 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "liroth:spinerios_stone_pebble"
+    },
+    "1": {
+      "item": "liroth:spinerios_stone_pebble"
+    },
+    "2": {
+      "item": "liroth:spinerios_stone_pebble"
+    },
+    "3": {
+      "item": "liroth:spinerios_stone_pebble"
+    }
+  },
+  "result": {
+    "item": "liroth:spinerios_stone",
+    "count": 1
+  }
+}

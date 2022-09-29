@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "liroth:liroth_leggings"
+  },
+  "addition": {
+    "item": "liroth:liroth_gem_lux"
+  },
+  "result": {
+    "item": "liroth:lux_liroth_leggings"
+  }
+}

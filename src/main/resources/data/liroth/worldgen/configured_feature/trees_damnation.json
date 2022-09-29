@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": "liroth:damnation_checked"
+      },
+      {
+        "chance": 0.1,
+        "feature": "liroth:damnation_checked"
+      }
+    ],
+    "default": "liroth:damnation_checked"
+  }
+}
