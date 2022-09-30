@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "tag": "forge:chests/wooden"
+    },
+    {
+      "item": "liroth:spiced_boat"
+    }
+  ],
+  "result": {
+    "item": "liroth:spiced_chest_boat"
+  }
+}
