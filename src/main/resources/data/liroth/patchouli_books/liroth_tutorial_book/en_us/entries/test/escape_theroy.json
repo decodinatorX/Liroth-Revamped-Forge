@@ -19,12 +19,11 @@
 			"name": "The Escape Portal",
 			"multiblock": {
 				"pattern": [
-					[ 
-					"_AA_",
-					"A__A",
-					"A_0A",
-					"_AA_"
-					]
+        [ "_AA_" ], 
+        [ "A  A" ],
+        [ "A  A" ], 
+        [ "A 0A" ], 
+        [ "_AA_" ]
 				],
 				"mapping": {
 					"A": "liroth:damned_passageway",
@@ -35,6 +34,11 @@
 					"F": "minecraft:lapis_block"
 				}
 			}
-		}
+		},
+    	{
+    		"type": "crafting",
+    		"recipe": "liroth:jantiro_charge",
+    		"text": " The realm of Escape, otherwise known as Jantiro's Escape according to etches and texts, I once again must create a charge for the portal."
+    	}
     ]
 }

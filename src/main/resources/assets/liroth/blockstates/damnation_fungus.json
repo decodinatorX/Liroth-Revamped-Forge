@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "liroth:block/damnation_fungus"
-    }
+    "": [
+      {
+        "model": "liroth:block/damnation_fungus"
+      },
+      {
+        "model": "liroth:block/damnation_fungus",
+        "y": 90
+      },
+      {
+        "model": "liroth:block/damnation_fungus",
+        "y": 180
+      },
+      {
+        "model": "liroth:block/damnation_fungus",
+        "y": 270
+      }
+    ]
   }
 }

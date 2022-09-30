@@ -26,9 +26,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.DripstoneCluste
 import net.minecraft.world.level.levelgen.feature.configurations.PointedDripstoneConfiguration;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
-public class PetrifiedCrystalClusterFeature
+public class PointedPetrifiedCrystalFeature
 extends Feature<PointedDripstoneConfiguration> {
-	   public PetrifiedCrystalClusterFeature(Codec<PointedDripstoneConfiguration> p_191067_) {
+	   public PointedPetrifiedCrystalFeature(Codec<PointedDripstoneConfiguration> p_191067_) {
 	      super(p_191067_);
 	   }
 

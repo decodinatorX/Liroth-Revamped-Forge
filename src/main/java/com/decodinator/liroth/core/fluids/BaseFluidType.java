@@ -33,6 +33,13 @@ public class BaseFluidType extends FluidType {
         this.flowingTexture = flowingTexture;
         this.fogColor = fogColor;
     }
+    
+    public BaseFluidType(final ResourceLocation stillTexture, final ResourceLocation flowingTexture, final Properties properties) {
+        super(properties);
+        this.stillTexture = stillTexture;
+        this.flowingTexture = flowingTexture;
+		this.fogColor = new Vector3f();
+    }
 
     public ResourceLocation getStillTexture() {
         return stillTexture;

@@ -7,7 +7,7 @@ import com.decodinator.liroth.core.features.LirothBoneClawFeature;
 import com.decodinator.liroth.core.features.LirothBoneMushroomFeature;
 import com.decodinator.liroth.core.features.LirothBoneTreeFeature;
 import com.decodinator.liroth.core.features.ObsidianSpikeFeature;
-import com.decodinator.liroth.core.features.PetrifiedCrystalClusterFeature;
+import com.decodinator.liroth.core.features.PointedPetrifiedCrystalFeature;
 import com.decodinator.liroth.core.features.VileTentacleFeature;
 
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -30,7 +30,7 @@ public class LirothFeatures {
 	  private static final RegistryObject<LirothBoneMushroomFeature> LIROTH_BONE_MUSHROOM = FEATURES.register("liroth_bone_mushroom", () -> new LirothBoneMushroomFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<LirothBoneTreeFeature> LIROTH_BONE_TREE = FEATURES.register("liroth_bone_tree", () -> new LirothBoneTreeFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<PointedJalsphireCrystalFeature> JALSPHIRE_CRYSTAL_CLUSTER = FEATURES.register("pointed_jalsphire_crystal", () -> new PointedJalsphireCrystalFeature(PointedDripstoneConfiguration.CODEC));
-	  private static final RegistryObject<PetrifiedCrystalClusterFeature> PETRIFIED_CRYSTAL_CLUSTER = FEATURES.register("petrified_crystal_cluster", () ->new PetrifiedCrystalClusterFeature(PointedDripstoneConfiguration.CODEC));
+	  private static final RegistryObject<PointedPetrifiedCrystalFeature> PETRIFIED_CRYSTAL_CLUSTER = FEATURES.register("pointed_petrified_crystal", () ->new PointedPetrifiedCrystalFeature(PointedDripstoneConfiguration.CODEC));
 	  private static final RegistryObject<DamnationVinesFeature> DAMNATION_VINES = FEATURES.register("damnation_vines", () -> new DamnationVinesFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<RandomPatchFeature> WILTING_LIROTH_ROSES = FEATURES.register("wilting_liroth_roses", () -> new RandomPatchFeature(RandomPatchConfiguration.CODEC));
 }

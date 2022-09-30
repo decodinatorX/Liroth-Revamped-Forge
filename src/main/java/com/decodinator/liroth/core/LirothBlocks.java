@@ -689,7 +689,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createWeepingVinesHead(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesHead(Block.Properties.copy(Blocks.WEEPING_VINES).noCollission()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesHead(Block.Properties.copy(Blocks.WEEPING_VINES).noCollission().lightLevel(state -> 8)));
 		createPlantBlockItems(id, createBlock);
         return createBlock;
         
@@ -698,7 +698,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createWeepingVinesBody(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesBody(Block.Properties.copy(Blocks.WEEPING_VINES_PLANT).noCollission()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesBody(Block.Properties.copy(Blocks.WEEPING_VINES_PLANT).noCollission().lightLevel(state -> 8)));
         return createBlock;
         
 

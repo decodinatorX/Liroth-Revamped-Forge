@@ -20,4 +20,9 @@ public class LirothParticles {
 	public static final RegistryObject<SimpleParticleType> GREEN_FLAME = PARTICLES.register("green_flame", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> CLOAK = PARTICLES.register("cloak", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> SPORE = PARTICLES.register("green_spore", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> LIROTH_PORTAL = PARTICLES.register("liroth_portal", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> DAMNATION_PORTAL = PARTICLES.register("damnation_portal", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> JANTIRO_PORTAL = PARTICLES.register("jantiro_portal", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> JALSPHIRE_PORTAL = PARTICLES.register("jalsphire_portal", () -> new SimpleParticleType(true));
+	public static final RegistryObject<SimpleParticleType> DEVASTATED_PORTAL = PARTICLES.register("devastated_portal", () -> new SimpleParticleType(true));
 }

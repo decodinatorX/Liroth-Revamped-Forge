@@ -24,7 +24,7 @@ public class LirothFluidTypes {
 	public static final RegistryObject<FluidType> MOLTEN_SPINERIOS_TYPE = registerMoltenSpinerios("molten_spinerios", FluidType.Properties.create().lightLevel(0).density(15).viscosity(5).sound(SoundAction.get("drink"), SoundEvents.LAVA_AMBIENT));
 
 	private static RegistryObject<FluidType> registerLirothFluid(String name, FluidType.Properties properties) {
-		return FLUID_TYPES.register(name, () -> new BaseFluidType(LIROTH_FLUID_STILL, LIROTH_FLUID_FLOWING, new Vector3f(0, 35, 75), properties));
+		return FLUID_TYPES.register(name, () -> new BaseFluidType(LIROTH_FLUID_STILL, LIROTH_FLUID_FLOWING, properties));
 	}
 	
 	private static RegistryObject<FluidType> registerMoltenSpinerios(String name, FluidType.Properties properties) {

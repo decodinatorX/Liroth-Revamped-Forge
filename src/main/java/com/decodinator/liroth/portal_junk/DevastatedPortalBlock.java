@@ -33,6 +33,7 @@ import net.minecraftforge.eventbus.api.Cancelable;
 import javax.annotation.Nullable;
 
 import com.decodinator.liroth.core.LirothBlocks;
+import com.decodinator.liroth.core.LirothParticles;
 
 public class DevastatedPortalBlock extends Block {
 
@@ -128,7 +129,7 @@ public class DevastatedPortalBlock extends Block {
                         if(destinationWorld != null && minecraftserver.isNetherEnabled() && !entity.isPassenger()) {
                             entity.level.getProfiler().push("devastated_portal");
                             entity.setPortalCooldown();
-                            entity.changeDimension(destinationWorld, new LirothTeleporter(destinationWorld));
+                            entity.changeDimension(destinationWorld, new DevastatedTeleporter(destinationWorld));
                             entity.level.getProfiler().pop();
                         }
                     }
@@ -160,7 +161,7 @@ public class DevastatedPortalBlock extends Block {
                 zSpeed = random.nextFloat() * 2.0F * (float)j;
             }
 
-            level.addParticle(ParticleTypes.PORTAL, x, y, z, xSpeed, ySpeed, zSpeed);
+            level.addParticle(LirothParticles.DEVASTATED_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
         }
 
     }

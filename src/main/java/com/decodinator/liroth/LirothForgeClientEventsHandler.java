@@ -32,7 +32,12 @@ import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
 import com.decodinator.liroth.core.particles.CloakParticle;
+import com.decodinator.liroth.core.particles.DamnationPortalParticle;
+import com.decodinator.liroth.core.particles.DevastatedPortalParticle;
 import com.decodinator.liroth.core.particles.GreenFlameParticle;
+import com.decodinator.liroth.core.particles.JalsphirePortalParticle;
+import com.decodinator.liroth.core.particles.JantiroPortalParticle;
+import com.decodinator.liroth.core.particles.LirothPortalParticle;
 import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.particles.SporeParticle;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
@@ -101,5 +106,10 @@ public class LirothForgeClientEventsHandler {
     	Minecraft.getInstance().particleEngine.register(LirothParticles.GREEN_FLAME.get(), GreenFlameParticle.Provider::new);
     	Minecraft.getInstance().particleEngine.register(LirothParticles.CLOAK.get(), CloakParticle.Provider::new);
     	Minecraft.getInstance().particleEngine.register(LirothParticles.SPORE.get(), SporeParticle.Provider::new);
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.LIROTH_PORTAL.get(), LirothPortalParticle.Provider::new);
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.DAMNATION_PORTAL.get(), DamnationPortalParticle.Provider::new);
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.JANTIRO_PORTAL.get(), JantiroPortalParticle.Provider::new);
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.JALSPHIRE_PORTAL.get(), JalsphirePortalParticle.Provider::new);
+    	Minecraft.getInstance().particleEngine.register(LirothParticles.DEVASTATED_PORTAL.get(), DevastatedPortalParticle.Provider::new);
     }
 }
