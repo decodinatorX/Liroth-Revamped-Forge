@@ -46,6 +46,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SpineriosFurnace extends FurnaceBlock implements BlockModelProvider {
     public SpineriosFurnace(Block source) {
@@ -71,6 +73,7 @@ public class SpineriosFurnace extends FurnaceBlock implements BlockModelProvider
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public @Nullable BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
         String blockName = blockId.getPath();
         Map<String, String> textures = Maps.newHashMap();
@@ -90,11 +93,13 @@ public class SpineriosFurnace extends FurnaceBlock implements BlockModelProvider
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public BlockModel getItemModel(ResourceLocation resourceLocation) {
         return getBlockModel(resourceLocation, defaultBlockState());
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public UnbakedModel getModelVariant(
             ResourceLocation stateId,
             BlockState blockState,

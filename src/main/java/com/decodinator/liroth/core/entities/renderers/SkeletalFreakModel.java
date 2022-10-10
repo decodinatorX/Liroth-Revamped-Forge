@@ -14,7 +14,10 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class SkeletalFreakModel<T extends SkeletalFreakEntity> extends EntityModel<T> {
 	private final ModelPart body;
 	private final ModelPart head;

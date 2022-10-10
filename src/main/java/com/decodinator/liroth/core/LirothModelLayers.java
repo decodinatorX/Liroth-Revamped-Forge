@@ -4,7 +4,10 @@ import com.decodinator.liroth.Liroth;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class LirothModelLayers {
 
 	public static final ModelLayerLocation POTESTIUM_HELMET = make("potestium_helmet");

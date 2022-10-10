@@ -6,6 +6,7 @@ import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -21,7 +22,7 @@ public interface BlockModelProvider extends ItemModelProvider {
         Optional<String> pattern = PatternsHelper.createBlockSimple(resourceLocation);
         return ModelsHelper.fromPattern(pattern);
     }
-
+    @OnlyIn(Dist.CLIENT)
     default UnbakedModel getModelVariant(
             ResourceLocation stateId,
             BlockState blockState,
@@ -31,7 +32,7 @@ public interface BlockModelProvider extends ItemModelProvider {
         registerBlockModel(stateId, modelId, blockState, modelCache);
         return ModelsHelper.createBlockSimple(modelId);
     }
-
+    @OnlyIn(Dist.CLIENT)
     default void registerBlockModel(
             ResourceLocation stateId,
             ResourceLocation modelId,

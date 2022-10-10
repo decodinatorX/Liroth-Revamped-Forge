@@ -7,7 +7,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 import com.decodinator.liroth.core.LirothBlockEntities;
-import com.decodinator.liroth.core.LirothBlocks;
 import com.decodinator.liroth.core.LirothParticles;
 import com.decodinator.liroth.core.blocks.entities.LirothFurnaceBlockEntity;
 import com.decodinator.liroth.core.helpers.BasePatterns;
@@ -17,10 +16,7 @@ import com.decodinator.liroth.core.helpers.PatternsHelper;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BlockModel;
-import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -34,7 +30,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FurnaceBlock;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
@@ -45,6 +40,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class LirothFurnace extends FurnaceBlock implements BlockModelProvider {
     public LirothFurnace(Block source) {
@@ -70,6 +67,7 @@ public class LirothFurnace extends FurnaceBlock implements BlockModelProvider {
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public @Nullable BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
         String blockName = blockId.getPath();
         Map<String, String> textures = Maps.newHashMap();
@@ -89,11 +87,13 @@ public class LirothFurnace extends FurnaceBlock implements BlockModelProvider {
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public BlockModel getItemModel(ResourceLocation resourceLocation) {
         return getBlockModel(resourceLocation, defaultBlockState());
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public UnbakedModel getModelVariant(
             ResourceLocation stateId,
             BlockState blockState,

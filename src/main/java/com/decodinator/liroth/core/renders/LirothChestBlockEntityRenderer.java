@@ -27,6 +27,8 @@ import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.entity.LidBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.ChestType;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Calendar;
 
@@ -35,6 +37,7 @@ import java.util.Calendar;
  *
  * @param <T> The type of {@link LidBlockEntity} the renderer is for.
  */
+@OnlyIn(Dist.CLIENT)
 public class LirothChestBlockEntityRenderer<T extends BlockEntity & LidBlockEntity> implements BlockEntityRenderer<T> {
 	public static Block itemBlock = null;
 

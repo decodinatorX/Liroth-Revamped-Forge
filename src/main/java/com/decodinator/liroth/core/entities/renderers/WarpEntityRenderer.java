@@ -7,7 +7,10 @@ import com.decodinator.liroth.core.entities.WarpEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class WarpEntityRenderer extends MobRenderer<WarpEntity, WarpModel<WarpEntity>> {
 
     public WarpEntityRenderer(EntityRendererProvider.Context context) {

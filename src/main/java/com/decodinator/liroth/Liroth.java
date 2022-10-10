@@ -2,8 +2,6 @@ package com.decodinator.liroth;
 
 import com.decodinator.liroth.core.LirothBlockEntities;
 import com.decodinator.liroth.core.LirothBlocks;
-import com.decodinator.liroth.core.LirothBoat;
-import com.decodinator.liroth.core.LirothBoatModel;
 import com.decodinator.liroth.core.LirothConfiguredFeatures;
 import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothFluidTypes;
@@ -11,7 +9,6 @@ import com.decodinator.liroth.core.LirothFluids;
 import com.decodinator.liroth.core.LirothFeatures;
 import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.LirothMenuTypes;
-import com.decodinator.liroth.core.LirothModelLayers;
 import com.decodinator.liroth.core.LirothParticles;
 import com.decodinator.liroth.core.LirothPlacedFeatures;
 import com.decodinator.liroth.core.LirothRenders;
@@ -19,23 +16,9 @@ import com.decodinator.liroth.core.LirothSounds;
 import com.decodinator.liroth.core.LirothStructures;
 import com.decodinator.liroth.core.blocks.entities.screens.LirothSplitterScreen;
 import com.decodinator.liroth.core.blocks.entities.screens.QuantumExtractorScreen;
-import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseModel;
-import com.decodinator.liroth.core.entities.renderers.FreakshowModel;
-import com.decodinator.liroth.core.entities.renderers.FungalFiendModel;
-import com.decodinator.liroth.core.entities.renderers.LirothianMimicModel;
-import com.decodinator.liroth.core.entities.renderers.PierPeepModel;
-import com.decodinator.liroth.core.entities.renderers.ProwlerModel;
-import com.decodinator.liroth.core.entities.renderers.ShadeModel;
-import com.decodinator.liroth.core.entities.renderers.SkeletalFreakModel;
-import com.decodinator.liroth.core.entities.renderers.SoulArachnidModel;
-import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
-import com.decodinator.liroth.core.entities.renderers.WarpModel;
-import com.decodinator.liroth.core.renders.PotestiumHelmetModel;
 import com.decodinator.liroth.portal_junk.LirothPOIs;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Holder;
@@ -46,6 +29,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -56,8 +40,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import org.slf4j.Logger;
 
@@ -122,7 +105,9 @@ public class Liroth
 		LirothParticles.PARTICLES.register(modEventBus);
 		LirothEntities.ENTITIES_TYPES.register(modEventBus);
 		LirothBlocks.BLOCKS.register(modEventBus);
+		if (FMLEnvironment.dist == Dist.CLIENT) {
 		LirothMenuTypes.MENUS.register(modEventBus);
+		}
 		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);
@@ -142,8 +127,7 @@ public class Liroth
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        MenuScreens.register(LirothMenuTypes.LIROTH_SPLITTER_MENU.get(), LirothSplitterScreen::new);
-        MenuScreens.register(LirothMenuTypes.QUANTUM_EXTRACTOR_MENU.get(), QuantumExtractorScreen::new);
+
 //    	ForgeRegistries.MENU_TYPES.register(Liroth.QUANTUM_EXTRACTOR_SCREEN_HANDLER, QuantumExtractorScreen::new);
         // Some common setup code
 //        LOGGER.info("HELLO FROM COMMON SETUP");
@@ -159,16 +143,20 @@ public class Liroth
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+        	if (FMLEnvironment.dist == Dist.CLIENT) {
+            MenuScreens.register(LirothMenuTypes.LIROTH_SPLITTER_MENU.get(), LirothSplitterScreen::new);
+            MenuScreens.register(LirothMenuTypes.QUANTUM_EXTRACTOR_MENU.get(), QuantumExtractorScreen::new);
     		LirothRenders.renderCutOuts();
-            Liroth.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition); 
+            LirothForgeClientEventsHandler.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition); 
             ItemBlockRenderTypes.setRenderLayer(LirothFluids.LIROTH_FLUID.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(LirothFluids.FLOWING_LIROTH_FLUID.get(), RenderType.translucent());
+        	}
 //            Some client setup code
 //            LOGGER.info("HELLO FROM CLIENT SETUP");
 //            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
@@ -185,37 +173,6 @@ public class Liroth
 
     public static ResourceLocation createLocation(Holder<?> holder) {
         return createLocation(holder.unwrapKey().orElseThrow());
-    }
-    
-    private static ModelLayerLocation createLocation(String p_171301_, String p_171302_) {
-        return new ModelLayerLocation(new ResourceLocation("minecraft", p_171301_), p_171302_);
-     }
-    
-    public static ModelLayerLocation createBoatModelName(LirothBoat.LirothType p_171290_) {
-        return createLocation(Liroth.MOD_ID + "boat/" + p_171290_.getName(), "main");
-     }
-    
-    public static ModelLayerLocation createChestBoatModelName(LirothBoat.LirothType p_233551_) {
-        return createLocation(Liroth.MOD_ID + "chest_boat/" + p_233551_.getName(), "main");
-     }
-    
-    public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
-        for (LirothBoat.LirothType value : LirothBoat.LirothType.values()) {
-            consumer.accept(Liroth.createBoatModelName(value), () -> LirothBoatModel.createBodyModel(false));
-            consumer.accept(Liroth.createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
-    		consumer.accept(LirothModelLayers.POTESTIUM_HELMET, () -> LayerDefinition.create(PotestiumHelmetModel.createMesh(), 64, 128));
-    		consumer.accept(LirothModelLayers.FORSAKEN_CORPSE, () -> ForsakenCorpseModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.FREAKSHOW, () -> FreakshowModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.FUNGAL_FIEND, () -> FungalFiendModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.LIROTHIAN_MIMIC, () -> LirothianMimicModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.PIER_PEEP, () -> PierPeepModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.PROWLER, () -> ProwlerModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.SHADE, () -> ShadeModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.SKELETAL_FREAK, () -> SkeletalFreakModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.SOUL_ARACHNID, () -> SoulArachnidModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.VILE_SHARK, () -> VileSharkModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
-        }
     }
 
 }

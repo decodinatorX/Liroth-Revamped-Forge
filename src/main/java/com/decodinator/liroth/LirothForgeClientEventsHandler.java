@@ -1,6 +1,11 @@
 package com.decodinator.liroth;
 
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
+
 import com.decodinator.liroth.core.LirothBlockEntities;
+import com.decodinator.liroth.core.LirothBoat;
+import com.decodinator.liroth.core.LirothBoatModel;
 import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothEntityRenderers;
 import com.decodinator.liroth.core.LirothModelLayers;
@@ -41,9 +46,15 @@ import com.decodinator.liroth.core.particles.LirothPortalParticle;
 import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.particles.SporeParticle;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
+import com.decodinator.liroth.core.renders.PotestiumHelmetModel;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
+import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -111,5 +122,50 @@ public class LirothForgeClientEventsHandler {
     	Minecraft.getInstance().particleEngine.register(LirothParticles.JANTIRO_PORTAL.get(), JantiroPortalParticle.Provider::new);
     	Minecraft.getInstance().particleEngine.register(LirothParticles.JALSPHIRE_PORTAL.get(), JalsphirePortalParticle.Provider::new);
     	Minecraft.getInstance().particleEngine.register(LirothParticles.DEVASTATED_PORTAL.get(), DevastatedPortalParticle.Provider::new);
+    }
+    
+    public static ModelLayerLocation createBoatModelName(LirothBoat.LirothType p_171290_) {
+        return createLocation(Liroth.MOD_ID + "boat/" + p_171290_.getName(), "main");
+     }
+    
+    public static ModelLayerLocation createChestBoatModelName(LirothBoat.LirothType p_233551_) {
+        return createLocation(Liroth.MOD_ID + "chest_boat/" + p_233551_.getName(), "main");
+     }
+    
+    
+    public static ResourceLocation createLocation(String path) {
+        return new ResourceLocation(Liroth.MOD_ID, path);
+    }
+
+    public static ResourceLocation createLocation(ResourceKey<?> path) {
+        return path.location();
+    }
+
+    public static ResourceLocation createLocation(Holder<?> holder) {
+        return createLocation(holder.unwrapKey().orElseThrow());
+    }
+    
+    private static ModelLayerLocation createLocation(String p_171301_, String p_171302_) {
+        return new ModelLayerLocation(new ResourceLocation("minecraft", p_171301_), p_171302_);
+     }
+    
+    
+    public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
+        for (LirothBoat.LirothType value : LirothBoat.LirothType.values()) {
+            consumer.accept(createBoatModelName(value), () -> LirothBoatModel.createBodyModel(false));
+            consumer.accept(createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
+    		consumer.accept(LirothModelLayers.POTESTIUM_HELMET, () -> LayerDefinition.create(PotestiumHelmetModel.createMesh(), 64, 128));
+    		consumer.accept(LirothModelLayers.FORSAKEN_CORPSE, () -> ForsakenCorpseModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.FREAKSHOW, () -> FreakshowModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.FUNGAL_FIEND, () -> FungalFiendModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.LIROTHIAN_MIMIC, () -> LirothianMimicModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.PIER_PEEP, () -> PierPeepModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.PROWLER, () -> ProwlerModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.SHADE, () -> ShadeModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.SKELETAL_FREAK, () -> SkeletalFreakModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.SOUL_ARACHNID, () -> SoulArachnidModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.VILE_SHARK, () -> VileSharkModel.getTexturedModelData());
+    		consumer.accept(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
+        }
     }
 }

@@ -6,7 +6,10 @@ import com.decodinator.liroth.core.entities.SoulArachnidEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class SoulArachnidEntityRenderer extends MobRenderer<SoulArachnidEntity, SoulArachnidModel<SoulArachnidEntity>> {
 
     public SoulArachnidEntityRenderer(EntityRendererProvider.Context context) {
