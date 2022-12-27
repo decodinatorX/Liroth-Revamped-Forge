@@ -11,6 +11,7 @@ import com.decodinator.liroth.core.items.LirothBlaster;
 import com.decodinator.liroth.core.items.LirothBoatItem;
 import com.decodinator.liroth.core.items.LirothChargeItem;
 import com.decodinator.liroth.core.items.PotestiumHelmetItem;
+import com.decodinator.liroth.core.items.UnusedItem;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -64,7 +65,7 @@ public class LirothItems {
 //    public static final RegistryObject<Item>CORRUPTED_ROD = createItem(new Item(new Item.Properties().group(LirothCreativeTab.creativeTab)), "corrupted_rod"); IS NOW THE COOL BEAM
     
     
-    public static final RegistryObject<Item>EMBUED_LIROTH_GEM = createItem("embued_liroth_gem");
+    public static final RegistryObject<Item> EMBUED_LIROTH_GEM = createUnusedItem("embued_liroth_gem");
     
     public static final RegistryObject<Item>GLEEMSTONE_DUST = createItem("gleemstone_dust");
     
@@ -137,7 +138,7 @@ public class LirothItems {
 
     public static final RegistryObject<Item>LIROTH_TEAR = createItem("liroth_tear");
         
-    public static final RegistryObject<Item>PURPETUATED_AMETHYST_SHARD = createItem("purpetuated_amethyst_shard");
+    public static final RegistryObject<Item>PURPETUATED_AMETHYST_SHARD = createUnusedItem("purpetuated_amethyst_shard");
 //    public static final RegistryObject<Item>PURPETUATED_SPYGLASS = createItem(new PurpetuatedSpyglassItem(new Item.Properties().group(LirothCreativeTab.creativeTab)), "purpetuated_spyglass");
     
     public static final RegistryObject<Item>QUANTUM_DIAMOND = createItem("quantum_diamond");
@@ -190,7 +191,7 @@ public class LirothItems {
     public static final RegistryObject<Item>QUANTUM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.LEGS, "quantum_liroth_leggings");
     public static final RegistryObject<Item>QUANTUM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.FEET, "quantum_liroth_boots");
     
-    public static final RegistryObject<Item>POTESTIUM_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.HEAD, "potestium_liroth_helmet");
+    public static final RegistryObject<Item>POTESTIUM_LIROTH_HELMET = createPotestiumHelmetItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.HEAD, "potestium_liroth_helmet");
     public static final RegistryObject<Item>POTESTIUM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.CHEST, "potestium_liroth_chestplate");
     public static final RegistryObject<Item>POTESTIUM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.LEGS, "potestium_liroth_leggings");
     public static final RegistryObject<Item>POTESTIUM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.FEET, "potestium_liroth_boots");
@@ -248,6 +249,11 @@ public class LirothItems {
 	
     static RegistryObject<Item> createItem(String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new Item(new Item.Properties().tab(Liroth.liroth_items_tab)));
+        return createItem;    
+    }
+    
+    static RegistryObject<Item> createUnusedItem(String id) {
+		RegistryObject<Item> createItem = ITEMS.register(id, () -> new UnusedItem(new Item.Properties().tab(Liroth.liroth_items_tab)));
         return createItem;    
     }
     

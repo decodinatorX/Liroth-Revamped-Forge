@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
-        maven { url='https://dist.creeper.host/Sponge/maven' }
         maven { url='https://repo.spongepowered.org/maven' }
         jcenter()
         mavenCentral()
@@ -143,6 +142,18 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
+            maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+        maven { url = "https://maven.terraformersmc.com/" }
+        maven { url = "https://ladysnake.jfrog.io/artifactory/mods" }
+        maven { url "https://cursemaven.com" }
+        maven { url 'https://maven.kyrptonaught.dev' }
+        maven { url "https://maven.shedaniel.me/" }
+        maven { url "https://maven.dblsaiko.net/" }
+        maven { url "https://maven.fabricmc.net/" }
+        maven { url 'https://maven.blamejared.com' }
+        maven { url 'https://jitpack.io' }
+        maven { url = "https://dvs1.progwml6.com/files/maven/" }
+        maven { url = "https://modmaven.dev" }
 }
 
 dependencies {
@@ -157,10 +168,10 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
     // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
-
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-
+        implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.39')
+        implementation fg.deobf('curse.maven:portalsapi-621463:3961466')
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html

@@ -35,6 +35,7 @@ import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeHooks;
 
 public class LirothSplitterBlockEntity extends BlockEntity implements MenuProvider, Container {
     private NonNullList<ItemStack> inventory =
@@ -254,13 +255,14 @@ public class LirothSplitterBlockEntity extends BlockEntity implements MenuProvid
         return this.burnTime > 0;
     }
     
-	protected int getFuelTime(ItemStack fuel) {
-		if (fuel.isEmpty()) {
-			return 0;
-		}
-		Item item = fuel.getItem();
-		return AVAILABLE_FUELS.getOrDefault(item, FurnaceBlockEntity.getFuel().get(item));
-	}
+    protected int getFuelTime(ItemStack p_58343_) {
+        if (p_58343_.isEmpty()) {
+           return 0;
+        } else {
+           Item item = p_58343_.getItem();
+           return net.minecraftforge.common.ForgeHooks.getBurnTime(p_58343_, null);
+        }
+     }
     
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {

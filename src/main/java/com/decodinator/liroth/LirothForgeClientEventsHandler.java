@@ -36,6 +36,7 @@ import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
+import com.decodinator.liroth.core.items.PotestiumHelmetItem;
 import com.decodinator.liroth.core.particles.CloakParticle;
 import com.decodinator.liroth.core.particles.DamnationPortalParticle;
 import com.decodinator.liroth.core.particles.DevastatedPortalParticle;
@@ -47,6 +48,7 @@ import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.particles.SporeParticle;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
 import com.decodinator.liroth.core.renders.PotestiumHelmetModel;
+import com.decodinator.liroth.core.renders.PotestiumHelmetRenderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -62,6 +64,7 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 @Mod.EventBusSubscriber(modid = Liroth.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class LirothForgeClientEventsHandler {
@@ -69,6 +72,11 @@ public class LirothForgeClientEventsHandler {
     @SubscribeEvent
     public static void Liroth_onEntityRenderersEvent$RegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         LirothEntityRenderers.register(event::registerEntityRenderer);
+    }
+    
+    @SubscribeEvent
+    public static void registerArmorRenderer(final EntityRenderersEvent.AddLayers event) {
+        GeoArmorRenderer.registerArmorRenderer(PotestiumHelmetItem.class, () -> new PotestiumHelmetRenderer());
     }
     
     @SubscribeEvent
@@ -154,7 +162,6 @@ public class LirothForgeClientEventsHandler {
         for (LirothBoat.LirothType value : LirothBoat.LirothType.values()) {
             consumer.accept(createBoatModelName(value), () -> LirothBoatModel.createBodyModel(false));
             consumer.accept(createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
-    		consumer.accept(LirothModelLayers.POTESTIUM_HELMET, () -> LayerDefinition.create(PotestiumHelmetModel.createMesh(), 64, 128));
     		consumer.accept(LirothModelLayers.FORSAKEN_CORPSE, () -> ForsakenCorpseModel.getTexturedModelData());
     		consumer.accept(LirothModelLayers.FREAKSHOW, () -> FreakshowModel.getTexturedModelData());
     		consumer.accept(LirothModelLayers.FUNGAL_FIEND, () -> FungalFiendModel.getTexturedModelData());

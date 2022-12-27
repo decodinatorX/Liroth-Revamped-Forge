@@ -11,11 +11,14 @@ import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.LirothMenuTypes;
 import com.decodinator.liroth.core.LirothParticles;
 import com.decodinator.liroth.core.LirothPlacedFeatures;
+import com.decodinator.liroth.core.LirothPortalBuilders;
 import com.decodinator.liroth.core.LirothRenders;
 import com.decodinator.liroth.core.LirothSounds;
 import com.decodinator.liroth.core.LirothStructures;
 import com.decodinator.liroth.core.blocks.entities.screens.LirothSplitterScreen;
 import com.decodinator.liroth.core.blocks.entities.screens.QuantumExtractorScreen;
+import com.decodinator.liroth.core.items.PotestiumHelmetItem;
+import com.decodinator.liroth.core.renders.PotestiumHelmetRenderer;
 import com.decodinator.liroth.portal_junk.LirothPOIs;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -25,6 +28,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
@@ -38,9 +42,11 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 import org.slf4j.Logger;
 
@@ -120,14 +126,14 @@ public class Liroth
 		LirothStructures.DEFERRED_REGISTRY_STRUCTURE.register(modEventBus);
 		LirothPOIs.POI.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
-//        ITEMS.register(modEventBus);
+		// ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+		LirothPortalBuilders.init();
 //    	ForgeRegistries.MENU_TYPES.register(Liroth.QUANTUM_EXTRACTOR_SCREEN_HANDLER, QuantumExtractorScreen::new);
         // Some common setup code
 //        LOGGER.info("HELLO FROM COMMON SETUP");
@@ -174,5 +180,7 @@ public class Liroth
     public static ResourceLocation createLocation(Holder<?> holder) {
         return createLocation(holder.unwrapKey().orElseThrow());
     }
+    
+
 
 }

@@ -36,6 +36,7 @@ import com.decodinator.liroth.core.blocks.LirothFarmBlock;
 import com.decodinator.liroth.core.blocks.LirothFurnace;
 import com.decodinator.liroth.core.blocks.LirothGrassBlock;
 import com.decodinator.liroth.core.blocks.LirothPathBlock;
+import com.decodinator.liroth.core.blocks.LirothPortalBlock;
 import com.decodinator.liroth.core.blocks.LirothSoulRod;
 import com.decodinator.liroth.core.blocks.LirothSplitterBlock;
 import com.decodinator.liroth.core.blocks.LirothWaterPlant;
@@ -79,9 +80,9 @@ import com.decodinator.liroth.portal_junk.DamnationPortalBlock;
 import com.decodinator.liroth.portal_junk.DevastatedPortalBlock;
 import com.decodinator.liroth.portal_junk.JalsphirePortalBlock;
 import com.decodinator.liroth.portal_junk.JantiroPortalBlock;
-import com.decodinator.liroth.portal_junk.LirothPortalBlock;
 import com.google.gson.JsonElement;
 
+import net.kyrptonaught.customportalapi.CustomPortalBlock;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -199,7 +200,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> DAMNATION_LEAVES = createLeaves("damnation_leaves");
     public static final RegistryObject<Block> DAMNATION_LOG = createDamnationLog("damnation_log");
     public static final RegistryObject<Block> DAMNATION_PLANKS = createPlanks("damnation_planks");
-    public static final RegistryObject<DamnationPortalBlock> DAMNATION_DIMENSION_PORTAL = createDamnationPortal("damnation_portal");
+    public static final RegistryObject<LirothPortalBlock> DAMNATION_DIMENSION_PORTAL = createPortal("damnation_portal");
     public static final RegistryObject<Block> DAMNATION_SOIL = createDamnationSoil("damnation_soil");
     public static final RegistryObject<Block> DAMNATION_DOOR = createDoor("damnation_door");
     public static final RegistryObject<Block> DAMNATION_SLAB = createWoodSlab("damnation_slab");
@@ -218,7 +219,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> DEVASTATED_BRICK_STAIRS = createStoneStairs(DEVASTATED_BRICKS, "devastated_brick_stairs");
     public static final RegistryObject<Block> DEVASTATED_BRICK_WALL = createStoneWall("devastated_brick_wall");
     public static final RegistryObject<Block> DEVASTATED_PILLAR_BLOCK = createPillarBlock("devastated_pillar_block");
-    public static final RegistryObject<DevastatedPortalBlock> DEVASTATED_DIMENSION_PORTAL = createDevastatedPortal("devastated_plains_portal");
+    public static final RegistryObject<LirothPortalBlock> DEVASTATED_DIMENSION_PORTAL = createPortal("devastated_plains_portal");
     public static final RegistryObject<Block> DIMENSIONAL_COMMUNICATOR = createPillarBlock("dimensional_communicator");
     public static final RegistryObject<Block> DIMENSIONAL_COMMUNICATOR_OFF = createMetalBlock("dimensional_communicator_off");
     public static final RegistryObject<Block> DIMENSIONAL_COMMUNICATOR_ON = createMetalBlock("dimensional_communicator_on");
@@ -234,11 +235,11 @@ public class LirothBlocks {
     public static final RegistryObject<Block> HILIGHT = createShroomlightBlock("hilight");
     public static final RegistryObject<Block> JALSPHIRE_CRYSTAL_BLOCK = createCrystalBlock("jalsphire_crystal_block");
     public static final RegistryObject<Block> JALSPHIRE_ORE = createDirtOre("jalsphire_ore");
-    public static final RegistryObject<JalsphirePortalBlock> JALSPHIRE_DIMENSION_PORTAL = createJalsphirePortal("jalsphire_plains_dimension_portal");
+    public static final RegistryObject<LirothPortalBlock> JALSPHIRE_DIMENSION_PORTAL = createPortal("jalsphire_plains_dimension_portal");
     public static final RegistryObject<Block> JALSPHIRE_GEM_BLOCK = createMetalBlock("jalsphire_gem_block");
     public static final RegistryObject<Block> JALSPHIRE_ORE_STONE = createOre("jalsphire_stone_ore");
     public static final RegistryObject<Block> JALSPHIRE_TRACKWAY = createStone("jalsphire_trackway");
-    public static final RegistryObject<JantiroPortalBlock> JANTIRO_DIMENSION_PORTAL = createJantiroPortal("jantiro_escape_dimension_portal");
+    public static final RegistryObject<LirothPortalBlock> JANTIRO_DIMENSION_PORTAL = createPortal("jantiro_escape_dimension_portal");
     public static final RegistryObject<Block> JAPZ_BLOSSOM = createSporeBlossom("japz_blossom");
     public static final RegistryObject<JapzChestBlock> JAPZ_CHEST = createJapzChest("japz");
     public static final RegistryObject<Block> JAPZ_CRAFTING_TABLE = createJapzCraftingTable("japz_crafting_table");
@@ -289,7 +290,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> LIROTHIAN_LIROTH_ORE = createOre("lirothian_liroth_ore");
     public static final RegistryObject<Block> LIROTH_ORE = createOre("liroth_gem_ore");
     public static final RegistryObject<Block> LIROTH_PLANKS = createPlanks("liroth_planks");
-    public static final RegistryObject<LirothPortalBlock> LIROTH_DIMENSION_PORTAL = createLirothPortal("liroth_dimension_portal");
+    public static final RegistryObject<LirothPortalBlock> LIROTH_DIMENSION_PORTAL = createPortal("liroth_dimension_portal");
     public static final RegistryObject<Block> LIROTH_ROSE = createFlower("liroth_rose");
     public static final RegistryObject<Block> LIROTH_SOUL_SAND = createLirothSoulSand("liroth_soul_sand");
     public static final RegistryObject<Block> LIROTH_STONE_BLOCK = createStone("liroth_stone");
@@ -1022,11 +1023,16 @@ public class LirothBlocks {
 		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
-    
-    static RegistryObject<LirothPortalBlock> createLirothPortal(String id) {
-    	RegistryObject<LirothPortalBlock> createBlock = BLOCKS.register(id, () -> new LirothPortalBlock());
+	
+    static RegistryObject<LirothPortalBlock> createPortal(String id) {
+    	RegistryObject<LirothPortalBlock> createBlock = BLOCKS.register(id, () -> new LirothPortalBlock(Properties.of(Material.PORTAL).strength(-1F).noCollission().lightLevel((state) -> 10).noLootTable()));
 		return createBlock;
     }
+    
+/*    static RegistryObject<LirothPortalBlock> createLirothPortal(String id) {
+    	RegistryObject<LirothPortalBlock> createBlock = BLOCKS.register(id, () -> new LirothPortalBlock());
+		return createBlock;
+    }*/
     
     static RegistryObject<DamnationPortalBlock> createDamnationPortal(String id) {
     	RegistryObject<DamnationPortalBlock> createBlock = BLOCKS.register(id, () -> new DamnationPortalBlock());

@@ -1,6 +1,7 @@
 package com.decodinator.liroth;
 
 import com.decodinator.liroth.core.LirothEntities;
+import com.decodinator.liroth.core.LirothPortalBuilders;
 import com.decodinator.liroth.core.entities.ForsakenCorpseEntity;
 import com.decodinator.liroth.core.entities.FreakshowEntity;
 import com.decodinator.liroth.core.entities.FungalFiendEntity;
