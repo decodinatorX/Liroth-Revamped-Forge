@@ -1,4 +1,5 @@
 {
+  "render_type": "translucent",
   "textures": {
     "particle": "liroth:blocks/jantiro_portal",
     "portal": "liroth:blocks/jantiro_portal"

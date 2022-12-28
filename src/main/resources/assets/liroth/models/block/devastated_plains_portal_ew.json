@@ -1,4 +1,5 @@
 {
+  "render_type": "translucent",
   "textures": {
     "particle": "liroth:blocks/devastation_portal",
     "portal": "liroth:blocks/devastation_portal"

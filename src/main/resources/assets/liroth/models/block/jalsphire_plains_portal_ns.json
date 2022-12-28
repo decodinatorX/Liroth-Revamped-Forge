@@ -1,4 +1,5 @@
 {
+  "render_type": "translucent",
   "textures": {
     "particle": "liroth:blocks/koolaw_portal",
     "portal": "liroth:blocks/koolaw_portal"

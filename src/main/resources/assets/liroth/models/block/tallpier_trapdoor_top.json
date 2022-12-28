@@ -1,5 +1,6 @@
 {
   "parent": "block/template_orientable_trapdoor_top",
+  "render_type": "cutout",
   "textures": {
     "texture": "liroth:blocks/tallpier_trapdoor",
     "particle": "liroth:blocks/tallpier_trapdoor"

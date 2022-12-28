@@ -1,5 +1,6 @@
 {
   "parent": "block/door_bottom_left_open",
+  "render_type": "cutout",
   "textures": {
     "bottom": "liroth:blocks/petrified_door_bottom",
     "top": "liroth:blocks/petrified_door_top"

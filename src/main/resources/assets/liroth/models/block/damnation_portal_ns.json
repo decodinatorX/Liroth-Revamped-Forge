@@ -1,4 +1,5 @@
 {
+  "render_type": "translucent",
   "textures": {
     "particle": "liroth:blocks/damnation_portal",
     "portal": "liroth:blocks/damnation_portal"

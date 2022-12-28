@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "liroth:blocks/sea_eye",
+  	"render_type": "cutout",
 	"textures": {
 		"0": "liroth:blocks/eye_side",
 		"1": "liroth:blocks/eye_top",

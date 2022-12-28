@@ -1,4 +1,5 @@
 {
+  "render_type": "translucent",
   "textures": {
     "particle": "liroth:blocks/liroth_portal",
     "portal": "liroth:blocks/liroth_portal"

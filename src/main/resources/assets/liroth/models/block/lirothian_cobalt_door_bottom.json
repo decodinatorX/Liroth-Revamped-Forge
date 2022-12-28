@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/door_bottom_left",
+  "render_type": "cutout",
   "textures": {
     "top": "liroth:blocks/lirothian_cobalt_door_top",
     "bottom": "liroth:blocks/lirothian_cobalt_door_bottom"

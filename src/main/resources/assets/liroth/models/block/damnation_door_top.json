@@ -1,5 +1,6 @@
 {
   "parent": "block/door_top_left",
+  "render_type": "cutout",
   "textures": {
     "bottom": "liroth:blocks/damnation_door_bottom",
     "top": "liroth:blocks/damnation_door_top"
