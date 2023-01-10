@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import javax.annotation.Nullable;
 
-import com.decodinator.liroth.Liroth;
 import com.decodinator.liroth.core.LirothBlocks;
 import com.decodinator.liroth.core.LirothFluids;
 import com.decodinator.liroth.core.LirothItems;
@@ -24,7 +23,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,7 +30,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.WaterFluid;
 
 public abstract class LirothFluid extends FlowingFluid {
@@ -97,6 +94,7 @@ public abstract class LirothFluid extends FlowingFluid {
 	      return 5;
 	   }
 
+	   @SuppressWarnings("deprecation")
 	   public boolean canBeReplacedWith(FluidState p_76458_, BlockGetter p_76459_, BlockPos p_76460_, Fluid p_76461_, Direction p_76462_) {
 	      return p_76462_ == Direction.DOWN && !p_76461_.is(FluidTags.WATER);
 	   }

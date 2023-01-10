@@ -2,9 +2,9 @@
     "parent": "block/block",
   	"render_type": "cutout",
     "textures": {
-        "particle": "liroth:blocks/japz_blossom",
-        "flower": "liroth:blocks/japz_blossom",
-        "base": "liroth:blocks/japz_blossom_base"
+        "particle": "liroth:block/japz_blossom",
+        "flower": "liroth:block/japz_blossom",
+        "base": "liroth:block/japz_blossom_base"
     },
     "elements": [
         {   "from": [ 1, 15.9, 1 ],

@@ -35,7 +35,7 @@ public class PotestiumLirothArmorMaterial implements ArmorMaterial {
 
 	@Override
 	public Ingredient getRepairIngredient() {
-		return Ingredient.of(LirothItems.QUANTUM_DIAMOND.get());
+		return Ingredient.of(LirothItems.POTESTIUM_PLATE.get());
 
 	}
 

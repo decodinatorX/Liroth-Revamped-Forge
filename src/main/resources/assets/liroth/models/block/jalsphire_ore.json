@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "liroth:blocks/jalsphire_ore",
-    "up": "liroth:blocks/jalsphire_ore",
-    "north": "liroth:blocks/jalsphire_ore",
-    "east": "liroth:blocks/jalsphire_ore",
-    "south": "liroth:blocks/jalsphire_ore",
-    "west": "liroth:blocks/jalsphire_ore",
-    "particle": "liroth:blocks/jalsphire_ore"
+    "down": "liroth:block/jalsphire_ore",
+    "up": "liroth:block/jalsphire_ore",
+    "north": "liroth:block/jalsphire_ore",
+    "east": "liroth:block/jalsphire_ore",
+    "south": "liroth:block/jalsphire_ore",
+    "west": "liroth:block/jalsphire_ore",
+    "particle": "liroth:block/jalsphire_ore"
   }
 }

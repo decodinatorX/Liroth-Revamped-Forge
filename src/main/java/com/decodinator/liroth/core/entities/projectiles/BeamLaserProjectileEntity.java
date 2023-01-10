@@ -1,14 +1,8 @@
 package com.decodinator.liroth.core.entities.projectiles;
 
-import java.util.Collection;
-import java.util.List;
-
-import com.decodinator.liroth.Liroth;
 import com.decodinator.liroth.core.LirothEntities;
 import com.decodinator.liroth.core.LirothItems;
 
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -24,12 +18,9 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.HitResult;
 
 public class BeamLaserProjectileEntity extends AbstractArrow {
 	   private static final EntityDataAccessor<Integer> ID_EFFECT_COLOR = SynchedEntityData.defineId(Arrow.class, EntityDataSerializers.INT);
@@ -47,20 +38,6 @@ public class BeamLaserProjectileEntity extends AbstractArrow {
 		super(LirothEntities.BEAM_LASER_PROJECTILE.get(), x, y, z, world);
 	}
  
- 
-    private void spawnParticles(int amount) {
-        int i = this.getColor();
-        if (i == -1 || amount <= 0) {
-            return;
-        }
-        double d = (double)(i >> 16 & 0xFF) / 255.0;
-        double e = (double)(i >> 8 & 0xFF) / 255.0;
-        double f = (double)(i >> 0 & 0xFF) / 255.0;
-        for (int j = 0; j < amount; ++j) {
-            this.level.addParticle(ParticleTypes.ENTITY_EFFECT, this.getRandomX(0.5D), this.getRandomY(), this.getRandomZ(0.5D), d, e, f);
-        }
-    }
-    
     public int getColor() {
         return this.entityData.get(ID_EFFECT_COLOR);
     }
@@ -73,7 +50,7 @@ public class BeamLaserProjectileEntity extends AbstractArrow {
  
 		if (entity instanceof LivingEntity livingEntity) { // checks if entity is an instance of LivingEntity (meaning it is not a boat or minecart)
 			livingEntity.addEffect((new MobEffectInstance(MobEffects.BLINDNESS, 20 * 3, 0))); // applies a status effect
-			livingEntity.playSound(SoundEvents.AMBIENT_CAVE, 2F, 1F); // plays a sound for the entity hit only
+			livingEntity.playSound(SoundEvents.AMBIENT_CAVE.get(), 2F, 1F); // plays a sound for the entity hit only
 		}
 	}
  

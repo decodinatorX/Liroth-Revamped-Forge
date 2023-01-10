@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_torch_wall",
   "render_type": "cutout",
   "textures": {
-    "torch": "liroth:blocks/lirothian_petroleum_torch"
+    "torch": "liroth:block/lirothian_petroleum_torch"
   }
 }

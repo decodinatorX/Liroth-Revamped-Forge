@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/charred_accessway_block",
-    "particle": "liroth:blocks/charred_accessway_block"
+    "all": "liroth:block/charred_accessway_block",
+    "particle": "liroth:block/charred_accessway_block"
   }
 }

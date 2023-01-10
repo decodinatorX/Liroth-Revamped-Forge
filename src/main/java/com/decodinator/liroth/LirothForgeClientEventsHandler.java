@@ -1,5 +1,6 @@
 package com.decodinator.liroth;
 
+import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
@@ -12,7 +13,6 @@ import com.decodinator.liroth.core.LirothModelLayers;
 import com.decodinator.liroth.core.LirothParticles;
 import com.decodinator.liroth.core.blocks.FungalCampfireRenderer;
 import com.decodinator.liroth.core.blocks.LirothianPetroleumCampfireRenderer;
-import com.decodinator.liroth.core.LirothEntityRenderers.RegisterStrategy;
 import com.decodinator.liroth.core.entities.renderers.BeamLaserProjectileEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseModel;
@@ -36,7 +36,6 @@ import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
-import com.decodinator.liroth.core.items.PotestiumHelmetItem;
 import com.decodinator.liroth.core.particles.CloakParticle;
 import com.decodinator.liroth.core.particles.DamnationPortalParticle;
 import com.decodinator.liroth.core.particles.DevastatedPortalParticle;
@@ -47,24 +46,22 @@ import com.decodinator.liroth.core.particles.LirothPortalParticle;
 import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.particles.SporeParticle;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
-import com.decodinator.liroth.core.renders.PotestiumHelmetModel;
-import com.decodinator.liroth.core.renders.PotestiumHelmetRenderer;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.renderer.blockentity.ChestRenderer;
+import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
+
+import org.jetbrains.annotations.ApiStatus;
 
 @Mod.EventBusSubscriber(modid = Liroth.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class LirothForgeClientEventsHandler {
@@ -76,7 +73,6 @@ public class LirothForgeClientEventsHandler {
     
     @SubscribeEvent
     public static void registerArmorRenderer(final EntityRenderersEvent.AddLayers event) {
-        GeoArmorRenderer.registerArmorRenderer(PotestiumHelmetItem.class, () -> new PotestiumHelmetRenderer());
     }
     
     @SubscribeEvent
@@ -175,4 +171,29 @@ public class LirothForgeClientEventsHandler {
     		consumer.accept(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
         }
     }
+    
+     public static class Pre extends TextureStitchEvent
+     {
+         private final Set<ResourceLocation> sprites;
+    
+         @ApiStatus.Internal
+         public Pre(TextureAtlas map, Set<ResourceLocation> sprites)
+         {
+             super(map);
+             this.sprites = sprites;
+         }
+    //
+    //     /**
+    //      * Adds a sprite to be stitched into the texture atlas.
+    //      *
+    //      * <p>Callers should check that the atlas which the event is fired for is the atlas they wish to stitch the
+    //      * sprite into, as otherwise they would be stitching the sprite into all atlases.</p>
+    //      *
+    //      * @param sprite the location of the sprite
+    //      */
+         public boolean addSprite(ResourceLocation sprite)
+         {
+             return this.sprites.add(sprite);
+         }
+     }
 }

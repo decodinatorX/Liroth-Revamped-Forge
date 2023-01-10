@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_end",
-  "features": "liroth:end_liroth_ore_placed",
+  "features": "liroth:end_liroth_ore",
   "step": "underground_ores"
 }

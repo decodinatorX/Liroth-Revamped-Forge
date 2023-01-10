@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:items/fungal_campfire"
+    "layer0": "liroth:item/fungal_campfire"
   }
 }

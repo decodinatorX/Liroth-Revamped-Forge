@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_torch",
   "render_type": "cutout",
   "textures": {
-    "torch": "liroth:blocks/fungal_torch"
+    "torch": "liroth:block/fungal_torch"
   }
 }

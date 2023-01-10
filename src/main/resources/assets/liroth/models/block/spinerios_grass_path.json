@@ -1,9 +1,9 @@
 {   "parent": "block/block",
     "textures": {
-        "particle": "liroth:blocks/spinerios_grass_path_top",
-        "top": "liroth:blocks/spinerios_grass_path_top",
-        "side": "liroth:blocks/spinerios_grass_path_side",
-        "bottom": "liroth:blocks/spinerios_dirt"
+        "particle": "liroth:block/spinerios_grass_path_top",
+        "top": "liroth:block/spinerios_grass_path_top",
+        "side": "liroth:block/spinerios_grass_path_side",
+        "bottom": "liroth:block/spinerios_dirt"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "liroth:blocks/potestium_ore"
+    "all": "liroth:block/potestium_ore"
   }
 }

@@ -1,6 +1,6 @@
 {
     "textures": {
-        "particle": "liroth:blocks/liroth_fluid_still"
+        "particle": "liroth:block/liroth_fluid_still"
     }
 }
 

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/lirothian_dungeon_key"
+    "layer0": "liroth:item/lirothian_dungeon_key"
   }
 }

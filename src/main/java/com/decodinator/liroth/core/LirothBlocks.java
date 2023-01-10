@@ -1,6 +1,7 @@
 package com.decodinator.liroth.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.BiConsumer;
@@ -76,10 +77,6 @@ import com.decodinator.liroth.core.helpers.ChestManager;
 import com.decodinator.liroth.core.items.BEWLRBlockItem;
 import com.decodinator.liroth.core.items.BEWLRFuelBlockItem;
 import com.decodinator.liroth.core.renders.ChestBlockEntityWithoutLevelRenderer;
-import com.decodinator.liroth.portal_junk.DamnationPortalBlock;
-import com.decodinator.liroth.portal_junk.DevastatedPortalBlock;
-import com.decodinator.liroth.portal_junk.JalsphirePortalBlock;
-import com.decodinator.liroth.portal_junk.JantiroPortalBlock;
 import com.google.gson.JsonElement;
 
 import net.kyrptonaught.customportalapi.CustomPortalBlock;
@@ -100,6 +97,7 @@ import net.minecraft.data.models.model.ModelLocationUtils;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -108,6 +106,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.CraftingTableBlock;
@@ -134,7 +133,6 @@ import net.minecraft.world.level.block.TorchBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallTorchBlock;
-import net.minecraft.world.level.block.WoodButtonBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
@@ -158,7 +156,9 @@ import net.minecraftforge.api.distmarker.Dist;
 public class LirothBlocks {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Liroth.MOD_ID);
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Liroth.MOD_ID);
-    
+    public static final Collection<RegistryObject<Item>> PLANT_ITEMS_FOR_TAB_LIST = new ArrayList<>();
+    public static final Collection<RegistryObject<Item>> BLOCK_ITEMS_FOR_TAB_LIST = new ArrayList<>();
+
     public static final RegistryObject<Block> ANOMALY = createAnomalyBlock("anomaly");
     public static final RegistryObject<Block> ANOMALY_BLOCK = createAnomalyBlock("anomaly_block");
     public static final RegistryObject<Block> BLUE_SAND = createSand(0, "blue_sand");
@@ -346,6 +346,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> POINTED_PETRIFIED_CRYSTAL = createPointedPetrifiedCrystal("pointed_petrified_crystal");
     public static final RegistryObject<Block> POTESTIUM_ORE = createSoilOre("potestium_ore");
     public static final RegistryObject<Block> POTESTIUM_BLOCK = createMetalBlock("potestium_block");
+    public static final RegistryObject<Block> POTESTIUM_PLATE_BLOCK = createMetalBlock("potestium_plate_block");
 //    public static final RegistryObject<Block> REDSTONE_BROKEN_STAGE_1 = createMetalBlock("redstone_broken_stage_1");
 //    public static final RegistryObject<Block> REDSTONE_BROKEN_STAGE_2 = createMetalBlock("redstone_broken_stage_2");
 //    public static final RegistryObject<Block> REDSTONE_BROKEN_STAGE_3 = createMetalBlock("redstone_broken_stage_3");
@@ -437,8 +438,8 @@ public class LirothBlocks {
     public static final RegistryObject<Block> WALL_LIROTHIAN_PETROLEUM_TORCH = createLirothianPetroleumWallTorch("wall_lirothian_petroleum_torch");
     public static final RegistryObject<Block> WILITING_LIROTH_ROSE = createFlower("wilting_liroth_rose");
 
-    public static final RegistryObject<Item> FUNGAL_TORCH_ITEM = ITEMS.register("fungal_torch", () -> new StandingAndWallBlockItem(LirothBlocks.FUNGAL_TORCH.get(), LirothBlocks.WALL_FUNGAL_TORCH.get(), (new Item.Properties()).tab(Liroth.liroth_blocks_tab)));
-    public static final RegistryObject<Item> LIROTHIAN_PETROLEUM_TORCH_ITEM = ITEMS.register("lirothian_petroleum_torch", () -> new StandingAndWallBlockItem(LirothBlocks.LIROTHIAN_PETROLEUM_TORCH.get(), LirothBlocks.WALL_LIROTHIAN_PETROLEUM_TORCH.get(), (new Item.Properties()).tab(Liroth.liroth_blocks_tab)));
+    public static final RegistryObject<Item> FUNGAL_TORCH_ITEM = ITEMS.register("fungal_torch", () -> new StandingAndWallBlockItem(LirothBlocks.FUNGAL_TORCH.get(), LirothBlocks.WALL_FUNGAL_TORCH.get(), (new Item.Properties()), Direction.DOWN));
+    public static final RegistryObject<Item> LIROTHIAN_PETROLEUM_TORCH_ITEM = ITEMS.register("lirothian_petroleum_torch", () -> new StandingAndWallBlockItem(LirothBlocks.LIROTHIAN_PETROLEUM_TORCH.get(), LirothBlocks.WALL_LIROTHIAN_PETROLEUM_TORCH.get(), (new Item.Properties()), Direction.DOWN));
     
 	public static final RegistryObject<LiquidBlock> LIROTH_FLUID_BLOCK = BLOCKS.register("liroth_fluid", () -> new LiquidBlock(LirothFluids.LIROTH_FLUID, BlockBehaviour.Properties.copy(Blocks.WATER)));
 	public static final RegistryObject<LiquidBlock> MOLTEN_SPINERIOS_BLOCK = BLOCKS.register("molten_spinerios", () -> new LiquidBlock(LirothFluids.MOLTEN_SPINERIOS, BlockBehaviour.Properties.copy(Blocks.WATER)));
@@ -803,7 +804,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createFungusPlant(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomFungalPlant(Block.Properties.copy(Blocks.CRIMSON_FUNGUS).noCollission().lightLevel(state -> 15), null));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new CustomFungalPlant(Block.Properties.copy(Blocks.CRIMSON_FUNGUS).noCollission().lightLevel(state -> 15), null, null));
         
         createPlantBlockItems(id, createBlock);
 		return createBlock;
@@ -972,7 +973,7 @@ public class LirothBlocks {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<LirothChestBlock> block = BLOCKS.register(name + "_chest", () -> new LirothChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
 	
@@ -980,7 +981,7 @@ public class LirothBlocks {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<DamnationChestBlock> block = BLOCKS.register(name + "_chest", () -> new DamnationChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
 	
@@ -988,7 +989,7 @@ public class LirothBlocks {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<JapzChestBlock> block = BLOCKS.register(name + "_chest", () -> new JapzChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
 	
@@ -996,7 +997,7 @@ public class LirothBlocks {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<KoolawChestBlock> block = BLOCKS.register(name + "_chest", () -> new KoolawChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
 	
@@ -1004,7 +1005,7 @@ public class LirothBlocks {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<PetrifiedDamnationChestBlock> block = BLOCKS.register(name + "_chest", () -> new PetrifiedDamnationChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
 	
@@ -1012,7 +1013,7 @@ public class LirothBlocks {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<SpicedChestBlock> block = BLOCKS.register(name + "_chest", () -> new SpicedChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
 	
@@ -1020,7 +1021,7 @@ public class LirothBlocks {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<TallpierChestBlock> block = BLOCKS.register(name + "_chest", () -> new TallpierChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab), () -> () -> chestBEWLR(false), 300));
+		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
 		return block;
 	}
 	
@@ -1034,7 +1035,7 @@ public class LirothBlocks {
 		return createBlock;
     }*/
     
-    static RegistryObject<DamnationPortalBlock> createDamnationPortal(String id) {
+/*    static RegistryObject<DamnationPortalBlock> createDamnationPortal(String id) {
     	RegistryObject<DamnationPortalBlock> createBlock = BLOCKS.register(id, () -> new DamnationPortalBlock());
 		return createBlock;
     }
@@ -1052,7 +1053,7 @@ public class LirothBlocks {
     static RegistryObject<DevastatedPortalBlock> createDevastatedPortal(String id) {
     	RegistryObject<DevastatedPortalBlock> createBlock = BLOCKS.register(id, () -> new DevastatedPortalBlock());
 		return createBlock;
-    }
+    }*/
     
     static RegistryObject<Block> createAnomalyBlock(String id) {
         RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.BEDROCK).noOcclusion().sound(SoundType.METAL)));
@@ -1132,7 +1133,7 @@ public class LirothBlocks {
     }
 
     static RegistryObject<Block> createFenceGate(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f), SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN));
         
         createBlockItems(id, createBlock);
 
@@ -1221,7 +1222,7 @@ public class LirothBlocks {
     }
 
     static RegistryObject<Block> createWoodPressurePlate(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F), SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -1245,7 +1246,7 @@ public class LirothBlocks {
     }
 
     static RegistryObject<Block> createTrapDoor(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TrapDoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), SoundEvents.WOODEN_TRAPDOOR_CLOSE, SoundEvents.WOODEN_TRAPDOOR_OPEN));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -1253,7 +1254,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createMetalTrapDoor(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TrapDoorBlock(Block.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).sound(SoundType.METAL).strength(3.0f, 4.0f).noOcclusion()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new TrapDoorBlock(Block.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).sound(SoundType.METAL).strength(3.0f, 4.0f).noOcclusion(), SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -1261,7 +1262,7 @@ public class LirothBlocks {
     }
 
     static RegistryObject<Block> createWoodButton(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new WoodButtonBlock(Block.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new ButtonBlock(Block.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F), 30, true, SoundEvents.WOODEN_BUTTON_CLICK_OFF, SoundEvents.WOODEN_BUTTON_CLICK_ON));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -1269,7 +1270,7 @@ public class LirothBlocks {
     }
 
     static RegistryObject<Block> createDoor(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DoorBlock(Block.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -1277,7 +1278,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createMetalDoor(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DoorBlock(Block.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).sound(SoundType.METAL).strength(3.0f, 4.0f).noOcclusion()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DoorBlock(Block.Properties.of(Material.METAL, MaterialColor.COLOR_BLUE).sound(SoundType.METAL).strength(3.0f, 4.0f).noOcclusion(), SoundEvents.IRON_DOOR_CLOSE, SoundEvents.IRON_DOOR_OPEN));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -1495,12 +1496,14 @@ public class LirothBlocks {
     }
     
     public static RegistryObject<Item> createBlockItems(String id, RegistryObject<Block> block) {
-    	RegistryObject<Item> createItem = ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_blocks_tab)));
-		return createItem;
+    	RegistryObject<Item> createItem = ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties()));
+    	BLOCK_ITEMS_FOR_TAB_LIST.add(createItem);
+    	return createItem;
     }
     
     public static RegistryObject<Item> createPlantBlockItems(String id, RegistryObject<Block> block) {
-    	RegistryObject<Item> createItem = ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties().tab(Liroth.liroth_plants_tab)));
+    	RegistryObject<Item> createItem = ITEMS.register(id, () -> new BlockItem(block.get(), new Item.Properties()));
+    	PLANT_ITEMS_FOR_TAB_LIST.add(createItem);
 		return createItem;
     }
     

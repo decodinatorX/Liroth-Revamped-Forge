@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:items/pointed_jalsphire_crystal"
+    "layer0": "liroth:item/pointed_jalsphire_crystal"
   },
   "display": {
     "thirdperson_righthand": {

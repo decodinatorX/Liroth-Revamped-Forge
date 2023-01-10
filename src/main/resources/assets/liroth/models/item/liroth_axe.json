@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "liroth:items/liroth_axe"
+    "layer0": "liroth:item/liroth_axe"
   }
 }

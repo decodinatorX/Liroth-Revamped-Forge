@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "liroth:blocks/lirothian_petroleum_ore"
+    "all": "liroth:block/lirothian_petroleum_ore"
   }
 }

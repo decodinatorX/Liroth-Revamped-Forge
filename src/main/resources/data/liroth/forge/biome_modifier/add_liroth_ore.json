@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_overworld",
-  "features": "liroth:liroth_ore_placed",
+  "features": "liroth:liroth_ore",
   "step": "underground_ores"
 }

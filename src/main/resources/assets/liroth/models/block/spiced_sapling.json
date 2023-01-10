@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "cutout",
   "textures": {
-    "cross": "liroth:blocks/spiced_sapling"
+    "cross": "liroth:block/spiced_sapling"
   }
 }

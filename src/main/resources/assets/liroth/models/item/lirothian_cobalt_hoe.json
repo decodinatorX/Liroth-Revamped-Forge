@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "liroth:items/lirothian_cobalt_hoe"
+    "layer0": "liroth:item/lirothian_cobalt_hoe"
   }
 }

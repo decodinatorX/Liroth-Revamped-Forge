@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "liroth:blocks/tallpier_planks",
-    "up": "liroth:blocks/tallpier_crafting_table_top",
-    "north": "liroth:blocks/tallpier_crafting_table_front",
-    "east": "liroth:blocks/tallpier_crafting_table_side",
-    "south": "liroth:blocks/tallpier_crafting_table_side",
-    "west": "liroth:blocks/tallpier_crafting_table_front",
-    "particle": "liroth:blocks/tallpier_planks"
+    "down": "liroth:block/tallpier_planks",
+    "up": "liroth:block/tallpier_crafting_table_top",
+    "north": "liroth:block/tallpier_crafting_table_front",
+    "east": "liroth:block/tallpier_crafting_table_side",
+    "south": "liroth:block/tallpier_crafting_table_side",
+    "west": "liroth:block/tallpier_crafting_table_front",
+    "particle": "liroth:block/tallpier_planks"
   }
 }

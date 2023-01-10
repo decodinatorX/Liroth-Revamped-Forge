@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "liroth:items/liroth_pickaxe"
+    "layer0": "liroth:item/liroth_pickaxe"
   }
 }

@@ -2,6 +2,6 @@
   "parent": "minecraft:block/tinted_cross",
   "render_type": "cutout",
   "textures": {
-    "cross": "liroth:blocks/vile_tentacle_tip"
+    "cross": "liroth:block/vile_tentacle_tip"
   }
 }

@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_nether",
-  "features": "liroth:nether_liroth_ore_placed",
+  "features": "liroth:nether_liroth_ore",
   "step": "underground_ores"
 }

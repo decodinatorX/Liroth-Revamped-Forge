@@ -2,8 +2,6 @@ package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
 import com.decodinator.liroth.core.fluids.BaseFluidType;
-import com.mojang.math.Vector3f;
-
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.common.SoundAction;
@@ -28,6 +26,6 @@ public class LirothFluidTypes {
 	}
 	
 	private static RegistryObject<FluidType> registerMoltenSpinerios(String name, FluidType.Properties properties) {
-		return FLUID_TYPES.register(name, () -> new BaseFluidType(MOLTEN_SPINERIOS_STILL, MOLTEN_SPINERIOS_FLOWING, new Vector3f(0, 0, 0), properties));
+		return FLUID_TYPES.register(name, () -> new BaseFluidType(MOLTEN_SPINERIOS_STILL, MOLTEN_SPINERIOS_FLOWING, properties));
 	}
 }

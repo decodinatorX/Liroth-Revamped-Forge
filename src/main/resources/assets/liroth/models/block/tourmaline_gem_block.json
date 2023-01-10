@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/tourmaline_gem_block",
-    "particle": "liroth:blocks/tourmaline_gem_block"
+    "all": "liroth:block/tourmaline_gem_block",
+    "particle": "liroth:block/tourmaline_gem_block"
   }
 }

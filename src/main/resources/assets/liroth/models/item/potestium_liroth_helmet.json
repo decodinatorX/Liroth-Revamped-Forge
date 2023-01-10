@@ -1,8 +1,8 @@
 {
 	"__comment": "Designed by Cm@BlackSpigotMC with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"0": "liroth:models/armor/potestium_armor_helm",
-		"particle": "liroth:models/armor/potestium_armor_helm"
+		"0": "liroth:item/armor/potestium_armor_helm",
+		"particle": "liroth:item/armor/potestium_armor_helm"
 	},
 	"elements": [
 		{
@@ -195,6 +195,7 @@
 			}
 		}
 	],
+  "gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation":  [ 90, 0, 0 ],

@@ -4,22 +4,8 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.decodinator.liroth.Liroth;
-import com.decodinator.liroth.core.LirothBlocks;
-import com.decodinator.liroth.core.LirothItems;
-import com.decodinator.liroth.portal_junk.DevastatedPortalBlock;
-import com.decodinator.liroth.portal_junk.JalsphirePortalBlock;
-import com.decodinator.liroth.portal_junk.JantiroPortalBlock;
-import com.decodinator.liroth.portal_junk.LirothDimensions;
-import com.decodinator.liroth.portal_junk.LirothPortalBlock;
-
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
@@ -30,7 +16,6 @@ import net.minecraft.world.level.Level;
 public class AnomalyChargeItem extends Item {
     public AnomalyChargeItem() {
         super(new Properties()
-                .tab(Liroth.liroth_items_tab)
                 .stacksTo(1)
                 .rarity(Rarity.RARE)
         );

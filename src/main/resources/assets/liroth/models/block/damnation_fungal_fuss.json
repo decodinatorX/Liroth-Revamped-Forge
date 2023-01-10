@@ -2,7 +2,7 @@
   "parent": "block/cross",
   "render_type": "cutout",
   "textures": {
-    "cross": "liroth:blocks/damnation_fungal_fuss",
-    "particle": "liroth:blocks/damnation_fungal_fuss"
+    "cross": "liroth:block/damnation_fungal_fuss",
+    "particle": "liroth:block/damnation_fungal_fuss"
   }
 }

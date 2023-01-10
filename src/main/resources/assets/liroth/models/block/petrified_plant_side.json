@@ -1,9 +1,9 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "texture": "liroth:blocks/petrified_plant",
-        "inside": "liroth:blocks/petrified_plant",
-        "particle": "liroth:blocks/petrified_plant"
+        "texture": "liroth:block/petrified_plant",
+        "inside": "liroth:block/petrified_plant",
+        "particle": "liroth:block/petrified_plant"
     },
     "elements": [
         {   "from": [ 4, 4, 0 ],

@@ -4,9 +4,9 @@
     "item": "liroth:liroth_boots"
   },
   "addition": {
-    "item": "liroth:quantum_plate"
+    "item": "liroth:potestium_plate"
   },
   "result": {
-    "item": "liroth:quantum_liroth_boots"
+    "item": "liroth:potestium_liroth_boots"
   }
 }

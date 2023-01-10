@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/liroth_tutorial_book"
+    "layer0": "liroth:item/liroth_tutorial_book"
   }
 }

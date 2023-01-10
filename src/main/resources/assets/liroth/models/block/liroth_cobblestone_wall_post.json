@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_post",
   "textures": {
-    "wall": "liroth:blocks/liroth_cobblestone",
-    "particle": "liroth:blocks/liroth_cobblestone"
+    "wall": "liroth:block/liroth_cobblestone",
+    "particle": "liroth:block/liroth_cobblestone"
   }
 }

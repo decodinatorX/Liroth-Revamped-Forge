@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/quantum_liroth_leggings"
+    "layer0": "liroth:item/quantum_liroth_leggings"
   }
 }

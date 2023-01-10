@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/damnation_door"
+    "layer0": "liroth:item/damnation_door"
   }
 }

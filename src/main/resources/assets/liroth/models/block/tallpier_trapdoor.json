@@ -2,7 +2,7 @@
   "parent": "block/template_orientable_trapdoor_bottom",
   "render_type": "cutout",
   "textures": {
-    "texture": "liroth:blocks/tallpier_trapdoor",
-    "particle": "liroth:blocks/tallpier_trapdoor"
+    "texture": "liroth:block/tallpier_trapdoor",
+    "particle": "liroth:block/tallpier_trapdoor"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:items/raw_lirothian_cobalt"
+    "layer0": "liroth:item/raw_lirothian_cobalt"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "block/button_pressed",
   "textures": {
-    "texture": "liroth:blocks/koolaw_planks"
+    "texture": "liroth:block/koolaw_planks"
   }
 }

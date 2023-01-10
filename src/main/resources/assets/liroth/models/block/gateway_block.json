@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/gateway_block",
-    "particle": "liroth:blocks/gateway_block"
+    "all": "liroth:block/gateway_block",
+    "particle": "liroth:block/gateway_block"
   }
 }

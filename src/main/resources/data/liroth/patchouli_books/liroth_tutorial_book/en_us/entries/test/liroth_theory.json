@@ -20,11 +20,12 @@
 		"name": "The Liroth Portal",
 		"multiblock": {
 			"pattern": [
-        [ "_AA_" ], 
-        [ "A  A" ],
-        [ "A  A" ], 
-        [ "A 0A" ], 
-        [ "_AA_" ]
+				[ 
+				"_AA_",
+				"A__A",
+				"A_0A",
+				"_AA_"
+				]
 			],
 			"mapping": {
 				"A": "liroth:dimensional_communicator",
@@ -35,11 +36,6 @@
 				"F": "minecraft:lapis_block"
 			}
 		}
-	},
-    	{
-    		"type": "smelting",
-    		"recipe": "liroth:liroth_charge",
-    		"text": " My theory here is that the portal will also only respond to the touch of a Liroth Charge, made by simply smelting a Liroth Gem."
-    	}
+	}
     ]
 }

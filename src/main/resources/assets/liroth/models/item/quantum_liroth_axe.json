@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by Cm@BlackSpigotMC with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"quantum_liroth_axe": "liroth:items/quantum_liroth_axe"
+		"quantum_liroth_axe": "liroth:item/quantum_liroth_axe"
 	},
 	"elements": [
 		{
@@ -291,6 +291,7 @@
 			}
 		}
 	],
+  "gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation":  [ 45, 0, 90 ],

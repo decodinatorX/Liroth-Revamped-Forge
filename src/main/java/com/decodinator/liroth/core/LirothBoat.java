@@ -14,6 +14,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.protocol.game.ServerboundPaddleBoatPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -158,7 +159,7 @@ public class LirothBoat extends Boat {
                     this.kill();
                     if (this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                        for(int i = 0; i < 3; ++i) {
-                          this.spawnAtLocation(this.getBoatType().getPlanks());
+                          this.spawnAtLocation(this.getLirothBoatType().getPlanks());
                        }
 
                        for(int j = 0; j < 2; ++j) {
@@ -201,7 +202,7 @@ public class LirothBoat extends Boat {
      }
 
     @Override
-    public @NotNull Packet<?> getAddEntityPacket() {
+    public @NotNull Packet<ClientGamePacketListener> getAddEntityPacket() {
         //TODO: Is this right?
         return new ClientboundAddEntityPacket(this);
     }

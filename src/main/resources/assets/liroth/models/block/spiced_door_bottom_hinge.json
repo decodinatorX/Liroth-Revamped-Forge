@@ -2,7 +2,7 @@
   "parent": "block/door_bottom_left_open",
   "render_type": "cutout",
   "textures": {
-    "bottom": "liroth:blocks/spiced_wood_door_bottom",
-    "top": "liroth:blocks/spiced_wood_door_top"
+    "bottom": "liroth:block/spiced_wood_door_bottom",
+    "top": "liroth:block/spiced_wood_door_top"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/liroth_blaster"
+    "layer0": "liroth:item/liroth_blaster"
   },
   "display": {
     "thirdperson_righthand": {

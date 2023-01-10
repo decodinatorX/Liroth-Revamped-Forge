@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "cutout",
   "textures": {
-    "cross": "liroth:blocks/damnation_fungal_cluster_bottom"
+    "cross": "liroth:block/damnation_fungal_cluster_bottom"
   }
 }

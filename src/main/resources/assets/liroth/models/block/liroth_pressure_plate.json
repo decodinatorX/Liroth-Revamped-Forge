@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_up",
   "textures": {
-    "texture": "liroth:blocks/liroth_planks"
+    "texture": "liroth:block/liroth_planks"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/jantiro_elemental_charge"
+    "layer0": "liroth:item/jantiro_elemental_charge"
   }
 }

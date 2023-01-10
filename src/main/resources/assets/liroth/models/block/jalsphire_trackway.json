@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/jalsphire_trackway",
-    "particle": "liroth:blocks/jalsphire_trackway"
+    "all": "liroth:block/jalsphire_trackway",
+    "particle": "liroth:block/jalsphire_trackway"
   }
 }

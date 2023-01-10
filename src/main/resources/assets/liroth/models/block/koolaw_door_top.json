@@ -2,7 +2,7 @@
   "parent": "block/door_top_left",
   "render_type": "cutout",
   "textures": {
-    "bottom": "liroth:blocks/koolaw_door_bottom",
-    "top": "liroth:blocks/koolaw_door_top"
+    "bottom": "liroth:block/koolaw_door_bottom",
+    "top": "liroth:block/koolaw_door_top"
   }
 }

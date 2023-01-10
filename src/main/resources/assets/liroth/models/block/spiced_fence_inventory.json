@@ -1,7 +1,7 @@
 {
   "parent": "block/fence_inventory",
   "textures": {
-    "texture": "liroth:blocks/spiced_planks",
-    "particle": "liroth:blocks/spiced_planks"
+    "texture": "liroth:block/spiced_planks",
+    "particle": "liroth:block/spiced_planks"
   }
 }

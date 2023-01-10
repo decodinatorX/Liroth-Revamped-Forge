@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "liroth:blocks/petrified_damnation_log_top",
-    "up": "liroth:blocks/petrified_damnation_log_top",
-    "north": "liroth:blocks/petrified_damnation_log",
-    "east": "liroth:blocks/petrified_damnation_log",
-    "south": "liroth:blocks/petrified_damnation_log",
-    "west": "liroth:blocks/petrified_damnation_log",
-    "particle": "liroth:blocks/petrified_damnation_log_top"
+    "down": "liroth:block/petrified_damnation_log_top",
+    "up": "liroth:block/petrified_damnation_log_top",
+    "north": "liroth:block/petrified_damnation_log",
+    "east": "liroth:block/petrified_damnation_log",
+    "south": "liroth:block/petrified_damnation_log",
+    "west": "liroth:block/petrified_damnation_log",
+    "particle": "liroth:block/petrified_damnation_log_top"
   }
 }

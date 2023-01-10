@@ -2,7 +2,7 @@ package com.decodinator.liroth.core.blocks;
 
 import com.decodinator.liroth.core.blocks.entities.LirothianPetroleumCampfireBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -14,7 +14,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
 
 public class LirothianPetroleumCampfireRenderer implements BlockEntityRenderer<LirothianPetroleumCampfireBlockEntity> {
-	   private static final float SIZE = 0.375F;
 	   private final ItemRenderer itemRenderer;
 
 	   public LirothianPetroleumCampfireRenderer(BlockEntityRendererProvider.Context p_173602_) {
@@ -33,8 +32,8 @@ public class LirothianPetroleumCampfireRenderer implements BlockEntityRenderer<L
 	            p_112346_.translate(0.5D, 0.44921875D, 0.5D);
 	            Direction direction1 = Direction.from2DDataValue((j + direction.get2DDataValue()) % 4);
 	            float f = -direction1.toYRot();
-	            p_112346_.mulPose(Vector3f.YP.rotationDegrees(f));
-	            p_112346_.mulPose(Vector3f.XP.rotationDegrees(90.0F));
+	            p_112346_.mulPose(Axis.YP.rotationDegrees(f));
+	            p_112346_.mulPose(Axis.XP.rotationDegrees(90.0F));
 	            p_112346_.translate(-0.3125D, -0.3125D, 0.0D);
 	            p_112346_.scale(0.375F, 0.375F, 0.375F);
 	            this.itemRenderer.renderStatic(itemstack, ItemTransforms.TransformType.FIXED, p_112348_, p_112349_, p_112346_, p_112347_, i + j);

@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/hilight",
-    "particle": "liroth:blocks/hilight"
+    "all": "liroth:block/hilight",
+    "particle": "liroth:block/hilight"
   }
 }

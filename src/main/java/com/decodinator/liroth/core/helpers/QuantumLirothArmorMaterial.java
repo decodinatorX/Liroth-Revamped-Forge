@@ -35,7 +35,7 @@ public class QuantumLirothArmorMaterial implements ArmorMaterial {
 
 	@Override
 	public Ingredient getRepairIngredient() {
-		return Ingredient.of(LirothItems.QUANTUM_DIAMOND.get());
+		return Ingredient.of(LirothItems.QUANTUM_PLATE.get());
 
 	}
 

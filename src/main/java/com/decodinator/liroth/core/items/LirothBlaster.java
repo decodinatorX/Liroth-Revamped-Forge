@@ -2,8 +2,6 @@ package com.decodinator.liroth.core.items;
 
 import java.util.function.Predicate;
 
-import com.decodinator.liroth.Liroth;
-import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.LirothSounds;
 
 import net.minecraft.sounds.SoundSource;
@@ -31,7 +29,7 @@ public class LirothBlaster extends BowItem {
     public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
         boolean bl;
         ItemStack itemStack = user.getItemInHand(hand);
-        boolean bl2 = bl = !user.getProjectile(itemStack).isEmpty();
+        bl = !user.getProjectile(itemStack).isEmpty();
         if (user.getAbilities().instabuild || bl) {
             user.startUsingItem(hand);
             return InteractionResultHolder.consume(itemStack);
@@ -49,10 +47,10 @@ public class LirothBlaster extends BowItem {
         return 50;
     }
     
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void releaseUsing(ItemStack stack, Level world, LivingEntity user, int remainingUseTicks) {
         boolean bl2;
-        int i;
         float f;
         if (!(user instanceof Player)) {
             return;
@@ -66,10 +64,10 @@ public class LirothBlaster extends BowItem {
         if (itemStack.isEmpty()) {
             itemStack = new ItemStack(Items.ARROW);
         }
-        if ((double)(f = LirothBlaster.getPowerForTime(i = this.getUseDuration(stack) - remainingUseTicks)) < 0.1) {
+        if ((double)(f = LirothBlaster.getPowerForTime(this.getUseDuration(stack) - remainingUseTicks)) < 0.1) {
             return;
         }
-        boolean bl3 = bl2 = bl && itemStack.is(Items.ARROW);
+        bl2 = bl && itemStack.is(Items.ARROW);
         if (!world.isClientSide) {
             int k;
             int j;

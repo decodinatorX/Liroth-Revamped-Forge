@@ -2,16 +2,11 @@ package com.decodinator.liroth.core.fluids;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.math.Vector3f;
 import net.minecraft.client.Camera;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidType;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.function.Consumer;
 
 /**
@@ -25,20 +20,11 @@ import java.util.function.Consumer;
 public class BaseFluidType extends FluidType {
     private final ResourceLocation stillTexture;
     private final ResourceLocation flowingTexture;
-    private final Vector3f fogColor;
 
-    public BaseFluidType(final ResourceLocation stillTexture, final ResourceLocation flowingTexture, final Vector3f fogColor, final Properties properties) {
-        super(properties);
-        this.stillTexture = stillTexture;
-        this.flowingTexture = flowingTexture;
-        this.fogColor = fogColor;
-    }
-    
     public BaseFluidType(final ResourceLocation stillTexture, final ResourceLocation flowingTexture, final Properties properties) {
         super(properties);
         this.stillTexture = stillTexture;
         this.flowingTexture = flowingTexture;
-		this.fogColor = new Vector3f();
     }
 
     public ResourceLocation getStillTexture() {
@@ -47,10 +33,6 @@ public class BaseFluidType extends FluidType {
 
     public ResourceLocation getFlowingTexture() {
         return flowingTexture;
-    }
-
-    public Vector3f getFogColor() {
-        return fogColor;
     }
 
     @Override
@@ -64,12 +46,6 @@ public class BaseFluidType extends FluidType {
             @Override
             public ResourceLocation getFlowingTexture() {
                 return flowingTexture;
-            }
-
-            @Override
-            public @NotNull Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level,
-                                                    int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor) {
-                return fogColor;
             }
 
             @Override

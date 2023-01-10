@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_orientable_trapdoor_top",
   "render_type": "cutout",
   "textures": {
-    "texture": "liroth:blocks/japz_trapdoor"
+    "texture": "liroth:block/japz_trapdoor"
   }
 }

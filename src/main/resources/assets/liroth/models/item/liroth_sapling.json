@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:blocks/liroth_sapling"
+    "layer0": "liroth:block/liroth_sapling"
   }
 }

@@ -2,7 +2,7 @@
   "parent": "block/cube_all",
   "render_type": "translucent",
   "textures": {
-    "all": "liroth:blocks/liroth_glass_block",
-    "particle": "liroth:blocks/liroth_glass_block"
+    "all": "liroth:block/liroth_glass_block",
+    "particle": "liroth:block/liroth_glass_block"
   }
 }

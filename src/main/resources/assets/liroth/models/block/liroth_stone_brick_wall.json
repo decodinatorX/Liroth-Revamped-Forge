@@ -1,7 +1,7 @@
 {
   "parent": "block/template_wall_side",
   "textures": {
-    "wall": "liroth:blocks/liroth_stone_bricks",
-    "particle": "liroth:blocks/liroth_stone_bricks"
+    "wall": "liroth:block/liroth_stone_bricks",
+    "particle": "liroth:block/liroth_stone_bricks"
   }
 }

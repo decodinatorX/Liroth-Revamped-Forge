@@ -1,7 +1,7 @@
 {
   "textures": {
-    "particle": "liroth:blocks/liroth_end_portal",
-    "portal": "liroth:blocks/liroth_end_portal"
+    "particle": "liroth:block/liroth_end_portal",
+    "portal": "liroth:block/liroth_end_portal"
   },
   "elements": [
     {

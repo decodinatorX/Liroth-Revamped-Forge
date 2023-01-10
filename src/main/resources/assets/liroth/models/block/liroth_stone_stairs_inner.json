@@ -1,8 +1,8 @@
 {
   "parent": "block/inner_stairs",
   "textures": {
-    "bottom": "liroth:blocks/liroth_stone",
-    "top": "liroth:blocks/liroth_stone",
-    "side": "liroth:blocks/liroth_stone"
+    "bottom": "liroth:block/liroth_stone",
+    "top": "liroth:block/liroth_stone",
+    "side": "liroth:block/liroth_stone"
   }
 }

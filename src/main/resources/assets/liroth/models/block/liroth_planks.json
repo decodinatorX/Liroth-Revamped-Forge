@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/liroth_planks",
-    "particle": "liroth:blocks/liroth_planks"
+    "all": "liroth:block/liroth_planks",
+    "particle": "liroth:block/liroth_planks"
   }
 }

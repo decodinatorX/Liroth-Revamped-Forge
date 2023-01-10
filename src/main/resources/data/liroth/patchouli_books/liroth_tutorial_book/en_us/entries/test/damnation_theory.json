@@ -19,11 +19,12 @@
 			"name": "The Damnation Portal",
 			"multiblock": {
 				"pattern": [
-        [ "_AA_" ], 
-        [ "A  A" ],
-        [ "A  A" ], 
-        [ "A 0A" ], 
-        [ "_AA_" ]
+					[ 
+					"_AA_",
+					"A__A",
+					"A_0A",
+					"_AA_"
+					]
 				],
 				"mapping": {
 					"A": "liroth:charred_accessway_block",
@@ -34,11 +35,6 @@
 					"F": "minecraft:lapis_block"
 				}
 			}
-		},
-    	{
-    		"type": "crafting",
-    		"recipe": "liroth:damnation_charge",
-    		"text": " As per my original theory toward the Lirothian Realm, I suspect that a similar theory will be in play, for we will need to create a Damnation Charge."
-    	}
+		}
     ]
 }

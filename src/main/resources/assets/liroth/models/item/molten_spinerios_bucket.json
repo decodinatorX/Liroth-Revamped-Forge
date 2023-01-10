@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:items/molten_spinerios_bucket"
+    "layer0": "liroth:item/molten_spinerios_bucket"
   }
 }

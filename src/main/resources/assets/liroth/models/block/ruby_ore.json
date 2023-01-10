@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/ruby_ore",
-    "particle": "liroth:blocks/ruby_ore"
+    "all": "liroth:block/ruby_ore",
+    "particle": "liroth:block/ruby_ore"
   }
 }

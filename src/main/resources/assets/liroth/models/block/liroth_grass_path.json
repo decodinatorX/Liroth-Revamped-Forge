@@ -1,9 +1,9 @@
 {   "parent": "block/block",
     "textures": {
-        "particle": "liroth:blocks/liroth_dirt_path_top",
-        "top": "liroth:blocks/liroth_dirt_path_top",
-        "side": "liroth:blocks/liroth_dirt_path_side",
-        "bottom": "liroth:blocks/liroth_dirt"
+        "particle": "liroth:block/liroth_dirt_path_top",
+        "top": "liroth:block/liroth_dirt_path_top",
+        "side": "liroth:block/liroth_dirt_path_side",
+        "bottom": "liroth:block/liroth_dirt"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

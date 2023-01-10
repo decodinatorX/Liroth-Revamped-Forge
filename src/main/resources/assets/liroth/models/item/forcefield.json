@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:blocks/forcefield"
+    "layer0": "liroth:block/forcefield"
   }
 }

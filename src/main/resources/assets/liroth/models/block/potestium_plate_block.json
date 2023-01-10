@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "liroth:block/potestium_plate_block",
+    "particle": "liroth:block/potestium_plate_block"
+  }
+}

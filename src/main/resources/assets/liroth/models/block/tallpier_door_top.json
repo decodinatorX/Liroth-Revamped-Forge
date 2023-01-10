@@ -2,7 +2,7 @@
   "parent": "block/door_top_left",
   "render_type": "cutout",
   "textures": {
-    "bottom": "liroth:blocks/tallpier_door_bottom",
-    "top": "liroth:blocks/tallpier_door_top"
+    "bottom": "liroth:block/tallpier_door_bottom",
+    "top": "liroth:block/tallpier_door_top"
   }
 }

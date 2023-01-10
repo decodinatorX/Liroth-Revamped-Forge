@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/end_liroth_gem_ore",
-    "particle": "liroth:blocks/end_liroth_gem_ore"
+    "all": "liroth:block/end_liroth_gem_ore",
+    "particle": "liroth:block/end_liroth_gem_ore"
   }
 }

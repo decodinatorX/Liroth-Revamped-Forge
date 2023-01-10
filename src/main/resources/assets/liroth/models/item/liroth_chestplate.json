@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/liroth_chestplate"
+    "layer0": "liroth:item/liroth_chestplate"
   }
 }

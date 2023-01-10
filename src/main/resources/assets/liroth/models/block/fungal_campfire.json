@@ -2,7 +2,7 @@
   "parent": "liroth:block/fungal_campfire_template",
   "render_type": "cutout",
   "textures": {
-    "fire": "liroth:blocks/fungal_campfire_fire",
-    "lit_log": "liroth:blocks/fungal_campfire_log_lit"
+    "fire": "liroth:block/fungal_campfire_fire",
+    "lit_log": "liroth:block/fungal_campfire_log_lit"
   }
 }

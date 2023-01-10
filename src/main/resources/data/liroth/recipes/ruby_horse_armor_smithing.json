@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_horse_armor"
+  },
+  "addition": {
+    "item": "liroth:ruby"
+  },
+  "result": {
+    "item": "liroth:ruby_horse_armor"
+  }
+}

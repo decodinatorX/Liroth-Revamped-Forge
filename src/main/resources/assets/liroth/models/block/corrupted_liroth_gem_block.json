@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/corrupted_liroth_gem_block",
-    "particle": "liroth:blocks/corrupted_liroth_gem_block"
+    "all": "liroth:block/corrupted_liroth_gem_block",
+    "particle": "liroth:block/corrupted_liroth_gem_block"
   }
 }

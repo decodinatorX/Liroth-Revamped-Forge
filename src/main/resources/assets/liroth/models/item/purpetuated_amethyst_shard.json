@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:items/purpetuated_amethyst_shard"
+    "layer0": "liroth:item/purpetuated_amethyst_shard"
   }
 }

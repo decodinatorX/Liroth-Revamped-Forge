@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:blocks/lirothian_petroleum_torch"
+    "layer0": "liroth:block/lirothian_petroleum_torch"
   }
 }

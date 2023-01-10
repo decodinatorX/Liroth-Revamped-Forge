@@ -186,7 +186,7 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
             int i = entity.getContainerSize();
             if (!entity.isBurning()) {
                 entity.fuelTime = entity.burnTime = entity.getFuelTime(itemStack);
-                if (entity.isBurning() && QuantumExtractorBlockEntity.hasRecipe(entity)) {
+                if (entity.isBurning() && QuantumExtractorBlockEntity.hasQuantumDiamondRecipe(entity) || QuantumExtractorBlockEntity.hasPotestiumShardRecipe(entity)) {
                     bl2 = true;
                     if (!itemStack.isEmpty()) {
                         Item item = itemStack.getItem();
@@ -198,14 +198,22 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
                     }
                 }
             }
-            if (entity.isBurning() && QuantumExtractorBlockEntity.hasRecipe(entity)) {
+            if (entity.isBurning() && QuantumExtractorBlockEntity.hasQuantumDiamondRecipe(entity)) {
                 ++entity.cookTime;
                 if (entity.cookTime == entity.cookTimeTotal) {
                     entity.cookTime = 0;
                     entity.cookTimeTotal = QuantumExtractorBlockEntity.getCookTime();
-                    QuantumExtractorBlockEntity.craftItem(entity);
+                    QuantumExtractorBlockEntity.craftQuantumItem(entity);
                     bl2 = true;
                 }
+            } else if (entity.isBurning() && QuantumExtractorBlockEntity.hasPotestiumShardRecipe(entity)) {
+            	++entity.cookTime;
+            	if (entity.cookTime == entity.cookTimeTotal) {
+            		entity.cookTime = 0;
+            		entity.cookTimeTotal = QuantumExtractorBlockEntity.getCookTime();
+                    QuantumExtractorBlockEntity.craftPotestiumItem(entity);
+                    bl2 = true;
+            	}
             } else {
                 entity.cookTime = 0;
             }
@@ -222,33 +230,30 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
         }
     }
 
-    private static void craftItem(QuantumExtractorBlockEntity entity) {
+    private static void craftQuantumItem(QuantumExtractorBlockEntity entity) {
     	
         entity.removeItem(0, 1);
-        
-/*        if (entity.getStack(1).getItem() == Blocks.REDSTONE_BLOCK.asItem()) {
-        	entity.removeStack(1, 1);
-        	entity.setStack(2, new ItemStack(LirothBlocks.REDSTONE_BROKEN_STAGE_1.asItem(), entity.getStack(2).getCount() + 1));
-        }
-        if (entity.getStack(1).getItem() == LirothBlocks.REDSTONE_BROKEN_STAGE_1.asItem()) {
-        	entity.removeStack(1, 1);
-        	entity.setStack(2, new ItemStack(LirothBlocks.REDSTONE_BROKEN_STAGE_2.asItem(), entity.getStack(2).getCount() + 1));
-        }
-        if (entity.getStack(1).getItem() == LirothBlocks.REDSTONE_BROKEN_STAGE_2.asItem()) {
-        	entity.removeStack(1, 1);
-        	entity.setStack(2, new ItemStack(LirothBlocks.REDSTONE_BROKEN_STAGE_3.asItem(), entity.getStack(2).getCount() + 1));
-        }
-        if (entity.getStack(1).getItem() == LirothBlocks.REDSTONE_BROKEN_STAGE_3.asItem()) {
-        	entity.removeStack(1, 1);
-        }*/
+
         entity.setItem(2, new ItemStack(Items.DIAMOND, entity.getItem(2).getCount() + 1));
         entity.setItem(3, new ItemStack(LirothItems.QUANTUM_PLATE.get(), entity.getItem(3).getCount() + 1));
-        
-        entity.ticks = 0;
+    }
+    
+    private static void craftPotestiumItem(QuantumExtractorBlockEntity entity) {
+    	
+        entity.removeItem(0, 1);
+
+        entity.setItem(2, new ItemStack(LirothItems.RUBY.get(), entity.getItem(2).getCount() + 1));
+        entity.setItem(3, new ItemStack(LirothItems.POTESTIUM_PLATE.get(), entity.getItem(3).getCount() + 1));
     }
 
-    private static boolean hasRecipe(QuantumExtractorBlockEntity entity) {
+    private static boolean hasQuantumDiamondRecipe(QuantumExtractorBlockEntity entity) {
         boolean hasItemInFirstSlot = entity.getItem(0).getItem() == LirothItems.QUANTUM_DIAMOND.get();
+
+        return hasItemInFirstSlot;
+    }
+    
+    private static boolean hasPotestiumShardRecipe(QuantumExtractorBlockEntity entity) {
+        boolean hasItemInFirstSlot = entity.getItem(0).getItem() == LirothItems.POTESTIUM_SHARD.get();
 
         return hasItemInFirstSlot;
     }

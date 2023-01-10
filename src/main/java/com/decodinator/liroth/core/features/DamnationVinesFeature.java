@@ -75,8 +75,6 @@ extends Feature<NoneFeatureConfiguration> {
             if (random.nextInt(5) == 0) {
                 j = 1;
             }
-            int k = 17;
-            int l = 25;
             DamnationVinesFeature.generateVineColumn(world, random, mutable, j, 17, 25);
         }
     }

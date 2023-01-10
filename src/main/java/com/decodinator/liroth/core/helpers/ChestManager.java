@@ -12,9 +12,12 @@ import net.minecraftforge.fml.common.Mod;
 import javax.annotation.Nullable;
 
 import com.decodinator.liroth.Liroth;
+import com.decodinator.liroth.LirothForgeClientEventsHandler;
 
 import java.util.HashMap;
 import java.util.Map;
+
+
 
 /**
  * Manager class for texture information for Blueprint Chests.
@@ -50,7 +53,7 @@ public final class ChestManager {
 
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
-	public static void onStitch(TextureStitchEvent.Pre event) {
+	public static void onStitch(LirothForgeClientEventsHandler.Pre event) {
 		if (event.getAtlas().location().equals(Sheets.CHEST_SHEET)) {
 			for (ChestInfo chestInfo : CHEST_INFO_MAP.values()) {
 				chestInfo.setup(event);
@@ -76,7 +79,7 @@ public final class ChestManager {
 		 * @param event A {@link TextureStitchEvent.Pre} to setup this info from.
 		 */
 		@OnlyIn(Dist.CLIENT)
-		private void setup(TextureStitchEvent.Pre event) {
+		private void setup(LirothForgeClientEventsHandler.Pre event) {
 			event.addSprite(this.single);
 			event.addSprite(this.left);
 			event.addSprite(this.right);

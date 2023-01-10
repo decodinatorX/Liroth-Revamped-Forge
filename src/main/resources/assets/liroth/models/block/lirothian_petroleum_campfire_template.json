@@ -6,8 +6,8 @@
         }
     },
     "textures": {
-        "particle": "liroth:blocks/lirothian_petroleum_campfire_log",
-        "log": "liroth:blocks/lirothian_petroleum_campfire_log"
+        "particle": "liroth:block/lirothian_petroleum_campfire_log",
+        "log": "liroth:block/lirothian_petroleum_campfire_log"
     },
     "elements": [
         {

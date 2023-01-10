@@ -6,15 +6,12 @@ import com.decodinator.liroth.core.LirothBlocks;
 import com.decodinator.liroth.core.blocks.PointedJalsphireCrystal;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 
@@ -24,7 +21,6 @@ public class JalsphireCrystalHelper {
 		         p_159624_ = p_159627_;
 		      }
 
-		      double d0 = 0.384D;
 		      double d1 = p_159624_ / p_159625_ * 0.384D;
 		      double d2 = 0.75D * Math.pow(d1, 1.3333333333333333D);
 		      double d3 = Math.pow(d1, 0.6666666666666666D);
@@ -38,7 +34,6 @@ public class JalsphireCrystalHelper {
 		      if (isEmptyOrWaterOrLava(p_159640_, p_159641_)) {
 		         return false;
 		      } else {
-		         float f = 6.0F;
 		         float f1 = 6.0F / (float)p_159642_;
 
 		         for(float f2 = 0.0F; f2 < ((float)Math.PI * 2F); f2 += f1) {

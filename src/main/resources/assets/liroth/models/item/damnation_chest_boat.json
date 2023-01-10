@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "liroth:items/damnation_chest_boat"
+        "layer0": "liroth:item/damnation_chest_boat"
     }
 }

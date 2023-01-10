@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "liroth:items/salem_falchion"
+    "layer0": "liroth:item/salem_falchion"
   }
 }

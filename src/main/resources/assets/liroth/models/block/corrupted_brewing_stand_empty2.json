@@ -1,7 +1,7 @@
 {
     "textures": {
-        "particle": "liroth:blocks/corrupted_brewing_stand",
-        "stand": "liroth:blocks/corrupted_brewing_stand"
+        "particle": "liroth:block/corrupted_brewing_stand",
+        "stand": "liroth:block/corrupted_brewing_stand"
     },
     "elements": [
         {   "from": [ 0, 0, 8 ],

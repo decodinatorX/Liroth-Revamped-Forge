@@ -2,6 +2,6 @@
   "parent": "minecraft:block/flower_pot_cross",
   "render_type": "cutout",
   "textures": {
-    "plant": "liroth:blocks/tallpier_sapling"
+    "plant": "liroth:block/tallpier_sapling"
   }
 }

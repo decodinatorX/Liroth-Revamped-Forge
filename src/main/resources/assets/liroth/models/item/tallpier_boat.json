@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "liroth:items/tallpier_boat"
+        "layer0": "liroth:item/tallpier_boat"
     }
 }

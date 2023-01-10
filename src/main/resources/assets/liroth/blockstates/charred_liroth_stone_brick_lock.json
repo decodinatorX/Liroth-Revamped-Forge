@@ -1,17 +1,5 @@
 {
   "variants": {
-    "axis=y": {
-      "model": "liroth:block/charred_liroth_stone_brick_lock"
-    },
-    "axis=z": {
-      "model": "liroth:block/charred_liroth_stone_brick_lock",
-      "x": 90
-    },
-    "axis=x": {
-      "model": "liroth:block/charred_liroth_stone_brick_lock",
-      "x": 90,
-      "y": 90
-    },
     "facing=east": {
       "model": "liroth:block/charred_liroth_stone_brick_lock",
       "y": 90

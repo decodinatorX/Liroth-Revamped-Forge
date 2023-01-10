@@ -56,31 +56,12 @@ public class PointedPetrifiedCrystal  extends Block implements Fallable, SimpleW
 	   public static final DirectionProperty TIP_DIRECTION = BlockStateProperties.VERTICAL_DIRECTION;
 	   public static final EnumProperty<DripstoneThickness> THICKNESS = BlockStateProperties.DRIPSTONE_THICKNESS;
 	   public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	   private static final int MAX_SEARCH_LENGTH_WHEN_CHECKING_DRIP_TYPE = 11;
-	   private static final int DELAY_BEFORE_FALLING = 2;
-	   private static final float DRIP_PROBABILITY_PER_ANIMATE_TICK = 0.02F;
-	   private static final float DRIP_PROBABILITY_PER_ANIMATE_TICK_IF_UNDER_LIQUID_SOURCE = 0.12F;
-	   private static final int MAX_SEARCH_LENGTH_BETWEEN_STALACTITE_TIP_AND_CAULDRON = 11;
-	   private static final float WATER_TRANSFER_PROBABILITY_PER_RANDOM_TICK = 0.17578125F;
-	   private static final float LAVA_TRANSFER_PROBABILITY_PER_RANDOM_TICK = 0.05859375F;
-	   private static final double MIN_TRIDENT_VELOCITY_TO_BREAK_DRIPSTONE = 0.6D;
-	   private static final float STALACTITE_DAMAGE_PER_FALL_DISTANCE_AND_SIZE = 1.0F;
-	   private static final int STALACTITE_MAX_DAMAGE = 40;
-	   private static final int MAX_STALACTITE_HEIGHT_FOR_DAMAGE_CALCULATION = 6;
-	   private static final float STALAGMITE_FALL_DISTANCE_OFFSET = 2.0F;
-	   private static final int STALAGMITE_FALL_DAMAGE_MODIFIER = 2;
-	   private static final float AVERAGE_DAYS_PER_GROWTH = 5.0F;
-	   private static final float GROWTH_PROBABILITY_PER_RANDOM_TICK = 0.011377778F;
-	   private static final int MAX_GROWTH_LENGTH = 7;
-	   private static final int MAX_STALAGMITE_SEARCH_RANGE_WHEN_GROWING = 10;
-	   private static final float STALACTITE_DRIP_START_PIXEL = 0.6875F;
 	   private static final VoxelShape TIP_MERGE_SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D);
 	   private static final VoxelShape TIP_SHAPE_UP = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 11.0D, 11.0D);
 	   private static final VoxelShape TIP_SHAPE_DOWN = Block.box(5.0D, 5.0D, 5.0D, 11.0D, 16.0D, 11.0D);
 	   private static final VoxelShape FRUSTUM_SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 	   private static final VoxelShape MIDDLE_SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
 	   private static final VoxelShape BASE_SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
-	   private static final float MAX_HORIZONTAL_OFFSET = 0.125F;
 	   private static final VoxelShape REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
 
 	   public PointedPetrifiedCrystal(BlockBehaviour.Properties p_154025_) {
@@ -224,7 +205,8 @@ public class PointedPetrifiedCrystal  extends Block implements Fallable, SimpleW
 	      }
 	   }
 
-	   public FluidState getFluidState(BlockState p_154235_) {
+	   @SuppressWarnings("deprecation")
+	public FluidState getFluidState(BlockState p_154235_) {
 	      return p_154235_.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(p_154235_);
 	   }
 
@@ -270,9 +252,9 @@ public class PointedPetrifiedCrystal  extends Block implements Fallable, SimpleW
 
 	   }
 
-	   public DamageSource getFallDamageSource() {
-	      return DamageSource.FALLING_STALACTITE;
-	   }
+	   public DamageSource getFallDamageSource(Entity p_254432_) {
+		      return DamageSource.fallingStalactite(p_254432_);
+		   }
 
 	   public Predicate<Entity> getHurtsEntitySelector() {
 	      return EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE);
@@ -381,12 +363,12 @@ public class PointedPetrifiedCrystal  extends Block implements Fallable, SimpleW
 
 	   private static void spawnDripParticle(Level p_154072_, BlockPos p_154073_, BlockState p_154074_, Fluid p_154075_) {
 	      Vec3 vec3 = p_154074_.getOffset(p_154072_, p_154073_);
-	      double d0 = 0.0625D;
 	      double d1 = (double)p_154073_.getX() + 0.5D + vec3.x;
 	      double d2 = (double)((float)(p_154073_.getY() + 1) - 0.6875F) - 0.0625D;
 	      double d3 = (double)p_154073_.getZ() + 0.5D + vec3.z;
 	      Fluid fluid = getDripFluid(p_154072_, p_154075_);
-	      ParticleOptions particleoptions = fluid.is(FluidTags.LAVA) ? ParticleTypes.DRIPPING_DRIPSTONE_LAVA : ParticleTypes.DRIPPING_DRIPSTONE_WATER;
+	      @SuppressWarnings("deprecation")
+		ParticleOptions particleoptions = fluid.is(FluidTags.LAVA) ? ParticleTypes.DRIPPING_DRIPSTONE_LAVA : ParticleTypes.DRIPPING_DRIPSTONE_WATER;
 	      p_154072_.addParticle(particleoptions, d1, d2, d3, 0.0D, 0.0D, 0.0D);
 	   }
 

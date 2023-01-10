@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/damnation_planks",
-    "particle": "liroth:blocks/damnation_planks"
+    "all": "liroth:block/damnation_planks",
+    "particle": "liroth:block/damnation_planks"
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "liroth:blocks/liroth_planks",
-    "up": "liroth:blocks/liroth_crafting_table_top",
-    "north": "liroth:blocks/liroth_crafting_table_front",
-    "east": "liroth:blocks/liroth_crafting_table_side",
-    "south": "liroth:blocks/liroth_crafting_table_side",
-    "west": "liroth:blocks/liroth_crafting_table_front",
-    "particle": "liroth:blocks/liroth_planks"
+    "down": "liroth:block/liroth_planks",
+    "up": "liroth:block/liroth_crafting_table_top",
+    "north": "liroth:block/liroth_crafting_table_front",
+    "east": "liroth:block/liroth_crafting_table_side",
+    "south": "liroth:block/liroth_crafting_table_side",
+    "west": "liroth:block/liroth_crafting_table_front",
+    "particle": "liroth:block/liroth_planks"
   }
 }

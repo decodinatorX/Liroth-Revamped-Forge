@@ -1,9 +1,9 @@
 {   "parent": "block/block",
     "textures": {
-        "particle": "liroth:blocks/dimensional_communicator_side_powered",
+        "particle": "liroth:block/dimensional_communicator_side_powered",
         "bottom": "minecraft:block/obsidian",
-        "top": "liroth:blocks/dimensional_transfer_top_powered",
-        "side": "liroth:blocks/dimensional_communicator_side_powered"
+        "top": "liroth:block/dimensional_transfer_top_powered",
+        "side": "liroth:block/dimensional_communicator_side_powered"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

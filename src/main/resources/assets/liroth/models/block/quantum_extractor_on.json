@@ -1,9 +1,9 @@
 {
   "parent": "liroth:custom/quantum_extractor_table",
   "textures": {
-    "all": "liroth:blocks/ruby_block",
-    "particle": "liroth:blocks/ruby_block",
-    "texture": "liroth:blocks/tablet_face",
-    "texture1": "liroth:blocks/ruby_block"
+    "all": "liroth:block/ruby_block",
+    "particle": "liroth:block/ruby_block",
+    "texture": "liroth:block/tablet_face",
+    "texture1": "liroth:block/ruby_block"
   }
 }

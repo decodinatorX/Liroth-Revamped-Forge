@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "liroth:blocks/liroth_gem_ore"
+    "all": "liroth:block/liroth_gem_ore"
   }
 }

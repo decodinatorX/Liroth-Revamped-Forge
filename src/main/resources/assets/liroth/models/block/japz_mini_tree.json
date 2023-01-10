@@ -2,7 +2,7 @@
   "parent": "minecraft:block/template_azalea",
   "render_type": "cutout",
   "textures": {
-    "top": "liroth:blocks/japz_mini_tree_top",
-    "side": "liroth:blocks/japz_mini_tree_side"
+    "top": "liroth:block/japz_mini_tree_top",
+    "side": "liroth:block/japz_mini_tree_side"
   }
 }

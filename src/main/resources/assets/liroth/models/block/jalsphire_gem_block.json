@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/jalsphire_gem_block",
-    "particle": "liroth:blocks/jalsphire_gem_block"
+    "all": "liroth:block/jalsphire_gem_block",
+    "particle": "liroth:block/jalsphire_gem_block"
   }
 }

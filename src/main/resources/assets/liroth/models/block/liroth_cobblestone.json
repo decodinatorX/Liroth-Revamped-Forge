@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/liroth_cobblestone",
-    "particle": "liroth:blocks/liroth_cobblestone"
+    "all": "liroth:block/liroth_cobblestone",
+    "particle": "liroth:block/liroth_cobblestone"
   }
 }

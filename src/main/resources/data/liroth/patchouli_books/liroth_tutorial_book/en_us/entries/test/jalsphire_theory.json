@@ -15,11 +15,12 @@
 		"name": "The Jalsphire Portal",
 		"multiblock": {
 			"pattern": [
-        [ "_AA_" ], 
-        [ "A  A" ],
-        [ "A  A" ], 
-        [ "A 0A" ], 
-        [ "_AA_" ]
+				[ 
+				"_AA_",
+				"A__A",
+				"A_0A",
+				"_AA_"
+				]
 			],
 			"mapping": {
 				"A": "liroth:haunted_throughfare_block",
@@ -30,11 +31,6 @@
 				"F": "minecraft:lapis_block"
 			}
 		}
-	},
-    	{
-    		"type": "crafting",
-    		"recipe": "liroth:jalsphire_ignitor_recipe",
-    		"text": " The prison realm, is in need of yet another charge known as the Jalsphire Charge."
-    	}
+	}
     ]
 }

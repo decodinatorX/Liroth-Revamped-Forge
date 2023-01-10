@@ -1,4 +1,4 @@
-package com.decodinator.liroth.portal_junk;
+/*package com.decodinator.liroth.portal_junk;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -331,4 +331,4 @@ public class DamnationPortalBlock extends Block {
             return this.isValid() && this.isPortalCountValidForSize();
         }
     }
-}
+}*/

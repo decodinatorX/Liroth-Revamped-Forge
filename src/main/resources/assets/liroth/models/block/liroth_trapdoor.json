@@ -2,7 +2,7 @@
   "parent": "block/template_orientable_trapdoor_bottom",
   "render_type": "cutout",
   "textures": {
-    "texture": "liroth:blocks/liroth_trapdoor",
-    "particle": "liroth:blocks/liroth_trapdoor"
+    "texture": "liroth:block/liroth_trapdoor",
+    "particle": "liroth:block/liroth_trapdoor"
   }
 }

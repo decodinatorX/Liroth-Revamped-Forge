@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by Cm@BlackSpigotMC with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"salem_liroth_shield_small": "liroth:items/salem_liroth_shield_small"
+		"salem_liroth_shield_small": "liroth:item/salem_liroth_shield_small"
 	},
 	"elements": [
 		{
@@ -57,6 +57,7 @@
 			}
 		}
 	],
+  "gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation":  [ 135, 0, 25 ],

@@ -1,4 +1,4 @@
-package com.decodinator.liroth.portal_junk;
+/*package com.decodinator.liroth.portal_junk;
 
 import net.minecraft.BlockUtil;
 import net.minecraft.core.BlockPos;
@@ -211,4 +211,4 @@ public class LirothTeleporter implements ITeleporter {
     public boolean playTeleportSound(ServerPlayer player, ServerLevel sourceWorld, ServerLevel destWorld) {
         return false;
     }
-}
+}*/

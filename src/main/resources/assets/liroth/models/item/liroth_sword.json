@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "liroth:items/liroth_sword"
+    "layer0": "liroth:item/liroth_sword"
   }
 }

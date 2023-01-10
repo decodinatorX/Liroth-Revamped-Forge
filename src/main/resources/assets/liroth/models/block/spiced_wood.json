@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/spiced_log",
-    "particle": "liroth:blocks/spiced_log"
+    "all": "liroth:block/spiced_log",
+    "particle": "liroth:block/spiced_log"
   }
 }

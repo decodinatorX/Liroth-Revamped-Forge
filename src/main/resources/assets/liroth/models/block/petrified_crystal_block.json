@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/petrified_crystal",
-    "particle": "liroth:blocks/petrified_crystal"
+    "all": "liroth:block/petrified_crystal",
+    "particle": "liroth:block/petrified_crystal"
   }
 }

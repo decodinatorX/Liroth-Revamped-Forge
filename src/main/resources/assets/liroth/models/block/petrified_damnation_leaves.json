@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/petrifieddamnation_leaves",
-    "particle": "liroth:blocks/petrifieddamnation_leaves"
+    "all": "liroth:block/petrifieddamnation_leaves",
+    "particle": "liroth:block/petrifieddamnation_leaves"
   }
 }

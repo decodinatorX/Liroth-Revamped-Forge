@@ -1,9 +1,9 @@
 {   "parent": "block/block",
     "textures": {
-        "particle": "liroth:blocks/pier_grass_path_top",
-        "top": "liroth:blocks/pier_grass_path_top",
-        "side": "liroth:blocks/pier_grass_path_side",
-        "bottom": "liroth:blocks/pier_dirt"
+        "particle": "liroth:block/pier_grass_path_top",
+        "top": "liroth:block/pier_grass_path_top",
+        "side": "liroth:block/pier_grass_path_side",
+        "bottom": "liroth:block/pier_dirt"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

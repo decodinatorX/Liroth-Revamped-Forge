@@ -1,7 +1,7 @@
 {
   "parent": "block/fence_post",
   "textures": {
-    "texture": "liroth:blocks/tallpier_planks",
-    "particle": "liroth:blocks/tallpier_planks"
+    "texture": "liroth:block/tallpier_planks",
+    "particle": "liroth:block/tallpier_planks"
   }
 }

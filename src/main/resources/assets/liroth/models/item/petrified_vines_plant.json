@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:blocks/petrified_vines"
+    "layer0": "liroth:block/petrified_vines"
   }
 }

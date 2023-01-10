@@ -2,6 +2,6 @@
   "parent": "block/template_glass_pane_noside_alt",
   "render_type": "translucent",
   "textures": {
-    "pane": "liroth:blocks/forcefield"
+    "pane": "liroth:block/forcefield"
   }
 }

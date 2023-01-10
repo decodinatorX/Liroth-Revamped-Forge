@@ -1,6 +1,6 @@
 {
     "textures": {
-        "spyglass": "liroth:items/purpetuated_spyglass_model"
+        "spyglass": "liroth:item/purpetuated_spyglass_model"
     },
     "elements": [
         {

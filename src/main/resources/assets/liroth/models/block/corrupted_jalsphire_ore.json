@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "liroth:blocks/corrupted_jalsphire_ore",
-    "particle": "liroth:blocks/corrupted_jalsphire_ore"
+    "all": "liroth:block/corrupted_jalsphire_ore",
+    "particle": "liroth:block/corrupted_jalsphire_ore"
   }
 }

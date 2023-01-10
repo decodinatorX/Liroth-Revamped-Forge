@@ -2,10 +2,10 @@
 	"credit": "Made with Blockbench",
   	"render_type": "cutout",
 	"textures": {
-		"0": "liroth:blocks/eye_side",
-		"1": "liroth:blocks/eye_top",
-		"2": "liroth:blocks/vile_tentacle",
-		"particle": "liroth:blocks/eye_side"
+		"0": "liroth:block/eye_side",
+		"1": "liroth:block/eye_top",
+		"2": "liroth:block/vile_tentacle",
+		"particle": "liroth:block/eye_side"
 	},
 	"elements": [
 		{

@@ -2,7 +2,7 @@
   "parent": "block/door_bottom_left",
   "render_type": "cutout",
   "textures": {
-    "bottom": "liroth:blocks/japz_door_bottom",
-    "top": "liroth:blocks/japz_door_top"
+    "bottom": "liroth:block/japz_door_bottom",
+    "top": "liroth:block/japz_door_top"
   }
 }

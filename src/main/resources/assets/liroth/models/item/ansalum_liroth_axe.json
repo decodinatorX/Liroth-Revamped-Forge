@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "liroth:items/ansalum_axe"
+    "layer0": "liroth:item/ansalum_axe"
   }
 }

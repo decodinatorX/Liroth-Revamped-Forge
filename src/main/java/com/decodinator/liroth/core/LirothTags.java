@@ -3,6 +3,7 @@ package com.decodinator.liroth.core;
 import com.decodinator.liroth.Liroth;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
@@ -28,6 +29,6 @@ public class LirothTags {
 
 	  
 	    private static TagKey<Biome> create(String id) {
-	        return TagKey.create(Registry.BIOME_REGISTRY, Liroth.createLocation(id));
+	        return TagKey.create(Registries.BIOME, Liroth.createLocation(id));
 	    }
 }

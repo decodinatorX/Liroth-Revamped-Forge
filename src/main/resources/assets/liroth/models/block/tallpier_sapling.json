@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "cutout",
   "textures": {
-    "cross": "liroth:blocks/tallpier_sapling"
+    "cross": "liroth:block/tallpier_sapling"
   }
 }

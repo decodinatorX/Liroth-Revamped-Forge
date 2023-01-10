@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/corrupted_jalsphire_gem"
+    "layer0": "liroth:item/corrupted_jalsphire_gem"
   }
 }

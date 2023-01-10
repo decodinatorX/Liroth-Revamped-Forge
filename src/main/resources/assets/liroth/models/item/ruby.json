@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:items/ruby"
+    "layer0": "liroth:item/ruby"
   }
 }

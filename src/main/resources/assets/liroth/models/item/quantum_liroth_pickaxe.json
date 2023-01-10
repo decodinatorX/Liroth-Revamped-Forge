@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by Cm@BlackSpigotMC with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"quantum_liroth_pickaxe": "liroth:items/quantum_liroth_pickaxe"
+		"quantum_liroth_pickaxe": "liroth:item/quantum_liroth_pickaxe"
 	},
 	"elements": [
 		{
@@ -369,6 +369,7 @@
 			}
 		}
 	],
+  "gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation":  [ 45, 0, 90 ],

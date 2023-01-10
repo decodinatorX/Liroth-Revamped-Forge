@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:items/liroth_fluid_bucket"
+    "layer0": "liroth:item/liroth_fluid_bucket"
   }
 }

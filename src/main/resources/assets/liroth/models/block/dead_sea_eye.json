@@ -1,10 +1,9 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "liroth:blocks/dead_sea_eye",
 	"textures": {
-		"0": "liroth:blocks/eye_side",
-		"1": "liroth:blocks/eye_top",
-		"particle": "liroth:blocks/eye_side"
+		"0": "liroth:block/eye_side",
+		"1": "liroth:block/eye_top",
+		"particle": "liroth:block/eye_side"
 	},
 	"elements": [
 		{

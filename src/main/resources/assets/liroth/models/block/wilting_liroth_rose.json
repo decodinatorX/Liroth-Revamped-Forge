@@ -2,7 +2,7 @@
   "parent": "block/cross",
   "render_type": "cutout",
   "textures": {
-    "cross": "liroth:blocks/wilting_liroth_rose",
-    "particle": "liroth:blocks/wilting_liroth_rose"
+    "cross": "liroth:block/wilting_liroth_rose",
+    "particle": "liroth:block/wilting_liroth_rose"
   }
 }

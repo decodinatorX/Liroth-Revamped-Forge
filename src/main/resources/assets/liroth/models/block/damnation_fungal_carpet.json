@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/carpet",
   "textures": {
-    "wool": "liroth:blocks/damnation_soil"
+    "wool": "liroth:block/damnation_soil"
   }
 }

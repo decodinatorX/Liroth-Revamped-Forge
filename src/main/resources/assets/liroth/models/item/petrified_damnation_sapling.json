@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "liroth:blocks/petrified_damnation_sapling"
+    "layer0": "liroth:block/petrified_damnation_sapling"
   }
 }

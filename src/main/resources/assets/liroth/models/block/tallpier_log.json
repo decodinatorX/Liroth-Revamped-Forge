@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "liroth:blocks/log_tallpier_top",
-    "up": "liroth:blocks/log_tallpier_top",
-    "north": "liroth:blocks/log_tallpier",
-    "east": "liroth:blocks/log_tallpier",
-    "south": "liroth:blocks/log_tallpier",
-    "west": "liroth:blocks/log_tallpier",
-    "particle": "liroth:blocks/log_tallpier_top"
+    "down": "liroth:block/log_tallpier_top",
+    "up": "liroth:block/log_tallpier_top",
+    "north": "liroth:block/log_tallpier",
+    "east": "liroth:block/log_tallpier",
+    "south": "liroth:block/log_tallpier",
+    "west": "liroth:block/log_tallpier",
+    "particle": "liroth:block/log_tallpier_top"
   }
 }

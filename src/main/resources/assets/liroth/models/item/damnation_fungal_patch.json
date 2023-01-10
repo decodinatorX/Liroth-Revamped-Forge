@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "liroth:blocks/damnation_fungal_patch"
+    "layer0": "liroth:block/damnation_fungal_patch"
   }
 }

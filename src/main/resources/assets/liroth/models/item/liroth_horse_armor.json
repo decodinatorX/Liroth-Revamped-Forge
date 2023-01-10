@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "liroth:item/liroth_horse_armor"
+  }
+}

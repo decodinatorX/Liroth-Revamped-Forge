@@ -6,8 +6,8 @@
         }
     },
     "textures": {
-        "particle": "liroth:blocks/fungal_campfire_log",
-        "log": "liroth:blocks/fungal_campfire_log"
+        "particle": "liroth:block/fungal_campfire_log",
+        "log": "liroth:block/fungal_campfire_log"
     },
     "elements": [
         {

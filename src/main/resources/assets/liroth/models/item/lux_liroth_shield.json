@@ -1,7 +1,7 @@
 {
 	"__comment": "Designed by Cm@BlackSpigotMC with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"lux_liroth_shield_small": "liroth:items/lux_liroth_shield_small"
+		"lux_liroth_shield_small": "liroth:item/lux_liroth_shield_small"
 	},
 	"elements": [
 		{
@@ -83,6 +83,7 @@
 			}
 		}
 	],
+  "gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation":  [ 135, 0, 25 ],

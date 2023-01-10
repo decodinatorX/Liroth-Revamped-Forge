@@ -38,8 +38,8 @@
   },
   "ambientocclusion": false,
   "textures": {
-    "end_rod": "liroth:blocks/soul_rod",
-    "particle": "liroth:blocks/soul_rod"
+    "end_rod": "liroth:block/soul_rod",
+    "particle": "liroth:block/soul_rod"
   },
   "elements": [
     {

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_inventory",
   "textures": {
-    "texture": "liroth:blocks/damnation_planks"
+    "texture": "liroth:block/damnation_planks"
   }
 }

@@ -15,11 +15,12 @@
 		"name": "The Final Portal",
 		"multiblock": {
 			"pattern": [
-        [ "_AA_" ], 
-        [ "A  A" ],
-        [ "A  A" ], 
-        [ "A 0A" ], 
-        [ "_AA_" ]
+				[ 
+				"_AA_",
+				"A__A",
+				"A_0A",
+				"_AA_"
+				]
 			],
 			"mapping": {
 				"A": "liroth:jalsphire_trackway",
@@ -30,16 +31,6 @@
 				"F": "minecraft:lapis_block"
 			}
 		}
-	},
-	    	{
-    		"type": "crafting",
-    		"recipe": "liroth:teary_gem",
-    		"text": " First off, we need to head back to the Lirothian Realm and fabricate a Weep Gem."
-    	},
-    	{
-    		"type": "crafting",
-    		"recipe": "liroth:anomaly_charge_recipe",
-    		"text": " With the Weep Gem, an Anomaly Charge is to be made."
-    	}
+	}
     ]
 }

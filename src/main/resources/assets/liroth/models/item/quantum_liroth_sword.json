@@ -2,7 +2,7 @@
 	"__comment": "Designed by Cm@BlackSpigotMC with Cubik Studio - https://cubik.studio",
 	"ambientocclusion": true,
 	"textures": {
-		"quantum_liroth_sword": "liroth:items/quantum_liroth_sword"
+		"quantum_liroth_sword": "liroth:item/quantum_liroth_sword"
 	},
 	"elements": [
 		{
@@ -383,6 +383,7 @@
 			}
 		}
 	],
+  "gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation":  [ 45, 0, 90 ],

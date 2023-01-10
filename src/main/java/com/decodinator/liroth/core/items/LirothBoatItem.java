@@ -39,7 +39,6 @@ public class LirothBoatItem extends Item {
          return InteractionResultHolder.pass(itemstack);
       } else {
          Vec3 vec3 = p_40623_.getViewVector(1.0F);
-         double d0 = 5.0D;
          List<Entity> list = p_40622_.getEntities(p_40623_, p_40623_.getBoundingBox().expandTowards(vec3.scale(5.0D)).inflate(1.0D), ENTITY_PREDICATE);
          if (!list.isEmpty()) {
             Vec3 vec31 = p_40623_.getEyePosition();
