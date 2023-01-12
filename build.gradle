@@ -170,6 +170,7 @@ dependencies {
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
         implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.3:4.0.3')
         implementation files("lib/cpapi.jar")
+        implementation fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:10.0.581")
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html

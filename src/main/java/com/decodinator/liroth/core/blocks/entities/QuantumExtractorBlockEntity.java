@@ -1,18 +1,24 @@
 package com.decodinator.liroth.core.blocks.entities;
 
-import java.util.Map;
-
+import java.util.List;
 import javax.annotation.Nullable;
 
 import com.decodinator.liroth.core.LirothBlockEntities;
 import com.decodinator.liroth.core.LirothItems;
 import com.decodinator.liroth.core.blocks.QuantumExtractorBlock;
-import com.google.common.collect.Maps;
-
+import com.decodinator.liroth.core.helpers.AbstractQuantumRecipe;
+import com.decodinator.liroth.core.helpers.QuantumRecipe;
+import com.google.common.collect.Lists;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -21,26 +27,32 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
-public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProvider, Container {
-    private NonNullList<ItemStack> inventory =
+public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProvider, Container, WorldlyContainer {
+	   private static final int[] SLOTS_FOR_UP = new int[]{0};
+	   private static final int[] SLOTS_FOR_DOWN = new int[]{2, 1};
+	   private static final int[] SLOTS_FOR_SIDES = new int[]{1};
+		private final RecipeType<? extends AbstractQuantumRecipe> recipeType;
+	private NonNullList<ItemStack> inventory =
     		NonNullList.withSize(4, ItemStack.EMPTY);
-	private static final Map<Item, Integer> AVAILABLE_FUELS = Maps.newHashMap();
-    private int timer;
     int burnTime;
     int fuelTime;
     int cookTime;
@@ -92,6 +104,9 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
             return 4;
         }
     };
+    private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
+    private final RecipeManager.CachedCheck<Container, ? extends AbstractQuantumRecipe> quickCheck;
+
 
 	protected int processTime;
 	protected int totalProcessTime;
@@ -126,8 +141,10 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
 		return 2;
 	}
 
-    public QuantumExtractorBlockEntity(BlockPos pos, BlockState state) {
+    public QuantumExtractorBlockEntity(BlockPos pos, BlockState state, RecipeType<? extends AbstractQuantumRecipe> recipeThingy) {
         super(LirothBlockEntities.QUANTUM_EXTRACTOR.get(), pos, state);
+        this.quickCheck = RecipeManager.createCheck((RecipeType)recipeThingy);
+        this.recipeType = recipeThingy;
     }
 
     @Override
@@ -140,29 +157,37 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
     public AbstractContainerMenu createMenu(int syncId, Inventory inv, Player player) {
         return new QuantumExtractorScreenHandler(syncId, inv, this, this, this.propertyDelegate);
     }
-
+    
     @Override
-    public void saveAdditional(CompoundTag nbt) {
-        super.saveAdditional(nbt);
-        nbt.putInt("BurnTime", this.burnTime);
-        nbt.putInt("CookTime", this.cookTime);
-        nbt.putInt("CookTimeTotal", this.cookTimeTotal);
-        ContainerHelper.saveAllItems(nbt, this.inventory);
-        CompoundTag compoundtag = new CompoundTag();
-        nbt.put("RecipesUsed", compoundtag);
+    public void load(CompoundTag p_155025_) {
+        super.load(p_155025_);
+        this.inventory = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+        ContainerHelper.loadAllItems(p_155025_, this.inventory);
+        this.burnTime = p_155025_.getInt("BurnTime");
+        this.cookTime = p_155025_.getInt("CookTime");
+        this.cookTimeTotal = p_155025_.getInt("CookTimeTotal");
+        this.fuelTime = this.getFuelTime(this.inventory.get(1));
+        CompoundTag compoundtag = p_155025_.getCompound("RecipesUsed");
+
+        for(String s : compoundtag.getAllKeys()) {
+           this.recipesUsed.put(new ResourceLocation(s), compoundtag.getInt(s));
+        }
+
      }
 
     @Override
-    public void load(CompoundTag nbt) {
-        super.load(nbt);
-        this.inventory = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        ContainerHelper.loadAllItems(nbt, this.inventory);
-        this.burnTime = nbt.getInt("BurnTime");
-        this.cookTime = nbt.getInt("CookTime");
-        this.cookTimeTotal = nbt.getInt("CookTimeTotal");
-        this.fuelTime = this.getFuelTime(this.inventory.get(1));
-        CompoundTag compoundtag = nbt.getCompound("RecipesUsed");
-        }
+     protected void saveAdditional(CompoundTag p_187452_) {
+        super.saveAdditional(p_187452_);
+        p_187452_.putInt("BurnTime", this.burnTime);
+        p_187452_.putInt("CookTime", this.cookTime);
+        p_187452_.putInt("CookTimeTotal", this.cookTimeTotal);
+        ContainerHelper.saveAllItems(p_187452_, this.inventory);
+        CompoundTag compoundtag = new CompoundTag();
+        this.recipesUsed.forEach((p_187449_, p_187450_) -> {
+           compoundtag.putInt(p_187449_.toString(), p_187450_);
+        });
+        p_187452_.put("RecipesUsed", compoundtag);
+     }
     
     public void forceUpdateAllStates() {
         BlockState state = level.getBlockState(worldPosition);
@@ -175,60 +200,131 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
         world.playSound(null, pos, sound, SoundSource.BLOCKS, 1.0f, 1.0f);
     }
 
-    public static void serverTick(Level world, BlockPos pos, BlockState state, QuantumExtractorBlockEntity entity) {
-        boolean bl = entity.isBurning();
-        boolean bl2 = false;
-        if (entity.isBurning()) {
-            --entity.burnTime;
+    public static void serverTick(Level p_155014_, BlockPos p_155015_, BlockState p_155016_, QuantumExtractorBlockEntity p_155017_) {
+        boolean flag = p_155017_.isBurning();
+        boolean flag1 = false;
+        if (p_155017_.isBurning()) {
+           --p_155017_.burnTime;
         }
-        ItemStack itemStack = entity.inventory.get(1);
-        if (entity.isBurning() || !itemStack.isEmpty() && !entity.inventory.get(0).isEmpty()) {
-            int i = entity.getContainerSize();
-            if (!entity.isBurning()) {
-                entity.fuelTime = entity.burnTime = entity.getFuelTime(itemStack);
-                if (entity.isBurning() && QuantumExtractorBlockEntity.hasQuantumDiamondRecipe(entity) || QuantumExtractorBlockEntity.hasPotestiumShardRecipe(entity)) {
-                    bl2 = true;
-                    if (!itemStack.isEmpty()) {
-                        Item item = itemStack.getItem();
-                        itemStack.shrink(1);
-                        if (itemStack.isEmpty()) {
-                            Item item2 = item.getCraftingRemainingItem();
-                            entity.inventory.set(1, item2 == null ? ItemStack.EMPTY : new ItemStack(item2));
-                        }
+
+        ItemStack itemstack = p_155017_.inventory.get(1);
+        boolean flag2 = !p_155017_.inventory.get(0).isEmpty();
+        boolean flag3 = !itemstack.isEmpty();
+        if (p_155017_.isBurning() || flag3 && flag2) {
+           Recipe<?> recipe;
+           if (flag2) {
+              recipe = p_155017_.quickCheck.getRecipeFor(p_155017_, p_155014_).orElse(null);
+           } else {
+              recipe = null;
+           }
+
+           int i = p_155017_.getMaxStackSize();
+           if (!p_155017_.isBurning() && p_155017_.canBurn(recipe, p_155017_.inventory, i)) {
+              p_155017_.burnTime = p_155017_.getFuelTime(itemstack);
+              p_155017_.fuelTime = p_155017_.burnTime;
+              if (p_155017_.isBurning()) {
+                 flag1 = true;
+                 if (itemstack.hasCraftingRemainingItem())
+                    p_155017_.inventory.set(1, itemstack.getCraftingRemainingItem());
+                 else
+                 if (flag3) {
+                    Item item = itemstack.getItem();
+                    itemstack.shrink(1);
+                    if (itemstack.isEmpty()) {
+                       p_155017_.inventory.set(1, itemstack.getCraftingRemainingItem());
                     }
-                }
+                 }
+              }
+           }
+
+           if (p_155017_.isBurning() && p_155017_.canBurn(recipe, p_155017_.inventory, i)) {
+              ++p_155017_.cookTime;
+              if (p_155017_.cookTime == p_155017_.cookTimeTotal) {
+                 p_155017_.cookTime = 0;
+                 p_155017_.cookTimeTotal = getTotalCookTime(p_155014_, p_155017_);
+                 if (p_155017_.burn(recipe, p_155017_.inventory, i)) {
+                    p_155017_.setRecipeUsed(recipe);
+                 }
+
+                 flag1 = true;
+              }
+           } else {
+              p_155017_.cookTime = 0;
+           }
+        } else if (!p_155017_.isBurning() && p_155017_.cookTime > 0) {
+           p_155017_.cookTime = Mth.clamp(p_155017_.cookTime - 2, 0, p_155017_.cookTimeTotal);
+        }
+
+        if (flag != p_155017_.isBurning()) {
+           flag1 = true;
+           p_155016_ = p_155016_.setValue(QuantumExtractorBlock.LIT, Boolean.valueOf(p_155017_.isBurning()));
+           p_155014_.setBlock(p_155015_, p_155016_, 3);
+        }
+
+        if (flag1) {
+           setChanged(p_155014_, p_155015_, p_155016_);
+        }
+
+     }
+    
+    private boolean canBurn(@Nullable Recipe<?> p_155006_, NonNullList<ItemStack> p_155007_, int p_155008_) {
+        if (!p_155007_.get(0).isEmpty() && p_155006_ != null) {
+           ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this);
+           if (itemstack.isEmpty()) {
+              return false;
+           } else {
+              ItemStack itemstack1 = p_155007_.get(2);
+              ItemStack itemstack2 = p_155007_.get(3);
+              if (itemstack1.isEmpty()) {
+                 return true;
+              } else if (!itemstack1.sameItem(itemstack)) {
+                 return false;
+              } else if (itemstack1.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
+                 return true;
+              }
+              if (itemstack2.isEmpty()) {
+                 return true;
+              } else if (!itemstack2.sameItem(itemstack)) {
+                 return false;
+              } else if (itemstack2.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
+                 return true;
+              } else {
+                 return itemstack1.getCount() + itemstack.getCount() <= itemstack.getMaxStackSize() && itemstack2.getCount() + itemstack.getCount() <= itemstack.getMaxStackSize(); // Forge fix: make furnace respect stack sizes in furnace recipes
+              }
+           }
+        } else {
+           return false;
+        }
+     }
+
+     private boolean burn(@Nullable Recipe<?> p_155027_, NonNullList<ItemStack> p_155028_, int p_155029_) {
+        if (p_155027_ != null && this.canBurn(p_155027_, p_155028_, p_155029_)) {
+           ItemStack itemstack = p_155028_.get(0);
+           ItemStack itemstack1 = ((QuantumRecipe) p_155027_).assemble(this);
+           ItemStack itemstack2 = p_155028_.get(2);
+           ItemStack itemstack3 = p_155028_.get(3);
+           AbstractQuantumRecipe fuckOff = ((QuantumRecipe) p_155027_);
+           if (itemstack2.isEmpty()) {
+              p_155028_.set(2, itemstack1.copy());
+           } else if (itemstack2.is(itemstack1.getItem())) {
+              itemstack2.grow(itemstack1.getCount());
+           }
+           if (itemstack3.isEmpty()) {
+               p_155028_.set(3, fuckOff.createBonus(level.random));
+            } else if (itemstack3.is(fuckOff.getBonusItem().bonus.getItem())) {
+               itemstack3.grow(itemstack1.getCount());
             }
-            if (entity.isBurning() && QuantumExtractorBlockEntity.hasQuantumDiamondRecipe(entity)) {
-                ++entity.cookTime;
-                if (entity.cookTime == entity.cookTimeTotal) {
-                    entity.cookTime = 0;
-                    entity.cookTimeTotal = QuantumExtractorBlockEntity.getCookTime();
-                    QuantumExtractorBlockEntity.craftQuantumItem(entity);
-                    bl2 = true;
-                }
-            } else if (entity.isBurning() && QuantumExtractorBlockEntity.hasPotestiumShardRecipe(entity)) {
-            	++entity.cookTime;
-            	if (entity.cookTime == entity.cookTimeTotal) {
-            		entity.cookTime = 0;
-            		entity.cookTimeTotal = QuantumExtractorBlockEntity.getCookTime();
-                    QuantumExtractorBlockEntity.craftPotestiumItem(entity);
-                    bl2 = true;
-            	}
-            } else {
-                entity.cookTime = 0;
-            }
-        } else if (!entity.isBurning() && entity.cookTime > 0) {
-            entity.cookTime = Mth.clamp(entity.cookTime - 2, 0, entity.cookTimeTotal);
+
+           if (itemstack.is(Blocks.WET_SPONGE.asItem()) && !p_155028_.get(1).isEmpty() && p_155028_.get(1).is(Items.BUCKET)) {
+              p_155028_.set(1, new ItemStack(Items.WATER_BUCKET));
+           }
+
+           itemstack.shrink(1);
+           return true;
+        } else {
+           return false;
         }
-        if (bl != entity.isBurning()) {
-            bl2 = true;
-            state = (BlockState)state.setValue(QuantumExtractorBlock.LIT, entity.isBurning());
-            world.setBlock(pos, state, Block.UPDATE_ALL);
-        }
-        if (bl2) {
-        	QuantumExtractorBlockEntity.setChanged(world, pos, state);
-        }
-    }
+     }
 
     private static void craftQuantumItem(QuantumExtractorBlockEntity entity) {
     	
@@ -264,7 +360,7 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
         	   entity.getItem(3).getCount() < entity.getItem(3).getCount();
     }
     
-    private static int getCookTime() {
+    private int getCookTime() {
         return (200);
     }
     
@@ -283,24 +379,26 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
 			return 16000;
 		} else if (fuel.isOf(LirothBlocks.REDSTONE_BROKEN_STAGE_3.asItem())) {
 			return 16000;*/
+		} else {
+	         fuel.getItem();
+	         return net.minecraftforge.common.ForgeHooks.getBurnTime(fuel, this.recipeType);
 		}
-		return 0;
 	}
     
     @Override
-    public boolean canPlaceItem(int slot, ItemStack stack) {
-        if (slot == 2 || slot == 3) {
-            return false;
+    public boolean canPlaceItem(int p_58389_, ItemStack p_58390_) {
+        if (p_58389_ == 2 || p_58389_ == 3) {
+           return false;
+        } else if (p_58389_ != 1) {
+           return true;
+        } else {
+           ItemStack itemstack = this.inventory.get(1);
+           return net.minecraftforge.common.ForgeHooks.getBurnTime(p_58390_, this.recipeType) > 0 || p_58390_.is(Items.BUCKET) && !itemstack.is(Items.BUCKET);
         }
-        if (slot == 1) {
-            ItemStack itemStack = this.inventory.get(1);
-            return AbstractFurnaceBlockEntity.isFuel(stack) || stack.is(Items.BUCKET) && !itemStack.is(Items.BUCKET);
-        }
-        return true;
-    }
+     }
     
     private static boolean tickReached100(QuantumExtractorBlockEntity entity) {
-    	return entity.ticks <= getCookTime();
+    	return entity.ticks <= entity.getCookTime();
     }
 
 	@Override
@@ -311,7 +409,7 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
 
 	@Override
 	public int getContainerSize() {
-		return 5;
+		return 4;
 	}
 
 	@Override
@@ -342,20 +440,21 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
 	}
 
 	@Override
-	public void setItem(int p_18944_, ItemStack p_18945_) {
-	      ItemStack itemstack = this.inventory.get(p_18944_);
-	      boolean flag = !p_18945_.isEmpty() && p_18945_.sameItem(itemstack) && ItemStack.tagMatches(p_18945_, itemstack);
-	      this.inventory.set(p_18944_, p_18945_);
-	      if (p_18945_.getCount() > this.getMaxStackSize()) {
-	         p_18945_.setCount(this.getMaxStackSize());
+	   public void setItem(int p_58333_, ItemStack p_58334_) {
+	      ItemStack itemstack = this.inventory.get(p_58333_);
+	      boolean flag = !p_58334_.isEmpty() && p_58334_.sameItem(itemstack) && ItemStack.tagMatches(p_58334_, itemstack);
+	      this.inventory.set(p_58333_, p_58334_);
+	      if (p_58334_.getCount() > this.getMaxStackSize()) {
+	         p_58334_.setCount(this.getMaxStackSize());
 	      }
 
-	      if (p_18944_ == 0 && !flag) {
+	      if (p_58333_ == 0 && !flag) {
 	         this.cookTimeTotal = getTotalCookTime(this.level, this);
 	         this.cookTime = 0;
 	         this.setChanged();
-	      }		
-	}
+	      }
+
+	   }
 	
 	   private static int getTotalCookTime(Level p_222693_, QuantumExtractorBlockEntity p_222694_) {
 		      return 200;
@@ -378,4 +477,105 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
 
         Containers.dropContents(this.level, this.worldPosition, inventoryDrop);
     }
+    
+    public int[] getSlotsForFace(Direction p_58363_) {
+        if (p_58363_ == Direction.DOWN) {
+           return SLOTS_FOR_DOWN;
+        } else {
+           return p_58363_ == Direction.UP ? SLOTS_FOR_UP : SLOTS_FOR_SIDES;
+        }
+     }
+
+     public boolean canPlaceItemThroughFace(int p_58336_, ItemStack p_58337_, @Nullable Direction p_58338_) {
+        return this.canPlaceItem(p_58336_, p_58337_);
+     }
+
+     public boolean canTakeItemThroughFace(int p_58392_, ItemStack p_58393_, Direction p_58394_) {
+        if (p_58394_ == Direction.DOWN && p_58392_ == 1) {
+           return p_58393_.is(Items.WATER_BUCKET) || p_58393_.is(Items.BUCKET);
+        } else {
+           return true;
+        }
+     }
+     
+     public void setRecipeUsed(@Nullable Recipe<?> p_58345_) {
+         if (p_58345_ != null) {
+            ResourceLocation resourcelocation = p_58345_.getId();
+            this.recipesUsed.addTo(resourcelocation, 1);
+         }
+
+      }
+
+      @Nullable
+      public Recipe<?> getRecipeUsed() {
+         return null;
+      }
+      
+      public void awardUsedRecipes(Player p_58396_) {
+      }
+
+      public void awardUsedRecipesAndPopExperience(ServerPlayer p_155004_) {
+         List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.getLevel(), p_155004_.position());
+         p_155004_.awardRecipes(list);
+         this.recipesUsed.clear();
+      }
+
+      public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel p_154996_, Vec3 p_154997_) {
+         List<Recipe<?>> list = Lists.newArrayList();
+
+         for(Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
+            p_154996_.getRecipeManager().byKey(entry.getKey()).ifPresent((p_155023_) -> {
+               list.add(p_155023_);
+               createExperience(p_154996_, p_154997_, entry.getIntValue(), ((AbstractQuantumRecipe)p_155023_).getExperience());
+            });
+         }
+
+         return list;
+      }
+
+      private static void createExperience(ServerLevel p_154999_, Vec3 p_155000_, int p_155001_, float p_155002_) {
+         int i = Mth.floor((float)p_155001_ * p_155002_);
+         float f = Mth.frac((float)p_155001_ * p_155002_);
+         if (f != 0.0F && Math.random() < (double)f) {
+            ++i;
+         }
+
+         ExperienceOrb.award(p_154999_, p_155000_, i);
+      }
+
+      public void fillStackedContents(StackedContents p_58342_) {
+         for(ItemStack itemstack : this.inventory) {
+            p_58342_.accountStack(itemstack);
+         }
+
+      }
+
+      net.minecraftforge.common.util.LazyOptional<? extends net.minecraftforge.items.IItemHandler>[] handlers =
+              net.minecraftforge.items.wrapper.SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
+
+      @Override
+      public <T> net.minecraftforge.common.util.LazyOptional<T> getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, @Nullable Direction facing) {
+         if (!this.remove && facing != null && capability == net.minecraftforge.common.capabilities.ForgeCapabilities.ITEM_HANDLER) {
+            if (facing == Direction.UP)
+               return handlers[0].cast();
+            else if (facing == Direction.DOWN)
+               return handlers[1].cast();
+            else
+               return handlers[2].cast();
+         }
+         return super.getCapability(capability, facing);
+      }
+
+      @Override
+      public void invalidateCaps() {
+         super.invalidateCaps();
+         for (int x = 0; x < handlers.length; x++)
+           handlers[x].invalidate();
+      }
+
+      @Override
+      public void reviveCaps() {
+         super.reviveCaps();
+         this.handlers = net.minecraftforge.items.wrapper.SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
+      }
 }

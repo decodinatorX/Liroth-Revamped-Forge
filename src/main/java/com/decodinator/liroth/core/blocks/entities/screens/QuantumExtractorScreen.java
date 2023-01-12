@@ -10,14 +10,12 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class QuantumExtractorScreen extends AbstractContainerScreen<QuantumExtractorScreenHandler> {
-	private Player entity;
-    private static final ResourceLocation TEXTURE =
+	private static final ResourceLocation TEXTURE =
             new ResourceLocation(Liroth.MOD_ID, "textures/gui/quantum_extractor_gui.png");
 
     public QuantumExtractorScreen(QuantumExtractorScreenHandler handler, Inventory inventory, Component title) {
