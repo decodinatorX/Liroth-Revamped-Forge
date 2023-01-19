@@ -380,8 +380,7 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
 		} else if (fuel.isOf(LirothBlocks.REDSTONE_BROKEN_STAGE_3.asItem())) {
 			return 16000;*/
 		} else {
-	         fuel.getItem();
-	         return net.minecraftforge.common.ForgeHooks.getBurnTime(fuel, this.recipeType);
+	         return 0;
 		}
 	}
     

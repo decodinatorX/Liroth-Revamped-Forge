@@ -110,4 +110,13 @@ public abstract class AbstractSplitterRecipe implements Recipe<Container> {
 	    }
 	    return getBonus;
 	  }
+   
+   public ItemStack[] ingredientAt(int slot) {
+	    Ingredient ing = at(slot);
+	    return ing.getItems();
+	  }
+
+	  public Ingredient at(int slot) {
+	    return getIngredients().get(slot);
+	  }
 }
