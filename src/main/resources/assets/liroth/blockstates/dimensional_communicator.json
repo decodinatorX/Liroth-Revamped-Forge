@@ -1,15 +1,33 @@
 {
   "variants": {
-    "axis=y": {
+    "eye=false,facing=east": {
+      "model": "liroth:block/dimensional_communicator",
+      "y": 270
+    },
+    "eye=false,facing=north": {
+      "model": "liroth:block/dimensional_communicator",
+      "y": 180
+    },
+    "eye=false,facing=south": {
       "model": "liroth:block/dimensional_communicator"
     },
-    "axis=z": {
+    "eye=false,facing=west": {
       "model": "liroth:block/dimensional_communicator",
-      "x": 90
+      "y": 90
     },
-    "axis=x": {
+    "eye=true,facing=east": {
       "model": "liroth:block/dimensional_communicator",
-      "x": 90,
+      "y": 270
+    },
+    "eye=true,facing=north": {
+      "model": "liroth:block/dimensional_communicator",
+      "y": 180
+    },
+    "eye=true,facing=south": {
+      "model": "liroth:block/dimensional_communicator"
+    },
+    "eye=true,facing=west": {
+      "model": "liroth:block/dimensional_communicator",
       "y": 90
     }
   }

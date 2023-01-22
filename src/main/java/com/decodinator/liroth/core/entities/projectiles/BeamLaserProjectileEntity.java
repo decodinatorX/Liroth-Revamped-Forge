@@ -50,7 +50,7 @@ public class BeamLaserProjectileEntity extends AbstractArrow {
  
 		if (entity instanceof LivingEntity livingEntity) { // checks if entity is an instance of LivingEntity (meaning it is not a boat or minecart)
 			livingEntity.addEffect((new MobEffectInstance(MobEffects.BLINDNESS, 20 * 3, 0))); // applies a status effect
-			livingEntity.playSound(SoundEvents.AMBIENT_CAVE.get(), 2F, 1F); // plays a sound for the entity hit only
+			livingEntity.playSound(SoundEvents.AMBIENT_CAVE, 2F, 1F); // plays a sound for the entity hit only
 		}
 	}
  

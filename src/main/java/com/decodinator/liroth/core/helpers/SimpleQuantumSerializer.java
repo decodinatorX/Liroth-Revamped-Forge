@@ -3,7 +3,7 @@ package com.decodinator.liroth.core.helpers;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -34,7 +34,7 @@ public class SimpleQuantumSerializer<T extends AbstractQuantumRecipe>implements 
 	      else {
 	      String s1 = GsonHelper.getAsString(p_44348_, "result");
 	      ResourceLocation resourcelocation = new ResourceLocation(s1);
-	      itemstack = new ItemStack(BuiltInRegistries.ITEM.getOptional(resourcelocation).orElseThrow(() -> {
+	      itemstack = new ItemStack(Registry.ITEM.getOptional(resourcelocation).orElseThrow(() -> {
 	         return new IllegalStateException("Item: " + s1 + " does not exist");
 	      }));
 	      }

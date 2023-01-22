@@ -36,6 +36,7 @@ import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.VileSharkModel;
 import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.entities.renderers.WarpModel;
+import com.decodinator.liroth.core.items.PotestiumHelmetItem;
 import com.decodinator.liroth.core.particles.CloakParticle;
 import com.decodinator.liroth.core.particles.DamnationPortalParticle;
 import com.decodinator.liroth.core.particles.DevastatedPortalParticle;
@@ -46,6 +47,7 @@ import com.decodinator.liroth.core.particles.LirothPortalParticle;
 import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.particles.SporeParticle;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
+import com.decodinator.liroth.core.renders.PotestiumHelmetRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -60,6 +62,7 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 import org.jetbrains.annotations.ApiStatus;
 
@@ -73,6 +76,7 @@ public class LirothForgeClientEventsHandler {
     
     @SubscribeEvent
     public static void registerArmorRenderer(final EntityRenderersEvent.AddLayers event) {
+        GeoArmorRenderer.registerArmorRenderer(PotestiumHelmetItem.class, () -> new PotestiumHelmetRenderer());
     }
     
     @SubscribeEvent

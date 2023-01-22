@@ -24,13 +24,11 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Holder;
-import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.PathPackResources;
+import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.CreativeModeTab;
@@ -46,10 +44,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
-import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.resource.PathPackResources;
+
+import java.io.IOException;
+
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -64,14 +65,38 @@ public class Liroth
 	public static final ForgeFlowingFluid.Properties LIROTH_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.LIROTH_FLUID_TYPE, LirothFluids.LIROTH_FLUID, LirothFluids.FLOWING_LIROTH_FLUID).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.LIROTH_FLUID_BLOCK).bucket(LirothItems.LIROTH_FLUID_BUCKET);
 	public static final ForgeFlowingFluid.Properties MOLTEN_SPINERIOS_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.MOLTEN_SPINERIOS_TYPE, LirothFluids.MOLTEN_SPINERIOS, LirothFluids.FLOWING_MOLTEN_SPINERIOS).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.MOLTEN_SPINERIOS_BLOCK).bucket(LirothItems.MOLTEN_SPINERIOS_BUCKET);
     
-	public static CreativeModeTab liroth_blocks_tab;
-	public static CreativeModeTab liroth_items_tab;
-	public static CreativeModeTab liroth_combat_tab;
-	public static CreativeModeTab liroth_entities_tab;
-	public static CreativeModeTab liroth_plants_tab;
+	public static CreativeModeTab liroth_blocks_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_blocks") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(LirothBlocks.LIROTH_GEM_BLOCK.get());
+		}
+	};
+	public static CreativeModeTab liroth_items_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_items") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(LirothItems.LIROTH_GEM.get());
+		}
+	};
+	public static CreativeModeTab liroth_combat_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_combat") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(LirothItems.LIROTH_SWORD.get());
+		}
+	};
+	public static CreativeModeTab liroth_entities_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_entities") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(LirothItems.FORSAKEN_CORPSE_SPAWN_EGG.get());
+		}
+	};
+	public static CreativeModeTab liroth_plants_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_plants") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(LirothBlocks.LIROTH_ROSE.get());
+		}
+	};
 	
     @SuppressWarnings("unchecked")
-	private static final RegistrySetBuilder BUILDER = (new RegistrySetBuilder()).add(Registries.CONFIGURED_FEATURE, (RegistrySetBuilder.RegistryBootstrap)LirothConfiguredFeatures::bootstrap).add(Registries.PLACED_FEATURE, (RegistrySetBuilder.RegistryBootstrap)LirothPlacedFeatures::bootstrap);
     
     public Liroth()
     {
@@ -105,9 +130,7 @@ public class Liroth
         // Register the Deferred Register to the mod event bus so items get registered
 		// ITEMS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
-		modEventBus.addListener(this::registerTabs);
         MinecraftForge.EVENT_BUS.register(this);
-        Liroth.BUILDER.getEntryKeys();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -150,11 +173,20 @@ public class Liroth
     
 	@SubscribeEvent
 	public static void addClassicPack(AddPackFindersEvent event) {
-		if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-			var resourcePath = ModList.get().getModFileById(Liroth.MOD_ID).getFile().findResource("classic");
-			var pack = Pack.readMetaAndCreate("builtin/liroth_classic_resources", Component.literal("Liroth: Legacy"), false,
-					path -> new PathPackResources(path, resourcePath, true), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
-			event.addRepositorySource(consumer -> consumer.accept(pack));
+		try {
+			if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+				var resourcePath = ModList.get().getModFileById(Liroth.MOD_ID).getFile().findResource("classic");
+				var pack = new PathPackResources(ModList.get().getModFileById(Liroth.MOD_ID).getFile().getFileName() + ":" + resourcePath, resourcePath);
+				var metadataSection = pack.getMetadataSection(PackMetadataSection.SERIALIZER);
+				if (metadataSection != null) {
+					event.addRepositorySource((packConsumer, packConstructor) ->
+							packConsumer.accept(packConstructor.create(
+									"builtin/liroth_legacy_resources", Component.literal("Liroth: Legacy"), false,
+									() -> pack, metadataSection, Pack.Position.TOP, PackSource.BUILT_IN, false)));
+				}
+			}
+		} catch (IOException ex) {
+			throw new RuntimeException(ex);
 		}
 	}
     
@@ -168,61 +200,6 @@ public class Liroth
 
     public static ResourceLocation createLocation(Holder<?> holder) {
         return createLocation(holder.unwrapKey().orElseThrow());
-    }
-    
-    public void registerTabs(CreativeModeTabEvent.Register event) {
-    	liroth_blocks_tab = event.registerCreativeModeTab(new ResourceLocation(MOD_ID, ".liroth_blocks"), builder -> builder
-                .icon(() -> new ItemStack(LirothBlocks.LIROTH_GEM_BLOCK.get().asItem()))
-                .title(Component.translatable("itemGroup." + MOD_ID + ".liroth_blocks"))
-                .displayItems((featureFlagSet, tabOutput, hasOp) -> {
-                    LirothBlocks.BLOCK_ITEMS_FOR_TAB_LIST.forEach(registryObject -> tabOutput.accept(new ItemStack(registryObject.get())));
-                })
-        );
-    	
-    	liroth_items_tab = event.registerCreativeModeTab(new ResourceLocation(MOD_ID, ".liroth_items"), builder -> builder
-                .icon(() -> new ItemStack(LirothItems.LIROTH_GEM.get()))
-                .title(Component.translatable("itemGroup." + MOD_ID + ".liroth_items"))
-                .displayItems((featureFlagSet, tabOutput, hasOp) -> {
-                    LirothItems.ITEMS_FOR_TAB_LIST.forEach(registryObject -> tabOutput.accept(new ItemStack(registryObject.get())));
-                    LirothItems.LIROTH_FLUID_BUCKET.get();
-                    LirothItems.MOLTEN_SPINERIOS_BUCKET.get();
-                })
-        );
-    	
-    	liroth_combat_tab = event.registerCreativeModeTab(new ResourceLocation(MOD_ID, ".liroth_combat"), builder -> builder
-                .icon(() -> new ItemStack(LirothItems.LIROTH_SWORD.get()))
-                .title(Component.translatable("itemGroup." + MOD_ID + ".liroth_combat"))
-                .displayItems((featureFlagSet, tabOutput, hasOp) -> {
-                    LirothItems.COMBAT_ITEMS_FOR_TAB_LIST.forEach(registryObject -> tabOutput.accept(new ItemStack(registryObject.get())));
-                })
-        );
-    	
-    	liroth_entities_tab = event.registerCreativeModeTab(new ResourceLocation(MOD_ID, ".liroth_entities"), builder -> builder
-                .icon(() -> new ItemStack(LirothItems.UNUSED_SPAWN_EGG.get()))
-                .title(Component.translatable("itemGroup." + MOD_ID + ".liroth_entities"))
-                .displayItems((featureFlagSet, tabOutput, hasOp) -> {
-                    LirothItems.SPAWN_EGG_ITEMS_FOR_TAB_LIST.forEach(registryObject -> tabOutput.accept(new ItemStack(registryObject.get())));
-                    tabOutput.accept(LirothItems.FORSAKEN_CORPSE_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.FREAKSHOW_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.FUNGAL_FIEND_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.LIROTHIAN_MIMIC_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.PIER_PEEP_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.PROWLER_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.SHADE_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.SKELETAL_FREAK_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.SOUL_ARACHNID_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.VILE_SHARK_SPAWN_EGG.get());
-                    tabOutput.accept(LirothItems.WARP_SPAWN_EGG.get());
-                })
-        );
-    	
-    	liroth_plants_tab = event.registerCreativeModeTab(new ResourceLocation(MOD_ID, ".liroth_plants"), builder -> builder
-                .icon(() -> new ItemStack(LirothBlocks.LIROTH_ROSE.get().asItem()))
-                .title(Component.translatable("itemGroup." + MOD_ID + ".liroth_plants"))
-                .displayItems((featureFlagSet, tabOutput, hasOp) -> {
-                    LirothBlocks.PLANT_ITEMS_FOR_TAB_LIST.forEach(registryObject -> tabOutput.accept(new ItemStack(registryObject.get())));
-                })
-        );
     }
 
 }

@@ -96,7 +96,7 @@ public class LirothSounds {
     public static final RegistryObject<SoundEvent> DESOLATE = registerSoundEvent("music.liroth.desolate");
     
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
-    	return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Liroth.MOD_ID, name)));
+    	return SOUND_EVENTS.register(name, () -> new SoundEvent(new ResourceLocation(Liroth.MOD_ID, name)));
     }
     
     public static void register(IEventBus eventBus) {

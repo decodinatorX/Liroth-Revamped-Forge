@@ -252,8 +252,8 @@ public class PointedPetrifiedCrystal  extends Block implements Fallable, SimpleW
 
 	   }
 
-	   public DamageSource getFallDamageSource(Entity p_254432_) {
-		      return DamageSource.fallingStalactite(p_254432_);
+	   public DamageSource getFallDamageSource() {
+		      return DamageSource.FALLING_STALACTITE;
 		   }
 
 	   public Predicate<Entity> getHurtsEntitySelector() {

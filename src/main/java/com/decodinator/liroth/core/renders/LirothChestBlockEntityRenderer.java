@@ -5,7 +5,7 @@ import com.decodinator.liroth.core.helpers.IChestBlock;
 import com.decodinator.liroth.core.helpers.ChestManager.ChestInfo;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
@@ -85,7 +85,7 @@ public class LirothChestBlockEntityRenderer<T extends BlockEntity & LidBlockEnti
 			matrixStackIn.pushPose();
 			float f = blockstate.getValue(ChestBlock.FACING).toYRot();
 			matrixStackIn.translate(0.5D, 0.5D, 0.5D);
-			matrixStackIn.mulPose(Axis.YP.rotationDegrees(-f));
+			matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(-f));
 			matrixStackIn.translate(-0.5D, -0.5D, -0.5D);
 			DoubleBlockCombiner.NeighborCombineResult<? extends ChestBlockEntity> icallbackwrapper;
 			if (flag) {

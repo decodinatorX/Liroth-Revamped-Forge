@@ -1,11 +1,12 @@
 package com.decodinator.liroth.compat.jei;
 
+// HAD TO COPY THIS OVER BECAUSE GRADLEW WAS BITCHIN ABOUT IT FOR SOME DUMB REASON
+
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.drawable.IDrawableStatic;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-
-// HAD TO COPY THIS OVER BECAUSE GRADLEW WAS BITCHIN ABOUT IT FOR SOME DUMB REASON
+import mezz.jei.common.Constants;
 
 public abstract class FurnaceVariantCategory<T> implements IRecipeCategory<T> {
 	protected final IDrawableStatic staticFlame;

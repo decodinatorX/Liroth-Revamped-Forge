@@ -20,8 +20,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class ProwlerModel<T extends ProwlerEntity> extends EntityModel<T> {
-    public boolean carrying;
-    public boolean creepy;
+    public boolean carryingBlock;
+    public boolean angry;
     public float leaningPitch;
     
 	private final ModelPart body;
@@ -36,23 +36,61 @@ public class ProwlerModel<T extends ProwlerEntity> extends EntityModel<T> {
 		this.body = root.getChild("body");
 		this.head = root.getChild("head");
 		this.hat = root.getChild("hat");
-		this.rightArm = root.getChild("right_arm");
-		this.leftArm = root.getChild("left_arm");
-		this.leftLeg = root.getChild("left_leg");
-		this.rightLeg = root.getChild("right_leg");
+		this.rightArm = root.getChild("rightArm");
+		this.leftArm = root.getChild("leftArm");
+		this.leftLeg = root.getChild("leftLeg");
+		this.rightLeg = root.getChild("rightLeg");
 	}
 
 	public static LayerDefinition getTexturedModelData() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(28, 14).addBox(-4.0F, 4.0F, -2.0F, 8.0F, 8.0F, 4.0F).texOffs(8, 34).addBox(-0.5F, 0.0F, -2.0F, 6.0F, 4.0F, 4.0F).texOffs(24, 0).addBox(-5.5F, 0.0F, -2.0F, 6.0F, 4.0F, 4.0F), PartPose.offset(0.0F, -18.0F, 0.0F));
-		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(32, 12).mirror().addBox(-8.0F, -5.0F, 0.0F, 4.0F, 1.0F, 1.0F).mirror(false).texOffs(52, 28).addBox(2.0F, -12.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(24, 34).addBox(3.0F, -14.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(32, 8).addBox(5.0F, -14.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(0, 22).addBox(6.0F, -16.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(0, 18).addBox(5.0F, -12.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(0, 4).addBox(5.0F, -18.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(0, 0).addBox(3.0F, -18.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(40, 0).addBox(4.0F, -6.0F, 0.0F, 5.0F, 1.0F, 1.0F).texOffs(32, 12).addBox(4.0F, -7.0F, 0.0F, 4.0F, 1.0F, 1.0F).texOffs(32, 12).addBox(4.0F, -5.0F, 0.0F, 4.0F, 1.0F, 1.0F).texOffs(32, 12).mirror().addBox(-8.0F, -7.0F, 0.0F, 4.0F, 1.0F, 1.0F).mirror(false).texOffs(40, 0).mirror().addBox(-9.0F, -6.0F, 0.0F, 5.0F, 1.0F, 1.0F).mirror(false).texOffs(0, 0).addBox(-4.0F, -10.0F, -4.0F, 8.0F, 10.0F, 8.0F), PartPose.offset(0.0F, -18.0F, 0.0F));
-		partdefinition.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(0, 0).addBox(3.0F, -18.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(52, 28).addBox(2.0F, -12.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(24, 34).addBox(3.0F, -14.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(32, 8).addBox(5.0F, -14.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(0, 22).addBox(6.0F, -16.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(0, 18).addBox(5.0F, -12.0F, -1.0F, 2.0F, 2.0F, 2.0F).texOffs(0, 4).addBox(5.0F, -18.0F, -1.0F, 2.0F, 2.0F, 2.0F), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -3.1416F, 0.0F, 3.1416F));
+
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(28, 14).addBox(-4.0F, 4.0F, -2.0F, 8.0F, 8.0F, 4.0F)
+		.texOffs(8, 34).addBox(-0.5F, 0.0F, -2.0F, 6.0F, 4.0F, 4.0F)
+		.texOffs(24, 0).addBox(-5.5F, 0.0F, -2.0F, 6.0F, 4.0F, 4.0F), PartPose.offset(0.0F, -18.0F, 0.0F));
+
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(32, 12).mirror().addBox(-8.0F, -5.0F, 0.0F, 4.0F, 1.0F, 1.0F).mirror(false)
+		.texOffs(52, 28).addBox(2.0F, -12.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(24, 34).addBox(3.0F, -14.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(32, 8).addBox(5.0F, -14.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(0, 22).addBox(6.0F, -16.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(0, 18).addBox(5.0F, -12.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(0, 4).addBox(5.0F, -18.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(0, 0).addBox(3.0F, -18.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(40, 0).addBox(4.0F, -6.0F, 0.0F, 5.0F, 1.0F, 1.0F)
+		.texOffs(32, 12).addBox(4.0F, -7.0F, 0.0F, 4.0F, 1.0F, 1.0F)
+		.texOffs(32, 12).addBox(4.0F, -5.0F, 0.0F, 4.0F, 1.0F, 1.0F)
+		.texOffs(32, 12).mirror().addBox(-8.0F, -7.0F, 0.0F, 4.0F, 1.0F, 1.0F).mirror(false)
+		.texOffs(40, 0).mirror().addBox(-9.0F, -6.0F, 0.0F, 5.0F, 1.0F, 1.0F).mirror(false)
+		.texOffs(0, 0).addBox(-4.0F, -10.0F, -4.0F, 8.0F, 10.0F, 8.0F), PartPose.offset(0.0F, -18.0F, 0.0F));
+
+		head.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(0, 0).addBox(3.0F, -18.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(52, 28).addBox(2.0F, -12.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(24, 34).addBox(3.0F, -14.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(32, 8).addBox(5.0F, -14.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(0, 22).addBox(6.0F, -16.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(0, 18).addBox(5.0F, -12.0F, -1.0F, 2.0F, 2.0F, 2.0F)
+		.texOffs(0, 4).addBox(5.0F, -18.0F, -1.0F, 2.0F, 2.0F, 2.0F), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -3.1416F, 0.0F, 3.1416F));
+
 		partdefinition.addOrReplaceChild("hat", CubeListBuilder.create().texOffs(0, 18).addBox(-4.0F, -7.5F, -4.0F, 8.0F, 8.0F, 8.0F), PartPose.offset(0.0F, -18.0F, 0.0F));
-		partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(20, 42).addBox(0.0F, -2.0F, -1.0F, 2.0F, 10.0F, 2.0F).texOffs(20, 50).addBox(0.0F, 8.0F, 0.0F, 2.0F, 7.0F, 2.0F).texOffs(10, 43).addBox(0.0F, 15.0F, -0.5F, 2.0F, 13.0F, 2.0F), PartPose.offset(5.5F, -16.0F, 0.0F));
-		partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(20, 50).addBox(-2.0F, 8.0F, 0.0F, 2.0F, 7.0F, 2.0F).texOffs(20, 42).addBox(-2.0F, -2.0F, -1.0F, 2.0F, 10.0F, 2.0F).texOffs(10, 43).mirror().addBox(-2.0F, 15.0F, -0.5F, 2.0F, 13.0F, 2.0F).mirror(false), PartPose.offset(-5.5F, -16.0F, 0.0F));
-		partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 57).addBox(-1.0F, 25.0F, -1.0F, 2.0F, 5.0F, 2.0F).texOffs(0, 34).addBox(-1.0F, 5.0F, 0.0F, 2.0F, 20.0F, 2.0F).texOffs(0, 34).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F), PartPose.offset(-3.0F, -6.0F, 0.0F));
-		partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 57).addBox(-1.0F, 25.0F, -1.0F, 2.0F, 5.0F, 2.0F).texOffs(0, 34).addBox(-1.0F, 5.0F, 0.0F, 2.0F, 20.0F, 2.0F).texOffs(0, 34).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F), PartPose.offset(3.0F, -6.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rightArm", CubeListBuilder.create().texOffs(20, 42).addBox(0.0F, -2.0F, -1.0F, 2.0F, 10.0F, 2.0F)
+		.texOffs(20, 50).addBox(0.0F, 8.0F, 0.0F, 2.0F, 7.0F, 2.0F)
+		.texOffs(10, 43).addBox(0.0F, 15.0F, -0.5F, 2.0F, 13.0F, 2.0F), PartPose.offset(5.5F, -16.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(20, 50).addBox(-2.0F, 8.0F, 0.0F, 2.0F, 7.0F, 2.0F)
+		.texOffs(20, 42).addBox(-2.0F, -2.0F, -1.0F, 2.0F, 10.0F, 2.0F)
+		.texOffs(10, 43).mirror().addBox(-2.0F, 15.0F, -0.5F, 2.0F, 13.0F, 2.0F).mirror(false), PartPose.offset(-5.5F, -16.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("leftLeg", CubeListBuilder.create().texOffs(0, 57).addBox(-1.0F, 25.0F, -1.0F, 2.0F, 5.0F, 2.0F)
+		.texOffs(0, 34).addBox(-1.0F, 5.0F, 0.0F, 2.0F, 20.0F, 2.0F)
+		.texOffs(0, 34).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F), PartPose.offset(-3.0F, -6.0F, 0.0F));
+
+		partdefinition.addOrReplaceChild("rightLeg", CubeListBuilder.create().texOffs(0, 57).addBox(-1.0F, 25.0F, -1.0F, 2.0F, 5.0F, 2.0F)
+		.texOffs(0, 34).addBox(-1.0F, 5.0F, 0.0F, 2.0F, 20.0F, 2.0F)
+		.texOffs(0, 34).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 2.0F), PartPose.offset(3.0F, -6.0F, 0.0F));
+
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
@@ -67,13 +105,8 @@ public class ProwlerModel<T extends ProwlerEntity> extends EntityModel<T> {
         return angleTwo + angleOne * f;
     }
 
-    private float method_2807(float f) {
-        return -65.0f * f + f * f;
-    }
-
     @Override
     public void setupAnim(T livingEntity, float f, float g, float h, float i, float j) {
-        boolean bl3;
         boolean bl = ((LivingEntity)livingEntity).getFallFlyingTicks() > 4;
         boolean bl2 = ((LivingEntity)livingEntity).isVisuallySwimming();
         this.head.yRot = i * ((float)Math.PI / 180);
@@ -89,6 +122,15 @@ public class ProwlerModel<T extends ProwlerEntity> extends EntityModel<T> {
         }
         if (k < 1.0f) {
             k = 1.0f;
+        }
+        if (this.carryingBlock) {
+            this.rightArm.xRot = -0.5f;
+            this.leftArm.xRot = -0.5f;
+            this.rightArm.zRot = 0.05f;
+            this.leftArm.zRot = -0.05f;
+        }
+        if (this.angry) {
+            this.head.y -= 5.0f;
         }
         this.rightArm.xRot = Mth.cos(f * 0.6662f + (float)Math.PI) * 2.0f * g * 0.5f / k;
         this.leftArm.xRot = Mth.cos(f * 0.6662f) * 2.0f * g * 0.5f / k;
@@ -112,9 +154,9 @@ public class ProwlerModel<T extends ProwlerEntity> extends EntityModel<T> {
         }
         this.rightArm.yRot = 0.0f;
         this.leftArm.yRot = 0.0f;
-            float p = 0.33333334f;
             this.leftLeg.xRot = Mth.lerp(this.leaningPitch, this.leftLeg.xRot, 0.3f * Mth.cos(f * 0.33333334f + (float)Math.PI));
             this.rightLeg.xRot = Mth.lerp(this.leaningPitch, this.rightLeg.xRot, 0.3f * Mth.cos(f * 0.33333334f));
+            
     }
 
 	@Override

@@ -1,13 +1,13 @@
 {   "parent": "block/block",
     "textures": {
-        "particle": "liroth:block/dimensional_communicator_top",
+        "particle": "liroth:block/dimensional_communicator_side",
         "bottom": "minecraft:block/obsidian",
         "top": "liroth:block/dimensional_communicator_top",
-        "side": "liroth:block/dimensional_communicator_top"
+        "side": "liroth:block/dimensional_communicator_side"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],
-            "to": [ 16, 16, 16 ],
+            "to": [ 16, 13, 16 ],
             "faces": {
                 "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom", "cullface": "down" },
                 "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#top" },
