@@ -17,7 +17,18 @@ import com.decodinator.liroth.LirothForgeClientEventsHandler;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.resources.model.Material;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
+import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Manager class for texture information for Blueprint Chests.
@@ -28,14 +39,6 @@ import java.util.Map;
 public final class ChestManager {
 	private static final Map<String, ChestInfo> CHEST_INFO_MAP = new HashMap<>();
 
-	/**
-	 * Puts a created {@link ChestInfo} onto the {@link #CHEST_INFO_MAP} for a given ID and type.
-	 * <p>Called in chest related methods in {@link BlockSubRegistryHelper}</p>
-	 *
-	 * @param modId   Mod ID for the chest.
-	 * @param type    Type for the chest. (e.g. "oak")
-	 * @param trapped If the chest is trapped.
-	 */
 	public static synchronized void putChestInfo(String modId, String type, boolean trapped) {
 		CHEST_INFO_MAP.put(modId + ":" + type + (trapped ? "_trapped" : ""), new ChestInfo(modId, type, trapped));
 	}
@@ -53,7 +56,7 @@ public final class ChestManager {
 
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
-	public static void onStitch(LirothForgeClientEventsHandler.Pre event) {
+	public static void onStitch(TextureStitchEvent.Pre event) {
 		if (event.getAtlas().location().equals(Sheets.CHEST_SHEET)) {
 			for (ChestInfo chestInfo : CHEST_INFO_MAP.values()) {
 				chestInfo.setup(event);
@@ -79,7 +82,7 @@ public final class ChestManager {
 		 * @param event A {@link TextureStitchEvent.Pre} to setup this info from.
 		 */
 		@OnlyIn(Dist.CLIENT)
-		private void setup(LirothForgeClientEventsHandler.Pre event) {
+		private void setup(TextureStitchEvent.Pre event) {
 			event.addSprite(this.single);
 			event.addSprite(this.left);
 			event.addSprite(this.right);
