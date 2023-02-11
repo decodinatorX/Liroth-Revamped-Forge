@@ -4,17 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import com.decodinator.liroth.Liroth;
-import com.decodinator.liroth.core.items.AnomalyChargeItem;
-import com.decodinator.liroth.core.items.BeamItem;
-import com.decodinator.liroth.core.items.DamnationChargeItem;
-import com.decodinator.liroth.core.items.JalsphireIgnitorItem;
-import com.decodinator.liroth.core.items.JantiroChargeItem;
-import com.decodinator.liroth.core.items.KeyItem;
-import com.decodinator.liroth.core.items.LirothBlaster;
-import com.decodinator.liroth.core.items.LirothBoatItem;
-import com.decodinator.liroth.core.items.LirothChargeItem;
-import com.decodinator.liroth.core.items.PotestiumHelmetItem;
-import com.decodinator.liroth.core.items.UnusedItem;
+import com.decodinator.liroth.core.items.*;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -364,7 +354,7 @@ public class LirothItems {
   	}
     
     static RegistryObject<Item> createShieldItem(String id) {
-		RegistryObject<Item> createItem = ITEMS.register(id, () -> new ShieldItem(new Item.Properties()));
+		RegistryObject<Item> createItem = ITEMS.register(id, () -> new LirothianShieldItem(new Item.Properties()));
 		COMBAT_ITEMS_FOR_TAB_LIST.add(createItem);
 		return createItem;    
     }

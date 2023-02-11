@@ -169,8 +169,10 @@ dependencies {
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
         implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.3:4.0.3')
-        implementation files("lib/cpapi.jar")
-        implementation fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:10.0.581")
+   //     implementation files("lib/cpapi.jar")
+    implementation fg.deobf("curse.maven:custom-portal-api-forge-621463:4358919")
+
+    implementation fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:10.0.581")
         
   // compile against the JEI API but do not include it at runtime
   compileOnly(fg.deobf("mezz.jei:jei-1.19.3-common-api:12.0.2.2"))

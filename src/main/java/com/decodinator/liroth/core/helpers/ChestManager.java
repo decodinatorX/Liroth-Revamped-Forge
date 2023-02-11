@@ -30,7 +30,7 @@ public final class ChestManager {
 
 	/**
 	 * Puts a created {@link ChestInfo} onto the {@link #CHEST_INFO_MAP} for a given ID and type.
-	 * <p>Called in chest related methods in {@link BlockSubRegistryHelper}</p>
+	 * <p>Called in chest related methods in {@link }</p>
 	 *
 	 * @param modId   Mod ID for the chest.
 	 * @param type    Type for the chest. (e.g. "oak")
@@ -53,7 +53,7 @@ public final class ChestManager {
 
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
-	public static void onStitch(LirothForgeClientEventsHandler.Pre event) {
+	public static void onStitch(TextureStitchEvent.Post event) {
 		if (event.getAtlas().location().equals(Sheets.CHEST_SHEET)) {
 			for (ChestInfo chestInfo : CHEST_INFO_MAP.values()) {
 				chestInfo.setup(event);
@@ -76,13 +76,13 @@ public final class ChestManager {
 		/**
 		 * Adds the internal textures to the stitch event and initializes the {@link Material}s.
 		 *
-		 * @param event A {@link TextureStitchEvent.Pre} to setup this info from.
+		 * @param event A {@link TextureStitchEvent.Post} to setup this info from.
 		 */
 		@OnlyIn(Dist.CLIENT)
-		private void setup(LirothForgeClientEventsHandler.Pre event) {
-			event.addSprite(this.single);
-			event.addSprite(this.left);
-			event.addSprite(this.right);
+		private void setup(TextureStitchEvent.Post event) {
+			event.getAtlas().getSprite(this.single);
+			event.getAtlas().getSprite(this.left);
+			event.getAtlas().getSprite(this.right);
 			this.singleMaterial = new Material(Sheets.CHEST_SHEET, this.single);
 			this.leftMaterial = new Material(Sheets.CHEST_SHEET, this.left);
 			this.rightMaterial = new Material(Sheets.CHEST_SHEET, this.right);

@@ -1,8 +1,8 @@
 package com.decodinator.liroth.core.renders;
 
-import com.decodinator.liroth.LirothForgeClientEventsHandler;
 import com.decodinator.liroth.core.LirothBoat;
 import com.decodinator.liroth.core.LirothBoatModel;
+import com.decodinator.liroth.core.LirothModelLayers;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -40,7 +40,7 @@ public class LirothBoatRenderer extends EntityRenderer<LirothBoat> {
    }
 
    private LirothBoatModel createBoatModel(EntityRendererProvider.Context p_234569_, LirothBoat.LirothType p_234570_, boolean p_234571_) {
-      ModelLayerLocation modellayerlocation = p_234571_ ? LirothForgeClientEventsHandler.createChestBoatModelName(p_234570_) : LirothForgeClientEventsHandler.createBoatModelName(p_234570_);
+      ModelLayerLocation modellayerlocation = p_234571_ ? LirothModelLayers.MODEL_CHEST_LIROTH_BOAT_LAYER : LirothModelLayers.MODEL_LIROTH_BOAT_LAYER;
       return new LirothBoatModel(p_234569_.bakeLayer(modellayerlocation), p_234571_);
    }
 

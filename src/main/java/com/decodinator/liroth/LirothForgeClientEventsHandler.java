@@ -45,14 +45,17 @@ import com.decodinator.liroth.core.particles.JantiroPortalParticle;
 import com.decodinator.liroth.core.particles.LirothPortalParticle;
 import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.particles.SporeParticle;
+import com.decodinator.liroth.core.renders.LirothBoatRenderer;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -88,6 +91,8 @@ public class LirothForgeClientEventsHandler {
     	event.registerLayerDefinition(LirothModelLayers.SOUL_ARACHNID, () -> SoulArachnidModel.getTexturedModelData());
     	event.registerLayerDefinition(LirothModelLayers.VILE_SHARK, () -> VileSharkModel.getTexturedModelData());
     	event.registerLayerDefinition(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
+		event.registerLayerDefinition(LirothModelLayers.MODEL_LIROTH_BOAT_LAYER, () -> LirothBoatModel.createBodyModel(false));
+		event.registerLayerDefinition(LirothModelLayers.MODEL_CHEST_LIROTH_BOAT_LAYER, () -> LirothBoatModel.createBodyModel(true));
     }
     
     @SubscribeEvent
@@ -157,43 +162,22 @@ public class LirothForgeClientEventsHandler {
     public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
         for (LirothBoat.LirothType value : LirothBoat.LirothType.values()) {
             consumer.accept(createBoatModelName(value), () -> LirothBoatModel.createBodyModel(false));
-            consumer.accept(createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
-    		consumer.accept(LirothModelLayers.FORSAKEN_CORPSE, () -> ForsakenCorpseModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.FREAKSHOW, () -> FreakshowModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.FUNGAL_FIEND, () -> FungalFiendModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.LIROTHIAN_MIMIC, () -> LirothianMimicModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.PIER_PEEP, () -> PierPeepModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.PROWLER, () -> ProwlerModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.SHADE, () -> ShadeModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.SKELETAL_FREAK, () -> SkeletalFreakModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.SOUL_ARACHNID, () -> SoulArachnidModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.VILE_SHARK, () -> VileSharkModel.getTexturedModelData());
-    		consumer.accept(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
         }
+		for (LirothBoat.LirothType value : LirothBoat.LirothType.values()) {
+			consumer.accept(createChestBoatModelName(value), () -> LirothBoatModel.createBodyModel(true));
+		}
+		consumer.accept(LirothModelLayers.FORSAKEN_CORPSE, () -> ForsakenCorpseModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.FREAKSHOW, () -> FreakshowModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.FUNGAL_FIEND, () -> FungalFiendModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.LIROTHIAN_MIMIC, () -> LirothianMimicModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.PIER_PEEP, () -> PierPeepModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.PROWLER, () -> ProwlerModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.SHADE, () -> ShadeModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.SKELETAL_FREAK, () -> SkeletalFreakModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.SOUL_ARACHNID, () -> SoulArachnidModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.VILE_SHARK, () -> VileSharkModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
+		consumer.accept(LirothModelLayers.MODEL_LIROTH_BOAT_LAYER, () -> LirothBoatModel.createBodyModel(false));
+		consumer.accept(LirothModelLayers.MODEL_CHEST_LIROTH_BOAT_LAYER, () -> LirothBoatModel.createBodyModel(true));
     }
-    
-     public static class Pre extends TextureStitchEvent
-     {
-         private final Set<ResourceLocation> sprites;
-    
-         @ApiStatus.Internal
-         public Pre(TextureAtlas map, Set<ResourceLocation> sprites)
-         {
-             super(map);
-             this.sprites = sprites;
-         }
-    //
-    //     /**
-    //      * Adds a sprite to be stitched into the texture atlas.
-    //      *
-    //      * <p>Callers should check that the atlas which the event is fired for is the atlas they wish to stitch the
-    //      * sprite into, as otherwise they would be stitching the sprite into all atlases.</p>
-    //      *
-    //      * @param sprite the location of the sprite
-    //      */
-         public boolean addSprite(ResourceLocation sprite)
-         {
-             return this.sprites.add(sprite);
-         }
-     }
 }

@@ -98,7 +98,8 @@ public class LirothChestBlockEntityRenderer<T extends BlockEntity & LidBlockEnti
 			f1 = 1.0F - f1;
 			f1 = 1.0F - f1 * f1 * f1;
 			int i = icallbackwrapper.apply(new BrightnessCombiner<>()).applyAsInt(combinedLightIn);
-			VertexConsumer ivertexbuilder = this.getChestMaterial(tileEntityIn, chesttype).buffer(bufferIn, RenderType::entityCutout);
+			Material material = this.getChestMaterial(tileEntityIn, chesttype);
+			VertexConsumer ivertexbuilder = material.buffer(bufferIn, RenderType::entityCutout);
 			if (flag1) {
 				if (chesttype == ChestType.LEFT) {
 					this.render(matrixStackIn, ivertexbuilder, this.doubleLeftLid, this.doubleLeftLock, this.doubleLeftBottom, f1, i, combinedOverlayIn);
@@ -113,7 +114,7 @@ public class LirothChestBlockEntityRenderer<T extends BlockEntity & LidBlockEnti
 		}
 	}
 
-	public Material getChestMaterial(T t, ChestType type) {
+	public Material getChestMaterial(T blockEntity, ChestType type) {
 		if (this.isChristmas) {
 			return switch (type) {
 				case SINGLE -> Sheets.CHEST_XMAS_LOCATION;
@@ -122,7 +123,7 @@ public class LirothChestBlockEntityRenderer<T extends BlockEntity & LidBlockEnti
 			};
 		} else {
 			Block inventoryBlock = itemBlock;
-			if (inventoryBlock == null) inventoryBlock = t.getBlockState().getBlock();
+			if (inventoryBlock == null) inventoryBlock = blockEntity.getBlockState().getBlock();
 			ChestInfo chestInfo = ChestManager.getInfoForChest(((IChestBlock) inventoryBlock).getChestType());
 			return switch (type) {
 				case SINGLE -> chestInfo != null ? chestInfo.getSingleMaterial() : Sheets.CHEST_LOCATION;

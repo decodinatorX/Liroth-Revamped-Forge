@@ -973,56 +973,63 @@ public class LirothBlocks {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<LirothChestBlock> block = BLOCKS.register(name + "_chest", () -> new LirothChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
-		return block;
+        RegistryObject<Item> chest = ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
+		BLOCK_ITEMS_FOR_TAB_LIST.add(chest);
+        return block;
 	}
 	
 	public static RegistryObject<DamnationChestBlock> createDamnationChest(String name) {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<DamnationChestBlock> block = BLOCKS.register(name + "_chest", () -> new DamnationChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
-		return block;
+        RegistryObject<Item> chest = ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
+        BLOCK_ITEMS_FOR_TAB_LIST.add(chest);
+        return block;
 	}
 	
 	public static RegistryObject<JapzChestBlock> createJapzChest(String name) {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<JapzChestBlock> block = BLOCKS.register(name + "_chest", () -> new JapzChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
-		return block;
+        RegistryObject<Item> chest = ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
+        BLOCK_ITEMS_FOR_TAB_LIST.add(chest);
+        return block;
 	}
 	
 	public static RegistryObject<KoolawChestBlock> createKoolawChest(String name) {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<KoolawChestBlock> block = BLOCKS.register(name + "_chest", () -> new KoolawChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
-		return block;
+        RegistryObject<Item> chest = ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
+        BLOCK_ITEMS_FOR_TAB_LIST.add(chest);
+        return block;
 	}
 	
 	public static RegistryObject<PetrifiedDamnationChestBlock> createPetrifiedDamnationChest(String name) {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<PetrifiedDamnationChestBlock> block = BLOCKS.register(name + "_chest", () -> new PetrifiedDamnationChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
-		return block;
+        RegistryObject<Item> chest = ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
+        BLOCK_ITEMS_FOR_TAB_LIST.add(chest);
+        return block;
 	}
 	
 	public static RegistryObject<SpicedChestBlock> createSpicedChest(String name) {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<SpicedChestBlock> block = BLOCKS.register(name + "_chest", () -> new SpicedChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
-		return block;
+        RegistryObject<Item> chest = ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
+        BLOCK_ITEMS_FOR_TAB_LIST.add(chest);
+        return block;
 	}
 	
 	public static RegistryObject<TallpierChestBlock> createTallpierChest(String name) {
 		String modId = Liroth.MOD_ID;
 		RegistryObject<TallpierChestBlock> block = BLOCKS.register(name + "_chest", () -> new TallpierChestBlock(modId + ":" + name, Block.Properties.copy(Blocks.CHEST)));
 		ChestManager.putChestInfo(modId, name, false);
-		ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
-		return block;
+        RegistryObject<Item> chest = ITEMS.register(name + "_chest", () -> new BEWLRFuelBlockItem(block.get(), new Item.Properties(), () -> () -> chestBEWLR(false), 300));
+        BLOCK_ITEMS_FOR_TAB_LIST.add(chest);
+        return block;
 	}
 	
     static RegistryObject<LirothPortalBlock> createPortal(String id) {
