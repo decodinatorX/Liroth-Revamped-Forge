@@ -92,6 +92,8 @@ public class LirothForgeClientEventsHandler {
     	event.registerLayerDefinition(LirothModelLayers.SOUL_ARACHNID, () -> SoulArachnidModel.getTexturedModelData());
     	event.registerLayerDefinition(LirothModelLayers.VILE_SHARK, () -> VileSharkModel.getTexturedModelData());
     	event.registerLayerDefinition(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
+		event.registerLayerDefinition(LirothModelLayers.MODEL_LIROTH_BOAT_LAYER, () -> LirothBoatModel.createBodyModel(false));
+		event.registerLayerDefinition(LirothModelLayers.MODEL_CHEST_LIROTH_BOAT_LAYER, () -> LirothBoatModel.createBodyModel(true));
     }
     
     @SubscribeEvent

@@ -9,8 +9,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class LirothModelLayers {
-
-	public static final ModelLayerLocation POTESTIUM_HELMET = make("potestium_helmet");
+	public static final ModelLayerLocation MODEL_LIROTH_BOAT_LAYER = new ModelLayerLocation(new ResourceLocation(Liroth.MOD_ID, "liroth_boat"), "main");
+	public static final ModelLayerLocation MODEL_CHEST_LIROTH_BOAT_LAYER = new ModelLayerLocation(new ResourceLocation(Liroth.MOD_ID, "chest_liroth_boat"), "main");
 	public static final ModelLayerLocation FORSAKEN_CORPSE = make("forsaken_corpse");
 	public static final ModelLayerLocation FREAKSHOW = make("freakshow");
 	public static final ModelLayerLocation FUNGAL_FIEND = make("fungal_fiend");
@@ -22,7 +22,6 @@ public class LirothModelLayers {
 	public static final ModelLayerLocation SOUL_ARACHNID = make("soul_arachnid");
 	public static final ModelLayerLocation VILE_SHARK = make("vile_shark");
 	public static final ModelLayerLocation WARP = make("warp");
-	public static final ModelLayerLocation BEAM_LASER_PROJECTILE = make("beam_laser_projectile");
 
 	private static ModelLayerLocation make(String name) {
 		return make(name, "main");
