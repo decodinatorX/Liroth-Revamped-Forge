@@ -1,15 +1,13 @@
 package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.Liroth;
+import com.mojang.serialization.Codec;
 
-import net.minecraft.client.particle.Particle;
-import net.minecraft.core.Holder;
-import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistry;
 import net.minecraftforge.registries.RegistryObject;
 
 public class LirothParticles {
@@ -25,4 +23,10 @@ public class LirothParticles {
 	public static final RegistryObject<SimpleParticleType> JANTIRO_PORTAL = PARTICLES.register("jantiro_portal", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> JALSPHIRE_PORTAL = PARTICLES.register("jalsphire_portal", () -> new SimpleParticleType(true));
 	public static final RegistryObject<SimpleParticleType> DEVASTATED_PORTAL = PARTICLES.register("devastated_portal", () -> new SimpleParticleType(true));
-}
+    public static final RegistryObject<ParticleType<BlockParticleOption>> CUSTOMPORTALPARTICLE = PARTICLES.register("customportalparticle", () -> new ParticleType<BlockParticleOption>(false, BlockParticleOption.DESERIALIZER) {
+        private Codec<BlockParticleOption> codec = BlockParticleOption.codec(this);
+        @Override
+        public Codec<BlockParticleOption> codec() {
+            return codec;
+        }
+    });}

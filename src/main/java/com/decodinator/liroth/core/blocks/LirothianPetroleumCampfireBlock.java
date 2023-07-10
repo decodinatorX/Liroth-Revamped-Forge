@@ -95,7 +95,7 @@ public class LirothianPetroleumCampfireBlock extends BaseEntityBlock implements 
 
 	   public void entityInside(BlockState p_51269_, Level p_51270_, BlockPos p_51271_, Entity p_51272_) {
 	      if (p_51269_.getValue(LIT) && p_51272_ instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)p_51272_)) {
-	         p_51272_.hurt(DamageSource.IN_FIRE, (float)this.fireDamage);
+	         p_51272_.hurt(p_51270_.m_269111_().m_269387_(), (float)this.fireDamage);
 	      }
 
 	      super.entityInside(p_51269_, p_51270_, p_51271_, p_51272_);

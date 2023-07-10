@@ -34,7 +34,7 @@ public class PierGrassBlock extends PierSpreadableBlock implements BonemealableB
 		   public void performBonemeal(ServerLevel p_221270_, RandomSource p_221271_, BlockPos p_221272_, BlockState p_221273_) {
 		      BlockPos blockpos = p_221272_.above();
 		      BlockState blockstate = Blocks.GRASS.defaultBlockState();
-		      Optional<Holder.Reference<PlacedFeature>> optional = p_221270_.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
+		      Optional<Holder.Reference<PlacedFeature>> optional = p_221270_.m_9598_().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
 
 		      label46:
 		      for(int i = 0; i < 128; ++i) {

@@ -47,7 +47,7 @@ public class LirothEntities {
 	public static final RegistryObject<EntityType<BeamLaserProjectileEntity>> BEAM_LASER_PROJECTILE = ENTITIES_TYPES.register("beam_laser_projectile_entity", () -> EntityType.Builder.<BeamLaserProjectileEntity>of(BeamLaserProjectileEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build(new ResourceLocation(Liroth.MOD_ID, "beam_laser_projectile_entity").toString()));
 	public static AbstractArrow createBeamProjectile(LivingEntity p_37301_, ItemStack p_37302_, float p_37303_) {
 			  BeamItem arrowitem = (BeamItem)(p_37302_.getItem() instanceof BeamItem ? p_37302_.getItem() : LirothItems.COOL_BEAM.get());
-		      AbstractArrow abstractarrow = arrowitem.createBeam(p_37301_.level, p_37302_, p_37301_);
+		      AbstractArrow abstractarrow = arrowitem.createBeam(p_37301_.getLevel(), p_37302_, p_37301_);
 		      abstractarrow.setEnchantmentEffectsFromEntity(p_37301_, p_37303_);
 		      return abstractarrow;
 		   }

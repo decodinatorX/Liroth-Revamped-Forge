@@ -152,20 +152,20 @@ public class LirothItems {
     
     public static final RegistryObject<Item>TOURMALINE = createItem("tourmaline");
         
-    public static final RegistryObject<Item>LIROTH_HELMET = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, EquipmentSlot.HEAD, "liroth_helmet");
-    public static final RegistryObject<Item>LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, EquipmentSlot.CHEST, "liroth_chestplate");
-    public static final RegistryObject<Item>LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, EquipmentSlot.LEGS, "liroth_leggings");
-    public static final RegistryObject<Item>LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, EquipmentSlot.FEET, "liroth_boots");
+    public static final RegistryObject<Item>LIROTH_HELMET = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "liroth_helmet");
+    public static final RegistryObject<Item>LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "liroth_chestplate");
+    public static final RegistryObject<Item>LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "liroth_leggings");
+    public static final RegistryObject<Item>LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "liroth_boots");
     
-    public static final RegistryObject<Item>LIROTHIAN_COBALT_HELMET = createArmorItem(LirothArmorMaterials.LIROTHIAN_COBALT_ARMOR_MATERIAL, EquipmentSlot.HEAD, "lirothian_cobalt_helmet");
-    public static final RegistryObject<Item>LIROTHIAN_COBALT_CHESTPLATE = createArmorItem(LirothArmorMaterials.LIROTHIAN_COBALT_ARMOR_MATERIAL, EquipmentSlot.CHEST, "lirothian_cobalt_chestplate");
-    public static final RegistryObject<Item>LIROTHIAN_COBALT_LEGGINGS = createArmorItem(LirothArmorMaterials.LIROTHIAN_COBALT_ARMOR_MATERIAL, EquipmentSlot.LEGS, "lirothian_cobalt_leggings");
-    public static final RegistryObject<Item>LIROTHIAN_COBALT_BOOTS = createArmorItem(LirothArmorMaterials.LIROTHIAN_COBALT_ARMOR_MATERIAL, EquipmentSlot.FEET, "lirothian_cobalt_boots");
+    public static final RegistryObject<Item>LIROTHIAN_COBALT_HELMET = createArmorItem(LirothArmorMaterials.LIROTHIAN_COBALT_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "lirothian_cobalt_helmet");
+    public static final RegistryObject<Item>LIROTHIAN_COBALT_CHESTPLATE = createArmorItem(LirothArmorMaterials.LIROTHIAN_COBALT_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "lirothian_cobalt_chestplate");
+    public static final RegistryObject<Item>LIROTHIAN_COBALT_LEGGINGS = createArmorItem(LirothArmorMaterials.LIROTHIAN_COBALT_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "lirothian_cobalt_leggings");
+    public static final RegistryObject<Item>LIROTHIAN_COBALT_BOOTS = createArmorItem(LirothArmorMaterials.LIROTHIAN_COBALT_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "lirothian_cobalt_boots");
     
-    public static final RegistryObject<Item>ANSALUM_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.ANSALUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.HEAD, "ansalum_liroth_helmet");
-    public static final RegistryObject<Item>ANSALUM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.ANSALUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.CHEST, "ansalum_liroth_chestplate");
-    public static final RegistryObject<Item>ANSALUM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.ANSALUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.LEGS, "ansalum_liroth_leggings");
-    public static final RegistryObject<Item>ANSALUM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.ANSALUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.FEET, "ansalum_liroth_boots");
+    public static final RegistryObject<Item>ANSALUM_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.ANSALUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "ansalum_liroth_helmet");
+    public static final RegistryObject<Item>ANSALUM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.ANSALUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "ansalum_liroth_chestplate");
+    public static final RegistryObject<Item>ANSALUM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.ANSALUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "ansalum_liroth_leggings");
+    public static final RegistryObject<Item>ANSALUM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.ANSALUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "ansalum_liroth_boots");
     
     public static final RegistryObject<Item>ANSALUM_LIROTH_AXE = createAxeItem(LirothToolMaterials.ANSALUM_LIROTH_TOOL_MATERIAL, 7.0f, -3.0f, "ansalum_liroth_axe");
     public static final RegistryObject<Item>LUX_LIROTH_KATANA = createSwordItem(LirothToolMaterials.LUX_LIROTH_TOOL_MATERIAL, 2, -1.4f, "lux_liroth_katana");
@@ -177,30 +177,30 @@ public class LirothItems {
     public static final RegistryObject<Item>QUANTUM_LIROTH_AXE = createAxeItem(LirothToolMaterials.QUANTUM_LIROTH_TOOL_MATERIAL, 5.0f, -3.0f, "quantum_liroth_axe");
     public static final RegistryObject<Item>QUANTUM_LIROTH_HOE = createHoeItem(LirothToolMaterials.QUANTUM_LIROTH_TOOL_MATERIAL, -4, 0.0f, "quantum_liroth_hoe");
     
-    public static final RegistryObject<Item>LUX_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.LUX_LIROTH_ARMOR_MATERIAL, EquipmentSlot.HEAD, "lux_liroth_helmet");
-    public static final RegistryObject<Item>LUX_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.LUX_LIROTH_ARMOR_MATERIAL, EquipmentSlot.CHEST, "lux_liroth_chestplate");
-    public static final RegistryObject<Item>LUX_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.LUX_LIROTH_ARMOR_MATERIAL, EquipmentSlot.LEGS, "lux_liroth_leggings");
-    public static final RegistryObject<Item>LUX_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.LUX_LIROTH_ARMOR_MATERIAL, EquipmentSlot.FEET, "lux_liroth_boots");
+    public static final RegistryObject<Item>LUX_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.LUX_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "lux_liroth_helmet");
+    public static final RegistryObject<Item>LUX_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.LUX_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "lux_liroth_chestplate");
+    public static final RegistryObject<Item>LUX_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.LUX_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "lux_liroth_leggings");
+    public static final RegistryObject<Item>LUX_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.LUX_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "lux_liroth_boots");
     
-    public static final RegistryObject<Item>SALEM_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.SALEM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.HEAD, "salem_liroth_helmet");
-    public static final RegistryObject<Item>SALEM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.SALEM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.CHEST, "salem_liroth_chestplate");
-    public static final RegistryObject<Item>SALEM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.SALEM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.LEGS, "salem_liroth_leggings");
-    public static final RegistryObject<Item>SALEM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.SALEM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.FEET, "salem_liroth_boots");
+    public static final RegistryObject<Item>SALEM_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.SALEM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "salem_liroth_helmet");
+    public static final RegistryObject<Item>SALEM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.SALEM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "salem_liroth_chestplate");
+    public static final RegistryObject<Item>SALEM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.SALEM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "salem_liroth_leggings");
+    public static final RegistryObject<Item>SALEM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.SALEM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "salem_liroth_boots");
     
-    public static final RegistryObject<Item>QUANTUM_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.HEAD, "quantum_liroth_helmet");
-    public static final RegistryObject<Item>QUANTUM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.CHEST, "quantum_liroth_chestplate");
-    public static final RegistryObject<Item>QUANTUM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.LEGS, "quantum_liroth_leggings");
-    public static final RegistryObject<Item>QUANTUM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.FEET, "quantum_liroth_boots");
+    public static final RegistryObject<Item>QUANTUM_LIROTH_HELMET = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "quantum_liroth_helmet");
+    public static final RegistryObject<Item>QUANTUM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "quantum_liroth_chestplate");
+    public static final RegistryObject<Item>QUANTUM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "quantum_liroth_leggings");
+    public static final RegistryObject<Item>QUANTUM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.QUANTUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "quantum_liroth_boots");
     
-    public static final RegistryObject<Item>POTESTIUM_LIROTH_HELMET = createPotestiumHelmetItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.HEAD, "potestium_liroth_helmet");
-    public static final RegistryObject<Item>POTESTIUM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.CHEST, "potestium_liroth_chestplate");
-    public static final RegistryObject<Item>POTESTIUM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.LEGS, "potestium_liroth_leggings");
-    public static final RegistryObject<Item>POTESTIUM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, EquipmentSlot.FEET, "potestium_liroth_boots");
+    public static final RegistryObject<Item>POTESTIUM_LIROTH_HELMET = createPotestiumHelmetItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "potestium_liroth_helmet");
+    public static final RegistryObject<Item>POTESTIUM_LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "potestium_liroth_chestplate");
+    public static final RegistryObject<Item>POTESTIUM_LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "potestium_liroth_leggings");
+    public static final RegistryObject<Item>POTESTIUM_LIROTH_BOOTS = createArmorItem(LirothArmorMaterials.POTESTIUM_LIROTH_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "potestium_liroth_boots");
 
-    public static final RegistryObject<Item>RUBY_HELMET = createArmorItem(LirothArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentSlot.HEAD, "ruby_helmet");
-    public static final RegistryObject<Item>RUBY_CHESTPLATE = createArmorItem(LirothArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentSlot.CHEST, "ruby_chestplate");
-    public static final RegistryObject<Item>RUBY_LEGGINGS = createArmorItem(LirothArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentSlot.LEGS, "ruby_leggings");
-    public static final RegistryObject<Item>RUBY_BOOTS = createArmorItem(LirothArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentSlot.FEET, "ruby_boots");
+    public static final RegistryObject<Item>RUBY_HELMET = createArmorItem(LirothArmorMaterials.RUBY_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "ruby_helmet");
+    public static final RegistryObject<Item>RUBY_CHESTPLATE = createArmorItem(LirothArmorMaterials.RUBY_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "ruby_chestplate");
+    public static final RegistryObject<Item>RUBY_LEGGINGS = createArmorItem(LirothArmorMaterials.RUBY_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "ruby_leggings");
+    public static final RegistryObject<Item>RUBY_BOOTS = createArmorItem(LirothArmorMaterials.RUBY_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "ruby_boots");
     
     public static final RegistryObject<Item>POTESTIUM_SCYTHE = createHoeItem(LirothToolMaterials.POTESTIUM_LIROTH_TOOL_MATERIAL, 3, 0.0f, "potestium_scythe");
     
@@ -216,10 +216,10 @@ public class LirothItems {
     public static final RegistryObject<Item>LIROTHIAN_COBALT_AXE = createAxeItem(LirothToolMaterials.LIROTHIAN_COBALT_TOOL_MATERIAL, 5.0f, -3.0f, "lirothian_cobalt_axe");
     public static final RegistryObject<Item>LIROTHIAN_COBALT_HOE = createHoeItem(LirothToolMaterials.LIROTHIAN_COBALT_TOOL_MATERIAL, -4, 0.0f, "lirothian_cobalt_hoe");
     
-    public static final RegistryObject<Item>TOURMALINE_HELMET = createArmorItem(LirothArmorMaterials.TOURMALINE_ARMOR_MATERIAL, EquipmentSlot.HEAD, "tourmaline_helmet");
-    public static final RegistryObject<Item>TOURMALINE_CHESTPLATE = createArmorItem(LirothArmorMaterials.TOURMALINE_ARMOR_MATERIAL, EquipmentSlot.CHEST, "tourmaline_chestplate");
-    public static final RegistryObject<Item>TOURMALINE_LEGGINGS = createArmorItem(LirothArmorMaterials.TOURMALINE_ARMOR_MATERIAL, EquipmentSlot.LEGS, "tourmaline_leggings");
-    public static final RegistryObject<Item>TOURMALINE_BOOTS = createArmorItem(LirothArmorMaterials.TOURMALINE_ARMOR_MATERIAL, EquipmentSlot.FEET, "tourmaline_boots");
+    public static final RegistryObject<Item>TOURMALINE_HELMET = createArmorItem(LirothArmorMaterials.TOURMALINE_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "tourmaline_helmet");
+    public static final RegistryObject<Item>TOURMALINE_CHESTPLATE = createArmorItem(LirothArmorMaterials.TOURMALINE_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "tourmaline_chestplate");
+    public static final RegistryObject<Item>TOURMALINE_LEGGINGS = createArmorItem(LirothArmorMaterials.TOURMALINE_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "tourmaline_leggings");
+    public static final RegistryObject<Item>TOURMALINE_BOOTS = createArmorItem(LirothArmorMaterials.TOURMALINE_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, "tourmaline_boots");
     
     public static final RegistryObject<Item>TOURMALINE_SWORD = createSwordItem(LirothToolMaterials.TOURMALINE_TOOL_MATERIAL, 3, -2.4f, "tourmaline_sword");
     public static final RegistryObject<Item>TOURMALINE_SHOVEL = createShovelItem(LirothToolMaterials.TOURMALINE_TOOL_MATERIAL, 1.5f, -3.0f, "tourmaline_shovel");
@@ -341,13 +341,13 @@ public class LirothItems {
 		return createItem;  
   	}
     
-    static RegistryObject<Item> createArmorItem(ArmorMaterial tier, EquipmentSlot slot, String id) {
+    static RegistryObject<Item> createArmorItem(ArmorMaterial tier, ArmorItem.Type slot, String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new ArmorItem(tier, slot, new Item.Properties()));
 		COMBAT_ITEMS_FOR_TAB_LIST.add(createItem);
 		return createItem;  
   	}
     
-    static RegistryObject<Item> createPotestiumHelmetItem(ArmorMaterial tier, EquipmentSlot slot, String id) {
+    static RegistryObject<Item> createPotestiumHelmetItem(ArmorMaterial tier, ArmorItem.Type slot, String id) {
 		RegistryObject<Item> createItem = ITEMS.register(id, () -> new PotestiumHelmetItem(tier, slot, new Item.Properties()));
 		COMBAT_ITEMS_FOR_TAB_LIST.add(createItem);
 		return createItem;  

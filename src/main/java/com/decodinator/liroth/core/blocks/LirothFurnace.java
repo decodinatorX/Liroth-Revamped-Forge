@@ -106,20 +106,6 @@ public class LirothFurnace extends FurnaceBlock implements BlockModelProvider {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
-    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        List<ItemStack> drop = Lists.newArrayList(new ItemStack(this));
-        BlockEntity blockEntity = builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
-        if (blockEntity instanceof LirothFurnaceBlockEntity) {
-        	LirothFurnaceBlockEntity entity = (LirothFurnaceBlockEntity) blockEntity;
-            for (int i = 0; i < entity.getContainerSize(); i++) {
-                drop.add(entity.getItem(i));
-            }
-        }
-        return drop;
-    }
-
-    @Override
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
             Level level,

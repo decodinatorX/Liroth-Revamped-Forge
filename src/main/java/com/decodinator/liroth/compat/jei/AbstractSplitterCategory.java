@@ -105,12 +105,4 @@ public class AbstractSplitterCategory<T extends AbstractSplitterRecipe> extends 
 	    	builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 57).addItemStack(recipe.bonus2.bonus);
 	    }
 	}
-	
-	@Override
-	public void draw(T recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-		animatedFlame.draw(poseStack, 1, 32);
-
-		IDrawableAnimated arrow = getArrow(recipe);
-		arrow.draw(poseStack, 22, 12);
-	}
 }

@@ -1,10 +1,10 @@
 package com.decodinator.liroth;
 
-import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import com.decodinator.liroth.core.LirothBlockEntities;
+import com.decodinator.liroth.core.LirothBlocks;
 import com.decodinator.liroth.core.LirothBoat;
 import com.decodinator.liroth.core.LirothBoatModel;
 import com.decodinator.liroth.core.LirothEntities;
@@ -45,26 +45,28 @@ import com.decodinator.liroth.core.particles.JantiroPortalParticle;
 import com.decodinator.liroth.core.particles.LirothPortalParticle;
 import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.particles.SporeParticle;
-import com.decodinator.liroth.core.renders.LirothBoatRenderer;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
+import com.decodinator.liroth.portal_junk.CustomPortalApiRegistry;
+import com.decodinator.liroth.portal_junk.client.CustomPortalParticle;
+import com.decodinator.liroth.portal_junk.mixin.client.ChunkRendererRegionAccessor;
+import com.decodinator.liroth.portal_junk.util.CustomPortalHelper;
+import com.decodinator.liroth.portal_junk.util.PortalLink;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.renderer.chunk.RenderChunkRegion;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-
-import org.jetbrains.annotations.ApiStatus;
 
 @Mod.EventBusSubscriber(modid = Liroth.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class LirothForgeClientEventsHandler {
@@ -131,6 +133,7 @@ public class LirothForgeClientEventsHandler {
     	Minecraft.getInstance().particleEngine.register(LirothParticles.JANTIRO_PORTAL.get(), JantiroPortalParticle.Provider::new);
     	Minecraft.getInstance().particleEngine.register(LirothParticles.JALSPHIRE_PORTAL.get(), JalsphirePortalParticle.Provider::new);
     	Minecraft.getInstance().particleEngine.register(LirothParticles.DEVASTATED_PORTAL.get(), DevastatedPortalParticle.Provider::new);
+        Minecraft.getInstance().particleEngine.register(LirothParticles.CUSTOMPORTALPARTICLE.get(), CustomPortalParticle.Factory::new);
     }
     
     public static ModelLayerLocation createBoatModelName(LirothBoat.LirothType p_171290_) {
@@ -179,5 +182,19 @@ public class LirothForgeClientEventsHandler {
 		consumer.accept(LirothModelLayers.WARP, () -> WarpModel.getTexturedModelData());
 		consumer.accept(LirothModelLayers.MODEL_LIROTH_BOAT_LAYER, () -> LirothBoatModel.createBodyModel(false));
 		consumer.accept(LirothModelLayers.MODEL_CHEST_LIROTH_BOAT_LAYER, () -> LirothBoatModel.createBodyModel(true));
+    }
+    
+
+    @SuppressWarnings("deprecation")
+	@SubscribeEvent
+    public static void onBlockColors(RegisterColorHandlersEvent.Block event) {
+        event.getBlockColors().register((state, world, pos, tintIndex) -> {
+            if (pos != null && world instanceof RenderChunkRegion) {
+                Block block = CustomPortalHelper.getPortalBase(((ChunkRendererRegionAccessor) world).getWorld(), pos);
+                PortalLink link = CustomPortalApiRegistry.getPortalLinkFromBase(block);
+                if (link != null) return link.colorID;
+            }
+            return 1908001;
+        }, LirothBlocks.customPortalBlock.get());
     }
 }

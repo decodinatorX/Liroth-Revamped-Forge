@@ -269,22 +269,24 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
     
     private boolean canBurn(@Nullable Recipe<?> p_155006_, NonNullList<ItemStack> p_155007_, int p_155008_) {
         if (!p_155007_.get(0).isEmpty() && p_155006_ != null) {
-           ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this);
+           ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this, this.level.m_9598_());
            if (itemstack.isEmpty()) {
               return false;
            } else {
               ItemStack itemstack1 = p_155007_.get(2);
               ItemStack itemstack2 = p_155007_.get(3);
-              if (itemstack1.isEmpty()) {
+               ItemStack itemStackSame1 = (ItemStack)p_155007_.get(2);
+               ItemStack itemStackSame2 = (ItemStack)p_155007_.get(3);
+               if (itemstack1.isEmpty()) {
                  return true;
-              } else if (!itemstack1.sameItem(itemstack)) {
+              } else if (!itemstack1.sameItem(itemStackSame1, itemstack)) {
                  return false;
               } else if (itemstack1.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                  return true;
               }
               if (itemstack2.isEmpty()) {
                  return true;
-              } else if (!itemstack2.sameItem(itemstack)) {
+              } else if (!itemstack2.sameItem(itemStackSame2, itemstack)) {
                  return false;
               } else if (itemstack2.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                  return true;
@@ -441,13 +443,13 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
 	@Override
 	   public void setItem(int p_58333_, ItemStack p_58334_) {
 	      ItemStack itemstack = this.inventory.get(p_58333_);
-	      boolean flag = !p_58334_.isEmpty() && p_58334_.sameItem(itemstack) && ItemStack.tagMatches(p_58334_, itemstack);
+          boolean bl = !p_58334_.isEmpty() && ItemStack.isSameItemSameTags(itemstack, p_58334_);
 	      this.inventory.set(p_58333_, p_58334_);
 	      if (p_58334_.getCount() > this.getMaxStackSize()) {
 	         p_58334_.setCount(this.getMaxStackSize());
 	      }
 
-	      if (p_58333_ == 0 && !flag) {
+	      if (p_58333_ == 0 && !bl) {
 	         this.cookTimeTotal = getTotalCookTime(this.level, this);
 	         this.cookTime = 0;
 	         this.setChanged();
@@ -514,7 +516,7 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
       }
 
       public void awardUsedRecipesAndPopExperience(ServerPlayer p_155004_) {
-         List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.getLevel(), p_155004_.position());
+          List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.m_284548_(), p_155004_.position());
          p_155004_.awardRecipes(list);
          this.recipesUsed.clear();
       }

@@ -1,6 +1,6 @@
 package com.decodinator.liroth.core.blocks;
 
-import net.kyrptonaught.customportalapi.CustomPortalBlock;
+import com.decodinator.liroth.portal_junk.CustomPortalBlock;
 
 public class LirothPortalBlock extends CustomPortalBlock {
 

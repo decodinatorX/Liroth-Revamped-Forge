@@ -1,8 +1,8 @@
 package com.decodinator.liroth.core;
 
 import com.decodinator.liroth.core.blocks.LirothPortalBlock;
+import com.decodinator.liroth.portal_junk.api.CustomPortalBuilder;
 
-import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.resources.ResourceLocation;
 
 public class LirothPortalBuilders {

@@ -54,7 +54,7 @@ public class VileSharkEntity extends WaterAnimal {
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.02f, 0.1f, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
         this.setPathfindingMalus(BlockPathTypes.WATER, 0.0f);
-        this.isInvulnerableTo(DamageSource.SWEET_BERRY_BUSH);
+//      this.isInvulnerableTo(this.m_269291_().m_287172_());
     }
 
     @Override
@@ -82,7 +82,7 @@ public class VileSharkEntity extends WaterAnimal {
            this.setAirSupply(p_30344_ - 1);
            if (this.getAirSupply() == -20) {
               this.setAirSupply(0);
-              this.hurt(DamageSource.DROWN, 2.0F);
+              this.hurt(this.m_269291_().m_269063_(), 2.0F);
            }
         } else {
            this.setAirSupply(300);
@@ -182,26 +182,26 @@ public class VileSharkEntity extends WaterAnimal {
            } else {
               this.setMoisntessLevel(this.getMoistnessLevel() - 1);
               if (this.getMoistnessLevel() <= 0) {
-                 this.hurt(DamageSource.DRY_OUT, 1.0F);
+                 this.hurt(this.m_269291_().m_269483_(), 1.0F);
               }
 
-              if (this.onGround) {
+              if (this.isOnGround()) {
                  this.setDeltaMovement(this.getDeltaMovement().add((double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F), 0.5D, (double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F)));
                  this.setYRot(this.random.nextFloat() * 360.0F);
-                 this.onGround = false;
+                 this.setOnGround(false);
                  this.hasImpulse = true;
               }
            }
 
-           if (this.level.isClientSide && this.isInWater() && this.getDeltaMovement().lengthSqr() > 0.03D) {
+           if (this.getLevel().isClientSide && this.isInWater() && this.getDeltaMovement().lengthSqr() > 0.03D) {
               Vec3 vec3 = this.getViewVector(0.0F);
               float f = Mth.cos(this.getYRot() * ((float)Math.PI / 180F)) * 0.3F;
               float f1 = Mth.sin(this.getYRot() * ((float)Math.PI / 180F)) * 0.3F;
               float f2 = 1.2F - this.random.nextFloat() * 0.7F;
 
               for(int i = 0; i < 2; ++i) {
-                 this.level.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double)f2 + (double)f, this.getY() - vec3.y, this.getZ() - vec3.z * (double)f2 + (double)f1, 0.0D, 0.0D, 0.0D);
-                 this.level.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double)f2 - (double)f, this.getY() - vec3.y, this.getZ() - vec3.z * (double)f2 - (double)f1, 0.0D, 0.0D, 0.0D);
+                 this.getLevel().addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double)f2 + (double)f, this.getY() - vec3.y, this.getZ() - vec3.z * (double)f2 + (double)f1, 0.0D, 0.0D, 0.0D);
+                 this.getLevel().addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double)f2 - (double)f, this.getY() - vec3.y, this.getZ() - vec3.z * (double)f2 - (double)f1, 0.0D, 0.0D, 0.0D);
               }
            }
 

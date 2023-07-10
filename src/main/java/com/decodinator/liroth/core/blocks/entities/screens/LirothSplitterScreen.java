@@ -5,6 +5,7 @@ import com.decodinator.liroth.core.blocks.entities.LirothSplitterScreenHandler;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -32,7 +33,7 @@ public class LirothSplitterScreen extends AbstractContainerScreen<LirothSplitter
     }
 
     @Override
-    protected void renderBg(PoseStack matrices, float delta, int mouseX, int mouseY) {
+    protected void renderBg(GuiGraphics matrices, float delta, int mouseX, int mouseY) {
         int k;
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -41,19 +42,12 @@ public class LirothSplitterScreen extends AbstractContainerScreen<LirothSplitter
         int y = (height - imageHeight) / 2;
         int i = this.leftPos;
         int j = this.topPos;
-        blit(matrices, x, y, 0, 0, imageWidth, imageHeight);
+        matrices.blitInscribed(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
         if (((LirothSplitterScreenHandler)this.menu).isBurning()) {
             k = ((LirothSplitterScreenHandler)this.menu).getFuelProgress();
-            this.blit(matrices, i + 53, j + 36 + 12 - k, 176, 65 - k, 14, k + 1);
+            matrices.blitInscribed(TEXTURE, i + 53, j + 36 + 12 - k, 176, 65 - k, 14, k + 1);
         }
         k = ((LirothSplitterScreenHandler)this.menu).getCookProgress(34);
-        this.blit(matrices, i + 73, j + 15, 176, 0, k, 53);
-    }
-
-    @Override
-    public void render(PoseStack matrices, int mouseX, int mouseY, float delta) {
-        renderBackground(matrices);
-        super.render(matrices, mouseX, mouseY, delta);
-        renderTooltip(matrices, mouseX, mouseY);
+        matrices.blitInscribed(TEXTURE, i + 73, j + 15, 176, 0, k, 53);
     }
 }

@@ -103,12 +103,4 @@ public abstract class AbstractQuantumCategory<T extends AbstractQuantumRecipe> e
 			builder.addSlot(RecipeIngredientRole.OUTPUT, 58, 33).addItemStack(recipe.bonus.bonus);
 		}
 	}
-	
-	@Override
-	public void draw(T recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-		animatedFlame.draw(poseStack, 1, 20);
-
-		IDrawableAnimated arrow = getArrow(recipe);
-		arrow.draw(poseStack, 25, 12);
-	}
 }
