@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/koolaw_planks"
+      "model": "liroth:koolaw_planks"
     }
   }
 }

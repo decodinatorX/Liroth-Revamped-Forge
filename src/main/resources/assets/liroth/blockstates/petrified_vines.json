@@ -1,10 +1,10 @@
 {
   "variants": {
     "berries=false": {
-      "model": "liroth:block/petrified_vines"
+      "model": "liroth:petrified_vines"
     },
     "berries=true": {
-      "model": "liroth:block/petrified_vines_lit"
+      "model": "liroth:petrified_vines_lit"
     }
   }
 }

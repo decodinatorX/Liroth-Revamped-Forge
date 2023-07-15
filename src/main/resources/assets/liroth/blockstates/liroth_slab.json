@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "liroth:block/liroth_slab"
+      "model": "liroth:liroth_slab"
     },
     "type=top": {
-      "model": "liroth:block/liroth_slab_top"
+      "model": "liroth:liroth_slab_top"
     },
     "type=double": {
-      "model": "liroth:block/liroth_slab_full"
+      "model": "liroth:liroth_slab_full"
     }
   }
 }

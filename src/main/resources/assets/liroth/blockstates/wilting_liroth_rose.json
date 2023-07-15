@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/wilting_liroth_rose"
+      "model": "liroth:wilting_liroth_rose"
     }
   }
 }

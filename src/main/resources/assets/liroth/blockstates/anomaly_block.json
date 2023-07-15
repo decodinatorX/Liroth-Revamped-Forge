@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/anomaly_block"
+      "model": "liroth:anomaly_block"
     }
   }
 }

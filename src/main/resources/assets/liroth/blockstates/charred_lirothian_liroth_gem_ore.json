@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/charred_liroth_gem_ore"
+      "model": "liroth:charred_liroth_gem_ore"
     }
   }
 }

@@ -1,14 +1,14 @@
 {
   "variants": {
     "axis=y": {
-      "model": "liroth:block/tallpier_log"
+      "model": "liroth:tallpier_log"
     },
     "axis=z": {
-      "model": "liroth:block/tallpier_log",
+      "model": "liroth:tallpier_log",
       "x": 90
     },
     "axis=x": {
-      "model": "liroth:block/tallpier_log",
+      "model": "liroth:tallpier_log",
       "x": 90,
       "y": 90
     }

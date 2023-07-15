@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/potted_liroth_rose"
+      "model": "liroth:potted_liroth_rose"
     }
   }
 }

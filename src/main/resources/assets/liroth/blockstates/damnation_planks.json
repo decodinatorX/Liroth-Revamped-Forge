@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/damnation_planks"
+      "model": "liroth:damnation_planks"
     }
   }
 }

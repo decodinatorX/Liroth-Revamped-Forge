@@ -1,10 +1,10 @@
 {
   "variants": {
     "hanging=false": {
-      "model": "liroth:block/lirothian_petroleum_lantern"
+      "model": "liroth:lirothian_petroleum_lantern"
     },
     "hanging=true": {
-      "model": "liroth:block/lirothian_petroleum_lantern_hanging"
+      "model": "liroth:lirothian_petroleum_lantern_hanging"
     }
   }
 }

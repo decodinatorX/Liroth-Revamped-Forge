@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/spinerios_lapis_ore"
+      "model": "liroth:spinerios_lapis_ore"
     }
   }
 }

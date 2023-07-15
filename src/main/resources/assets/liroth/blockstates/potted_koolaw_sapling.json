@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/potted_koolaw_sapling"
+      "model": "liroth:potted_koolaw_sapling"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/damnation_wart_block"
+      "model": "liroth:damnation_wart_block"
     }
   }
 }

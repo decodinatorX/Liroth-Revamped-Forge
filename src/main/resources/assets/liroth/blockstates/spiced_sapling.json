@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/spiced_sapling"
+      "model": "liroth:spiced_sapling"
     }
   }
 }

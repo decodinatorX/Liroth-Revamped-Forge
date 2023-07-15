@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/enemy_liroth_chest"
+      "model": "liroth:enemy_liroth_chest"
     }
   }
 }

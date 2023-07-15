@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "liroth:block/corrupted_brewing_stand"
+        "model": "liroth:corrupted_brewing_stand"
       }
     },
     {
@@ -10,7 +10,7 @@
         "has_bottle_0": "true"
       },
       "apply": {
-        "model": "liroth:block/corrupted_brewing_stand_bottle0"
+        "model": "liroth:corrupted_brewing_stand_bottle0"
       }
     },
     {
@@ -18,7 +18,7 @@
         "has_bottle_1": "true"
       },
       "apply": {
-        "model": "liroth:block/corrupted_brewing_stand_bottle1"
+        "model": "liroth:corrupted_brewing_stand_bottle1"
       }
     },
     {
@@ -26,7 +26,7 @@
         "has_bottle_2": "true"
       },
       "apply": {
-        "model": "liroth:block/corrupted_brewing_stand_bottle2"
+        "model": "liroth:corrupted_brewing_stand_bottle2"
       }
     },
     {
@@ -34,7 +34,7 @@
         "has_bottle_0": "false"
       },
       "apply": {
-        "model": "liroth:block/corrupted_brewing_stand_empty0"
+        "model": "liroth:corrupted_brewing_stand_empty0"
       }
     },
     {
@@ -42,7 +42,7 @@
         "has_bottle_1": "false"
       },
       "apply": {
-        "model": "liroth:block/corrupted_brewing_stand_empty1"
+        "model": "liroth:corrupted_brewing_stand_empty1"
       }
     },
     {
@@ -50,7 +50,7 @@
         "has_bottle_2": "false"
       },
       "apply": {
-        "model": "liroth:block/corrupted_brewing_stand_empty2"
+        "model": "liroth:corrupted_brewing_stand_empty2"
       }
     }
   ]

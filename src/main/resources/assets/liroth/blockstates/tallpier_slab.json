@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "liroth:block/tallpier_slab"
+      "model": "liroth:tallpier_slab"
     },
     "type=top": {
-      "model": "liroth:block/tallpier_slab_top"
+      "model": "liroth:tallpier_slab_top"
     },
     "type=double": {
-      "model": "liroth:block/tallpier_slab_full"
+      "model": "liroth:tallpier_slab_full"
     }
   }
 }

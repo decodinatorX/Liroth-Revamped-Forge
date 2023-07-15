@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/liroth_grass"
+      "model": "liroth:liroth_grass"
     }
   }
 }

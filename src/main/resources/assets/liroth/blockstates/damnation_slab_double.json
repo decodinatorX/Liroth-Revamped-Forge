@@ -1,7 +1,7 @@
 {
   "variants": {
     "variant=default": {
-      "model": "liroth:block/damnation_slab_double"
+      "model": "liroth:damnation_slab_double"
     }
   }
 }

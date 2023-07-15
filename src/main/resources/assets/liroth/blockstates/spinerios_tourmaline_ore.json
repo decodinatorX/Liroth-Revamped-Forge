@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/spinerios_tourmaline_ore"
+      "model": "liroth:spinerios_tourmaline_ore"
     }
   }
 }

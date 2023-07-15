@@ -1,205 +1,54 @@
 package com.decodinator.liroth;
 
-import com.decodinator.liroth.core.LirothBiomeModifiers;
-import com.decodinator.liroth.core.LirothBlockEntities;
-import com.decodinator.liroth.core.LirothBlocks;
-import com.decodinator.liroth.core.LirothConfiguredFeatures;
-import com.decodinator.liroth.core.LirothEntities;
-import com.decodinator.liroth.core.LirothFluidTypes;
-import com.decodinator.liroth.core.LirothFluids;
-import com.decodinator.liroth.core.LirothFeatures;
-import com.decodinator.liroth.core.LirothItems;
-import com.decodinator.liroth.core.LirothMenuTypes;
-import com.decodinator.liroth.core.LirothParticles;
-import com.decodinator.liroth.core.LirothPlacedFeatures;
-import com.decodinator.liroth.core.LirothPortalBuilders;
-import com.decodinator.liroth.core.LirothRecipeTypes;
-import com.decodinator.liroth.core.LirothSounds;
-import com.decodinator.liroth.core.LirothStructures;
-import com.decodinator.liroth.core.blocks.entities.screens.LirothSplitterScreen;
-import com.decodinator.liroth.core.blocks.entities.screens.QuantumExtractorScreen;
-import com.decodinator.liroth.portal_junk.LirothPOIs;
-import com.mojang.logging.LogUtils;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.Holder;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
-import net.minecraft.server.packs.repository.Pack;
-import net.minecraft.server.packs.repository.PackSource;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.ForgeHooksClient;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fluids.ForgeFlowingFluid;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.event.AddPackFindersEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.resource.PathPackResources;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
+import com.decodinator.liroth.proxy.CommonProxy;
+import com.decodinator.liroth.util.handlers.RegistryHandler;
 
-import org.slf4j.Logger;
-
-// The value here should match an entry in the META-INF/mods.toml file
-@Mod(Liroth.MOD_ID)
+@Mod(modid = Liroth.MODID, name = Liroth.NAME, version = Liroth.VERSION)
 public class Liroth
 {
-    // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "liroth";
-    // Directly reference a slf4j logger
-    public static final Logger LOGGER = LogUtils.getLogger();
-        
-	public static final ForgeFlowingFluid.Properties LIROTH_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.LIROTH_FLUID_TYPE, LirothFluids.LIROTH_FLUID, LirothFluids.FLOWING_LIROTH_FLUID).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.LIROTH_FLUID_BLOCK).bucket(LirothItems.LIROTH_FLUID_BUCKET);
-	public static final ForgeFlowingFluid.Properties MOLTEN_SPINERIOS_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.MOLTEN_SPINERIOS_TYPE, LirothFluids.MOLTEN_SPINERIOS, LirothFluids.FLOWING_MOLTEN_SPINERIOS).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.MOLTEN_SPINERIOS_BLOCK).bucket(LirothItems.MOLTEN_SPINERIOS_BUCKET);
+    public static final String MODID = "liroth";
+    public static final String NAME = "Liroth Revamped";
+    public static final String VERSION = "1.0";
+	public static final String CLIENT_PROXY_CLASS = "com.decodinator.liroth.proxy.ClientProxy";
+	public static final String COMMON_PROXY_CLASS = "com.decodinator.liroth.proxy.CommonProxy";
     
-	public static CreativeModeTab liroth_blocks_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_blocks") {
-		@Override
-		public ItemStack makeIcon() {
-			return new ItemStack(LirothBlocks.LIROTH_GEM_BLOCK.get());
-		}
-	};
-	public static CreativeModeTab liroth_items_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_items") {
-		@Override
-		public ItemStack makeIcon() {
-			return new ItemStack(LirothItems.LIROTH_GEM.get());
-		}
-	};
-	public static CreativeModeTab liroth_combat_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_combat") {
-		@Override
-		public ItemStack makeIcon() {
-			return new ItemStack(LirothItems.LIROTH_SWORD.get());
-		}
-	};
-	public static CreativeModeTab liroth_entities_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_entities") {
-		@Override
-		public ItemStack makeIcon() {
-			return new ItemStack(LirothItems.FORSAKEN_CORPSE_SPAWN_EGG.get());
-		}
-	};
-	public static CreativeModeTab liroth_plants_tab = new CreativeModeTab(Liroth.MOD_ID + ".liroth_plants") {
-		@Override
-		public ItemStack makeIcon() {
-			return new ItemStack(LirothBlocks.LIROTH_ROSE.get());
-		}
-	};
-	
-    @SuppressWarnings("unchecked")
-    
-    public Liroth()
+	@SidedProxy(clientSide = CLIENT_PROXY_CLASS, serverSide = COMMON_PROXY_CLASS)
+	public static CommonProxy proxy;
+
+    @SuppressWarnings("unused")
+	private static Logger logger;
+
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event)
     {
-    	
-
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-        // Register the Deferred Register to the mod event bus so blocks get registered
-		LirothParticles.PARTICLES.register(modEventBus);
-		LirothEntities.ENTITIES_TYPES.register(modEventBus);
-		LirothBlocks.BLOCKS.register(modEventBus);
-		if (FMLEnvironment.dist == Dist.CLIENT) {
-		LirothMenuTypes.MENUS.register(modEventBus);
-		}
-		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-		LirothBlocks.ITEMS.register(modEventBus);
-		LirothItems.ITEMS.register(modEventBus);
-		LirothSounds.SOUND_EVENTS.register(modEventBus);
-		LirothFluidTypes.FLUID_TYPES.register(modEventBus);
-		LirothFluids.FLUIDS.register(modEventBus);
-		LirothFeatures.FEATURES.register(modEventBus);
-		LirothStructures.DEFERRED_REGISTRY_STRUCTURE.register(modEventBus);
-		LirothPOIs.POI.register(modEventBus);
-		LirothConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
-		LirothPlacedFeatures.PLACED_FEATURES.register(modEventBus);
-		LirothBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
-		LirothRecipeTypes.RECIPE_TYPES.register(modEventBus);
-		LirothRecipeTypes.RECIPE_SERIALIZERS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-		// ITEMS.register(modEventBus);
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        logger = event.getModLog();
+		RegistryHandler.preInitRegistries(event);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
+    @EventHandler
+    public void init(FMLInitializationEvent event)
     {
-		LirothPortalBuilders.init();
-//    	ForgeRegistries.MENU_TYPES.register(Liroth.QUANTUM_EXTRACTOR_SCREEN_HANDLER, QuantumExtractorScreen::new);
-        // Some common setup code
-//        LOGGER.info("HELLO FROM COMMON SETUP");
-//        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
-        // Do something when the server starts
-//        LOGGER.info("HELLO from server starting");
-    }
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-        	if (FMLEnvironment.dist == Dist.CLIENT) {
-            MenuScreens.register(LirothMenuTypes.LIROTH_SPLITTER_MENU.get(), LirothSplitterScreen::new);
-            MenuScreens.register(LirothMenuTypes.QUANTUM_EXTRACTOR_MENU.get(), QuantumExtractorScreen::new);
-//    		LirothRenders.renderCutOuts();
-            LirothForgeClientEventsHandler.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition); 
-            ItemBlockRenderTypes.setRenderLayer(LirothFluids.LIROTH_FLUID.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(LirothFluids.FLOWING_LIROTH_FLUID.get(), RenderType.translucent());
-        	}
-//            Some client setup code
-//            LOGGER.info("HELLO FROM CLIENT SETUP");
-//            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-        }
+		RegistryHandler.initRegistries();
     }
     
-	@SubscribeEvent
-	public static void addClassicPack(AddPackFindersEvent event) {
-		try {
-			if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-				var resourcePath = ModList.get().getModFileById(Liroth.MOD_ID).getFile().findResource("classic");
-				var pack = new PathPackResources(ModList.get().getModFileById(Liroth.MOD_ID).getFile().getFileName() + ":" + resourcePath, resourcePath);
-				var metadataSection = pack.getMetadataSection(PackMetadataSection.SERIALIZER);
-				if (metadataSection != null) {
-					event.addRepositorySource((packConsumer, packConstructor) ->
-							packConsumer.accept(packConstructor.create(
-									"builtin/liroth_legacy_resources", Component.literal("Liroth: Legacy"), false,
-									() -> pack, metadataSection, Pack.Position.TOP, PackSource.BUILT_IN, false)));
-				}
-			}
-		} catch (IOException ex) {
-			throw new RuntimeException(ex);
-		}
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event)
+	{
+		RegistryHandler.postInitRegistries();
 	}
-    
-    public static ResourceLocation createLocation(String path) {
-        return new ResourceLocation(MOD_ID, path);
-    }
-
-    public static ResourceLocation createLocation(ResourceKey<?> path) {
-        return path.location();
-    }
-
-    public static ResourceLocation createLocation(Holder<?> holder) {
-        return createLocation(holder.unwrapKey().orElseThrow());
-    }
-
+	
+	@EventHandler
+	public void serverInit(FMLServerStartingEvent event)
+	{
+		RegistryHandler.serverRegistries(event);
+	}
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/gateway_block"
+      "model": "liroth:gateway_block"
     }
   }
 }

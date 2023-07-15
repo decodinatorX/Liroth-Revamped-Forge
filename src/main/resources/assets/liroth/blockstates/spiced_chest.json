@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/spiced_chest"
+      "model": "liroth:spiced_chest"
     }
   }
 }

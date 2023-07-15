@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "liroth:block/petrified_damnation_brick_slab"
+      "model": "liroth:petrified_damnation_brick_slab"
     },
     "type=top": {
-      "model": "liroth:block/petrified_damnation_brick_slab_top"
+      "model": "liroth:petrified_damnation_brick_slab_top"
     },
     "type=double": {
-      "model": "liroth:block/petrified_damnation_brick_slab_full"
+      "model": "liroth:petrified_damnation_brick_slab_full"
     }
   }
 }

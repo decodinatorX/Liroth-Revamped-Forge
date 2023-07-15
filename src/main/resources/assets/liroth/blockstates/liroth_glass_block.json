@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/liroth_glass_block"
+      "model": "liroth:liroth_glass_block"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/damned_passageway"
+      "model": "liroth:damned_passageway"
     }
   }
 }

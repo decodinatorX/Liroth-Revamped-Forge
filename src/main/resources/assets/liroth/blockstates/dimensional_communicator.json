@@ -1,33 +1,33 @@
 {
   "variants": {
     "eye=false,facing=east": {
-      "model": "liroth:block/dimensional_communicator",
+      "model": "liroth:dimensional_communicator",
       "y": 270
     },
     "eye=false,facing=north": {
-      "model": "liroth:block/dimensional_communicator",
+      "model": "liroth:dimensional_communicator",
       "y": 180
     },
     "eye=false,facing=south": {
-      "model": "liroth:block/dimensional_communicator"
+      "model": "liroth:dimensional_communicator"
     },
     "eye=false,facing=west": {
-      "model": "liroth:block/dimensional_communicator",
+      "model": "liroth:dimensional_communicator",
       "y": 90
     },
     "eye=true,facing=east": {
-      "model": "liroth:block/dimensional_communicator",
+      "model": "liroth:dimensional_communicator",
       "y": 270
     },
     "eye=true,facing=north": {
-      "model": "liroth:block/dimensional_communicator",
+      "model": "liroth:dimensional_communicator",
       "y": 180
     },
     "eye=true,facing=south": {
-      "model": "liroth:block/dimensional_communicator"
+      "model": "liroth:dimensional_communicator"
     },
     "eye=true,facing=west": {
-      "model": "liroth:block/dimensional_communicator",
+      "model": "liroth:dimensional_communicator",
       "y": 90
     }
   }

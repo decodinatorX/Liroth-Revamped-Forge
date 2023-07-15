@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/sea_eye"
+      "model": "liroth:sea_eye"
     }
   }
 }

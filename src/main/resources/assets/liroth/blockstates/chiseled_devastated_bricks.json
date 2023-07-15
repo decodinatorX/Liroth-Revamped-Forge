@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/chiseled_devastated_bricks"
+      "model": "liroth:chiseled_devastated_bricks"
     }
   }
 }

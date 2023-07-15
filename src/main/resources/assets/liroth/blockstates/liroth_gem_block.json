@@ -1,14 +1,29 @@
 {
   "variants": {
-    "axis=y": {
-      "model": "liroth:block/liroth_gem_block"
+    "normal": {
+      "model": "liroth:liroth_gem_block"
     },
-    "axis=z": {
-      "model": "liroth:block/liroth_gem_block",
+    "facing=south": {
+      "model": "liroth:liroth_gem_block"
+    },
+    "facing=north": {
+      "model": "liroth:liroth_gem_block"
+    },
+    "facing=east": {
+      "model": "liroth:liroth_gem_block",
       "x": 90
     },
-    "axis=x": {
-      "model": "liroth:block/liroth_gem_block",
+    "facing=west": {
+      "model": "liroth:liroth_gem_block",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "liroth:liroth_gem_block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=down": {
+      "model": "liroth:liroth_gem_block",
       "x": 90,
       "y": 90
     }

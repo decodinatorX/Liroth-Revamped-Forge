@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "liroth:block/devastated_brick_slab"
+      "model": "liroth:devastated_brick_slab"
     },
     "type=top": {
-      "model": "liroth:block/devastated_brick_slab_top"
+      "model": "liroth:devastated_brick_slab_top"
     },
     "type=double": {
-      "model": "liroth:block/devastated_brick_slab_full"
+      "model": "liroth:devastated_brick_slab_full"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/jalsphire_gem_block"
+      "model": "liroth:jalsphire_gem_block"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/spinerios_redstone_ore"
+      "model": "liroth:spinerios_redstone_ore"
     }
   }
 }

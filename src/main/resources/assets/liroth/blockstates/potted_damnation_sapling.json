@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/potted_damnation_sapling"
+      "model": "liroth:potted_damnation_sapling"
     }
   }
 }

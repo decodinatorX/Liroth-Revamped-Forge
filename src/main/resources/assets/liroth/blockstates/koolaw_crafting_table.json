@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/koolaw_crafting_table"
+      "model": "liroth:koolaw_crafting_table"
     }
   }
 }

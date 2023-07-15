@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/vile_tentacle"
+      "model": "liroth:vile_tentacle"
     }
   }
 }

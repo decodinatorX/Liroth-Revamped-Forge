@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/petrified_damnation_chest"
+      "model": "liroth:petrified_damnation_chest"
     }
   }
 }

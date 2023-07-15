@@ -1,13 +1,13 @@
 {
   "variants": {
     "axis=z": {
-      "model": "liroth:block/jalsphire_plains_portal_ew"
+      "model": "liroth:jalsphire_plains_portal_ew"
     },
     "axis=x": {
-      "model": "liroth:block/jalsphire_plains_portal_ns"
+      "model": "liroth:jalsphire_plains_portal_ns"
     },
     "axis=y": {
-      "model": "liroth:block/jalsphire_plains_portal_ns",
+      "model": "liroth:jalsphire_plains_portal_ns",
       "x": 90
     }
   }

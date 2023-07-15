@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "liroth:block/damnation_slab"
+      "model": "liroth:damnation_slab"
     },
     "type=top": {
-      "model": "liroth:block/damnation_slab_top"
+      "model": "liroth:damnation_slab_top"
     },
     "type=double": {
-      "model": "liroth:block/damnation_slab_full"
+      "model": "liroth:damnation_slab_full"
     }
   }
 }

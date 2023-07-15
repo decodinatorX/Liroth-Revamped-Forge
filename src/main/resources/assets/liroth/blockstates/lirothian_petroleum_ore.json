@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/lirothian_petroleum_ore"
+      "model": "liroth:lirothian_petroleum_ore"
     }
   }
 }

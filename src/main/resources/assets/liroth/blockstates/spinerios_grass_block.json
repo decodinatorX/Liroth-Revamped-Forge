@@ -2,23 +2,23 @@
   "variants": {
     "snowy=false": [
       {
-        "model": "liroth:block/spinerios_grass_block"
+        "model": "liroth:spinerios_grass_block"
       },
       {
-        "model": "liroth:block/spinerios_grass_block",
+        "model": "liroth:spinerios_grass_block",
         "y": 90
       },
       {
-        "model": "liroth:block/spinerios_grass_block",
+        "model": "liroth:spinerios_grass_block",
         "y": 180
       },
       {
-        "model": "liroth:block/spinerios_grass_block",
+        "model": "liroth:spinerios_grass_block",
         "y": 270
       }
     ],
     "snowy=true": {
-      "model": "liroth:block/spinerios_grass_block_snow"
+      "model": "liroth:spinerios_grass_block_snow"
     }
   }
 }

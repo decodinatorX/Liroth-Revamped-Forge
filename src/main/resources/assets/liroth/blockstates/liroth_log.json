@@ -1,14 +1,14 @@
 {
   "variants": {
     "axis=y": {
-      "model": "liroth:block/liroth_log"
+      "model": "liroth:liroth_log"
     },
     "axis=z": {
-      "model": "liroth:block/liroth_log",
+      "model": "liroth:liroth_log",
       "x": 90
     },
     "axis=x": {
-      "model": "liroth:block/liroth_log",
+      "model": "liroth:liroth_log",
       "x": 90,
       "y": 90
     }

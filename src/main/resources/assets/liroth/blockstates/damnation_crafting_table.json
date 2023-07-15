@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/damnation_crafting_table"
+      "model": "liroth:damnation_crafting_table"
     }
   }
 }

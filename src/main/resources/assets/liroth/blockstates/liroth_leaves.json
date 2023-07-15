@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "liroth:block/liroth_leaves"
+      "model": "liroth:liroth_leaves"
     }
   }
 }
