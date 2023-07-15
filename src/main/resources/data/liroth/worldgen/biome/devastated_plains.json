@@ -1,7 +1,7 @@
 {
   "temperature": 0.8,
   "downfall": 0.4,
-  "precipitation": "rain",
+  "has_precipitation": true,
   "effects": {
     "sky_color": 5723991,
     "fog_color": 5723991,
@@ -85,7 +85,6 @@
       "liroth:ruby_ore",
       "liroth:potestium_ore",
       "liroth:obsidian_spike",
-      "liroth:pointed_petrified_crystal",
       "liroth:blackstone_patch_ceiling",
       "liroth:petrified_moss_patch_ceiling",
       "liroth:petrified_vine",

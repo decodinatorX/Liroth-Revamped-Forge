@@ -46,7 +46,7 @@ public class BeamLaserProjectileEntity extends AbstractArrow {
 		super.onHitEntity(entityHitResult);
 		Entity entity = entityHitResult.getEntity(); // sets a new Entity instance as the EntityHitResult (victim)
 		int i = entity instanceof Blaze ? 3 : 0; // sets i to 3 if the Entity instance is an instance of BlazeEntity
-		entity.hurt(this.m_269291_().m_269418_(this, this.getOwner()), (float)i); // deals damage
+		entity.hurt(this.damageSources().arrow(this, this.getOwner()), (float)i); // deals damage
  
 		if (entity instanceof LivingEntity livingEntity) { // checks if entity is an instance of LivingEntity (meaning it is not a boat or minecart)
 			livingEntity.addEffect((new MobEffectInstance(MobEffects.BLINDNESS, 20 * 3, 0))); // applies a status effect
@@ -56,8 +56,8 @@ public class BeamLaserProjectileEntity extends AbstractArrow {
  
 	protected void onHitBlock(BlockHitResult hitResult) { // called on collision with a block
 		super.onHitBlock(hitResult);
-		if (!this.getLevel().isClientSide) { // checks if the world is client
-			this.getLevel().broadcastEntityEvent(this, (byte)3); // particle?
+		if (!this.level().isClientSide) { // checks if the world is client
+			this.level().broadcastEntityEvent(this, (byte)3); // particle?
 		}
  
 	}

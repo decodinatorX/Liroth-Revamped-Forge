@@ -105,12 +105,12 @@ public class FlatPortalAreaHelper extends PortalFrameTester {
     }
 
     protected void fillAirAroundPortal(Level world, BlockPos pos) {
-        if (world.getBlockState(pos).m_280296_())
+        if (world.getBlockState(pos).isSolid())
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_KNOWN_SHAPE);
     }
 
     protected void placeLandingPad(Level world, BlockPos pos, BlockState frameBlock) {
-        if (!world.getBlockState(pos).m_280296_())
+        if (!world.getBlockState(pos).isSolid())
             world.setBlockAndUpdate(pos, frameBlock);
     }
 
@@ -137,9 +137,9 @@ public class FlatPortalAreaHelper extends PortalFrameTester {
 
     @Override
     public BlockPos doesPortalFitAt(Level world, BlockPos attemptPos, Direction.Axis axis) {
-        BlockUtil.FoundRectangle rect = BlockUtil.getLargestRectangleAround(attemptPos.above(), Direction.Axis.X, 4, Direction.Axis.Z, 4, blockPos -> world.getBlockState(blockPos).m_280296_() &&
-                !world.getBlockState(blockPos.above()).m_280296_() && !world.getBlockState(blockPos.above()).m_278721_() &&
-                !world.getBlockState(blockPos.above(2)).m_280296_() && !world.getBlockState(blockPos.above(2)).m_278721_());
+        BlockUtil.FoundRectangle rect = BlockUtil.getLargestRectangleAround(attemptPos.above(), Direction.Axis.X, 4, Direction.Axis.Z, 4, blockPos -> world.getBlockState(blockPos).isSolid() &&
+                !world.getBlockState(blockPos.above()).isSolid() && !world.getBlockState(blockPos.above()).liquid() &&
+                !world.getBlockState(blockPos.above(2)).isSolid() && !world.getBlockState(blockPos.above(2)).liquid());
         return rect.axis1Size >= 4 && rect.axis2Size >= 4 ? rect.minCorner : null;
     }
 

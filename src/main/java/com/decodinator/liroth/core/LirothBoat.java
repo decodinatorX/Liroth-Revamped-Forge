@@ -146,10 +146,10 @@ public class LirothBoat extends Boat {
                     return;
                  }
 
-                 this.causeFallDamage(this.fallDistance, 1.0F, this.m_269291_().m_268989_());
-                 if (!this.getLevel().isClientSide && !this.isRemoved()) {
+                 this.causeFallDamage(this.fallDistance, 1.0F, this.damageSources().fall());
+                 if (!this.level().isClientSide && !this.isRemoved()) {
                     this.kill();
-                    if (this.getLevel().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+                    if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                        for(int i = 0; i < 3; ++i) {
                           this.spawnAtLocation(this.getLirothBoatType().getPlanks());
                        }
@@ -162,7 +162,7 @@ public class LirothBoat extends Boat {
               }
 
               this.resetFallDistance();
-           } else if (!(this.getLevel().getFluidState(this.blockPosition().below()).is(FluidTags.WATER)) && p_38307_ < 0.0D) {
+           } else if (!(this.level().getFluidState(this.blockPosition().below()).is(FluidTags.WATER)) && p_38307_ < 0.0D) {
               this.fallDistance -= (float)p_38307_;
            }
 
@@ -172,7 +172,7 @@ public class LirothBoat extends Boat {
     public boolean hurt(DamageSource p_38319_, float p_38320_) {
         if (this.isInvulnerableTo(p_38319_)) {
            return false;
-        } else if (!this.getLevel().isClientSide && !this.isRemoved()) {
+        } else if (!this.level().isClientSide && !this.isRemoved()) {
            this.setHurtDir(-this.getHurtDir());
            this.setHurtTime(10);
            this.setDamage(this.getDamage() + p_38320_ * 10.0F);
@@ -180,7 +180,7 @@ public class LirothBoat extends Boat {
            this.gameEvent(GameEvent.ENTITY_DAMAGE, p_38319_.getEntity());
            boolean flag = p_38319_.getEntity() instanceof Player && ((Player)p_38319_.getEntity()).getAbilities().instabuild;
            if (flag || this.getDamage() > 40.0F) {
-              if (!flag && this.getLevel().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+              if (!flag && this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                  this.destroy(p_38319_);
               }
 

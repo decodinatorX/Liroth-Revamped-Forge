@@ -1,7 +1,7 @@
 {
   "temperature": 0.5,
   "downfall": 0.5,
-  "precipitation": "rain",
+  "has_precipitation": true,
   "temperature_modifier": "none",
   "effects": {
     "sky_color": 8223487,
@@ -34,7 +34,14 @@
     "ambient": [],
     "axolotls": [],
     "underground_water_creature": [],
-    "water_creature": [],
+    "water_creature": [
+      {
+        "type": "liroth:vile_shark",
+        "weight": 5,
+        "minCount": 1,
+        "maxCount": 4
+      }
+    ],
     "water_ambient": [],
     "misc": []
   },

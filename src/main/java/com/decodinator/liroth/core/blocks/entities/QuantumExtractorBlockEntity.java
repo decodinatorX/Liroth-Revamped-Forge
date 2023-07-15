@@ -269,7 +269,7 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
     
     private boolean canBurn(@Nullable Recipe<?> p_155006_, NonNullList<ItemStack> p_155007_, int p_155008_) {
         if (!p_155007_.get(0).isEmpty() && p_155006_ != null) {
-           ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this, this.level.m_9598_());
+           ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this, this.level.registryAccess());
            if (itemstack.isEmpty()) {
               return false;
            } else {
@@ -279,14 +279,14 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
                ItemStack itemStackSame2 = (ItemStack)p_155007_.get(3);
                if (itemstack1.isEmpty()) {
                  return true;
-              } else if (!itemstack1.sameItem(itemStackSame1, itemstack)) {
+              } else if (!itemstack1.isSameItem(itemStackSame1, itemstack)) {
                  return false;
               } else if (itemstack1.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                  return true;
               }
               if (itemstack2.isEmpty()) {
                  return true;
-              } else if (!itemstack2.sameItem(itemStackSame2, itemstack)) {
+              } else if (!itemstack2.isSameItem(itemStackSame2, itemstack)) {
                  return false;
               } else if (itemstack2.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                  return true;
@@ -516,7 +516,7 @@ public class QuantumExtractorBlockEntity extends BlockEntity implements MenuProv
       }
 
       public void awardUsedRecipesAndPopExperience(ServerPlayer p_155004_) {
-          List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.m_284548_(), p_155004_.position());
+          List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.serverLevel(), p_155004_.position());
          p_155004_.awardRecipes(list);
          this.recipesUsed.clear();
       }

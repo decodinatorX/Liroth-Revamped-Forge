@@ -111,12 +111,12 @@ public class VanillaPortalAreaHelper extends PortalFrameTester {
     }
 
     protected boolean isEmptySpace(BlockState blockState) {
-        return blockState.canBeReplaced() && !blockState.m_278721_();
+        return blockState.canBeReplaced() && !blockState.liquid();
     }
 
     protected boolean canHoldPortal(Level world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
-        return blockState.m_280296_() && blockState.isRedstoneConductor(world, pos) && !blockState.m_278721_();
+        return blockState.isSolid() && blockState.isRedstoneConductor(world, pos) && !blockState.liquid();
     }
 
     @Override
@@ -199,12 +199,12 @@ public class VanillaPortalAreaHelper extends PortalFrameTester {
     }
 
     protected void fillAirAroundPortal(Level world, BlockPos pos) {
-        if (world.getBlockState(pos).m_280296_() || world.getBlockState(pos).isRedstoneConductor(world, pos))
+        if (world.getBlockState(pos).isSolid() || world.getBlockState(pos).isRedstoneConductor(world, pos))
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_KNOWN_SHAPE);
     }
 
     protected void placeLandingPad(Level world, BlockPos pos, BlockState frameBlock) {
-        if (!world.getBlockState(pos).m_280296_())
+        if (!world.getBlockState(pos).isSolid())
             world.setBlockAndUpdate(pos, frameBlock);
     }
 }

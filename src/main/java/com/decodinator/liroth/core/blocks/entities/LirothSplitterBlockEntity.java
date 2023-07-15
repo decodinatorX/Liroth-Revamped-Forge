@@ -270,7 +270,7 @@ public class LirothSplitterBlockEntity extends BlockEntity implements MenuProvid
     
     private boolean canBurn(@Nullable Recipe<?> p_155006_, NonNullList<ItemStack> p_155007_, int p_155008_) {
         if (!p_155007_.get(0).isEmpty() && p_155006_ != null) {
-           ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this, this.level.m_9598_());
+           ItemStack itemstack = ((Recipe<WorldlyContainer>) p_155006_).assemble(this, this.level.registryAccess());
            if (itemstack.isEmpty()) {
               return false;
            } else {
@@ -282,21 +282,21 @@ public class LirothSplitterBlockEntity extends BlockEntity implements MenuProvid
                ItemStack itemStackSame3 = (ItemStack)p_155007_.get(4);
                if (itemstack1.isEmpty()) {
                  return true;
-              } else if (!itemstack1.sameItem(itemStackSame1, itemstack)) {
+              } else if (!itemstack1.isSameItem(itemStackSame1, itemstack)) {
                  return false;
               } else if (itemstack1.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                  return true;
               }
               if (itemstack2.isEmpty()) {
                  return true;
-              } else if (!itemstack2.sameItem(itemStackSame2, itemstack)) {
+              } else if (!itemstack2.isSameItem(itemStackSame2, itemstack)) {
                  return false;
               } else if (itemstack2.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                  return true;
               }
               if (itemstack3.isEmpty()) {
                  return true;
-              } else if (!itemstack3.sameItem(itemStackSame3, itemstack)) {
+              } else if (!itemstack3.isSameItem(itemStackSame3, itemstack)) {
                  return false;
               } else if (itemstack3.getCount() + itemstack.getCount() <= p_155008_ && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                  return true;
@@ -521,7 +521,7 @@ public class LirothSplitterBlockEntity extends BlockEntity implements MenuProvid
 	      }
 
 	      public void awardUsedRecipesAndPopExperience(ServerPlayer p_155004_) {
-		     List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.m_284548_(), p_155004_.position());
+		     List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.serverLevel(), p_155004_.position());
 	         p_155004_.awardRecipes(list);
 	         this.recipesUsed.clear();
 	      }

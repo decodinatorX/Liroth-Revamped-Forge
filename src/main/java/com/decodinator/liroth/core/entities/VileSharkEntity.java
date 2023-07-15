@@ -82,7 +82,7 @@ public class VileSharkEntity extends WaterAnimal {
            this.setAirSupply(p_30344_ - 1);
            if (this.getAirSupply() == -20) {
               this.setAirSupply(0);
-              this.hurt(this.m_269291_().m_269063_(), 2.0F);
+              this.hurt(this.damageSources().drown(), 2.0F);
            }
         } else {
            this.setAirSupply(300);
@@ -182,10 +182,10 @@ public class VileSharkEntity extends WaterAnimal {
            } else {
               this.setMoisntessLevel(this.getMoistnessLevel() - 1);
               if (this.getMoistnessLevel() <= 0) {
-                 this.hurt(this.m_269291_().m_269483_(), 1.0F);
+                 this.hurt(this.damageSources().dryOut(), 1.0F);
               }
 
-              if (this.isOnGround()) {
+              if (this.onGround()) {
                  this.setDeltaMovement(this.getDeltaMovement().add((double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F), 0.5D, (double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.2F)));
                  this.setYRot(this.random.nextFloat() * 360.0F);
                  this.setOnGround(false);
@@ -193,15 +193,15 @@ public class VileSharkEntity extends WaterAnimal {
               }
            }
 
-           if (this.getLevel().isClientSide && this.isInWater() && this.getDeltaMovement().lengthSqr() > 0.03D) {
+           if (this.level().isClientSide && this.isInWater() && this.getDeltaMovement().lengthSqr() > 0.03D) {
               Vec3 vec3 = this.getViewVector(0.0F);
               float f = Mth.cos(this.getYRot() * ((float)Math.PI / 180F)) * 0.3F;
               float f1 = Mth.sin(this.getYRot() * ((float)Math.PI / 180F)) * 0.3F;
               float f2 = 1.2F - this.random.nextFloat() * 0.7F;
 
               for(int i = 0; i < 2; ++i) {
-                 this.getLevel().addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double)f2 + (double)f, this.getY() - vec3.y, this.getZ() - vec3.z * (double)f2 + (double)f1, 0.0D, 0.0D, 0.0D);
-                 this.getLevel().addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double)f2 - (double)f, this.getY() - vec3.y, this.getZ() - vec3.z * (double)f2 - (double)f1, 0.0D, 0.0D, 0.0D);
+                 this.level().addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double)f2 + (double)f, this.getY() - vec3.y, this.getZ() - vec3.z * (double)f2 + (double)f1, 0.0D, 0.0D, 0.0D);
+                 this.level().addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double)f2 - (double)f, this.getY() - vec3.y, this.getZ() - vec3.z * (double)f2 - (double)f1, 0.0D, 0.0D, 0.0D);
               }
            }
 

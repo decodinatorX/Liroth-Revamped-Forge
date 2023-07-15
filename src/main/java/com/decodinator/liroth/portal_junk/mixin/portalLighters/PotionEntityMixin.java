@@ -22,6 +22,6 @@ public abstract class PotionEntityMixin extends ThrowableItemProjectile {
 
     @Inject(method = "dowseFire", at = @At("HEAD"))
     public void attemptPortalLight(BlockPos pos, CallbackInfo ci) {
-        PortalPlacer.attemptPortalLight(this.getLevel(), pos, PortalIgnitionSource.WATER);
+        PortalPlacer.attemptPortalLight(this.level(), pos, PortalIgnitionSource.WATER);
     }
 }

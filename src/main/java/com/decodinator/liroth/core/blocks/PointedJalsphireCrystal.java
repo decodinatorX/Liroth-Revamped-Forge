@@ -114,7 +114,7 @@ public class PointedJalsphireCrystal  extends Block implements Fallable, SimpleW
 
 	   public void fallOn(Level p_154047_, BlockState p_154048_, BlockPos p_154049_, Entity p_154050_, float p_154051_) {
 	      if (p_154048_.getValue(TIP_DIRECTION) == Direction.UP && p_154048_.getValue(THICKNESS) == DripstoneThickness.TIP) {
-	         p_154050_.causeFallDamage(p_154051_ + 2.0F, 2.0F, p_154047_.m_269111_().m_269571_());
+	         p_154050_.causeFallDamage(p_154051_ + 2.0F, 2.0F, p_154047_.damageSources().stalagmite());
 	      } else {
 	         super.fallOn(p_154047_, p_154048_, p_154049_, p_154050_, p_154051_);
 	      }
@@ -253,7 +253,7 @@ public class PointedJalsphireCrystal  extends Block implements Fallable, SimpleW
 	   }
 
 	   public DamageSource getFallDamageSource(Entity p_254432_) {
-		      return p_254432_.m_269291_().m_269103_(p_254432_);
+		      return p_254432_.damageSources().fallingStalactite(p_254432_);
 		   }
 
 	   public Predicate<Entity> getHurtsEntitySelector() {

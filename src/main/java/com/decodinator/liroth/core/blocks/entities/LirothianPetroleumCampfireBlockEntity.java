@@ -53,7 +53,7 @@ public class LirothianPetroleumCampfireBlockEntity  extends BlockEntity implemen
 	            if (p_155310_.cookingProgress[i] >= p_155310_.cookingTime[i]) {
 	               Container container = new SimpleContainer(itemstack);
 	               ItemStack itemstack1 = p_155310_.quickCheck.getRecipeFor(container, p_155307_).map((p_270054_) -> {
-	                   return p_270054_.assemble(container, p_155307_.m_9598_());
+	                   return p_270054_.assemble(container, p_155307_.registryAccess());
 	                }).orElse(itemstack);
 	               Containers.dropItemStack(p_155307_, (double)p_155308_.getX(), (double)p_155308_.getY(), (double)p_155308_.getZ(), itemstack1);
 	               p_155310_.items.set(i, ItemStack.EMPTY);

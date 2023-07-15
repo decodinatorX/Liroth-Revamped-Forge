@@ -66,7 +66,7 @@ public abstract class ClientPlayerMixin extends Player implements EntityInCustom
             setLastUsedPortalColor(-1);
         } else if (this.getTimeInPortal() > 0) {
             int previousColor = getLastUsedPortalColor();
-            PortalLink link = this.getInPortalPos() != null ? CustomPortalApiRegistry.getPortalLinkFromBase(CustomPortalHelper.getPortalBase(this.getLevel(), this.getInPortalPos())) : null;
+            PortalLink link = this.getInPortalPos() != null ? CustomPortalApiRegistry.getPortalLinkFromBase(CustomPortalHelper.getPortalBase(this.level(), this.getInPortalPos())) : null;
             if (link != null)
                 setLastUsedPortalColor(link.colorID);
             updateCustomNausea(previousColor);
@@ -86,7 +86,7 @@ public abstract class ClientPlayerMixin extends Player implements EntityInCustom
             }
 
             if (this.nauseaIntensity == 0.0F && previousColor != -999) { //previous color prevents this from playing after a teleport. A tp sets the previousColor to -999
-                PortalLink link = CustomPortalApiRegistry.getPortalLinkFromBase(CustomPortalHelper.getPortalBase(getLevel(), getInPortalPos()));
+                PortalLink link = CustomPortalApiRegistry.getPortalLinkFromBase(CustomPortalHelper.getPortalBase(level(), getInPortalPos()));
                 if (link != null && link.getInPortalAmbienceEvent().hasEvent()) {
                     this.client.getSoundManager().play(link.getInPortalAmbienceEvent().execute(this).getInstance());
                 } else

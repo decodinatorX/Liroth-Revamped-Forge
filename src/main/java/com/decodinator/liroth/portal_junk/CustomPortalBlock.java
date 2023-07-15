@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -32,12 +34,12 @@ import com.decodinator.liroth.portal_junk.util.PortalLink;
 import com.decodinator.liroth.portal_junk.interfaces.EntityInCustomPortal;
 
 public class CustomPortalBlock extends Block {
-    public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
+	public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
     protected static final VoxelShape X_SHAPE = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
     protected static final VoxelShape Z_SHAPE = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
     protected static final VoxelShape Y_SHAPE = Block.box(0.0D, 6.0D, 0.0D, 16.0D, 10.0D, 16.0D);
 
-    public CustomPortalBlock(Properties settings) {
+    public CustomPortalBlock(BlockBehaviour.Properties settings) {
         super(settings);
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));
     }
@@ -52,7 +54,8 @@ public class CustomPortalBlock extends Block {
     }
 
     @SuppressWarnings("deprecation")
-	public BlockState m_7417_(BlockState state, Direction direction, BlockState newState, LevelAccessor world, BlockPos pos, BlockPos posFrom) {
+    @Override
+	public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor world, BlockPos pos, BlockPos posFrom) {
         Block block = getPortalBase((Level) world, pos);
         PortalLink link = CustomPortalApiRegistry.getPortalLinkFromBase(block);
         if (link != null) {
@@ -65,17 +68,20 @@ public class CustomPortalBlock extends Block {
         return Blocks.AIR.defaultBlockState();
     }
 
-    protected void m_7926_(StateDefinition.Builder<Block, BlockState> builder) {
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AXIS);
     }
 
     @OnlyIn(Dist.CLIENT)
-    public ItemStack m_7397_(BlockGetter world, BlockPos pos, BlockState state) {
+    @Override
+    public ItemStack getCloneItemStack(BlockGetter world, BlockPos pos, BlockState state) {
         return ItemStack.EMPTY;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void randomDisplayTick(BlockState state, Level world, BlockPos pos, Random random) {
+    @Override
+    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
         if (random.nextInt(100) == 0) {
             world.playLocalSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, SoundEvents.PORTAL_AMBIENT, SoundSource.BLOCKS, 0.5F, random.nextFloat() * 0.4F + 0.8F, false);
         }

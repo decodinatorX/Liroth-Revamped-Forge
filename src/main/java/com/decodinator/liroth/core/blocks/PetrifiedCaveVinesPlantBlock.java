@@ -42,7 +42,7 @@ public class PetrifiedCaveVinesPlantBlock  extends GrowingPlantBodyBlock impleme
 		   }
 
 		   public InteractionResult use(BlockState p_153021_, Level p_153022_, BlockPos p_153023_, Player p_153024_, InteractionHand p_153025_, BlockHitResult p_153026_) {
-		      return CaveVines.m_269473_(p_153024_, p_153021_, p_153022_, p_153023_);
+		      return CaveVines.use(p_153024_, p_153021_, p_153022_, p_153023_);
 		   }
 
 		   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_153031_) {
