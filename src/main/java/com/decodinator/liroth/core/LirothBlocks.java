@@ -191,6 +191,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> DAMNATION_CRAFTING_TABLE = createDamnationCraftingTable("damnation_crafting_table");
     public static final RegistryObject<DamnationChestBlock> DAMNATION_CHEST = createDamnationChest("damnation");
     public static final RegistryObject<Block> DAMNATION_FENCE = createFence("damnation_fence");
+    public static final RegistryObject<Block> DAMNATION_FENCE_GATE = createFenceGate("damnation_fence_gate");
     public static final RegistryObject<Block> DAMNATION_FUNGAL_CLUSTER = createFungusClusterPlant("damnation_fungal_cluster");
     public static final RegistryObject<Block> DAMNATION_FUNGUS = createFungusPlant("damnation_fungus");
     public static final RegistryObject<Block> DAMNATION_FUNGAL_CARPET = createMossCarpet("damnation_fungal_carpet");
@@ -244,6 +245,7 @@ public class LirothBlocks {
     public static final RegistryObject<JapzChestBlock> JAPZ_CHEST = createJapzChest("japz");
     public static final RegistryObject<Block> JAPZ_CRAFTING_TABLE = createJapzCraftingTable("japz_crafting_table");
     public static final RegistryObject<Block> JAPZ_FENCE = createFence("japz_fence");
+    public static final RegistryObject<Block> JAPZ_FENCE_GATE = createFenceGate("japz_fence_gate");
     public static final RegistryObject<Block> JAPZ_LEAVES = createLeaves("japz_leaves");
     public static final RegistryObject<Block> JAPZ_LOG = createLog("japz_log");
     public static final RegistryObject<Block> JAPZ_MINI_TREE = createMiniTree("japz_mini_tree");
@@ -260,6 +262,7 @@ public class LirothBlocks {
     public static final RegistryObject<KoolawChestBlock> KOOLAW_CHEST = createKoolawChest("koolaw");
     public static final RegistryObject<Block> KOOLAW_CRAFTING_TABLE = createKoolawCraftingTable("koolaw_crafting_table");
     public static final RegistryObject<Block> KOOLAW_FENCE = createFence("koolaw_fence");
+    public static final RegistryObject<Block> KOOLAW_FENCE_GATE = createFenceGate("koolaw_fence_gate");
     public static final RegistryObject<Block> KOOLAW_LEAVES = createLeaves("koolaw_leaves");
     public static final RegistryObject<Block> KOOLAW_LOG = createLog("koolaw_log");
     public static final RegistryObject<Block> KOOLAW_PLANKS = createPlanks("koolaw_planks");
@@ -303,6 +306,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> LIROTH_STONE_BRICK_SLAB = createStoneSlab("liroth_stone_brick_slab");
     public static final RegistryObject<Block> LIROTH_DOOR = createDoor("liroth_door");
     public static final RegistryObject<Block> LIROTH_FENCE = createFence("liroth_fence");
+    public static final RegistryObject<Block> LIROTH_FENCE_GATE = createFenceGate("liroth_fence_gate");
     public static final RegistryObject<Block> LIROTH_SLAB = createWoodSlab("liroth_slab");
     public static final RegistryObject<Block> LIROTH_STAIRS = createWoodStairs(LIROTH_PLANKS, "liroth_stairs");
     public static final RegistryObject<Block> LIROTH_TRAPDOOR = createTrapDoor("liroth_trapdoor");
@@ -330,6 +334,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_SLAB = createWoodSlab("petrified_damnation_slab");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_TRAPDOOR = createTrapDoor("petrified_damnation_trapdoor");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_FENCE = createFence("petrified_damnation_fence");
+    public static final RegistryObject<Block> PETRIFIED_DAMNATION_FENCE_GATE = createFenceGate("petrified_damnation_fence_gate");
     public static final RegistryObject<Block> PETRIFIED_DAMNATION_WOOD = createWood("petrified_damnation_wood");
     public static final RegistryObject<Block> PETRIFIED_CRYSTAL_BLOCK = createCrystalBlock("petrified_crystal_block");
     public static final RegistryObject<Block> PETRIFIED_MOSS_BLOCK = createMoss("petrified_moss_block");
@@ -370,6 +375,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> SPICED_PLANKS = createPlanks("spiced_planks");
     public static final RegistryObject<Block> SPICED_DOOR = createDoor("spiced_door");
     public static final RegistryObject<Block> SPICED_FENCE = createFence("spiced_fence");
+    public static final RegistryObject<Block> SPICED_FENCE_GATE = createFenceGate("spiced_fence_gate");
     public static final RegistryObject<Block> SPICED_SLAB = createWoodSlab("spiced_slab");
     public static final RegistryObject<Block> SPICED_STAIRS = createWoodStairs(SPICED_PLANKS, "spiced_stairs");
     public static final RegistryObject<Block> SPICED_TRAPDOOR = createTrapDoor("spiced_trapdoor");
@@ -426,6 +432,7 @@ public class LirothBlocks {
     public static final RegistryObject<Block> TALLPIER_PLANKS = createPlanks("tallpier_planks");
     public static final RegistryObject<Block> TALLPIER_DOOR = createDoor("tallpier_door");
     public static final RegistryObject<Block> TALLPIER_FENCE = createFence("tallpier_fence");
+    public static final RegistryObject<Block> TALLPIER_FENCE_GATE = createFenceGate("tallpier_fence_gate");
     public static final RegistryObject<Block> TALLPIER_SLAB = createWoodSlab("tallpier_slab");
     public static final RegistryObject<Block> TALLPIER_STAIRS = createWoodStairs(TALLPIER_PLANKS, "tallpier_stairs");
     public static final RegistryObject<Block> TALLPIER_TRAPDOOR = createTrapDoor("tallpier_trapdoor");

@@ -1,6 +1,6 @@
 {
   "parent": "block/template_fence_gate_open",
   "textures": {
-    "texture": "liroth:block/petrified_damnation_planks"
+    "texture": "liroth:block/damnation_planks"
   }
 }

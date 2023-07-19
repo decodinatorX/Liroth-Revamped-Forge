@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:iron_horse_armor"
+  },
+  "addition": {
+    "item": "liroth:lirothian_cobalt_ingot"
+  },
+  "result": {
+    "item": "liroth:lirothian_cobalt_horse_armor"
+  }
+}

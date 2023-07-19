@@ -18,7 +18,6 @@ import com.decodinator.liroth.core.LirothSounds;
 import com.decodinator.liroth.core.LirothStructures;
 import com.decodinator.liroth.core.blocks.entities.screens.LirothSplitterScreen;
 import com.decodinator.liroth.core.blocks.entities.screens.QuantumExtractorScreen;
-import com.decodinator.liroth.portal_junk.LirothPOIs;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -36,13 +35,16 @@ import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
@@ -75,7 +77,17 @@ public class Liroth
     
     public Liroth()
     {
-    	
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, LirothConfig.SPEC, "liroth.toml");
+
+        if (ModList.get().isLoaded("cloth_config")) {
+
+            LirothConfigGUI configGUI = new LirothConfigGUI();
+
+            ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
+                    () -> new ConfigScreenHandler.ConfigScreenFactory(
+                            (client, parent) -> configGUI.getConfigScreen(parent, client.level != null)
+                    ));
+        }
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -96,7 +108,6 @@ public class Liroth
 		LirothFluids.FLUIDS.register(modEventBus);
 		LirothFeatures.FEATURES.register(modEventBus);
 		LirothStructures.DEFERRED_REGISTRY_STRUCTURE.register(modEventBus);
-		LirothPOIs.POI.register(modEventBus);
 		LirothConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
 		LirothPlacedFeatures.PLACED_FEATURES.register(modEventBus);
 		LirothBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
