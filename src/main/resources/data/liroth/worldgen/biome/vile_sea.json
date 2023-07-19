@@ -35,12 +35,6 @@
     "axolotls": [],
     "underground_water_creature": [],
     "water_creature": [
-      {
-        "type": "liroth:vile_shark",
-        "weight": 5,
-        "minCount": 1,
-        "maxCount": 4
-      }
     ],
     "water_ambient": [],
     "misc": []

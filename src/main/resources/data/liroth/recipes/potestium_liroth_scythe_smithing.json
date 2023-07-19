@@ -1,5 +1,8 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "liroth:quantum_upgrade_smithing_template"
+  },
   "base": {
     "item": "liroth:quantum_liroth_hoe"
   },

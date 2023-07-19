@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#I#",
+    "#S#",
+    "###"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "S": {
+      "item": "liroth:liroth_gem"
+    },
+    "#": {
+      "item": "liroth:soulless_soil"
+    }
+  },
+  "result": {
+    "item": "liroth:quantum_upgrade_smithing_template",
+    "count": 1
+  }
+}

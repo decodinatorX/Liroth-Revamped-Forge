@@ -1,13 +1,13 @@
 package com.decodinator.liroth.core;
 
-import com.decodinator.liroth.portal_junk.api.CustomPortalBuilder;
 
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.resources.ResourceLocation;
 
 public class LirothPortalBuilders {
 
 	public static void init() {
-		CustomPortalBuilder.beginPortal()  
+		CustomPortalBuilder.beginPortal()
 	    .frameBlock(LirothBlocks.DIMENSIONAL_COMMUNICATOR.get())
         .customPortalBlock(LirothBlocks.LIROTH_DIMENSION_PORTAL.get())
 	    .destDimID(new ResourceLocation("liroth:liroth_dimension"))  

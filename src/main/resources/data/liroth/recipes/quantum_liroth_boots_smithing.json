@@ -1,12 +1,15 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "liroth:quantum_upgrade_smithing_template"
+  },
   "base": {
     "item": "liroth:liroth_boots"
   },
   "addition": {
-    "item": "liroth:potestium_shard"
+    "item": "liroth:quantum_plate"
   },
   "result": {
-    "item": "liroth:potestium_liroth_boots"
+    "item": "liroth:quantum_liroth_boots"
   }
 }

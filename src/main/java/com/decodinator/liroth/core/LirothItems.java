@@ -131,7 +131,7 @@ public class LirothItems {
     public static final RegistryObject<Item>LUX_LIROTH_SHIELD = createShieldItem("lux_liroth_shield");
     public static final RegistryObject<Item>SALEM_LIROTH_SHIELD = createShieldItem("salem_liroth_shield");
     public static final RegistryObject<Item>QUANTUM_LIROTH_SHIELD = createShieldItem("quantum_liroth_shield");
-    
+    public static final RegistryObject<Item>LIROTH_SMITHING_UPGRADE_TEMPLATE = createItem("liroth_upgrade_smithing_template");
     public static final RegistryObject<Item>LIROTH_SOUL_DUST = createItem("liroth_soul_dust");
     
 //    public static final RegistryObject<Item>LIROTH_STAR = createItem("liroth_star");
@@ -149,9 +149,11 @@ public class LirothItems {
     public static final RegistryObject<Item>POTESTIUM_PLATE = createItem("potestium_plate");
 //    public static final RegistryObject<Item>SOUL_GLASS_BOTTLE = createItem("soul_glass_bottle");
     public static final RegistryObject<Item>SPINERIOS_STONE_PEBBLE = createItem("spinerios_stone_pebble");
-    
+    public static final RegistryObject<Item>SWAP_SMITHING_UPGRADE_TEMPLATE = createItem("swap_upgrade_smithing_template");
     public static final RegistryObject<Item>TOURMALINE = createItem("tourmaline");
-        
+
+    public static final RegistryObject<Item>QUANTUM_SMITHING_UPGRADE_TEMPLATE = createItem("quantum_upgrade_smithing_template");
+
     public static final RegistryObject<Item>LIROTH_HELMET = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, ArmorItem.Type.HELMET, "liroth_helmet");
     public static final RegistryObject<Item>LIROTH_CHESTPLATE = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, "liroth_chestplate");
     public static final RegistryObject<Item>LIROTH_LEGGINGS = createArmorItem(LirothArmorMaterials.LIROTH_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, "liroth_leggings");

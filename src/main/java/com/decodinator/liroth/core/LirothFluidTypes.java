@@ -11,10 +11,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class LirothFluidTypes {
-	public static final ResourceLocation LIROTH_FLUID_STILL = new ResourceLocation("liroth:blocks/liroth_fluid_still");
-	public static final ResourceLocation LIROTH_FLUID_FLOWING = new ResourceLocation("liroth:blocks/liroth_fluid_flowing");
-	public static final ResourceLocation MOLTEN_SPINERIOS_STILL = new ResourceLocation("liroth:blocks/molten_spinerios_still");
-	public static final ResourceLocation MOLTEN_SPINERIOS_FLOWING = new ResourceLocation("liroth:blocks/molten_spinerios_flowing");
+	public static final ResourceLocation LIROTH_FLUID_STILL = new ResourceLocation("liroth:block/liroth_fluid_still");
+	public static final ResourceLocation LIROTH_FLUID_FLOWING = new ResourceLocation("liroth:block/liroth_fluid_flowing");
+	public static final ResourceLocation MOLTEN_SPINERIOS_STILL = new ResourceLocation("liroth:block/molten_spinerios_still");
+	public static final ResourceLocation MOLTEN_SPINERIOS_FLOWING = new ResourceLocation("liroth:block/molten_spinerios_flowing");
 	
 	public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, Liroth.MOD_ID);
 	

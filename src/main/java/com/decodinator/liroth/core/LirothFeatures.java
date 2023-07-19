@@ -29,6 +29,8 @@ public class LirothFeatures {
 	  private static final RegistryObject<LirothBoneClawFeature> LIROTH_BONE_CLAW = FEATURES.register("liroth_bone_claw", () -> new LirothBoneClawFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<LirothBoneMushroomFeature> LIROTH_BONE_MUSHROOM = FEATURES.register("liroth_bone_mushroom", () -> new LirothBoneMushroomFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<LirothBoneTreeFeature> LIROTH_BONE_TREE = FEATURES.register("liroth_bone_tree", () -> new LirothBoneTreeFeature(NoneFeatureConfiguration.CODEC));
+	  private static final RegistryObject<PointedJalsphireCrystalFeature> JALSPHIRE_CRYSTAL_CLUSTER = FEATURES.register("pointed_jalsphire_crystal", () -> new PointedJalsphireCrystalFeature(PointedDripstoneConfiguration.CODEC));
+	  private static final RegistryObject<PointedPetrifiedCrystalFeature> PETRIFIED_CRYSTAL_CLUSTER = FEATURES.register("pointed_petrified_crystal", () -> new PointedPetrifiedCrystalFeature(PointedDripstoneConfiguration.CODEC));
 	  private static final RegistryObject<DamnationVinesFeature> DAMNATION_VINES = FEATURES.register("damnation_vines", () -> new DamnationVinesFeature(NoneFeatureConfiguration.CODEC));
 	  private static final RegistryObject<RandomPatchFeature> WILTING_LIROTH_ROSES = FEATURES.register("wilting_liroth_roses", () -> new RandomPatchFeature(RandomPatchConfiguration.CODEC));
 }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#I#",
+    "###",
+    "#S#"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "liroth:ruby"
+    },
+    "#": {
+      "item": "minecraft:blackstone"
+    }
+  },
+  "result": {
+    "item": "liroth:swap_upgrade_smithing_template",
+    "count": 1
+  }
+}
