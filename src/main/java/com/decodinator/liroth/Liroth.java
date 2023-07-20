@@ -102,19 +102,9 @@ public class Liroth
     
     public Liroth()
     {
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, LirothConfig.SPEC, "liroth.toml");
+		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, LirothConfig.SPEC, "liroth.toml");
 
-		if (ModList.get().isLoaded("cloth_config")) {
-
-			LirothConfigGUI configGUI = new LirothConfigGUI();
-
-			ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
-					() -> new ConfigScreenHandler.ConfigScreenFactory(
-							(client, parent) -> configGUI.getConfigScreen(parent, client.level != null)
-					));
-		}
-
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -169,16 +159,22 @@ public class Liroth
         public static void onClientSetup(FMLClientSetupEvent event)
         {
         	if (FMLEnvironment.dist == Dist.CLIENT) {
-            MenuScreens.register(LirothMenuTypes.LIROTH_SPLITTER_MENU.get(), LirothSplitterScreen::new);
-            MenuScreens.register(LirothMenuTypes.QUANTUM_EXTRACTOR_MENU.get(), QuantumExtractorScreen::new);
-//    		LirothRenders.renderCutOuts();
-            LirothForgeClientEventsHandler.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition); 
-            ItemBlockRenderTypes.setRenderLayer(LirothFluids.LIROTH_FLUID.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(LirothFluids.FLOWING_LIROTH_FLUID.get(), RenderType.translucent());
+            	MenuScreens.register(LirothMenuTypes.LIROTH_SPLITTER_MENU.get(), LirothSplitterScreen::new);
+            	MenuScreens.register(LirothMenuTypes.QUANTUM_EXTRACTOR_MENU.get(), QuantumExtractorScreen::new);
+            	LirothForgeClientEventsHandler.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition);
+            	ItemBlockRenderTypes.setRenderLayer(LirothFluids.LIROTH_FLUID.get(), RenderType.translucent());
+            	ItemBlockRenderTypes.setRenderLayer(LirothFluids.FLOWING_LIROTH_FLUID.get(), RenderType.translucent());
+
+				if (ModList.get().isLoaded("cloth_config")) {
+
+					LirothConfigGUI configGUI = new LirothConfigGUI();
+
+					ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
+							() -> new ConfigScreenHandler.ConfigScreenFactory(
+									(client, parent) -> configGUI.getConfigScreen(parent, client.level != null)
+							));
+				}
         	}
-//            Some client setup code
-//            LOGGER.info("HELLO FROM CLIENT SETUP");
-//            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
     
