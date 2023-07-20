@@ -80,7 +80,7 @@ import java.util.function.Supplier;
 
 import org.slf4j.Logger;
 
-// fuck those previous comments that were here, I am better!
+// fuck those previous comments that were here, I am better! pls
 
 @Mod(Liroth.MOD_ID)
 public class Liroth
