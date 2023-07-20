@@ -56,6 +56,8 @@ import net.minecraftforge.client.gui.ModListScreen;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
+// I can't believe this method actually works
+
 @OnlyIn(Dist.CLIENT)
 public class LirothTitleScreen extends Screen {
     private static final Logger LOGGER = LogUtils.getLogger();

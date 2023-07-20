@@ -10,6 +10,7 @@ public class LirothConfig {
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 
+    // DO NOT DELETE THIS, IT IS THE TRUE/FALSE BOOLEAN FOR THE TITLE SCREEN
     public final ForgeConfigSpec.BooleanValue titleScreen;
 
     public LirothConfig(ForgeConfigSpec.Builder builder) {

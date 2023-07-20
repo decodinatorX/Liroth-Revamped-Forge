@@ -80,13 +80,12 @@ import java.util.function.Supplier;
 
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
+// fuck those previous comments that were here, I am better!
+
 @Mod(Liroth.MOD_ID)
 public class Liroth
 {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "liroth";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public static final ForgeFlowingFluid.Properties LIROTH_FLUID_PROPERTIES = new ForgeFlowingFluid.Properties(LirothFluidTypes.LIROTH_FLUID_TYPE, LirothFluids.LIROTH_FLUID, LirothFluids.FLOWING_LIROTH_FLUID).slopeFindDistance(2).levelDecreasePerBlock(2).block(LirothBlocks.LIROTH_FLUID_BLOCK).bucket(LirothItems.LIROTH_FLUID_BUCKET);
@@ -113,10 +112,8 @@ public class Liroth
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addClassicPack);
-        // Register the Deferred Register to the mod event bus so blocks get registered
 		LirothParticles.PARTICLES.register(modEventBus);
 		LirothEntities.ENTITIES_TYPES.register(modEventBus);
 		LirothBlocks.BLOCKS.register(modEventBus);
@@ -137,9 +134,6 @@ public class Liroth
 		LirothBiomeModifiers.BIOME_MODIFIERS.register(modEventBus);
 		LirothRecipeTypes.RECIPE_TYPES.register(modEventBus);
 		LirothRecipeTypes.RECIPE_SERIALIZERS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-		// ITEMS.register(modEventBus);
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         Liroth.BUILDER.getEntryKeys();
     }
@@ -147,21 +141,13 @@ public class Liroth
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         LirothPortalBuilders.init();
-//    	ForgeRegistries.MENU_TYPES.register(Liroth.QUANTUM_EXTRACTOR_SCREEN_HANDLER, QuantumExtractorScreen::new);
-        // Some common setup code
-//        LOGGER.info("HELLO FROM COMMON SETUP");
-//        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        // Do something when the server starts
-//        LOGGER.info("HELLO from server starting");
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
