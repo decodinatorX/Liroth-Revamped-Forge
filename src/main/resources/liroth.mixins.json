@@ -4,9 +4,9 @@
   "package": "com.decodinator.liroth.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "RedirectTitleScreenMixin"
   ],
   "client": [
+    "RedirectTitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

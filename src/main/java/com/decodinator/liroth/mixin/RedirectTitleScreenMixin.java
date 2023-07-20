@@ -1,6 +1,8 @@
 package com.decodinator.liroth.mixin;
 
 import com.decodinator.liroth.LirothConfig;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,7 +19,9 @@ import net.minecraft.client.gui.screens.TitleScreen;
 
 // this sucks. lmao.
 @Mixin(value = Minecraft.class, priority = 1001)
+@OnlyIn(Dist.CLIENT)
 public class RedirectTitleScreenMixin {
+    @OnlyIn(Dist.CLIENT)
     @Redirect(method = "setScreen", at = @At(value = "FIELD", target = "Lnet/minecraft/client/Minecraft;screen:Lnet/minecraft/client/gui/screens/Screen;", opcode = Opcodes.PUTFIELD))
     private void injected(Minecraft instance, Screen value) {
         if (value instanceof TitleScreen && LirothConfig.CONFIG.titleScreen.get() == true) {

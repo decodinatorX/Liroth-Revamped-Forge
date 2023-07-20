@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence_gate",
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "liroth:petrified_damnation_planks"
+    }
+  },
+  "result": {
+    "item": "liroth:petrified_damnation_fence_gate"
+  }
+}
