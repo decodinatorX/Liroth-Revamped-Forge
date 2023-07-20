@@ -1,10 +1,12 @@
 package com.decodinator.liroth;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import com.decodinator.liroth.core.LirothBlockEntities;
+import com.decodinator.liroth.core.LirothBlocks;
 import com.decodinator.liroth.core.LirothBoat;
 import com.decodinator.liroth.core.LirothBoatModel;
 import com.decodinator.liroth.core.LirothEntities;
@@ -45,31 +47,33 @@ import com.decodinator.liroth.core.particles.JantiroPortalParticle;
 import com.decodinator.liroth.core.particles.LirothPortalParticle;
 import com.decodinator.liroth.core.particles.PurpleFlameParticle;
 import com.decodinator.liroth.core.particles.SporeParticle;
-import com.decodinator.liroth.core.renders.LirothBoatRenderer;
 import com.decodinator.liroth.core.renders.LirothChestBlockEntityRenderer;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.renderer.chunk.RenderChunkRegion;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.server.packs.resources.PreparableReloadListener;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-
-import org.jetbrains.annotations.ApiStatus;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod.EventBusSubscriber(modid = Liroth.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class LirothForgeClientEventsHandler {
 
-    @SubscribeEvent
+
+	@SubscribeEvent
     public static void Liroth_onEntityRenderersEvent$RegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         LirothEntityRenderers.register(event::registerEntityRenderer);
     }

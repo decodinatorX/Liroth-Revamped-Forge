@@ -5,6 +5,8 @@ import com.decodinator.liroth.core.LirothItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -14,13 +16,13 @@ public class AnsalumLirothArmorMaterial implements ArmorMaterial {
 	// In which A is helmet, B chestplate, C leggings and D boots. 
 	// For reference, Leather uses {1, 2, 3, 1}, and Diamond/Netherite {3, 6, 8, 3}
 	@Override
-	public int getDurabilityForSlot(EquipmentSlot var1) {
-		return BASE_DURABILITY[var1.getIndex()] * 37;
+	public int getDurabilityForType(ArmorItem.Type var1) {
+		return BASE_DURABILITY[var1.ordinal()] * 37;
 	}
 
 	@Override
-	public int getDefenseForSlot(EquipmentSlot var1) {
-		return PROTECTION_VALUES[var1.getIndex()];
+	public int getDefenseForType(ArmorItem.Type var1) {
+		return PROTECTION_VALUES[var1.ordinal()];
 	}
 
 	@Override
@@ -53,7 +55,5 @@ public class AnsalumLirothArmorMaterial implements ArmorMaterial {
 	public float getKnockbackResistance() {
 		return 0.35F;
 	}
-
-
 
 }

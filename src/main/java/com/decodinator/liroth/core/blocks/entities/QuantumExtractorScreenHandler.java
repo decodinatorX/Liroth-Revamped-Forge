@@ -24,14 +24,14 @@ public class QuantumExtractorScreenHandler extends AbstractContainerMenu {
 	private Player entity;
 
     public QuantumExtractorScreenHandler(int syncId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this(syncId, playerInventory, playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainer(4), new SimpleContainerData(4));
+        this(syncId, playerInventory, playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainer(4), new SimpleContainerData(4));
     }
 
     public QuantumExtractorScreenHandler(int syncId, Inventory playerInventory, BlockEntity blockEntity, Container simpleContainer, ContainerData data) {
         super(LirothMenuTypes.QUANTUM_EXTRACTOR_MENU.get(), syncId);
         checkContainerSize(simpleContainer, 4);
         this.inventory = simpleContainer;
-        this.world = playerInventory.player.level;
+        this.world = playerInventory.player.level();
 		this.entity = entity;
         inventory.startOpen(playerInventory.player);
         this.propertyDelegate = data;

@@ -30,7 +30,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 public class PotestiumHelmetItem extends ArmorItem implements GeoItem {
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     
-    public PotestiumHelmetItem(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder)  {
+    public PotestiumHelmetItem(ArmorMaterial materialIn, ArmorItem.Type slot, Item.Properties builder)  {
         super(materialIn, slot, builder);
     }
 

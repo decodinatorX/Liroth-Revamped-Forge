@@ -1,5 +1,10 @@
 accessWidener v1 named
 
+#Adding this stupid fucking thing so it THINKS there has been changes ffs a
+
 #Fields
+accessible field net/minecraft/client/gui/components/LogoRenderer showEasterEgg Z
+accessible field net/minecraft/client/gui/components/LogoRenderer keepLogoThroughFade Z
 
 #Methods
+accessible method net/minecraft/tags/BiomeTags create (Ljava/lang/String;)Lnet/minecraft/tags/TagKey;

@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.SnowyDirtBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.lighting.LayerLightEngine;
+import net.minecraft.world.level.lighting.LightEngine;
 
 public abstract class LirothSpreadableBlock
 extends SnowyDirtBlock {
@@ -31,7 +31,7 @@ extends SnowyDirtBlock {
 	      } else if (blockstate.getFluidState().getAmount() == 8) {
 	         return false;
 	      } else {
-	         int i = LayerLightEngine.getLightBlockInto(p_56825_, p_56824_, p_56826_, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(p_56825_, blockpos));
+	         int i = LightEngine.getLightBlockInto(p_56825_, p_56824_, p_56826_, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(p_56825_, blockpos));
 	         return i < p_56825_.getMaxLightLevel();
 	      }
 	   }

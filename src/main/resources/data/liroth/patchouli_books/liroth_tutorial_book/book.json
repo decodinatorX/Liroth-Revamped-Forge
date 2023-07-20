@@ -4,6 +4,7 @@
 	"version": 1,
 	"book_texture": "patchouli:textures/gui/book_purple.png",
     "model": "liroth:liroth_tutorial_book",
-	"creative_tab": "liroth:itemGroup.liroth.liroth_items",
-	"show_progress": false
+	"creative_tab": "liroth:itemgroup.liroth.liroth_items",
+	"show_progress": false,
+	"use_resource_pack": true
 }

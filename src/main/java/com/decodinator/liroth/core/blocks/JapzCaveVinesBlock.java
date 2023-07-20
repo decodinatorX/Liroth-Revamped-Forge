@@ -56,7 +56,7 @@ public class JapzCaveVinesBlock extends GrowingPlantHeadBlock implements Bonemea
 	   }
 
 	   public InteractionResult use(BlockState p_152980_, Level p_152981_, BlockPos p_152982_, Player p_152983_, InteractionHand p_152984_, BlockHitResult p_152985_) {
-	      return CaveVines.use(p_152980_, p_152981_, p_152982_);
+	      return CaveVines.use(p_152983_, p_152980_, p_152981_, p_152982_);
 	   }
 
 	   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_152993_) {

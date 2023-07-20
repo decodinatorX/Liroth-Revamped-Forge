@@ -9,6 +9,8 @@ import net.minecraft.resources.ResourceLocation;
 
 import javax.swing.*;
 
+// I hate setting up configs apparently a
+
 public class LirothConfigGUI {
 
     public Screen getConfigScreen(Screen parent, boolean isTrans) {

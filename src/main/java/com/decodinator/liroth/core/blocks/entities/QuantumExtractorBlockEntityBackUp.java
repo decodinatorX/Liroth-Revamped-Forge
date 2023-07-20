@@ -344,7 +344,7 @@ public class QuantumExtractorBlockEntityBackUp extends BlockEntity implements Me
 	@Override
 	public void setItem(int p_18944_, ItemStack p_18945_) {
 	      ItemStack itemstack = this.inventory.get(p_18944_);
-	      boolean flag = !p_18945_.isEmpty() && p_18945_.sameItem(itemstack) && ItemStack.tagMatches(p_18945_, itemstack);
+	      boolean flag = !p_18945_.isEmpty() && p_18945_.isSameItem(itemstack, p_18945_) && ItemStack.matches(p_18945_, itemstack);
 	      this.inventory.set(p_18944_, p_18945_);
 	      if (p_18945_.getCount() > this.getMaxStackSize()) {
 	         p_18945_.setCount(this.getMaxStackSize());

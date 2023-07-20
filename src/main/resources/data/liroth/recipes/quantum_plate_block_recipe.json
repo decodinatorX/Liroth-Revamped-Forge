@@ -1,42 +1,16 @@
 {
-
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "###",
+    "###",
+    "###"
   ],
   "key": {
-    "0": {
-      "item": "liroth:quantum_plate"
-    },
-    "1": {
-      "item": "liroth:quantum_plate"
-    },
-    "2": {
-      "item": "liroth:quantum_plate"
-    },
-    "3": {
-      "item": "liroth:quantum_plate"
-    },
-    "4": {
-      "item": "liroth:quantum_plate"
-    },
-    "5": {
-      "item": "liroth:quantum_plate"
-    },
-    "6": {
-      "item": "liroth:quantum_plate"
-    },
-    "7": {
-      "item": "liroth:quantum_plate"
-    },
-    "8": {
+    "#": {
       "item": "liroth:quantum_plate"
     }
   },
   "result": {
-    "item": "liroth:quantum_plate_block",
-    "count": 1
+    "item": "liroth:quantum_plate_block"
   }
 }

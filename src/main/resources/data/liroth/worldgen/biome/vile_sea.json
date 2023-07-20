@@ -1,7 +1,7 @@
 {
   "temperature": 0.5,
   "downfall": 0.5,
-  "precipitation": "rain",
+  "has_precipitation": true,
   "temperature_modifier": "none",
   "effects": {
     "sky_color": 8223487,
@@ -34,7 +34,8 @@
     "ambient": [],
     "axolotls": [],
     "underground_water_creature": [],
-    "water_creature": [],
+    "water_creature": [
+    ],
     "water_ambient": [],
     "misc": []
   },

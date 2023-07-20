@@ -1,0 +1,9 @@
+{
+  "asset_name": "ruby",
+  "description": {
+    "translate": "Ruby",
+    "color": "#FF0000"
+  },
+  "ingredient": "liroth:ruby",
+  "item_model_index": 1
+}

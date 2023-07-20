@@ -25,14 +25,14 @@ public class LirothSplitterScreenHandler extends AbstractContainerMenu {
 	private Player entity;
 
     public LirothSplitterScreenHandler(int syncId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this(syncId, playerInventory, playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainer(5), new SimpleContainerData(4));
+        this(syncId, playerInventory, playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainer(5), new SimpleContainerData(4));
     }
 
     public LirothSplitterScreenHandler(int syncId, Inventory playerInventory, BlockEntity blockEntity, Container simpleContainer, ContainerData data) {
         super(LirothMenuTypes.LIROTH_SPLITTER_MENU.get(), syncId);
         checkContainerSize(simpleContainer, 5);
         this.inventory = simpleContainer;
-        this.world = playerInventory.player.level;
+        this.world = playerInventory.player.level();
 		this.entity = entity;
         simpleContainer.startOpen(playerInventory.player);
         this.propertyDelegate = data;

@@ -1,7 +1,7 @@
 {
   "temperature": 0.7,
   "downfall": 0.8,
-  "precipitation": "rain",
+  "has_precipitation": true,
   "effects": {
     "sky_color": 8223487,
     "fog_color": 13615871,
@@ -62,7 +62,6 @@
     ],
     [],
     [
-      "liroth:disk_jalsphire_crystal",
       "liroth:pointed_jalsphire_crystal"
     ],
     [],
@@ -78,6 +77,7 @@
       "minecraft:spring_water",
       "liroth:obsidian_spike",
       "liroth:disk_spinerios_stone",
+      "liroth:end_spike",
       "liroth:jalsphire_ore"
     ],
     []

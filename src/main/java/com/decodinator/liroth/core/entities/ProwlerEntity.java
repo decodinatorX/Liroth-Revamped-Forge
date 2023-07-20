@@ -18,7 +18,7 @@ public class ProwlerEntity extends EnderMan {
 
 	public ProwlerEntity(EntityType<? extends EnderMan> entityType, Level world) {
 		super(entityType, world);
-        this.maxUpStep = 1.0f;
+//        this.maxUpStep = 1.0f;
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0f);
 	}
 

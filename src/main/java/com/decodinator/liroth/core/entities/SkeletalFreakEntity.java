@@ -36,9 +36,9 @@ public class SkeletalFreakEntity extends Skeleton {
         double e = target.getY(0.3333333333333333) - persistentProjectileEntity.getY();
         double f = target.getZ() - this.getZ();
         double g = Math.sqrt(d * d + f * f);
-        persistentProjectileEntity.shoot(d, e + g * (double)0.2f, f, 1.6f, 14 - this.level.getDifficulty().getId() * 4);
+        persistentProjectileEntity.shoot(d, e + g * (double)0.2f, f, 1.6f, 14 - this.level().getDifficulty().getId() * 4);
         this.playSound(SoundEvents.SKELETON_SHOOT, 1.0f, 1.0f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
-        this.level.addFreshEntity(persistentProjectileEntity);
+        this.level().addFreshEntity(persistentProjectileEntity);
     }
 
     protected AbstractArrow createBeamProjectile(ItemStack arrow, float damageModifier) {

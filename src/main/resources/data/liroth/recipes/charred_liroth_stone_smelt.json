@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "liroth:charred_liroth_cobblestone"
+  },
+  "result": "liroth:charred_liroth_stone",
+  "experience": 0.1,
+  "cookingtime": 200
+}
