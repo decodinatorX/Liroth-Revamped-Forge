@@ -73,8 +73,7 @@
       "liroth:liroth_bone_tree",
       "liroth:lirothian_liroth_gem_ore",
       "liroth:lirothian_cobalt_ore",
-      "liroth:lirothian_petroleum_ore",
-      "liroth:charred_lirothian_liroth_gem_ore"
+      "liroth:lirothian_petroleum_ore"
     ],
     [
       "minecraft:freeze_top_layer"
