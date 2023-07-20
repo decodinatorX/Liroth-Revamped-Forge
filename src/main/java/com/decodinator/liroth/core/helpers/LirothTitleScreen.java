@@ -56,7 +56,7 @@ import net.minecraftforge.client.gui.ModListScreen;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
-// I can't believe this method actually works  pls
+// I can't believe this method actually works a
 
 @OnlyIn(Dist.CLIENT)
 public class LirothTitleScreen extends Screen {
@@ -379,7 +379,6 @@ public class LirothTitleScreen extends Screen {
 
     public void renderLogo(GuiGraphics guiGraphics, int i, float f) {
         this.renderLogo(guiGraphics, i, f, 30);
-    }
 
     public void renderLogo(GuiGraphics guiGraphics, int i, float f, int j) {
         guiGraphics.setColor(1.0f, 1.0f, 1.0f, this.logoRenderer.keepLogoThroughFade ? 1.0f : f);

@@ -1,4 +1,4 @@
-// i love arch loom... it really helps with the porting of shit from fabric... pls
+// i love arch loom... it really helps with the porting of shit from fabric... a
 
 plugins {
     id 'dev.architectury.loom' version '0.12.0-SNAPSHOT'
