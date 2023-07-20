@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "liroth:liroth_horse_armor"
+  },
+  "addition": {
+    "item": "liroth:quantum_plate"
+  },
+  "result": {
+    "item": "liroth:quantum_horse_armor"
+  }
+}
