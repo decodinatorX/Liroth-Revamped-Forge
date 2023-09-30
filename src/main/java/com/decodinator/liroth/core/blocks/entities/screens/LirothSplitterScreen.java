@@ -42,12 +42,12 @@ public class LirothSplitterScreen extends AbstractContainerScreen<LirothSplitter
         int y = (height - imageHeight) / 2;
         int i = this.leftPos;
         int j = this.topPos;
-        matrices.blitInscribed(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        matrices.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
         if (((LirothSplitterScreenHandler)this.menu).isBurning()) {
             k = ((LirothSplitterScreenHandler)this.menu).getFuelProgress();
-            matrices.blitInscribed(TEXTURE, i + 53, j + 36 + 12 - k, 176, 65 - k, 14, k + 1);
+            matrices.blit(TEXTURE, i + 53, j + 36 + 12 - k, 176, 65 - k, 14, k + 1);
         }
         k = ((LirothSplitterScreenHandler)this.menu).getCookProgress(34);
-        matrices.blitInscribed(TEXTURE, i + 73, j + 15, 176, 0, k, 53);
+        matrices.blit(TEXTURE, i + 73, j + 15, 176, 0, k, 53);
     }
 }

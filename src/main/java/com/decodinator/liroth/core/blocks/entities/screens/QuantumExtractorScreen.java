@@ -41,12 +41,12 @@ public class QuantumExtractorScreen extends AbstractContainerScreen<QuantumExtra
         int y = (height - this.imageHeight) / 2;
         int i = this.leftPos;
         int j = this.topPos;
-        guiGraphics.blitInscribed(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
         if (((QuantumExtractorScreenHandler)this.menu).isBurning()) {
             k = ((QuantumExtractorScreenHandler)this.menu).getFuelProgress();
-            guiGraphics.blitInscribed(TEXTURE, i + 57, j + 33 + 12 - k, 176, 65 - k, 14, k + 1);
+            guiGraphics.blit(TEXTURE, i + 57, j + 33 + 12 - k, 176, 65 - k, 14, k + 1);
         }
         int s = ((QuantumExtractorScreenHandler)this.menu).getCookProgress(24);
-        guiGraphics.blitInscribed(TEXTURE, x + 80, y + 24, 176, 0, s + 1, 17);
+        guiGraphics.blit(TEXTURE, x + 80, y + 24, 176, 0, s + 1, 17);
     }
 }

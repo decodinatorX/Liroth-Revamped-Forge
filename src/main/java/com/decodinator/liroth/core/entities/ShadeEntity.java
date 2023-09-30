@@ -40,15 +40,12 @@ public class ShadeEntity extends Zombie {
         if (itemStack.is(LirothTags.TORCHES)) {
             this.level().playSound(player2, this.getX(), this.getY(), this.getZ(), SoundEvents.SOUL_SOIL_BREAK, this.getSoundSource(), 1.0f, this.random.nextFloat() * 0.4f + 0.8f);
             if (!this.level().isClientSide) {
-                this.poof();
+                this.damageSources().playerAttack(player2);
+                this.kill();
             }
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
         return super.mobInteract(player2, hand);
-    }
-    
-    public void poof() {
-        this.kill();
     }
     
     @Override

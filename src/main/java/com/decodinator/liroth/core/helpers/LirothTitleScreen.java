@@ -379,6 +379,7 @@ public class LirothTitleScreen extends Screen {
 
     public void renderLogo(GuiGraphics guiGraphics, int i, float f) {
         this.renderLogo(guiGraphics, i, f, 30);
+    }
 
     public void renderLogo(GuiGraphics guiGraphics, int i, float f, int j) {
         guiGraphics.setColor(1.0f, 1.0f, 1.0f, this.logoRenderer.keepLogoThroughFade ? 1.0f : f);
