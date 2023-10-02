@@ -122,10 +122,10 @@ public class Liroth
 		LirothEntities.ENTITIES_TYPES.register(modEventBus);
 		LirothBlocks.BLOCKS.register(modEventBus);
 		if (FMLEnvironment.dist == Dist.CLIENT) {
-		LirothMenuTypes.MENUS.register(modEventBus);
         Liroth.CREATIVE_MODE_TABS.register(modEventBus);
 		}
-		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        LirothMenuTypes.MENUS.register(modEventBus);
+        LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);
 		LirothSounds.SOUND_EVENTS.register(modEventBus);
