@@ -1,7 +1,9 @@
 package com.decodinator.liroth.core.entities.renderers;
 
-import com.decodinator.liroth.core.entities.ForsakenCorpseEntity;
-import com.decodinator.liroth.core.entities.SoulArachnidEntity;
+import com.decodinator.liroth.Liroth;
+import com.decodinator.liroth.core.entities.ProwlerEntity;
+import com.decodinator.liroth.core.entities.SkeletalFreakEntity;
+import com.decodinator.liroth.core.entities.WarpEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -12,16 +14,15 @@ import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoRenderer;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
 
-public class SoulArachnidGlowFeatureRenderer
-        extends GeoRenderLayer<SoulArachnidEntity> {
-    private static final ResourceLocation SKIN = new ResourceLocation("liroth", "textures/entity/soul_arachnid/soul_arachnid_glow.png");
+public class WarpGlowLayer extends GeoRenderLayer<WarpEntity> {
+    private static final ResourceLocation SKIN = new ResourceLocation(Liroth.MOD_ID + ":textures/entity/warp/warp_glow.png");
 
-    public SoulArachnidGlowFeatureRenderer(GeoRenderer<SoulArachnidEntity> featureRendererContext) {
+    public WarpGlowLayer(GeoRenderer<WarpEntity> featureRendererContext) {
         super(featureRendererContext);
     }
 
     @Override
-    public void render(PoseStack poseStack, SoulArachnidEntity animatable, BakedGeoModel bakedModel, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
+    public void render(PoseStack poseStack, WarpEntity animatable, BakedGeoModel bakedModel, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, float partialTick, int packedLight, int packedOverlay) {
         RenderType armorRenderType = RenderType.eyes(SKIN);
         if (animatable.isInvisible()) {
             return;
@@ -32,4 +33,3 @@ public class SoulArachnidGlowFeatureRenderer
     }
 
 }
-

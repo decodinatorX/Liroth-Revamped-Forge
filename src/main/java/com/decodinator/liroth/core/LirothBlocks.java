@@ -107,6 +107,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -622,7 +623,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createPointedPetrifiedCrystal(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PointedPetrifiedCrystal(Block.Properties.copy(Blocks.GLASS).dynamicShape()));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PointedPetrifiedCrystal(Block.Properties.of().strength(0.3F).sound(SoundType.GLASS).dynamicShape()));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -664,7 +665,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createWeepingVinesHead(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesHead(Block.Properties.copy(Blocks.WEEPING_VINES).noCollission().lightLevel(state -> 8)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesHead(Properties.of().mapColor(MapColor.NETHER).randomTicks().noCollission().instabreak().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY).lightLevel(state -> 8)));
 		createPlantBlockItems(id, createBlock);
         return createBlock;
         
@@ -673,7 +674,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createWeepingVinesBody(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesBody(Block.Properties.copy(Blocks.WEEPING_VINES_PLANT).noCollission().lightLevel(state -> 8)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new DamnationVinesBody(Properties.of().mapColor(MapColor.NETHER).noCollission().instabreak().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY).lightLevel(state -> 8)));
         return createBlock;
         
 
@@ -718,7 +719,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createCrystalBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.GLASS).lightLevel(state -> 8)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.of().strength(0.3F).sound(SoundType.GLASS).lightLevel(state -> 8)));
         createBlockItems(id, createBlock);
 
         return createBlock;
@@ -727,7 +728,7 @@ public class LirothBlocks {
     }
     
     static RegistryObject<Block> createPointedCrystal(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PointedJalsphireCrystal(Block.Properties.copy(Blocks.GLASS).dynamicShape().lightLevel(state -> (8))));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new PointedJalsphireCrystal(Block.Properties.of().strength(0.3F).sound(SoundType.GLASS).dynamicShape().lightLevel(state -> (8))));
         
         createBlockItems(id, createBlock);
 
@@ -1036,7 +1037,7 @@ public class LirothBlocks {
     }*/
     
     static RegistryObject<Block> createAnomalyBlock(String id) {
-        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.BEDROCK).noOcclusion().sound(SoundType.METAL)));
+        RegistryObject<Block> createBlock = BLOCKS.register(id, () -> new Block(Block.Properties.copy(Blocks.BEDROCK).sound(SoundType.METAL)));
         createBlockItems(id, createBlock);
 
         return createBlock;

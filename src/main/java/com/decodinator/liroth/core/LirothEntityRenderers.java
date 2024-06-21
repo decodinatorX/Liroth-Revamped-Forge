@@ -1,18 +1,5 @@
 package com.decodinator.liroth.core;
 
-import org.jetbrains.annotations.NotNull;
-
-import com.decodinator.liroth.core.entities.renderers.ForsakenCorpseEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.FreakshowEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.FungalFiendEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.LirothianMimicEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.PierPeepEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.ProwlerEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.ShadeEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.SkeletalFreakEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.SoulArachnidEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.VileSharkEntityRenderer;
-import com.decodinator.liroth.core.entities.renderers.WarpEntityRenderer;
 import com.decodinator.liroth.core.renders.LirothBoatRenderer;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

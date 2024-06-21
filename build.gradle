@@ -42,9 +42,9 @@ dependencies {
     mappings loom.officialMojangMappings()
 	forge "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 	modImplementation('software.bernie.geckolib:geckolib-forge-1.20:4.2')
-	modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-common-api:14.0.0.11")
-	modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-forge-api:14.0.0.11")
-	modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:14.0.0.11")
+	modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-common-api:14.0.0.9")
+	modCompileOnlyApi("mezz.jei:jei-${minecraft_version}-forge-api:14.0.0.9")
+	modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:14.0.0.9")
 	modImplementation("com.github.mysticpasta1:customportalapi:1.20-forge-SNAPSHOT")
 	include("com.github.mysticpasta1:customportalapi:1.20-forge-SNAPSHOT")
 	modApi "me.shedaniel.cloth:cloth-config-forge:11.1.106"

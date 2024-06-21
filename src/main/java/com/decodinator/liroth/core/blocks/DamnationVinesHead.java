@@ -12,21 +12,22 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DamnationVinesHead extends GrowingPlantHeadBlock {
-	   protected static final VoxelShape SHAPE = Block.box(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+	protected static final VoxelShape SHAPE = Block.box(4.0, 9.0, 4.0, 12.0, 16.0, 12.0);
 
-	   public DamnationVinesHead(BlockBehaviour.Properties p_154966_) {
-	      super(p_154966_, Direction.DOWN, SHAPE, false, 0.1D);
-	   }
+	public DamnationVinesHead(BlockBehaviour.Properties arg) {
+		super(arg, Direction.DOWN, SHAPE, false, 0.1);
+	}
 
-	   protected int getBlocksToGrowWhenBonemealed(RandomSource p_222680_) {
-	      return NetherVines.getBlocksToGrowWhenBonemealed(p_222680_);
-	   }
+	protected int getBlocksToGrowWhenBonemealed(RandomSource arg) {
+		return NetherVines.getBlocksToGrowWhenBonemealed(arg);
+	}
+
 
 	   protected Block getBodyBlock() {
 	      return LirothBlocks.DAMNATION_VINES_PLANT.get();
 	   }
 
-	   protected boolean canGrowInto(BlockState p_154971_) {
-	      return NetherVines.isValidGrowthState(p_154971_);
-	   }
+	protected boolean canGrowInto(BlockState arg) {
+		return arg.isAir();
 	}
+}

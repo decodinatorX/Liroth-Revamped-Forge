@@ -17,7 +17,7 @@ public class LirothConfig {
         builder.push("Liroth Revamped Config");
 
         titleScreen = builder
-                .define("titleScreen", true);
+                .define("titleScreen", false);
 
         builder.pop();
     }
