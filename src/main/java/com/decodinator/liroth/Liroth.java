@@ -112,9 +112,9 @@ public class Liroth
 		LirothParticles.PARTICLES.register(modEventBus);
 		LirothEntities.ENTITIES_TYPES.register(modEventBus);
 		LirothBlocks.BLOCKS.register(modEventBus);
-		if (FMLEnvironment.dist == Dist.CLIENT) {
+	//	if (FMLEnvironment.dist == Dist.CLIENT) {
 		LirothMenuTypes.MENUS.register(modEventBus);
-		}
+	//	}
 		LirothBlockEntities.BLOCK_ENTITIES.register(modEventBus);
 		LirothBlocks.ITEMS.register(modEventBus);
 		LirothItems.ITEMS.register(modEventBus);

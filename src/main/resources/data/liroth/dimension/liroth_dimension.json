@@ -50,33 +50,6 @@
             "depth": 0,
             "offset": 0
           }
-        },
-        {
-          "biome": "liroth:vile_sea",
-          "parameters": {
-            "temperature": [
-              0.5,
-              0.5
-            ],
-            "humidity": [
-              -1,
-              1
-            ],
-            "continentalness": [
-              -0.455,
-              -0.19
-            ],
-            "erosion": [
-              -1,
-              1
-            ],
-            "weirdness": [
-              -1,
-              1
-            ],
-            "depth": 0,
-            "offset": 0
-          }
         }
       ]
     }

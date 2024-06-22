@@ -19,6 +19,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class LirothSplitterScreenHandler extends AbstractContainerMenu {
+    public final LirothSplitterBlockEntity blockEntityGay;
     private final Container inventory;
     private final Level world;
     private final ContainerData propertyDelegate;
@@ -33,10 +34,10 @@ public class LirothSplitterScreenHandler extends AbstractContainerMenu {
         checkContainerSize(simpleContainer, 5);
         this.inventory = simpleContainer;
         this.world = playerInventory.player.level;
-		this.entity = entity;
         simpleContainer.startOpen(playerInventory.player);
         this.propertyDelegate = data;
-        
+        blockEntityGay = (LirothSplitterBlockEntity) blockEntity;
+
         // Our Slots
         this.addSlot(new Slot(simpleContainer, 0, 52, 16));
         this.addSlot(new Slot(simpleContainer, 1, 52, 52));
@@ -56,6 +57,10 @@ public class LirothSplitterScreenHandler extends AbstractContainerMenu {
 
         this.addDataSlots(data);
      }
+
+    public LirothSplitterBlockEntity getBlockEntity() {
+        return this.blockEntityGay;
+    }
 
     @Override
     public boolean stillValid(Player p_38974_) {

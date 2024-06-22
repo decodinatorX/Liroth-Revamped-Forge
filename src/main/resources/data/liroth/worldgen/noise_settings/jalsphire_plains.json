@@ -440,37 +440,34 @@
                               "secondary_depth_range": 0
                             },
                             "then_run": {
-                              "type": "minecraft:block",
-                              "result_state": {
-                                "Name": "minecraft:grass_block"
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "type": "minecraft:sequence",
-                          "sequence": [
-                            {
-                              "type": "minecraft:condition",
-                              "if_true": {
-                                "type": "minecraft:water",
-                                "offset": 0,
-                                "surface_depth_multiplier": 0,
-                                "add_stone_depth": false
-                              },
-                              "then_run": {
-                                "type": "minecraft:block",
-                                "result_state": {
-                                  "Name": "liroth:spinerios_stone"
+                              "type": "minecraft:sequence",
+                              "sequence": [
+                                {
+                                  "type": "minecraft:condition",
+                                  "if_true": {
+                                    "type": "minecraft:water",
+                                    "offset": 0,
+                                    "surface_depth_multiplier": 0,
+                                    "add_stone_depth": false
+                                  },
+                                  "then_run": {
+                                    "type": "minecraft:block",
+                                    "result_state": {
+                                      "Name": "minecraft:grass_block",
+                                      "Properties": {
+                                        "snowy": false
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:dirt"
+                                  }
                                 }
-                              }
+                              ]
                             }
-                          ]
-                        },
-                        {
-                          "type": "minecraft:block",
-                          "result_state": {
-                            "Name": "liroth:spinerios_stone"
                           }
                         }
                       ]

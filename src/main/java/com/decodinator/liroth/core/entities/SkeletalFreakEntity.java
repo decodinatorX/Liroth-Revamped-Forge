@@ -6,6 +6,7 @@ import com.decodinator.liroth.core.LirothEntities;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -17,8 +18,17 @@ import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class SkeletalFreakEntity extends Skeleton {
+public class SkeletalFreakEntity extends Skeleton implements IAnimatable {
+    private AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
 	public SkeletalFreakEntity(EntityType<? extends Skeleton> entityType, Level world) {
 		super(entityType, world);
@@ -63,4 +73,33 @@ public class SkeletalFreakEntity extends Skeleton {
     protected SoundEvent getStepSound() {
         return SoundEvents.WITHER_SKELETON_STEP;
     }
+
+    private static final AnimationBuilder SKELETAL_WALK = new AnimationBuilder().addAnimation("skeletal_walk");
+    private static final AnimationBuilder SKELETAL_IDLE = new AnimationBuilder().addAnimation("skeletal_idle");
+
+    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        if (!(swingTime > -0.15F && swingTime < 0.15F)) {
+            event.getController().setAnimation(SKELETAL_WALK);
+            return PlayState.CONTINUE;
+        }
+
+        if (event.isMoving()) {
+            event.getController().setAnimation(SKELETAL_WALK);
+            return PlayState.CONTINUE;
+        }
+
+        event.getController().setAnimation(SKELETAL_IDLE);
+        return PlayState.CONTINUE;
+    }
+
+    @Override
+    public void registerControllers(final AnimationData data) {
+        data.addAnimationController(new AnimationController<SkeletalFreakEntity>(this, "controller", 0, this::predicate));
+    }
+
+    @Override
+    public AnimationFactory getFactory() {
+        return this.factory;
+    }
+
 }

@@ -29,7 +29,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.IndirectEntityDamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntitySelector;
@@ -91,23 +90,23 @@ public class LirothBoat extends Boat {
     @Override
     public Item getDropItem() {
         switch (this.getLirothBoatType()) {
-           case LIROTH:
-           default:
-              return LirothItems.LIROTH_BOAT.get();
-           case DAMNATION:
-              return LirothItems.DAMNATION_BOAT.get();
-           case SPICED:
-              return LirothItems.SPICED_BOAT.get();
-           case PIER:
-              return LirothItems.PIER_BOAT.get();
-           case JAPZ:
-              return LirothItems.JAPZ_BOAT.get();
-           case KOOLAW:
-              return LirothItems.KOOLAW_BOAT.get();
-           case PETRIFIED:
-              return LirothItems.PETRIFIED_BOAT.get();
+            case LIROTH:
+            default:
+                return LirothItems.LIROTH_BOAT.get();
+            case DAMNATION:
+                return LirothItems.DAMNATION_BOAT.get();
+            case SPICED:
+                return LirothItems.SPICED_BOAT.get();
+            case PIER:
+                return LirothItems.PIER_BOAT.get();
+            case JAPZ:
+                return LirothItems.JAPZ_BOAT.get();
+            case KOOLAW:
+                return LirothItems.KOOLAW_BOAT.get();
+            case PETRIFIED:
+                return LirothItems.PETRIFIED_BOAT.get();
         }
-     }
+    }
 
     public LirothType getLirothBoatType() {
         return LirothType.byId(this.entityData.get(LIROTH_BOAT_TYPE));
@@ -134,13 +133,6 @@ public class LirothBoat extends Boat {
         if (compound.contains("LirothType", 8)) {
             this.setLirothBoatType(LirothType.byName(compound.getString("LirothType")));
         }
-    }
-
-    @Override
-    public void animateHurt() {
-        this.setHurtDir(-this.getHurtDir());
-        this.setHurtTime(10);
-        this.setDamage(this.getDamage() * 11.0F);
     }
 
     @Override
@@ -220,41 +212,41 @@ public class LirothBoat extends Boat {
         private final RegistryObject<Block> planks;
 
         private LirothType(RegistryObject<Block> lirothPlanks, String p_38428_) {
-           this.name = p_38428_;
-           this.planks = lirothPlanks;
+            this.name = p_38428_;
+            this.planks = lirothPlanks;
         }
 
         public String getName() {
-           return this.name;
+            return this.name;
         }
 
         public @NotNull Block getPlanks() {
-           return this.planks.get();
+            return this.planks.get();
         }
 
         public String toString() {
-           return this.name;
+            return this.name;
         }
 
         public static LirothBoat.LirothType byId(int p_38431_) {
-           LirothBoat.LirothType[] aboat$type = values();
-           if (p_38431_ < 0 || p_38431_ >= aboat$type.length) {
-              p_38431_ = 0;
-           }
+            LirothBoat.LirothType[] aboat$type = values();
+            if (p_38431_ < 0 || p_38431_ >= aboat$type.length) {
+                p_38431_ = 0;
+            }
 
-           return aboat$type[p_38431_];
+            return aboat$type[p_38431_];
         }
 
         public static LirothBoat.LirothType byName(String p_38433_) {
-           LirothBoat.LirothType[] aboat$type = values();
+            LirothBoat.LirothType[] aboat$type = values();
 
-           for(int i = 0; i < aboat$type.length; ++i) {
-              if (aboat$type[i].getName().equals(p_38433_)) {
-                 return aboat$type[i];
-              }
-           }
+            for(int i = 0; i < aboat$type.length; ++i) {
+                if (aboat$type[i].getName().equals(p_38433_)) {
+                    return aboat$type[i];
+                }
+            }
 
-           return aboat$type[0];
+            return aboat$type[0];
         }
-     }
+    }
 }

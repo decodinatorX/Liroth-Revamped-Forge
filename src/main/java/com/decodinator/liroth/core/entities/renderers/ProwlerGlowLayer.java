@@ -1,28 +1,29 @@
 package com.decodinator.liroth.core.entities.renderers;
 
-import com.decodinator.liroth.core.entities.ForsakenCorpseEntity;
-import com.decodinator.liroth.core.entities.SoulArachnidEntity;
+import com.decodinator.liroth.Liroth;
+import com.decodinator.liroth.core.entities.ProwlerEntity;
+import com.decodinator.liroth.core.entities.SkeletalFreakEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+
 import software.bernie.geckolib3.geo.render.built.GeoModel;
 import software.bernie.geckolib3.renderers.geo.GeoLayerRenderer;
 import software.bernie.geckolib3.renderers.geo.IGeoRenderer;
 
-public class SoulArachnidGlowFeatureRenderer
-        extends GeoLayerRenderer<SoulArachnidEntity> {
-    private static final ResourceLocation SKIN = new ResourceLocation("liroth", "textures/entity/soul_arachnid/soul_arachnid_glow.png");
-    private static final ResourceLocation MODEL = new ResourceLocation("liroth", "geo/soul_arachnid/soul_arachnid.geo.json");
+public class ProwlerGlowLayer extends GeoLayerRenderer<ProwlerEntity> {
+    private static final ResourceLocation SKIN = new ResourceLocation(Liroth.MOD_ID + ":textures/entity/prowler/prowler_glow.png");
+    private static final ResourceLocation MODEL = new ResourceLocation(Liroth.MOD_ID + ":geo/prowler/prowler.geo.json");
 
-    public SoulArachnidGlowFeatureRenderer(IGeoRenderer<SoulArachnidEntity> featureRendererContext) {
+    public ProwlerGlowLayer(IGeoRenderer<ProwlerEntity> featureRendererContext) {
         super(featureRendererContext);
     }
 
     @Override
-    public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, SoulArachnidEntity entityLivingBaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, ProwlerEntity entityLivingBaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         GeoModel normalModel = this.getEntityModel().getModel(this.getEntityModel().getModelResource(null));
         VertexConsumer glower = bufferIn.getBuffer((RenderType.eyes(SKIN)));
         if (entityLivingBaseIn.isInvisible()) {
@@ -33,4 +34,3 @@ public class SoulArachnidGlowFeatureRenderer
     }
 
 }
-
