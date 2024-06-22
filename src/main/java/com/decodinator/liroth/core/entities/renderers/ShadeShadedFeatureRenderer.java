@@ -23,4 +23,3 @@ extends EyesLayer<T, ShadeModel<T>> {
         return SKIN;
     }
 }
-
